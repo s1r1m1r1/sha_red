@@ -1,7 +1,5 @@
-// lib/payloads.dart
 import 'package:json_annotation/json_annotation.dart';
-
-import '../../shared.dart';
+import 'package:sha_red/src/models/letter_dto.dart';
 
 part 'payloads.g.dart';
 
