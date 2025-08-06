@@ -1,5 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'update_todo_dto.g.dart';
