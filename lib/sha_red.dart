@@ -9,6 +9,7 @@ export 'src/models/todo_dto.dart';
 export 'src/models/token_dto.dart';
 export 'src/models/update_todo_dto.dart';
 export 'src/models/ws_config_dto.dart';
+export 'src/models/email_credential_dto.dart';
 
 // Export ws_models
 export 'src/ws_models/payloads.dart';
@@ -16,5 +17,7 @@ export 'src/ws_models/ws_event_from_server.dart';
 export 'src/ws_models/ws_event_to_server.dart';
 export 'src/ws_models/ws_from_server.dart';
 export 'src/ws_models/ws_to_server.dart';
+
+export 'src/typedef/json_typedef.dart';
 
 // TODO: Export any libraries intended for clients of this package.
