@@ -1,4 +1,7 @@
 enum WsEventToServer {
+  // send refresh token to get new access token
+  refreshToken,
+  //
   newMessage,
   deleteMessage,
   incrementCounter,
@@ -12,4 +15,5 @@ enum WsEventToServer {
   sendLetterToRoom,
   fetchRoomHistory,
   joinAdmin,
+  joinMain,
 }
