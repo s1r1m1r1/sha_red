@@ -6,20 +6,30 @@ part of 'ws_from_server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WsFromServer _$WsFromServerFromJson(Map<String, dynamic> json) => WsFromServer(
+WsFromServer<T> _$WsFromServerFromJson<T>(
+  Map<String, dynamic> json,
+  T Function(Object? json) fromJsonT,
+) => WsFromServer<T>(
   roomId: json['room'] as String,
   eventType: $enumDecode(_$WsEventFromServerEnumMap, json['event']),
-  payload: json['payload'],
+  payload: fromJsonT(json['payload']),
 );
 
-Map<String, dynamic> _$WsFromServerToJson(WsFromServer instance) =>
-    <String, dynamic>{
-      'event': _$WsEventFromServerEnumMap[instance.eventType]!,
-      'payload': instance.payload,
-      'room': instance.roomId,
-    };
+Map<String, dynamic> _$WsFromServerToJson<T>(
+  WsFromServer<T> instance,
+  Object? Function(T value) toJsonT,
+) => <String, dynamic>{
+  'event': _$WsEventFromServerEnumMap[instance.eventType]!,
+  'payload': toJsonT(instance.payload),
+  'room': instance.roomId,
+};
 
 const _$WsEventFromServerEnumMap = {
+  WsEventFromServer.loggedIn: 'loggedIn',
+  WsEventFromServer.tokenExpired: 'tokenExpired',
+  WsEventFromServer.refreshTokenExpired: 'refreshTokenExpired',
+  WsEventFromServer.onlineUsers: 'onlineUsers',
+  WsEventFromServer.unauthenticated: 'unauthenticated',
   WsEventFromServer.letters: 'letters',
   WsEventFromServer.counter: 'counter',
   WsEventFromServer.letterCreated: 'letterCreated',

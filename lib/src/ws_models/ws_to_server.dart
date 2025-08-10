@@ -1,23 +1,27 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'ws_event_to_server.dart';
+import '../../sha_red.dart';
 
 part 'ws_to_server.g.dart';
 
-@JsonSerializable()
-class WsToServer {
+@JsonSerializable(genericArgumentFactories: true)
+class WsToServer<T> {
   @JsonKey(name: 'event')
   final WsEventToServer eventType;
 
   @JsonKey(name: 'payload')
-  final Object? payload;
+  final T payload;
 
-  @JsonKey(name: 'room')
-  final String roomId;
+  WsToServer({required this.eventType, required this.payload});
 
-  WsToServer({required this.roomId, required this.eventType, required this.payload});
+  factory WsToServer.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+      _$WsToServerFromJson(json, fromJsonT);
 
-  factory WsToServer.fromJson(Map<String, dynamic> json) => _$WsToServerFromJson(json); // вызывает фронт
+  Json toJson(Object? Function(T value) toJsonT) {
+    return _$WsToServerToJson(this, toJsonT);
+  }
 
-  Map<String, dynamic> toJson() => _$WsToServerToJson(this); // вызывает сервер
+  static WsEventToServer enumFromJson(Json json) {
+    return $enumDecode(_$WsEventToServerEnumMap, json['event']);
+  }
 }

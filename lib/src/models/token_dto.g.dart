@@ -6,18 +6,24 @@ part of 'token_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TokenDto _$TokenDtoFromJson(Map<String, dynamic> json) => TokenDto(
-  accessToken: json['token'] as String,
-  refreshToken: json['refreshToken'] as String,
+TokensDto _$TokensDtoFromJson(Map<String, dynamic> json) => TokensDto(
+  AccessTokenDto.fromJson(json['accessToken'] as Map<String, dynamic>),
+  RefreshTokenDto.fromJson(json['refreshToken'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$TokenDtoToJson(TokenDto instance) => <String, dynamic>{
-  'token': instance.accessToken,
+Map<String, dynamic> _$TokensDtoToJson(TokensDto instance) => <String, dynamic>{
+  'accessToken': instance.accessToken,
   'refreshToken': instance.refreshToken,
 };
 
-RefreshDto _$RefreshDtoFromJson(Map<String, dynamic> json) =>
-    RefreshDto(json['refreshToken'] as String);
+AccessTokenDto _$AccessTokenDtoFromJson(Map<String, dynamic> json) =>
+    AccessTokenDto(json['accessToken'] as String);
 
-Map<String, dynamic> _$RefreshDtoToJson(RefreshDto instance) =>
-    <String, dynamic>{'refreshToken': instance.refreshToken};
+Map<String, dynamic> _$AccessTokenDtoToJson(AccessTokenDto instance) =>
+    <String, dynamic>{'accessToken': instance.value};
+
+RefreshTokenDto _$RefreshTokenDtoFromJson(Map<String, dynamic> json) =>
+    RefreshTokenDto(json['refreshToken'] as String);
+
+Map<String, dynamic> _$RefreshTokenDtoToJson(RefreshTokenDto instance) =>
+    <String, dynamic>{'refreshToken': instance.value};

@@ -13,5 +13,6 @@ class EmailCredentialDto {
 
   factory EmailCredentialDto.fromJson(Json json) => _$EmailCredentialDtoFromJson(json);
 
+  static Json toJsonF(EmailCredentialDto dto) => _$EmailCredentialDtoToJson(dto);
   Json toJson() => _$EmailCredentialDtoToJson(this);
 }

@@ -1,6 +1,9 @@
 enum WsEventToServer {
+  login,
+  signup,
+  withToken,
   // send refresh token to get new access token
-  refreshToken,
+  withRefresh,
   //
   newMessage,
   deleteMessage,
