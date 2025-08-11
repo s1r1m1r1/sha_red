@@ -22,4 +22,7 @@ export 'src/ws_models/ws_counter_payload.dart';
 
 export 'src/typedef/json_typedef.dart';
 
+export 'src/payloads/joined_server_payload.dart';
+export 'src/payloads/online_users_payload.dart';
+
 // TODO: Export any libraries intended for clients of this package.
