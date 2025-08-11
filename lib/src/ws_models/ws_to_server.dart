@@ -21,7 +21,7 @@ class WsToServer<T> {
     return _$WsToServerToJson(this, toJsonT);
   }
 
-  static WsEventToServer enumFromJson(Json json) {
+  static WsEventToServer eventFromJson(Json json) {
     return $enumDecode(_$WsEventToServerEnumMap, json['event']);
   }
 }

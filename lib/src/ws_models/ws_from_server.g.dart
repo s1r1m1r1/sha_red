@@ -10,9 +10,8 @@ WsFromServer<T> _$WsFromServerFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) => WsFromServer<T>(
-  roomId: json['room'] as String,
   eventType: $enumDecode(_$WsEventFromServerEnumMap, json['event']),
-  payload: fromJsonT(json['payload']),
+  payload: _$nullableGenericFromJson(json['payload'], fromJsonT),
 );
 
 Map<String, dynamic> _$WsFromServerToJson<T>(
@@ -20,12 +19,11 @@ Map<String, dynamic> _$WsFromServerToJson<T>(
   Object? Function(T value) toJsonT,
 ) => <String, dynamic>{
   'event': _$WsEventFromServerEnumMap[instance.eventType]!,
-  'payload': toJsonT(instance.payload),
-  'room': instance.roomId,
+  'payload': _$nullableGenericToJson(instance.payload, toJsonT),
 };
 
 const _$WsEventFromServerEnumMap = {
-  WsEventFromServer.loggedIn: 'loggedIn',
+  WsEventFromServer.joinedServer: 'joinedServer',
   WsEventFromServer.tokenExpired: 'tokenExpired',
   WsEventFromServer.refreshTokenExpired: 'refreshTokenExpired',
   WsEventFromServer.onlineUsers: 'onlineUsers',
@@ -37,3 +35,13 @@ const _$WsEventFromServerEnumMap = {
   WsEventFromServer.joinedLetters: 'joinedLetters',
   WsEventFromServer.adminInfo: 'adminInfo',
 };
+
+T? _$nullableGenericFromJson<T>(
+  Object? input,
+  T Function(Object? json) fromJson,
+) => input == null ? null : fromJson(input);
+
+Object? _$nullableGenericToJson<T>(
+  T? input,
+  Object? Function(T value) toJson,
+) => input == null ? null : toJson(input);

@@ -1,6 +1,5 @@
 enum WsEventFromServer {
-  // return new tokens
-  loggedIn,
+  joinedServer,
   // ask update with refresh token to get new tokens
   tokenExpired,
   refreshTokenExpired,
