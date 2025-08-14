@@ -1,27 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:sha_red/sha_red.dart';
 
 part 'letter_dto.g.dart';
-
-@JsonSerializable()
-class LetterDto {
-  final int? id;
-  final int chatRoomId;
-  final int senderId;
-  final String content;
-  final DateTime createdAt;
-
-  const LetterDto({
-    this.id,
-    required this.chatRoomId,
-    required this.senderId,
-    required this.content,
-    required this.createdAt,
-  });
-
-  Map<String, dynamic> toJson() => _$LetterDtoToJson(this);
-
-  factory LetterDto.fromJson(Map<String, dynamic> json) => _$LetterDtoFromJson(json);
-}
 
 @JsonSerializable()
 class ChatRoomDto {

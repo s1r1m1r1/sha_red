@@ -8,8 +8,10 @@ enum WsEventFromServer {
   onlineUsers,
   unauthenticated,
   letters,
+  onLetter,
+  deletedLetter,
+  //
   counter,
-  letterCreated,
   joinedCounter,
   joinedLetters,
   adminInfo,

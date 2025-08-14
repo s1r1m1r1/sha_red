@@ -11,7 +11,7 @@ WsToServer<T> _$WsToServerFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) => WsToServer<T>(
   eventType: $enumDecode(_$WsEventToServerEnumMap, json['event']),
-  payload: fromJsonT(json['payload']),
+  payload: _$nullableGenericFromJson(json['payload'], fromJsonT),
 );
 
 Map<String, dynamic> _$WsToServerToJson<T>(
@@ -19,7 +19,7 @@ Map<String, dynamic> _$WsToServerToJson<T>(
   Object? Function(T value) toJsonT,
 ) => <String, dynamic>{
   'event': _$WsEventToServerEnumMap[instance.eventType]!,
-  'payload': toJsonT(instance.payload),
+  'payload': _$nullableGenericToJson(instance.payload, toJsonT),
 };
 
 const _$WsEventToServerEnumMap = {
@@ -42,3 +42,13 @@ const _$WsEventToServerEnumMap = {
   WsEventToServer.joinAdmin: 'joinAdmin',
   WsEventToServer.joinMain: 'joinMain',
 };
+
+T? _$nullableGenericFromJson<T>(
+  Object? input,
+  T Function(Object? json) fromJson,
+) => input == null ? null : fromJson(input);
+
+Object? _$nullableGenericToJson<T>(
+  T? input,
+  Object? Function(T value) toJson,
+) => input == null ? null : toJson(input);

@@ -6,22 +6,6 @@ part of 'letter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LetterDto _$LetterDtoFromJson(Map<String, dynamic> json) => LetterDto(
-  id: (json['id'] as num?)?.toInt(),
-  chatRoomId: (json['chatRoomId'] as num).toInt(),
-  senderId: (json['senderId'] as num).toInt(),
-  content: json['content'] as String,
-  createdAt: DateTime.parse(json['createdAt'] as String),
-);
-
-Map<String, dynamic> _$LetterDtoToJson(LetterDto instance) => <String, dynamic>{
-  'id': instance.id,
-  'chatRoomId': instance.chatRoomId,
-  'senderId': instance.senderId,
-  'content': instance.content,
-  'createdAt': instance.createdAt.toIso8601String(),
-};
-
 ChatRoomDto _$ChatRoomDtoFromJson(Map<String, dynamic> json) => ChatRoomDto(
   id: json['id'] as String,
   participants: (json['participants'] as List<dynamic>)

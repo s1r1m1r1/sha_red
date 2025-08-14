@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:sha_red/sha_red.dart';
 import 'package:sha_red/src/models/letter_dto.dart';
 
 part 'payloads.g.dart';
@@ -41,4 +42,6 @@ class LettersPayload {
 
   factory LettersPayload.fromJson(Map<String, dynamic> json) => _$LettersPayloadFromJson(json);
   Map<String, dynamic> toJson() => _$LettersPayloadToJson(this);
+
+  static const toJsonF = _$LettersPayloadToJson;
 }

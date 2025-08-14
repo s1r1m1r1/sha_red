@@ -25,5 +25,6 @@ export 'src/models/unit_dto.dart';
 
 export 'src/payloads/joined_server_payload.dart';
 export 'src/payloads/online_members_payload.dart';
+export 'src/payloads/letter_payload.dart';
 
 // TODO: Export any libraries intended for clients of this package.
