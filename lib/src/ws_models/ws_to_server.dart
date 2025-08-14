@@ -10,9 +10,9 @@ class WsToServer<T> {
   final WsEventToServer eventType;
 
   @JsonKey(name: 'payload')
-  final T payload;
+  final T? payload;
 
-  WsToServer({required this.eventType, required this.payload});
+  WsToServer({required this.eventType, this.payload});
 
   factory WsToServer.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
       _$WsToServerFromJson(json, fromJsonT);
@@ -20,6 +20,8 @@ class WsToServer<T> {
   Json toJson(Object? Function(T value) toJsonT) {
     return _$WsToServerToJson(this, toJsonT);
   }
+
+  Json toJsonEvent() => {'event': _$WsEventToServerEnumMap[eventType]!};
 
   static WsEventToServer eventFromJson(Json json) {
     return $enumDecode(_$WsEventToServerEnumMap, json['event']);
