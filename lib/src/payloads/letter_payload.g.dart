@@ -9,7 +9,7 @@ part of 'letter_payload.dart';
 NewLetterPayload _$NewLetterPayloadFromJson(Map<String, dynamic> json) =>
     NewLetterPayload(
       json['roomId'] as String,
-      LetterDto.fromJson(json['letter'] as Map<String, dynamic>),
+      CreateLetterDto.fromJson(json['letter'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$NewLetterPayloadToJson(NewLetterPayload instance) =>
@@ -67,3 +67,17 @@ Map<String, dynamic> _$LetterDtoToJson(LetterDto instance) => <String, dynamic>{
   'content': instance.content,
   'createdAt': instance.createdAt.toIso8601String(),
 };
+
+CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
+    CreateLetterDto(
+      chatRoomId: (json['chatRoomId'] as num).toInt(),
+      senderId: (json['senderId'] as num).toInt(),
+      content: json['content'] as String,
+    );
+
+Map<String, dynamic> _$CreateLetterDtoToJson(CreateLetterDto instance) =>
+    <String, dynamic>{
+      'chatRoomId': instance.chatRoomId,
+      'senderId': instance.senderId,
+      'content': instance.content,
+    };

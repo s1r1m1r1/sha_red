@@ -7,9 +7,10 @@ class NewLetterPayload {
   const NewLetterPayload(this.roomId, this.letter);
   final String roomId;
 
-  final LetterDto letter;
+  final CreateLetterDto letter;
 
-  factory NewLetterPayload.fromJson(Json json) => _$NewLetterPayloadFromJson(json);
+  factory NewLetterPayload.fromJson(Json json) =>
+      _$NewLetterPayloadFromJson(json);
 
   Json toJson() => _$NewLetterPayloadToJson(this);
 
@@ -23,7 +24,8 @@ class LastLetterPayload {
 
   final LetterDto letter;
 
-  factory LastLetterPayload.fromJson(Json json) => _$LastLetterPayloadFromJson(json);
+  factory LastLetterPayload.fromJson(Json json) =>
+      _$LastLetterPayloadFromJson(json);
 
   Json toJson() => _$LastLetterPayloadToJson(this);
 
@@ -35,7 +37,8 @@ class LetterRoomPayload {
   const LetterRoomPayload(this.roomId);
   final String roomId;
 
-  factory LetterRoomPayload.fromJson(Json json) => _$LetterRoomPayloadFromJson(json);
+  factory LetterRoomPayload.fromJson(Json json) =>
+      _$LetterRoomPayloadFromJson(json);
 
   Json toJson() => _$LetterRoomPayloadToJson(this);
 
@@ -48,7 +51,8 @@ class IdLetterPayload {
   final String roomId;
   final int letterId;
 
-  factory IdLetterPayload.fromJson(Json json) => _$IdLetterPayloadFromJson(json);
+  factory IdLetterPayload.fromJson(Json json) =>
+      _$IdLetterPayloadFromJson(json);
 
   Json toJson() => _$IdLetterPayloadToJson(this);
 
@@ -62,7 +66,8 @@ class LetterHistoryPayload {
 
   final List<LetterDto> letter;
 
-  factory LetterHistoryPayload.fromJson(Json json) => _$LetterHistoryPayloadFromJson(json);
+  factory LetterHistoryPayload.fromJson(Json json) =>
+      _$LetterHistoryPayloadFromJson(json);
 
   Json toJson() => _$LetterHistoryPayloadToJson(this);
   static const toJsonF = _$LetterHistoryPayloadToJson;
@@ -87,6 +92,26 @@ class LetterDto {
   Json toJson() => _$LetterDtoToJson(this);
 
   factory LetterDto.fromJson(Json json) => _$LetterDtoFromJson(json);
+
+  static Json toJsonF(LetterDto dto) => dto.toJson();
+}
+
+@JsonSerializable()
+class CreateLetterDto {
+  final int chatRoomId;
+  final int senderId;
+  final String content;
+
+  const CreateLetterDto({
+    required this.chatRoomId,
+    required this.senderId,
+    required this.content,
+  });
+
+  Json toJson() => _$CreateLetterDtoToJson(this);
+
+  factory CreateLetterDto.fromJson(Json json) =>
+      _$CreateLetterDtoFromJson(json);
 
   static Json toJsonF(LetterDto dto) => dto.toJson();
 }
