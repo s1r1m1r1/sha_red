@@ -13,8 +13,6 @@ export 'src/models/email_credential_dto.dart';
 
 // Export ws_models
 export 'src/ws_models/payloads.dart';
-export 'src/ws_models/ws_event_from_server.dart';
-export 'src/ws_models/ws_event_to_server.dart';
 export 'src/ws_models/ws_from_server.dart';
 export 'src/ws_models/ws_to_server.dart';
 export 'src/ws_models/ws_error_payload.dart';

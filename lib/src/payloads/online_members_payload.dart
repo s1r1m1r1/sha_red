@@ -2,25 +2,22 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sha_red/sha_red.dart';
 
 part 'online_members_payload.g.dart';
+part 'online_members_payload.freezed.dart';
 
-@JsonSerializable()
-class OnlineMemberPayload {
-  const OnlineMemberPayload({required this.members});
+@freezed
+abstract class OnlineMemberPayload with _$OnlineMemberPayload {
+  const OnlineMemberPayload._();
+  const factory OnlineMemberPayload(List<OnlineMemberDto> members) =
+      _OnlineMemberPayload;
 
-  final List<OnlineMemberDto> members;
-
-  factory OnlineMemberPayload.fromJson(Json json) => _$OnlineMemberPayloadFromJson(json);
-
-  Json toJson() => _$OnlineMemberPayloadToJson(this);
-
-  static Json toJsonF(OnlineMemberPayload payload) => payload.toJson();
+  factory OnlineMemberPayload.fromJson(Json json) =>
+      _$OnlineMemberPayloadFromJson(json);
 }
 
-@JsonSerializable()
-class OnlineMemberDto {
-  final int unitId;
-  final String name;
-  OnlineMemberDto(this.unitId, this.name);
-  factory OnlineMemberDto.fromJson(Json json) => _$OnlineMemberDtoFromJson(json);
-  Json toJson() => _$OnlineMemberDtoToJson(this);
+@freezed
+abstract class OnlineMemberDto with _$OnlineMemberDto {
+  const OnlineMemberDto._();
+  const factory OnlineMemberDto(int unitId, String name) = _OnlineMemberDto;
+  factory OnlineMemberDto.fromJson(Json json) =>
+      _$OnlineMemberDtoFromJson(json);
 }

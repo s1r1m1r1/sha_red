@@ -1,7 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../sha_red.dart';
 
+part 'token_dto.freezed.dart';
 part 'token_dto.g.dart';
 
 /// send token
@@ -14,34 +16,29 @@ class TokensDto {
 
   TokensDto(this.accessToken, this.refreshToken);
 
-  factory TokensDto.fromJson(Map<String, dynamic> json) => _$TokensDtoFromJson(json);
+  factory TokensDto.fromJson(Map<String, dynamic> json) =>
+      _$TokensDtoFromJson(json);
 
   Json toJson() => _$TokensDtoToJson(this);
   static Json toJsonF(TokensDto dto) => _$TokensDtoToJson(dto);
 }
 
-@JsonSerializable()
-class AccessTokenDto {
-  @JsonKey(name: 'accessToken')
-  final String value;
+@freezed
+abstract class AccessTokenDto with _$AccessTokenDto {
+  const AccessTokenDto._();
 
-  AccessTokenDto(this.value);
+  const factory AccessTokenDto(String value) = _AccessTokenDto;
 
-  factory AccessTokenDto.fromJson(Map<String, dynamic> json) => _$AccessTokenDtoFromJson(json);
-
-  Json toJson() => _$AccessTokenDtoToJson(this);
-  static Json toJsonF(AccessTokenDto dto) => _$AccessTokenDtoToJson(dto);
+  factory AccessTokenDto.fromJson(Map<String, dynamic> json) =>
+      _$AccessTokenDtoFromJson(json);
 }
 
-@JsonSerializable()
-class RefreshTokenDto {
-  @JsonKey(name: 'refreshToken')
-  final String value;
+@freezed
+abstract class RefreshTokenDto with _$RefreshTokenDto {
+  const RefreshTokenDto._();
 
-  RefreshTokenDto(this.value);
+  const factory RefreshTokenDto(String value) = _RefreshTokenDto;
 
-  factory RefreshTokenDto.fromJson(Map<String, dynamic> json) => _$RefreshTokenDtoFromJson(json);
-
-  Json toJson() => _$RefreshTokenDtoToJson(this);
-  static Json toJsonF(RefreshTokenDto dto) => _$RefreshTokenDtoToJson(dto);
+  factory RefreshTokenDto.fromJson(Map<String, dynamic> json) =>
+      _$RefreshTokenDtoFromJson(json);
 }

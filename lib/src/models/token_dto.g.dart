@@ -16,14 +16,14 @@ Map<String, dynamic> _$TokensDtoToJson(TokensDto instance) => <String, dynamic>{
   'refreshToken': instance.refreshToken,
 };
 
-AccessTokenDto _$AccessTokenDtoFromJson(Map<String, dynamic> json) =>
-    AccessTokenDto(json['accessToken'] as String);
+_AccessTokenDto _$AccessTokenDtoFromJson(Map<String, dynamic> json) =>
+    _AccessTokenDto(json['value'] as String);
 
-Map<String, dynamic> _$AccessTokenDtoToJson(AccessTokenDto instance) =>
-    <String, dynamic>{'accessToken': instance.value};
+Map<String, dynamic> _$AccessTokenDtoToJson(_AccessTokenDto instance) =>
+    <String, dynamic>{'value': instance.value};
 
-RefreshTokenDto _$RefreshTokenDtoFromJson(Map<String, dynamic> json) =>
-    RefreshTokenDto(json['refreshToken'] as String);
+_RefreshTokenDto _$RefreshTokenDtoFromJson(Map<String, dynamic> json) =>
+    _RefreshTokenDto(json['value'] as String);
 
-Map<String, dynamic> _$RefreshTokenDtoToJson(RefreshTokenDto instance) =>
-    <String, dynamic>{'refreshToken': instance.value};
+Map<String, dynamic> _$RefreshTokenDtoToJson(_RefreshTokenDto instance) =>
+    <String, dynamic>{'value': instance.value};

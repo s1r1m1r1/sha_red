@@ -6,19 +6,19 @@ part of 'online_members_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-OnlineMemberPayload _$OnlineMemberPayloadFromJson(Map<String, dynamic> json) =>
-    OnlineMemberPayload(
-      members: (json['members'] as List<dynamic>)
+_OnlineMemberPayload _$OnlineMemberPayloadFromJson(Map<String, dynamic> json) =>
+    _OnlineMemberPayload(
+      (json['members'] as List<dynamic>)
           .map((e) => OnlineMemberDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$OnlineMemberPayloadToJson(
-  OnlineMemberPayload instance,
+  _OnlineMemberPayload instance,
 ) => <String, dynamic>{'members': instance.members};
 
-OnlineMemberDto _$OnlineMemberDtoFromJson(Map<String, dynamic> json) =>
-    OnlineMemberDto((json['unitId'] as num).toInt(), json['name'] as String);
+_OnlineMemberDto _$OnlineMemberDtoFromJson(Map<String, dynamic> json) =>
+    _OnlineMemberDto((json['unitId'] as num).toInt(), json['name'] as String);
 
-Map<String, dynamic> _$OnlineMemberDtoToJson(OnlineMemberDto instance) =>
+Map<String, dynamic> _$OnlineMemberDtoToJson(_OnlineMemberDto instance) =>
     <String, dynamic>{'unitId': instance.unitId, 'name': instance.name};
