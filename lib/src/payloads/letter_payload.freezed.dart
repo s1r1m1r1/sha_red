@@ -1087,4 +1087,273 @@ as DateTime,
 
 }
 
+
+/// @nodoc
+mixin _$CreateLetterDto {
+
+ int get chatRoomId; int get senderId; String get content;
+/// Create a copy of CreateLetterDto
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CreateLetterDtoCopyWith<CreateLetterDto> get copyWith => _$CreateLetterDtoCopyWithImpl<CreateLetterDto>(this as CreateLetterDto, _$identity);
+
+  /// Serializes this CreateLetterDto to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateLetterDto&&(identical(other.chatRoomId, chatRoomId) || other.chatRoomId == chatRoomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,chatRoomId,senderId,content);
+
+@override
+String toString() {
+  return 'CreateLetterDto(chatRoomId: $chatRoomId, senderId: $senderId, content: $content)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CreateLetterDtoCopyWith<$Res>  {
+  factory $CreateLetterDtoCopyWith(CreateLetterDto value, $Res Function(CreateLetterDto) _then) = _$CreateLetterDtoCopyWithImpl;
+@useResult
+$Res call({
+ int chatRoomId, int senderId, String content
+});
+
+
+
+
+}
+/// @nodoc
+class _$CreateLetterDtoCopyWithImpl<$Res>
+    implements $CreateLetterDtoCopyWith<$Res> {
+  _$CreateLetterDtoCopyWithImpl(this._self, this._then);
+
+  final CreateLetterDto _self;
+  final $Res Function(CreateLetterDto) _then;
+
+/// Create a copy of CreateLetterDto
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? chatRoomId = null,Object? senderId = null,Object? content = null,}) {
+  return _then(_self.copyWith(
+chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
+as int,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
+as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [CreateLetterDto].
+extension CreateLetterDtoPatterns on CreateLetterDto {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CreateLetterDto value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _CreateLetterDto() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CreateLetterDto value)  $default,){
+final _that = this;
+switch (_that) {
+case _CreateLetterDto():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CreateLetterDto value)?  $default,){
+final _that = this;
+switch (_that) {
+case _CreateLetterDto() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int chatRoomId,  int senderId,  String content)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _CreateLetterDto() when $default != null:
+return $default(_that.chatRoomId,_that.senderId,_that.content);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int chatRoomId,  int senderId,  String content)  $default,) {final _that = this;
+switch (_that) {
+case _CreateLetterDto():
+return $default(_that.chatRoomId,_that.senderId,_that.content);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int chatRoomId,  int senderId,  String content)?  $default,) {final _that = this;
+switch (_that) {
+case _CreateLetterDto() when $default != null:
+return $default(_that.chatRoomId,_that.senderId,_that.content);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _CreateLetterDto extends CreateLetterDto {
+  const _CreateLetterDto({required this.chatRoomId, required this.senderId, required this.content}): super._();
+  factory _CreateLetterDto.fromJson(Map<String, dynamic> json) => _$CreateLetterDtoFromJson(json);
+
+@override final  int chatRoomId;
+@override final  int senderId;
+@override final  String content;
+
+/// Create a copy of CreateLetterDto
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CreateLetterDtoCopyWith<_CreateLetterDto> get copyWith => __$CreateLetterDtoCopyWithImpl<_CreateLetterDto>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateLetterDtoToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateLetterDto&&(identical(other.chatRoomId, chatRoomId) || other.chatRoomId == chatRoomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,chatRoomId,senderId,content);
+
+@override
+String toString() {
+  return 'CreateLetterDto(chatRoomId: $chatRoomId, senderId: $senderId, content: $content)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CreateLetterDtoCopyWith<$Res> implements $CreateLetterDtoCopyWith<$Res> {
+  factory _$CreateLetterDtoCopyWith(_CreateLetterDto value, $Res Function(_CreateLetterDto) _then) = __$CreateLetterDtoCopyWithImpl;
+@override @useResult
+$Res call({
+ int chatRoomId, int senderId, String content
+});
+
+
+
+
+}
+/// @nodoc
+class __$CreateLetterDtoCopyWithImpl<$Res>
+    implements _$CreateLetterDtoCopyWith<$Res> {
+  __$CreateLetterDtoCopyWithImpl(this._self, this._then);
+
+  final _CreateLetterDto _self;
+  final $Res Function(_CreateLetterDto) _then;
+
+/// Create a copy of CreateLetterDto
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? chatRoomId = null,Object? senderId = null,Object? content = null,}) {
+  return _then(_CreateLetterDto(
+chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
+as int,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
+as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 // dart format on

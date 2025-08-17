@@ -14,7 +14,7 @@ export 'src/models/email_credential_dto.dart';
 // Export ws_models
 export 'src/ws_models/payloads.dart';
 export 'src/ws_models/ws_from_server.dart';
-export 'src/ws_models/ws_to_server.dart';
+export 'src/ws_models/to_server.dart';
 export 'src/ws_models/ws_error_payload.dart';
 export 'src/ws_models/ws_counter_payload.dart';
 
@@ -24,5 +24,6 @@ export 'src/models/unit_dto.dart';
 export 'src/payloads/joined_server_payload.dart';
 export 'src/payloads/online_members_payload.dart';
 export 'src/payloads/letter_payload.dart';
+export 'src/ws_models/ws_server_error.dart';
 
 // TODO: Export any libraries intended for clients of this package.

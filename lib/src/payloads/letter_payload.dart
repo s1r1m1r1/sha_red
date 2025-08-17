@@ -81,22 +81,15 @@ abstract class LetterDto with _$LetterDto {
   factory LetterDto.fromJson(Json json) => _$LetterDtoFromJson(json);
 }
 
-@JsonSerializable()
-class CreateLetterDto {
-  final int chatRoomId;
-  final int senderId;
-  final String content;
-
-  const CreateLetterDto({
-    required this.chatRoomId,
-    required this.senderId,
-    required this.content,
-  });
-
-  Json toJson() => _$CreateLetterDtoToJson(this);
+@freezed
+abstract class CreateLetterDto with _$CreateLetterDto {
+  const CreateLetterDto._();
+  const factory CreateLetterDto({
+    required int chatRoomId,
+    required int senderId,
+    required String content,
+  }) = _CreateLetterDto;
 
   factory CreateLetterDto.fromJson(Json json) =>
       _$CreateLetterDtoFromJson(json);
-
-  static Json toJsonF(LetterDto dto) => dto.toJson();
 }

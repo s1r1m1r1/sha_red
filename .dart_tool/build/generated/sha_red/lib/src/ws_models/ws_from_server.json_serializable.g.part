@@ -40,16 +40,19 @@ Map<String, dynamic> _$OnlineUsers_WsFromServerToJson(
   OnlineUsers_WsFromServer instance,
 ) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
-Unauthenticated_WsFromServer _$Unauthenticated_WsFromServerFromJson(
+StatusError_WsFromServer _$StatusError_WsFromServerFromJson(
   Map<String, dynamic> json,
-) => Unauthenticated_WsFromServer(
-  WsErrorPayload.fromJson(json['dto'] as Map<String, dynamic>),
+) => StatusError_WsFromServer(
+  error: WsServerError.fromJson(json['error']),
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$Unauthenticated_WsFromServerToJson(
-  Unauthenticated_WsFromServer instance,
-) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+Map<String, dynamic> _$StatusError_WsFromServerToJson(
+  StatusError_WsFromServer instance,
+) => <String, dynamic>{
+  'error': WsServerError.toJson(instance.error),
+  'runtimeType': instance.$type,
+};
 
 Letters_WsFromServer _$Letters_WsFromServerFromJson(
   Map<String, dynamic> json,

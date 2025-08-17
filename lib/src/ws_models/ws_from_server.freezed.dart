@@ -31,8 +31,8 @@ WWsFromServer _$WWsFromServerFromJson(
           return OnlineUsers_WsFromServer.fromJson(
             json
           );
-                case 'unauthenticated':
-          return Unauthenticated_WsFromServer.fromJson(
+                case 'statusError':
+          return StatusError_WsFromServer.fromJson(
             json
           );
                 case 'letters':
@@ -105,15 +105,15 @@ extension WWsFromServerPatterns on WWsFromServer {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( JoinedServer_WsFromServer value)?  joinedServer,TResult Function( TokenExpired_WsFromServer value)?  tokenExpired,TResult Function( RefreshTokenExpired_WsFromServer value)?  refreshTokenExpired,TResult Function( OnlineUsers_WsFromServer value)?  onlineUsers,TResult Function( Unauthenticated_WsFromServer value)?  unauthenticated,TResult Function( Letters_WsFromServer value)?  letters,TResult Function( OnLetter_WsFromServer value)?  onLetter,TResult Function( DeletedLetter_WsFromServer value)?  deletedLetter,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( JoinedServer_WsFromServer value)?  joinedServer,TResult Function( TokenExpired_WsFromServer value)?  tokenExpired,TResult Function( RefreshTokenExpired_WsFromServer value)?  refreshTokenExpired,TResult Function( OnlineUsers_WsFromServer value)?  onlineUsers,TResult Function( StatusError_WsFromServer value)?  statusError,TResult Function( Letters_WsFromServer value)?  letters,TResult Function( OnLetter_WsFromServer value)?  onLetter,TResult Function( DeletedLetter_WsFromServer value)?  deletedLetter,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case JoinedServer_WsFromServer() when joinedServer != null:
 return joinedServer(_that);case TokenExpired_WsFromServer() when tokenExpired != null:
 return tokenExpired(_that);case RefreshTokenExpired_WsFromServer() when refreshTokenExpired != null:
 return refreshTokenExpired(_that);case OnlineUsers_WsFromServer() when onlineUsers != null:
-return onlineUsers(_that);case Unauthenticated_WsFromServer() when unauthenticated != null:
-return unauthenticated(_that);case Letters_WsFromServer() when letters != null:
+return onlineUsers(_that);case StatusError_WsFromServer() when statusError != null:
+return statusError(_that);case Letters_WsFromServer() when letters != null:
 return letters(_that);case OnLetter_WsFromServer() when onLetter != null:
 return onLetter(_that);case DeletedLetter_WsFromServer() when deletedLetter != null:
 return deletedLetter(_that);case _:
@@ -134,15 +134,15 @@ return deletedLetter(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( JoinedServer_WsFromServer value)  joinedServer,required TResult Function( TokenExpired_WsFromServer value)  tokenExpired,required TResult Function( RefreshTokenExpired_WsFromServer value)  refreshTokenExpired,required TResult Function( OnlineUsers_WsFromServer value)  onlineUsers,required TResult Function( Unauthenticated_WsFromServer value)  unauthenticated,required TResult Function( Letters_WsFromServer value)  letters,required TResult Function( OnLetter_WsFromServer value)  onLetter,required TResult Function( DeletedLetter_WsFromServer value)  deletedLetter,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( JoinedServer_WsFromServer value)  joinedServer,required TResult Function( TokenExpired_WsFromServer value)  tokenExpired,required TResult Function( RefreshTokenExpired_WsFromServer value)  refreshTokenExpired,required TResult Function( OnlineUsers_WsFromServer value)  onlineUsers,required TResult Function( StatusError_WsFromServer value)  statusError,required TResult Function( Letters_WsFromServer value)  letters,required TResult Function( OnLetter_WsFromServer value)  onLetter,required TResult Function( DeletedLetter_WsFromServer value)  deletedLetter,}){
 final _that = this;
 switch (_that) {
 case JoinedServer_WsFromServer():
 return joinedServer(_that);case TokenExpired_WsFromServer():
 return tokenExpired(_that);case RefreshTokenExpired_WsFromServer():
 return refreshTokenExpired(_that);case OnlineUsers_WsFromServer():
-return onlineUsers(_that);case Unauthenticated_WsFromServer():
-return unauthenticated(_that);case Letters_WsFromServer():
+return onlineUsers(_that);case StatusError_WsFromServer():
+return statusError(_that);case Letters_WsFromServer():
 return letters(_that);case OnLetter_WsFromServer():
 return onLetter(_that);case DeletedLetter_WsFromServer():
 return deletedLetter(_that);}
@@ -159,15 +159,15 @@ return deletedLetter(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( JoinedServer_WsFromServer value)?  joinedServer,TResult? Function( TokenExpired_WsFromServer value)?  tokenExpired,TResult? Function( RefreshTokenExpired_WsFromServer value)?  refreshTokenExpired,TResult? Function( OnlineUsers_WsFromServer value)?  onlineUsers,TResult? Function( Unauthenticated_WsFromServer value)?  unauthenticated,TResult? Function( Letters_WsFromServer value)?  letters,TResult? Function( OnLetter_WsFromServer value)?  onLetter,TResult? Function( DeletedLetter_WsFromServer value)?  deletedLetter,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( JoinedServer_WsFromServer value)?  joinedServer,TResult? Function( TokenExpired_WsFromServer value)?  tokenExpired,TResult? Function( RefreshTokenExpired_WsFromServer value)?  refreshTokenExpired,TResult? Function( OnlineUsers_WsFromServer value)?  onlineUsers,TResult? Function( StatusError_WsFromServer value)?  statusError,TResult? Function( Letters_WsFromServer value)?  letters,TResult? Function( OnLetter_WsFromServer value)?  onLetter,TResult? Function( DeletedLetter_WsFromServer value)?  deletedLetter,}){
 final _that = this;
 switch (_that) {
 case JoinedServer_WsFromServer() when joinedServer != null:
 return joinedServer(_that);case TokenExpired_WsFromServer() when tokenExpired != null:
 return tokenExpired(_that);case RefreshTokenExpired_WsFromServer() when refreshTokenExpired != null:
 return refreshTokenExpired(_that);case OnlineUsers_WsFromServer() when onlineUsers != null:
-return onlineUsers(_that);case Unauthenticated_WsFromServer() when unauthenticated != null:
-return unauthenticated(_that);case Letters_WsFromServer() when letters != null:
+return onlineUsers(_that);case StatusError_WsFromServer() when statusError != null:
+return statusError(_that);case Letters_WsFromServer() when letters != null:
 return letters(_that);case OnLetter_WsFromServer() when onLetter != null:
 return onLetter(_that);case DeletedLetter_WsFromServer() when deletedLetter != null:
 return deletedLetter(_that);case _:
@@ -187,14 +187,14 @@ return deletedLetter(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( JoinedServerPayload dto)?  joinedServer,TResult Function()?  tokenExpired,TResult Function()?  refreshTokenExpired,TResult Function( OnlineMemberPayload dto)?  onlineUsers,TResult Function( WsErrorPayload dto)?  unauthenticated,TResult Function( LetterHistoryPayload dto)?  letters,TResult Function( LastLetterPayload dto)?  onLetter,TResult Function( IdLetterPayload dto)?  deletedLetter,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( JoinedServerPayload dto)?  joinedServer,TResult Function()?  tokenExpired,TResult Function()?  refreshTokenExpired,TResult Function( OnlineMemberPayload dto)?  onlineUsers,TResult Function(@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)  WsServerError error)?  statusError,TResult Function( LetterHistoryPayload dto)?  letters,TResult Function( LastLetterPayload dto)?  onLetter,TResult Function( IdLetterPayload dto)?  deletedLetter,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case JoinedServer_WsFromServer() when joinedServer != null:
 return joinedServer(_that.dto);case TokenExpired_WsFromServer() when tokenExpired != null:
 return tokenExpired();case RefreshTokenExpired_WsFromServer() when refreshTokenExpired != null:
 return refreshTokenExpired();case OnlineUsers_WsFromServer() when onlineUsers != null:
-return onlineUsers(_that.dto);case Unauthenticated_WsFromServer() when unauthenticated != null:
-return unauthenticated(_that.dto);case Letters_WsFromServer() when letters != null:
+return onlineUsers(_that.dto);case StatusError_WsFromServer() when statusError != null:
+return statusError(_that.error);case Letters_WsFromServer() when letters != null:
 return letters(_that.dto);case OnLetter_WsFromServer() when onLetter != null:
 return onLetter(_that.dto);case DeletedLetter_WsFromServer() when deletedLetter != null:
 return deletedLetter(_that.dto);case _:
@@ -215,14 +215,14 @@ return deletedLetter(_that.dto);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( JoinedServerPayload dto)  joinedServer,required TResult Function()  tokenExpired,required TResult Function()  refreshTokenExpired,required TResult Function( OnlineMemberPayload dto)  onlineUsers,required TResult Function( WsErrorPayload dto)  unauthenticated,required TResult Function( LetterHistoryPayload dto)  letters,required TResult Function( LastLetterPayload dto)  onLetter,required TResult Function( IdLetterPayload dto)  deletedLetter,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( JoinedServerPayload dto)  joinedServer,required TResult Function()  tokenExpired,required TResult Function()  refreshTokenExpired,required TResult Function( OnlineMemberPayload dto)  onlineUsers,required TResult Function(@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)  WsServerError error)  statusError,required TResult Function( LetterHistoryPayload dto)  letters,required TResult Function( LastLetterPayload dto)  onLetter,required TResult Function( IdLetterPayload dto)  deletedLetter,}) {final _that = this;
 switch (_that) {
 case JoinedServer_WsFromServer():
 return joinedServer(_that.dto);case TokenExpired_WsFromServer():
 return tokenExpired();case RefreshTokenExpired_WsFromServer():
 return refreshTokenExpired();case OnlineUsers_WsFromServer():
-return onlineUsers(_that.dto);case Unauthenticated_WsFromServer():
-return unauthenticated(_that.dto);case Letters_WsFromServer():
+return onlineUsers(_that.dto);case StatusError_WsFromServer():
+return statusError(_that.error);case Letters_WsFromServer():
 return letters(_that.dto);case OnLetter_WsFromServer():
 return onLetter(_that.dto);case DeletedLetter_WsFromServer():
 return deletedLetter(_that.dto);}
@@ -239,14 +239,14 @@ return deletedLetter(_that.dto);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( JoinedServerPayload dto)?  joinedServer,TResult? Function()?  tokenExpired,TResult? Function()?  refreshTokenExpired,TResult? Function( OnlineMemberPayload dto)?  onlineUsers,TResult? Function( WsErrorPayload dto)?  unauthenticated,TResult? Function( LetterHistoryPayload dto)?  letters,TResult? Function( LastLetterPayload dto)?  onLetter,TResult? Function( IdLetterPayload dto)?  deletedLetter,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( JoinedServerPayload dto)?  joinedServer,TResult? Function()?  tokenExpired,TResult? Function()?  refreshTokenExpired,TResult? Function( OnlineMemberPayload dto)?  onlineUsers,TResult? Function(@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)  WsServerError error)?  statusError,TResult? Function( LetterHistoryPayload dto)?  letters,TResult? Function( LastLetterPayload dto)?  onLetter,TResult? Function( IdLetterPayload dto)?  deletedLetter,}) {final _that = this;
 switch (_that) {
 case JoinedServer_WsFromServer() when joinedServer != null:
 return joinedServer(_that.dto);case TokenExpired_WsFromServer() when tokenExpired != null:
 return tokenExpired();case RefreshTokenExpired_WsFromServer() when refreshTokenExpired != null:
 return refreshTokenExpired();case OnlineUsers_WsFromServer() when onlineUsers != null:
-return onlineUsers(_that.dto);case Unauthenticated_WsFromServer() when unauthenticated != null:
-return unauthenticated(_that.dto);case Letters_WsFromServer() when letters != null:
+return onlineUsers(_that.dto);case StatusError_WsFromServer() when statusError != null:
+return statusError(_that.error);case Letters_WsFromServer() when letters != null:
 return letters(_that.dto);case OnLetter_WsFromServer() when onLetter != null:
 return onLetter(_that.dto);case DeletedLetter_WsFromServer() when deletedLetter != null:
 return deletedLetter(_that.dto);case _:
@@ -502,11 +502,11 @@ $OnlineMemberPayloadCopyWith<$Res> get dto {
 /// @nodoc
 @JsonSerializable()
 
-class Unauthenticated_WsFromServer extends WWsFromServer {
-  const Unauthenticated_WsFromServer(this.dto, {final  String? $type}): $type = $type ?? 'unauthenticated',super._();
-  factory Unauthenticated_WsFromServer.fromJson(Map<String, dynamic> json) => _$Unauthenticated_WsFromServerFromJson(json);
+class StatusError_WsFromServer extends WWsFromServer {
+  const StatusError_WsFromServer({@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'statusError',super._();
+  factory StatusError_WsFromServer.fromJson(Map<String, dynamic> json) => _$StatusError_WsFromServerFromJson(json);
 
- final  WsErrorPayload dto;
+@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson) final  WsServerError error;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -516,69 +516,60 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$Unauthenticated_WsFromServerCopyWith<Unauthenticated_WsFromServer> get copyWith => _$Unauthenticated_WsFromServerCopyWithImpl<Unauthenticated_WsFromServer>(this, _$identity);
+$StatusError_WsFromServerCopyWith<StatusError_WsFromServer> get copyWith => _$StatusError_WsFromServerCopyWithImpl<StatusError_WsFromServer>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$Unauthenticated_WsFromServerToJson(this, );
+  return _$StatusError_WsFromServerToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Unauthenticated_WsFromServer&&(identical(other.dto, dto) || other.dto == dto));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatusError_WsFromServer&&(identical(other.error, error) || other.error == error));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,dto);
+int get hashCode => Object.hash(runtimeType,error);
 
 @override
 String toString() {
-  return 'WWsFromServer.unauthenticated(dto: $dto)';
+  return 'WWsFromServer.statusError(error: $error)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $Unauthenticated_WsFromServerCopyWith<$Res> implements $WWsFromServerCopyWith<$Res> {
-  factory $Unauthenticated_WsFromServerCopyWith(Unauthenticated_WsFromServer value, $Res Function(Unauthenticated_WsFromServer) _then) = _$Unauthenticated_WsFromServerCopyWithImpl;
+abstract mixin class $StatusError_WsFromServerCopyWith<$Res> implements $WWsFromServerCopyWith<$Res> {
+  factory $StatusError_WsFromServerCopyWith(StatusError_WsFromServer value, $Res Function(StatusError_WsFromServer) _then) = _$StatusError_WsFromServerCopyWithImpl;
 @useResult
 $Res call({
- WsErrorPayload dto
+@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson) WsServerError error
 });
 
 
-$WsErrorPayloadCopyWith<$Res> get dto;
+
 
 }
 /// @nodoc
-class _$Unauthenticated_WsFromServerCopyWithImpl<$Res>
-    implements $Unauthenticated_WsFromServerCopyWith<$Res> {
-  _$Unauthenticated_WsFromServerCopyWithImpl(this._self, this._then);
+class _$StatusError_WsFromServerCopyWithImpl<$Res>
+    implements $StatusError_WsFromServerCopyWith<$Res> {
+  _$StatusError_WsFromServerCopyWithImpl(this._self, this._then);
 
-  final Unauthenticated_WsFromServer _self;
-  final $Res Function(Unauthenticated_WsFromServer) _then;
+  final StatusError_WsFromServer _self;
+  final $Res Function(StatusError_WsFromServer) _then;
 
 /// Create a copy of WWsFromServer
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? dto = null,}) {
-  return _then(Unauthenticated_WsFromServer(
-null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
-as WsErrorPayload,
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(StatusError_WsFromServer(
+error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as WsServerError,
   ));
 }
 
-/// Create a copy of WWsFromServer
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$WsErrorPayloadCopyWith<$Res> get dto {
-  
-  return $WsErrorPayloadCopyWith<$Res>(_self.dto, (value) {
-    return _then(_self.copyWith(dto: value));
-  });
-}
+
 }
 
 /// @nodoc

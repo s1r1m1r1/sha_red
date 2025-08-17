@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sha_red/sha_red.dart';
-
 part 'ws_from_server.g.dart';
 part 'ws_from_server.freezed.dart';
 
@@ -15,8 +16,13 @@ sealed class WWsFromServer with _$WWsFromServer {
 
   const factory WWsFromServer.onlineUsers(OnlineMemberPayload dto) =
       OnlineUsers_WsFromServer;
-  const factory WWsFromServer.unauthenticated(WsErrorPayload dto) =
-      Unauthenticated_WsFromServer;
+  // // const factory WWsFromServer.unauthenticated(WsErrorPayload dto) =
+  //     Unauthenticated_WsFromServer;
+
+  const factory WWsFromServer.statusError({
+    @JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)
+    required WsServerError error,
+  }) = StatusError_WsFromServer;
 
   const factory WWsFromServer.letters(LetterHistoryPayload dto) =
       Letters_WsFromServer;
@@ -27,6 +33,12 @@ sealed class WWsFromServer with _$WWsFromServer {
 
   factory WWsFromServer.fromJson(Map<String, dynamic> json) =>
       _$WWsFromServerFromJson(json);
+  //----------------- json helper to reduce boiler code ---------------------
+  String encoded() => jsonEncode(toJson());
+  WWsFromServer decoded(String json) {
+    final data = jsonDecode(json);
+    return WWsFromServer.fromJson(data);
+  }
 }
 
 // @JsonSerializable(genericArgumentFactories: true)

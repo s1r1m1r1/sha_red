@@ -24,20 +24,6 @@ LastLetterPayload _$LastLetterPayloadFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$LastLetterPayloadToJson(LastLetterPayload instance) =>
     <String, dynamic>{'roomId': instance.roomId, 'letter': instance.letter};
 
-CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
-    CreateLetterDto(
-      chatRoomId: (json['chatRoomId'] as num).toInt(),
-      senderId: (json['senderId'] as num).toInt(),
-      content: json['content'] as String,
-    );
-
-Map<String, dynamic> _$CreateLetterDtoToJson(CreateLetterDto instance) =>
-    <String, dynamic>{
-      'chatRoomId': instance.chatRoomId,
-      'senderId': instance.senderId,
-      'content': instance.content,
-    };
-
 _LetterRoomPayload _$LetterRoomPayloadFromJson(Map<String, dynamic> json) =>
     _LetterRoomPayload(json['roomId'] as String);
 
@@ -81,4 +67,18 @@ Map<String, dynamic> _$LetterDtoToJson(_LetterDto instance) =>
       'senderId': instance.senderId,
       'content': instance.content,
       'createdAt': instance.createdAt.toIso8601String(),
+    };
+
+_CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
+    _CreateLetterDto(
+      chatRoomId: (json['chatRoomId'] as num).toInt(),
+      senderId: (json['senderId'] as num).toInt(),
+      content: json['content'] as String,
+    );
+
+Map<String, dynamic> _$CreateLetterDtoToJson(_CreateLetterDto instance) =>
+    <String, dynamic>{
+      'chatRoomId': instance.chatRoomId,
+      'senderId': instance.senderId,
+      'content': instance.content,
     };
