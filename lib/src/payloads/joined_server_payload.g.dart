@@ -6,16 +6,16 @@ part of 'joined_server_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-JoinedServerPayload _$JoinedServerPayloadFromJson(Map<String, dynamic> json) =>
-    JoinedServerPayload(
-      json['mainRoomId'] as String,
+_JoinedServerPayload _$JoinedServerPayloadFromJson(Map<String, dynamic> json) =>
+    _JoinedServerPayload(
+      mainRoomId: json['mainRoomId'] as String,
       tokens: json['tokens'] == null
           ? null
           : TokensDto.fromJson(json['tokens'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$JoinedServerPayloadToJson(
-  JoinedServerPayload instance,
+  _JoinedServerPayload instance,
 ) => <String, dynamic>{
   'mainRoomId': instance.mainRoomId,
   'tokens': instance.tokens,

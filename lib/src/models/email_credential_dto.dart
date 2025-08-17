@@ -1,18 +1,20 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../typedef/json_typedef.dart';
 
+part 'email_credential_dto.freezed.dart';
 part 'email_credential_dto.g.dart';
 
-@JsonSerializable()
-class EmailCredentialDto {
-  final String email;
-  final String password;
+@freezed
+abstract class EmailCredentialDto with _$EmailCredentialDto {
+  const EmailCredentialDto._();
 
-  const EmailCredentialDto({required this.email, required this.password});
+  const factory EmailCredentialDto({
+    required String email,
+    required String password,
+  }) = _EmailCredentialDto;
 
-  factory EmailCredentialDto.fromJson(Json json) => _$EmailCredentialDtoFromJson(json);
-
-  static Json toJsonF(EmailCredentialDto dto) => _$EmailCredentialDtoToJson(dto);
-  Json toJson() => _$EmailCredentialDtoToJson(this);
+  factory EmailCredentialDto.fromJson(Json json) =>
+      _$EmailCredentialDtoFromJson(json);
 }

@@ -6,43 +6,87 @@ part of 'ws_from_server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WsFromServer<T> _$WsFromServerFromJson<T>(
+JoinedServer_WsFromServer _$JoinedServer_WsFromServerFromJson(
   Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) => WsFromServer<T>(
-  eventType: $enumDecode(_$WsEventFromServerEnumMap, json['event']),
-  payload: _$nullableGenericFromJson(json['payload'], fromJsonT),
+) => JoinedServer_WsFromServer(
+  JoinedServerPayload.fromJson(json['dto'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$WsFromServerToJson<T>(
-  WsFromServer<T> instance,
-  Object? Function(T value) toJsonT,
+Map<String, dynamic> _$JoinedServer_WsFromServerToJson(
+  JoinedServer_WsFromServer instance,
+) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+
+TokenExpired_WsFromServer _$TokenExpired_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => TokenExpired_WsFromServer($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$TokenExpired_WsFromServerToJson(
+  TokenExpired_WsFromServer instance,
+) => <String, dynamic>{'runtimeType': instance.$type};
+
+RefreshTokenExpired_WsFromServer _$RefreshTokenExpired_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => RefreshTokenExpired_WsFromServer($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$RefreshTokenExpired_WsFromServerToJson(
+  RefreshTokenExpired_WsFromServer instance,
+) => <String, dynamic>{'runtimeType': instance.$type};
+
+OnlineUsers_WsFromServer _$OnlineUsers_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => OnlineUsers_WsFromServer(
+  OnlineMemberPayload.fromJson(json['dto'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$OnlineUsers_WsFromServerToJson(
+  OnlineUsers_WsFromServer instance,
+) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+
+StatusError_WsFromServer _$StatusError_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => StatusError_WsFromServer(
+  error: WsServerError.fromJson(json['error']),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$StatusError_WsFromServerToJson(
+  StatusError_WsFromServer instance,
 ) => <String, dynamic>{
-  'event': _$WsEventFromServerEnumMap[instance.eventType]!,
-  'payload': _$nullableGenericToJson(instance.payload, toJsonT),
+  'error': WsServerError.toJson(instance.error),
+  'runtimeType': instance.$type,
 };
 
-const _$WsEventFromServerEnumMap = {
-  WsEventFromServer.joinedServer: 'joinedServer',
-  WsEventFromServer.tokenExpired: 'tokenExpired',
-  WsEventFromServer.refreshTokenExpired: 'refreshTokenExpired',
-  WsEventFromServer.onlineUsers: 'onlineUsers',
-  WsEventFromServer.unauthenticated: 'unauthenticated',
-  WsEventFromServer.letters: 'letters',
-  WsEventFromServer.onLetter: 'onLetter',
-  WsEventFromServer.deletedLetter: 'deletedLetter',
-  WsEventFromServer.counter: 'counter',
-  WsEventFromServer.joinedCounter: 'joinedCounter',
-  WsEventFromServer.joinedLetters: 'joinedLetters',
-  WsEventFromServer.adminInfo: 'adminInfo',
-};
+Letters_WsFromServer _$Letters_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => Letters_WsFromServer(
+  LetterHistoryPayload.fromJson(json['dto'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
 
-T? _$nullableGenericFromJson<T>(
-  Object? input,
-  T Function(Object? json) fromJson,
-) => input == null ? null : fromJson(input);
+Map<String, dynamic> _$Letters_WsFromServerToJson(
+  Letters_WsFromServer instance,
+) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
-Object? _$nullableGenericToJson<T>(
-  T? input,
-  Object? Function(T value) toJson,
-) => input == null ? null : toJson(input);
+OnLetter_WsFromServer _$OnLetter_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => OnLetter_WsFromServer(
+  LastLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$OnLetter_WsFromServerToJson(
+  OnLetter_WsFromServer instance,
+) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+
+DeletedLetter_WsFromServer _$DeletedLetter_WsFromServerFromJson(
+  Map<String, dynamic> json,
+) => DeletedLetter_WsFromServer(
+  IdLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$DeletedLetter_WsFromServerToJson(
+  DeletedLetter_WsFromServer instance,
+) => <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};

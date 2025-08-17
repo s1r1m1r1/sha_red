@@ -24,35 +24,35 @@ LastLetterPayload _$LastLetterPayloadFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$LastLetterPayloadToJson(LastLetterPayload instance) =>
     <String, dynamic>{'roomId': instance.roomId, 'letter': instance.letter};
 
-LetterRoomPayload _$LetterRoomPayloadFromJson(Map<String, dynamic> json) =>
-    LetterRoomPayload(json['roomId'] as String);
+_LetterRoomPayload _$LetterRoomPayloadFromJson(Map<String, dynamic> json) =>
+    _LetterRoomPayload(json['roomId'] as String);
 
-Map<String, dynamic> _$LetterRoomPayloadToJson(LetterRoomPayload instance) =>
+Map<String, dynamic> _$LetterRoomPayloadToJson(_LetterRoomPayload instance) =>
     <String, dynamic>{'roomId': instance.roomId};
 
-IdLetterPayload _$IdLetterPayloadFromJson(Map<String, dynamic> json) =>
-    IdLetterPayload(
-      json['roomId'] as String,
-      (json['letterId'] as num).toInt(),
+_IdLetterPayload _$IdLetterPayloadFromJson(Map<String, dynamic> json) =>
+    _IdLetterPayload(
+      roomId: json['roomId'] as String,
+      letterId: (json['letterId'] as num).toInt(),
     );
 
-Map<String, dynamic> _$IdLetterPayloadToJson(IdLetterPayload instance) =>
+Map<String, dynamic> _$IdLetterPayloadToJson(_IdLetterPayload instance) =>
     <String, dynamic>{'roomId': instance.roomId, 'letterId': instance.letterId};
 
-LetterHistoryPayload _$LetterHistoryPayloadFromJson(
+_LetterHistoryPayload _$LetterHistoryPayloadFromJson(
   Map<String, dynamic> json,
-) => LetterHistoryPayload(
+) => _LetterHistoryPayload(
   json['roomId'] as String,
-  (json['letter'] as List<dynamic>)
+  (json['letters'] as List<dynamic>)
       .map((e) => LetterDto.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 
 Map<String, dynamic> _$LetterHistoryPayloadToJson(
-  LetterHistoryPayload instance,
-) => <String, dynamic>{'roomId': instance.roomId, 'letter': instance.letter};
+  _LetterHistoryPayload instance,
+) => <String, dynamic>{'roomId': instance.roomId, 'letters': instance.letters};
 
-LetterDto _$LetterDtoFromJson(Map<String, dynamic> json) => LetterDto(
+_LetterDto _$LetterDtoFromJson(Map<String, dynamic> json) => _LetterDto(
   id: (json['id'] as num?)?.toInt(),
   chatRoomId: (json['chatRoomId'] as num).toInt(),
   senderId: (json['senderId'] as num).toInt(),
@@ -60,22 +60,23 @@ LetterDto _$LetterDtoFromJson(Map<String, dynamic> json) => LetterDto(
   createdAt: DateTime.parse(json['createdAt'] as String),
 );
 
-Map<String, dynamic> _$LetterDtoToJson(LetterDto instance) => <String, dynamic>{
-  'id': instance.id,
-  'chatRoomId': instance.chatRoomId,
-  'senderId': instance.senderId,
-  'content': instance.content,
-  'createdAt': instance.createdAt.toIso8601String(),
-};
+Map<String, dynamic> _$LetterDtoToJson(_LetterDto instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'chatRoomId': instance.chatRoomId,
+      'senderId': instance.senderId,
+      'content': instance.content,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };
 
-CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
-    CreateLetterDto(
+_CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
+    _CreateLetterDto(
       chatRoomId: (json['chatRoomId'] as num).toInt(),
       senderId: (json['senderId'] as num).toInt(),
       content: json['content'] as String,
     );
 
-Map<String, dynamic> _$CreateLetterDtoToJson(CreateLetterDto instance) =>
+Map<String, dynamic> _$CreateLetterDtoToJson(_CreateLetterDto instance) =>
     <String, dynamic>{
       'chatRoomId': instance.chatRoomId,
       'senderId': instance.senderId,

@@ -1,6 +1,7 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sha_red/sha_red.dart' show Json;
 part 'letter_payload.g.dart';
+part 'letter_payload.freezed.dart';
 
 @JsonSerializable()
 class NewLetterPayload {
@@ -32,86 +33,63 @@ class LastLetterPayload {
   static Json toJsonF(LastLetterPayload payload) => payload.toJson();
 }
 
-@JsonSerializable()
-class LetterRoomPayload {
-  const LetterRoomPayload(this.roomId);
-  final String roomId;
+@freezed
+abstract class LetterRoomPayload with _$LetterRoomPayload {
+  const LetterRoomPayload._();
+  const factory LetterRoomPayload(String roomId) = _LetterRoomPayload;
 
   factory LetterRoomPayload.fromJson(Json json) =>
       _$LetterRoomPayloadFromJson(json);
-
-  Json toJson() => _$LetterRoomPayloadToJson(this);
-
-  static const toJsonF = _$LetterRoomPayloadToJson;
 }
 
-@JsonSerializable()
-class IdLetterPayload {
-  const IdLetterPayload(this.roomId, this.letterId);
-  final String roomId;
-  final int letterId;
+@freezed
+abstract class IdLetterPayload with _$IdLetterPayload {
+  const IdLetterPayload._();
+  const factory IdLetterPayload({
+    required String roomId,
+    required int letterId,
+  }) = _IdLetterPayload;
 
   factory IdLetterPayload.fromJson(Json json) =>
       _$IdLetterPayloadFromJson(json);
-
-  Json toJson() => _$IdLetterPayloadToJson(this);
-
-  static const toJsonF = _$IdLetterPayloadToJson;
 }
 
-@JsonSerializable()
-class LetterHistoryPayload {
-  const LetterHistoryPayload(this.roomId, this.letter);
-  final String roomId;
+@freezed
+abstract class LetterHistoryPayload with _$LetterHistoryPayload {
+  const LetterHistoryPayload._();
+  const factory LetterHistoryPayload(String roomId, List<LetterDto> letters) =
+      _LetterHistoryPayload;
+  // final String roomId;
 
-  final List<LetterDto> letter;
+  // final List<LetterDto> letter;
 
   factory LetterHistoryPayload.fromJson(Json json) =>
       _$LetterHistoryPayloadFromJson(json);
-
-  Json toJson() => _$LetterHistoryPayloadToJson(this);
-  static const toJsonF = _$LetterHistoryPayloadToJson;
 }
 
-@JsonSerializable()
-class LetterDto {
-  final int? id;
-  final int chatRoomId;
-  final int senderId;
-  final String content;
-  final DateTime createdAt;
-
-  const LetterDto({
-    this.id,
-    required this.chatRoomId,
-    required this.senderId,
-    required this.content,
-    required this.createdAt,
-  });
-
-  Json toJson() => _$LetterDtoToJson(this);
+@freezed
+abstract class LetterDto with _$LetterDto {
+  const LetterDto._();
+  const factory LetterDto({
+    int? id,
+    required int chatRoomId,
+    required int senderId,
+    required String content,
+    required DateTime createdAt,
+  }) = _LetterDto;
 
   factory LetterDto.fromJson(Json json) => _$LetterDtoFromJson(json);
-
-  static Json toJsonF(LetterDto dto) => dto.toJson();
 }
 
-@JsonSerializable()
-class CreateLetterDto {
-  final int chatRoomId;
-  final int senderId;
-  final String content;
-
-  const CreateLetterDto({
-    required this.chatRoomId,
-    required this.senderId,
-    required this.content,
-  });
-
-  Json toJson() => _$CreateLetterDtoToJson(this);
+@freezed
+abstract class CreateLetterDto with _$CreateLetterDto {
+  const CreateLetterDto._();
+  const factory CreateLetterDto({
+    required int chatRoomId,
+    required int senderId,
+    required String content,
+  }) = _CreateLetterDto;
 
   factory CreateLetterDto.fromJson(Json json) =>
       _$CreateLetterDtoFromJson(json);
-
-  static Json toJsonF(LetterDto dto) => dto.toJson();
 }
