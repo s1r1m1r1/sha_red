@@ -9,8 +9,6 @@ part 'to_server.g.dart';
 @freezed
 sealed class ToServer with _$ToServer {
   const ToServer._();
-  const factory ToServer.login(EmailCredentialDto dto) = Login_TS;
-  const factory ToServer.signup(EmailCredentialDto dto) = Signup_TS;
   const factory ToServer.withToken(String token) = WithToken_TS;
   const factory ToServer.withRefresh(String refresh) = WithRefresh_TS;
   const factory ToServer.newLetter(String roomId, CreateLetterDto letter) =
