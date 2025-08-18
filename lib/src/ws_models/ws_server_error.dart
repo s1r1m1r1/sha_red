@@ -61,6 +61,7 @@ enum WsServerError {
   invalidToken(4004),
 
   sessionAlreadyRegistered(4005),
+  finishDuplicateSession(4006),
 
   unknown(5555),
   unknownFormat(5556);

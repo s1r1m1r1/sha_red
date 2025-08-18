@@ -6,22 +6,6 @@ part of 'unit_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UnitDto _$UnitDtoFromJson(Map<String, dynamic> json) => UnitDto(
-  id: (json['id'] as num).toInt(),
-  name: json['name'] as String,
-  vitality: (json['vitality'] as num).toInt(),
-  atk: (json['atk'] as num).toInt(),
-  def: (json['def'] as num).toInt(),
-);
-
-Map<String, dynamic> _$UnitDtoToJson(UnitDto instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'atk': instance.atk,
-  'def': instance.def,
-  'vitality': instance.vitality,
-};
-
 ListUnitDto _$ListUnitDtoFromJson(Map<String, dynamic> json) => ListUnitDto(
   selectedId: (json['selectedId'] as num).toInt(),
   list: (json['list'] as List<dynamic>)
@@ -65,3 +49,19 @@ Map<String, dynamic> _$CreateUnitDtoToJson(CreateUnitDto instance) =>
       'def': instance.def,
       'vitality': instance.vitality,
     };
+
+_UnitDto _$UnitDtoFromJson(Map<String, dynamic> json) => _UnitDto(
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  vitality: (json['vitality'] as num).toInt(),
+  atk: (json['atk'] as num).toInt(),
+  def: (json['def'] as num).toInt(),
+);
+
+Map<String, dynamic> _$UnitDtoToJson(_UnitDto instance) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'vitality': instance.vitality,
+  'atk': instance.atk,
+  'def': instance.def,
+};
