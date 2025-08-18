@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:sha_red/sha_red.dart';
-import 'package:sha_red/src/models/letter_dto.dart';
 
 part 'payloads.g.dart';
 
@@ -11,7 +10,8 @@ class NewMessagePayload {
 
   NewMessagePayload({required this.content, required this.senderId});
 
-  factory NewMessagePayload.fromJson(Map<String, dynamic> json) => _$NewMessagePayloadFromJson(json);
+  factory NewMessagePayload.fromJson(Map<String, dynamic> json) =>
+      _$NewMessagePayloadFromJson(json);
   Map<String, dynamic> toJson() => _$NewMessagePayloadToJson(this);
 }
 
@@ -21,7 +21,8 @@ class DeleteMessagePayload {
 
   DeleteMessagePayload({required this.messageId});
 
-  factory DeleteMessagePayload.fromJson(Map<String, dynamic> json) => _$DeleteMessagePayloadFromJson(json);
+  factory DeleteMessagePayload.fromJson(Map<String, dynamic> json) =>
+      _$DeleteMessagePayloadFromJson(json);
   Map<String, dynamic> toJson() => _$DeleteMessagePayloadToJson(this);
 }
 
@@ -30,7 +31,8 @@ class CounterPayload {
   final int value;
   const CounterPayload(this.value);
 
-  factory CounterPayload.fromJson(Map<String, dynamic> json) => _$CounterPayloadFromJson(json);
+  factory CounterPayload.fromJson(Map<String, dynamic> json) =>
+      _$CounterPayloadFromJson(json);
   Map<String, dynamic> toJson() => _$CounterPayloadToJson(this);
 }
 
@@ -40,7 +42,8 @@ class LettersPayload {
 
   LettersPayload(this.letters);
 
-  factory LettersPayload.fromJson(Map<String, dynamic> json) => _$LettersPayloadFromJson(json);
+  factory LettersPayload.fromJson(Map<String, dynamic> json) =>
+      _$LettersPayloadFromJson(json);
   Map<String, dynamic> toJson() => _$LettersPayloadToJson(this);
 
   static const toJsonF = _$LettersPayloadToJson;
