@@ -11,7 +11,6 @@ export 'src/models/update_todo_dto.dart';
 export 'src/models/email_credential_dto.dart';
 
 // Export ws_models
-export 'src/ws_models/payloads.dart';
 export 'src/ws_models/to_client.dart';
 export 'src/ws_models/to_server.dart';
 

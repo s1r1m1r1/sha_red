@@ -6,26 +6,6 @@ part of 'to_server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Login_TS _$Login_TSFromJson(Map<String, dynamic> json) => Login_TS(
-  EmailCredentialDto.fromJson(json['dto'] as Map<String, dynamic>),
-  $type: json['runtimeType'] as String?,
-);
-
-Map<String, dynamic> _$Login_TSToJson(Login_TS instance) => <String, dynamic>{
-  'dto': instance.dto,
-  'runtimeType': instance.$type,
-};
-
-Signup_TS _$Signup_TSFromJson(Map<String, dynamic> json) => Signup_TS(
-  EmailCredentialDto.fromJson(json['dto'] as Map<String, dynamic>),
-  $type: json['runtimeType'] as String?,
-);
-
-Map<String, dynamic> _$Signup_TSToJson(Signup_TS instance) => <String, dynamic>{
-  'dto': instance.dto,
-  'runtimeType': instance.$type,
-};
-
 WithToken_TS _$WithToken_TSFromJson(Map<String, dynamic> json) => WithToken_TS(
   json['token'] as String,
   $type: json['runtimeType'] as String?,

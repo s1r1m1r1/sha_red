@@ -15,15 +15,7 @@ ToServer _$ToServerFromJson(
   Map<String, dynamic> json
 ) {
         switch (json['runtimeType']) {
-                  case 'login':
-          return Login_TS.fromJson(
-            json
-          );
-                case 'signup':
-          return Signup_TS.fromJson(
-            json
-          );
-                case 'withToken':
+                  case 'withToken':
           return WithToken_TS.fromJson(
             json
           );
@@ -101,12 +93,10 @@ extension ToServerPatterns on ToServer {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( Login_TS value)?  login,TResult Function( Signup_TS value)?  signup,TResult Function( WithToken_TS value)?  withToken,TResult Function( WithRefresh_TS value)?  withRefresh,TResult Function( NewLetter_TS value)?  newLetter,TResult Function( DeleteLetter_TS value)?  deleteLetter,TResult Function( JoinLetters_TS value)?  joinLetters,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( WithToken_TS value)?  withToken,TResult Function( WithRefresh_TS value)?  withRefresh,TResult Function( NewLetter_TS value)?  newLetter,TResult Function( DeleteLetter_TS value)?  deleteLetter,TResult Function( JoinLetters_TS value)?  joinLetters,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case Login_TS() when login != null:
-return login(_that);case Signup_TS() when signup != null:
-return signup(_that);case WithToken_TS() when withToken != null:
+case WithToken_TS() when withToken != null:
 return withToken(_that);case WithRefresh_TS() when withRefresh != null:
 return withRefresh(_that);case NewLetter_TS() when newLetter != null:
 return newLetter(_that);case DeleteLetter_TS() when deleteLetter != null:
@@ -129,12 +119,10 @@ return joinLetters(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( Login_TS value)  login,required TResult Function( Signup_TS value)  signup,required TResult Function( WithToken_TS value)  withToken,required TResult Function( WithRefresh_TS value)  withRefresh,required TResult Function( NewLetter_TS value)  newLetter,required TResult Function( DeleteLetter_TS value)  deleteLetter,required TResult Function( JoinLetters_TS value)  joinLetters,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( WithToken_TS value)  withToken,required TResult Function( WithRefresh_TS value)  withRefresh,required TResult Function( NewLetter_TS value)  newLetter,required TResult Function( DeleteLetter_TS value)  deleteLetter,required TResult Function( JoinLetters_TS value)  joinLetters,}){
 final _that = this;
 switch (_that) {
-case Login_TS():
-return login(_that);case Signup_TS():
-return signup(_that);case WithToken_TS():
+case WithToken_TS():
 return withToken(_that);case WithRefresh_TS():
 return withRefresh(_that);case NewLetter_TS():
 return newLetter(_that);case DeleteLetter_TS():
@@ -153,12 +141,10 @@ return joinLetters(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( Login_TS value)?  login,TResult? Function( Signup_TS value)?  signup,TResult? Function( WithToken_TS value)?  withToken,TResult? Function( WithRefresh_TS value)?  withRefresh,TResult? Function( NewLetter_TS value)?  newLetter,TResult? Function( DeleteLetter_TS value)?  deleteLetter,TResult? Function( JoinLetters_TS value)?  joinLetters,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( WithToken_TS value)?  withToken,TResult? Function( WithRefresh_TS value)?  withRefresh,TResult? Function( NewLetter_TS value)?  newLetter,TResult? Function( DeleteLetter_TS value)?  deleteLetter,TResult? Function( JoinLetters_TS value)?  joinLetters,}){
 final _that = this;
 switch (_that) {
-case Login_TS() when login != null:
-return login(_that);case Signup_TS() when signup != null:
-return signup(_that);case WithToken_TS() when withToken != null:
+case WithToken_TS() when withToken != null:
 return withToken(_that);case WithRefresh_TS() when withRefresh != null:
 return withRefresh(_that);case NewLetter_TS() when newLetter != null:
 return newLetter(_that);case DeleteLetter_TS() when deleteLetter != null:
@@ -180,11 +166,9 @@ return joinLetters(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( EmailCredentialDto dto)?  login,TResult Function( EmailCredentialDto dto)?  signup,TResult Function( String token)?  withToken,TResult Function( String refresh)?  withRefresh,TResult Function( String roomId,  CreateLetterDto letter)?  newLetter,TResult Function( String roomId,  int letterId)?  deleteLetter,TResult Function( String roomId)?  joinLetters,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( String token)?  withToken,TResult Function( String refresh)?  withRefresh,TResult Function( String roomId,  CreateLetterDto letter)?  newLetter,TResult Function( String roomId,  int letterId)?  deleteLetter,TResult Function( String roomId)?  joinLetters,required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case Login_TS() when login != null:
-return login(_that.dto);case Signup_TS() when signup != null:
-return signup(_that.dto);case WithToken_TS() when withToken != null:
+case WithToken_TS() when withToken != null:
 return withToken(_that.token);case WithRefresh_TS() when withRefresh != null:
 return withRefresh(_that.refresh);case NewLetter_TS() when newLetter != null:
 return newLetter(_that.roomId,_that.letter);case DeleteLetter_TS() when deleteLetter != null:
@@ -207,11 +191,9 @@ return joinLetters(_that.roomId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( EmailCredentialDto dto)  login,required TResult Function( EmailCredentialDto dto)  signup,required TResult Function( String token)  withToken,required TResult Function( String refresh)  withRefresh,required TResult Function( String roomId,  CreateLetterDto letter)  newLetter,required TResult Function( String roomId,  int letterId)  deleteLetter,required TResult Function( String roomId)  joinLetters,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( String token)  withToken,required TResult Function( String refresh)  withRefresh,required TResult Function( String roomId,  CreateLetterDto letter)  newLetter,required TResult Function( String roomId,  int letterId)  deleteLetter,required TResult Function( String roomId)  joinLetters,}) {final _that = this;
 switch (_that) {
-case Login_TS():
-return login(_that.dto);case Signup_TS():
-return signup(_that.dto);case WithToken_TS():
+case WithToken_TS():
 return withToken(_that.token);case WithRefresh_TS():
 return withRefresh(_that.refresh);case NewLetter_TS():
 return newLetter(_that.roomId,_that.letter);case DeleteLetter_TS():
@@ -230,11 +212,9 @@ return joinLetters(_that.roomId);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( EmailCredentialDto dto)?  login,TResult? Function( EmailCredentialDto dto)?  signup,TResult? Function( String token)?  withToken,TResult? Function( String refresh)?  withRefresh,TResult? Function( String roomId,  CreateLetterDto letter)?  newLetter,TResult? Function( String roomId,  int letterId)?  deleteLetter,TResult? Function( String roomId)?  joinLetters,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( String token)?  withToken,TResult? Function( String refresh)?  withRefresh,TResult? Function( String roomId,  CreateLetterDto letter)?  newLetter,TResult? Function( String roomId,  int letterId)?  deleteLetter,TResult? Function( String roomId)?  joinLetters,}) {final _that = this;
 switch (_that) {
-case Login_TS() when login != null:
-return login(_that.dto);case Signup_TS() when signup != null:
-return signup(_that.dto);case WithToken_TS() when withToken != null:
+case WithToken_TS() when withToken != null:
 return withToken(_that.token);case WithRefresh_TS() when withRefresh != null:
 return withRefresh(_that.refresh);case NewLetter_TS() when newLetter != null:
 return newLetter(_that.roomId,_that.letter);case DeleteLetter_TS() when deleteLetter != null:
@@ -245,170 +225,6 @@ return joinLetters(_that.roomId);case _:
 }
 }
 
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class Login_TS extends ToServer {
-  const Login_TS(this.dto, {final  String? $type}): $type = $type ?? 'login',super._();
-  factory Login_TS.fromJson(Map<String, dynamic> json) => _$Login_TSFromJson(json);
-
- final  EmailCredentialDto dto;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$Login_TSCopyWith<Login_TS> get copyWith => _$Login_TSCopyWithImpl<Login_TS>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$Login_TSToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Login_TS&&(identical(other.dto, dto) || other.dto == dto));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,dto);
-
-@override
-String toString() {
-  return 'ToServer.login(dto: $dto)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $Login_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $Login_TSCopyWith(Login_TS value, $Res Function(Login_TS) _then) = _$Login_TSCopyWithImpl;
-@useResult
-$Res call({
- EmailCredentialDto dto
-});
-
-
-$EmailCredentialDtoCopyWith<$Res> get dto;
-
-}
-/// @nodoc
-class _$Login_TSCopyWithImpl<$Res>
-    implements $Login_TSCopyWith<$Res> {
-  _$Login_TSCopyWithImpl(this._self, this._then);
-
-  final Login_TS _self;
-  final $Res Function(Login_TS) _then;
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? dto = null,}) {
-  return _then(Login_TS(
-null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
-as EmailCredentialDto,
-  ));
-}
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$EmailCredentialDtoCopyWith<$Res> get dto {
-  
-  return $EmailCredentialDtoCopyWith<$Res>(_self.dto, (value) {
-    return _then(_self.copyWith(dto: value));
-  });
-}
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class Signup_TS extends ToServer {
-  const Signup_TS(this.dto, {final  String? $type}): $type = $type ?? 'signup',super._();
-  factory Signup_TS.fromJson(Map<String, dynamic> json) => _$Signup_TSFromJson(json);
-
- final  EmailCredentialDto dto;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$Signup_TSCopyWith<Signup_TS> get copyWith => _$Signup_TSCopyWithImpl<Signup_TS>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$Signup_TSToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Signup_TS&&(identical(other.dto, dto) || other.dto == dto));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,dto);
-
-@override
-String toString() {
-  return 'ToServer.signup(dto: $dto)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $Signup_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $Signup_TSCopyWith(Signup_TS value, $Res Function(Signup_TS) _then) = _$Signup_TSCopyWithImpl;
-@useResult
-$Res call({
- EmailCredentialDto dto
-});
-
-
-$EmailCredentialDtoCopyWith<$Res> get dto;
-
-}
-/// @nodoc
-class _$Signup_TSCopyWithImpl<$Res>
-    implements $Signup_TSCopyWith<$Res> {
-  _$Signup_TSCopyWithImpl(this._self, this._then);
-
-  final Signup_TS _self;
-  final $Res Function(Signup_TS) _then;
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? dto = null,}) {
-  return _then(Signup_TS(
-null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
-as EmailCredentialDto,
-  ));
-}
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$EmailCredentialDtoCopyWith<$Res> get dto {
-  
-  return $EmailCredentialDtoCopyWith<$Res>(_self.dto, (value) {
-    return _then(_self.copyWith(dto: value));
-  });
-}
 }
 
 /// @nodoc
