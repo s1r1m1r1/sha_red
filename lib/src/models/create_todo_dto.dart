@@ -7,7 +7,9 @@ class CreateTodoDto {
   final String title;
   final String description;
 
-  factory CreateTodoDto.fromJson(Map<String, dynamic> json) => _$CreateTodoDtoFromJson(json);
+  factory CreateTodoDto.fromJson(Map<String, dynamic> json) =>
+      _$CreateTodoDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$CreateTodoDtoToJson(this);
+  static const fromJsonFactory = _$CreateTodoDtoFromJson;
 }

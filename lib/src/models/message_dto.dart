@@ -8,9 +8,16 @@ class MessageDto {
   final String content;
   final int senderId;
   final DateTime createdAt;
-  const MessageDto({this.channelId, required this.content, required this.senderId, required this.createdAt});
+  const MessageDto({
+    this.channelId,
+    required this.content,
+    required this.senderId,
+    required this.createdAt,
+  });
 
-  factory MessageDto.fromJson(Map<String, dynamic> json) => _$MessageDtoFromJson(json);
+  factory MessageDto.fromJson(Map<String, dynamic> json) =>
+      _$MessageDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$MessageDtoToJson(this);
+  static const fromJsonFactory = MessageDto.fromJson;
 }

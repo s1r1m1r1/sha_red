@@ -15,6 +15,7 @@ abstract class UnitDto with _$UnitDto {
 
   factory UnitDto.fromJson(Map<String, dynamic> json) =>
       _$UnitDtoFromJson(json);
+  static const fromJsonFactory = _$UnitDtoFromJson;
 }
 
 @JsonSerializable()
@@ -25,6 +26,7 @@ class ListUnitDto {
   factory ListUnitDto.fromJson(Map<String, dynamic> json) =>
       _$ListUnitDtoFromJson(json);
   Map<String, dynamic> toJson() => _$ListUnitDtoToJson(this);
+  static const fromJsonFactory = _$ListUnitDtoFromJson;
 }
 
 @JsonSerializable()
@@ -47,6 +49,7 @@ class UpdateUnitDto {
   factory UpdateUnitDto.fromJson(Map<String, dynamic> json) =>
       _$UpdateUnitDtoFromJson(json);
   Map<String, dynamic> toJson() => _$UpdateUnitDtoToJson(this);
+  static const fromJsonFactory = _$UpdateUnitDtoFromJson;
 }
 
 @JsonSerializable()
@@ -67,4 +70,5 @@ class CreateUnitDto {
   factory CreateUnitDto.fromJson(Map<String, dynamic> json) =>
       _$CreateUnitDtoFromJson(json);
   Map<String, dynamic> toJson() => _$CreateUnitDtoToJson(this);
+  static const fromJsonFactory = _$CreateUnitDtoFromJson;
 }

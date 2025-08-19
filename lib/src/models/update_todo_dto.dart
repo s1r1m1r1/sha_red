@@ -11,7 +11,9 @@ class UpdateTodoDto {
 
   const UpdateTodoDto(this.id, {this.title, this.description, this.completed});
 
-  factory UpdateTodoDto.fromJson(Map<String, dynamic> json) => _$UpdateTodoDtoFromJson(json);
+  factory UpdateTodoDto.fromJson(Map<String, dynamic> json) =>
+      _$UpdateTodoDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$UpdateTodoDtoToJson(this);
+  static const fromJsonFactory = _$UpdateTodoDtoFromJson;
 }

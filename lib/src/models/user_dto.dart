@@ -13,4 +13,5 @@ abstract class UserDto with _$UserDto {
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
       _$UserDtoFromJson(json);
+  static const fromJsonFactory = _$UserDtoFromJson;
 }

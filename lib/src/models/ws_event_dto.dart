@@ -9,7 +9,9 @@ class WsEventDto {
 
   WsEventDto({required this.eventType, required this.data});
 
-  factory WsEventDto.fromJson(Map<String, dynamic> json) => _$WsEventDtoFromJson(json);
+  factory WsEventDto.fromJson(Map<String, dynamic> json) =>
+      _$WsEventDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$WsEventDtoToJson(this);
+  static const fromJsonFactory = _$WsEventDtoFromJson;
 }

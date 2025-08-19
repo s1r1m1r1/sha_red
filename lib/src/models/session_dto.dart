@@ -13,4 +13,6 @@ abstract class SessionDto with _$SessionDto {
 
   factory SessionDto.fromJson(Map<String, dynamic> json) =>
       _$SessionDtoFromJson(json);
+
+  static const fromJsonFactory = _$SessionDtoFromJson;
 }
