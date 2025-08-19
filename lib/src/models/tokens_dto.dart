@@ -25,4 +25,5 @@ abstract class RefreshTokenDto with _$RefreshTokenDto {
 
   factory RefreshTokenDto.fromJson(Map<String, dynamic> json) =>
       _$RefreshTokenDtoFromJson(json);
+  static const fromJsonFactory = _$RefreshTokenDtoFromJson;
 }

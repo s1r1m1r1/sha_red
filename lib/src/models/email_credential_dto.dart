@@ -16,4 +16,6 @@ abstract class EmailCredentialDto with _$EmailCredentialDto {
 
   factory EmailCredentialDto.fromJson(Json json) =>
       _$EmailCredentialDtoFromJson(json);
+
+  static const fromJsonFactory = _$EmailCredentialDtoFromJson;
 }

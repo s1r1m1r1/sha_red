@@ -23,8 +23,10 @@ class TodoDto {
     this.updatedAt,
   });
 
-  factory TodoDto.fromJson(Map<String, dynamic> json) => _$TodoDtoFromJson(json);
+  factory TodoDto.fromJson(Map<String, dynamic> json) =>
+      _$TodoDtoFromJson(json);
   Map<String, dynamic> toJson() => _$TodoDtoToJson(this);
+  static const fromJsonFactory = _$TodoDtoFromJson;
 }
 
 class DateTimeConverter implements JsonConverter<DateTime, String> {
@@ -35,6 +37,7 @@ class DateTimeConverter implements JsonConverter<DateTime, String> {
 
   @override
   String toJson(DateTime object) => object.toIso8601String();
+  static const fromJsonFactory = _$TodoDtoFromJson;
 }
 
 // Example of DateTimeConverterNullable (if custom):
@@ -42,8 +45,10 @@ class DateTimeConverterNullable implements JsonConverter<DateTime?, String?> {
   const DateTimeConverterNullable();
 
   @override
-  DateTime? fromJson(String? json) => json == null ? null : DateTime.parse(json);
+  DateTime? fromJson(String? json) =>
+      json == null ? null : DateTime.parse(json);
 
   @override
   String? toJson(DateTime? object) => object?.toIso8601String();
+  static const fromJsonFactory = _$TodoDtoFromJson;
 }

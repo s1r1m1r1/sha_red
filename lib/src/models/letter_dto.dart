@@ -19,5 +19,8 @@ class ChatRoomDto {
   });
 
   Map<String, dynamic> toJson() => _$ChatRoomDtoToJson(this);
-  factory ChatRoomDto.fromJson(Map<String, dynamic> json) => _$ChatRoomDtoFromJson(json);
+  factory ChatRoomDto.fromJson(Map<String, dynamic> json) =>
+      _$ChatRoomDtoFromJson(json);
+
+  static const fromJsonFactory = _$ChatRoomDtoFromJson;
 }

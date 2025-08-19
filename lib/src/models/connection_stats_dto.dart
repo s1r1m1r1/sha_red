@@ -9,9 +9,14 @@ class ConnectionStatsDto {
   @JsonKey(name: 'connections_per_channel')
   final Map<String, int> connectionsPerChannel;
 
-  ConnectionStatsDto({required this.totalActiveConnections, required this.connectionsPerChannel});
+  ConnectionStatsDto({
+    required this.totalActiveConnections,
+    required this.connectionsPerChannel,
+  });
 
-  factory ConnectionStatsDto.fromJson(Map<String, dynamic> json) => _$ConnectionStatsDtoFromJson(json);
+  factory ConnectionStatsDto.fromJson(Map<String, dynamic> json) =>
+      _$ConnectionStatsDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$ConnectionStatsDtoToJson(this);
+  static const fromJsonFactory = _$ConnectionStatsDtoFromJson;
 }
