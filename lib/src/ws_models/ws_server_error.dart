@@ -1,6 +1,4 @@
 enum WsServerError {
-  /// The endpoint is "going away", such as a server shutting down or a browser
-  /// navigating away from a page.
   goingAway(1001),
 
   /// 1003: Unsupported Data
@@ -74,43 +72,10 @@ enum WsServerError {
 
   static fromJson(dynamic json) {
     if (json is int) {
-      switch (json) {
-        case 1001:
-          return WsServerError.goingAway;
-        case 1003:
-          return WsServerError.unsupportedData;
-        case 1007:
-          return WsServerError.invalidFramePayloadData;
-        case 1009:
-          return WsServerError.messageTooBig;
-        case 1011:
-          return WsServerError.internalError;
-        case 1012:
-          return WsServerError.serviceRestart;
-        case 1013:
-          return WsServerError.tryAgainLater;
-        case 3008:
-          return WsServerError.timeout;
-        case 3009:
-          return WsServerError.unitNotFound;
-        case 4001:
-          return WsServerError.authenticationFailed;
-        case 4002:
-          return WsServerError.sessionExpired;
-        case 4003:
-          return WsServerError.unauthorized;
-        case 4004:
-          return WsServerError.invalidToken;
-        case 4005:
-          return WsServerError.sessionAlreadyRegistered;
-        case 5555:
-          return WsServerError.unknown;
-        case 5556:
-          return WsServerError.unknownFormat;
-        default:
-          return WsServerError.unknown;
-      }
+      return WsServerError.values.firstWhere(
+        (element) => element.code == json,
+        orElse: () => WsServerError.unknown,
+      );
     }
-    return WsServerError.unknownFormat;
   }
 }
