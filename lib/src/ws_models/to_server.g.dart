@@ -6,58 +6,56 @@ part of 'to_server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WithToken_TS _$WithToken_TSFromJson(Map<String, dynamic> json) => WithToken_TS(
-  json['token'] as String,
-  $type: json['runtimeType'] as String?,
-);
+WithTokenTS _$WithTokenTSFromJson(Map<String, dynamic> json) =>
+    WithTokenTS(json['token'] as String, $type: json['runtimeType'] as String?);
 
-Map<String, dynamic> _$WithToken_TSToJson(WithToken_TS instance) =>
+Map<String, dynamic> _$WithTokenTSToJson(WithTokenTS instance) =>
     <String, dynamic>{'token': instance.token, 'runtimeType': instance.$type};
 
-WithRefresh_TS _$WithRefresh_TSFromJson(Map<String, dynamic> json) =>
-    WithRefresh_TS(
+WithRefreshTS _$WithRefreshTSFromJson(Map<String, dynamic> json) =>
+    WithRefreshTS(
       json['refresh'] as String,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$WithRefresh_TSToJson(WithRefresh_TS instance) =>
+Map<String, dynamic> _$WithRefreshTSToJson(WithRefreshTS instance) =>
     <String, dynamic>{
       'refresh': instance.refresh,
       'runtimeType': instance.$type,
     };
 
-NewLetter_TS _$NewLetter_TSFromJson(Map<String, dynamic> json) => NewLetter_TS(
+NewLetterTS _$NewLetterTSFromJson(Map<String, dynamic> json) => NewLetterTS(
   json['roomId'] as String,
   CreateLetterDto.fromJson(json['letter'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$NewLetter_TSToJson(NewLetter_TS instance) =>
+Map<String, dynamic> _$NewLetterTSToJson(NewLetterTS instance) =>
     <String, dynamic>{
       'roomId': instance.roomId,
       'letter': instance.letter,
       'runtimeType': instance.$type,
     };
 
-DeleteLetter_TS _$DeleteLetter_TSFromJson(Map<String, dynamic> json) =>
-    DeleteLetter_TS(
+DeleteLetterTS _$DeleteLetterTSFromJson(Map<String, dynamic> json) =>
+    DeleteLetterTS(
       json['roomId'] as String,
       (json['letterId'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$DeleteLetter_TSToJson(DeleteLetter_TS instance) =>
+Map<String, dynamic> _$DeleteLetterTSToJson(DeleteLetterTS instance) =>
     <String, dynamic>{
       'roomId': instance.roomId,
       'letterId': instance.letterId,
       'runtimeType': instance.$type,
     };
 
-JoinLetters_TS _$JoinLetters_TSFromJson(Map<String, dynamic> json) =>
-    JoinLetters_TS(
+JoinLettersTS _$JoinLettersTSFromJson(Map<String, dynamic> json) =>
+    JoinLettersTS(
       json['roomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$JoinLetters_TSToJson(JoinLetters_TS instance) =>
+Map<String, dynamic> _$JoinLettersTSToJson(JoinLettersTS instance) =>
     <String, dynamic>{'roomId': instance.roomId, 'runtimeType': instance.$type};

@@ -9,13 +9,13 @@ part 'to_server.g.dart';
 @freezed
 sealed class ToServer with _$ToServer {
   const ToServer._();
-  const factory ToServer.withToken(String token) = WithToken_TS;
-  const factory ToServer.withRefresh(String refresh) = WithRefresh_TS;
+  const factory ToServer.withToken(String token) = WithTokenTS;
+  const factory ToServer.withRefresh(String refresh) = WithRefreshTS;
   const factory ToServer.newLetter(String roomId, CreateLetterDto letter) =
-      NewLetter_TS;
+      NewLetterTS;
   const factory ToServer.deleteLetter(String roomId, int letterId) =
-      DeleteLetter_TS;
-  const factory ToServer.joinLetters(String roomId) = JoinLetters_TS;
+      DeleteLetterTS;
+  const factory ToServer.joinLetters(String roomId) = JoinLettersTS;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);

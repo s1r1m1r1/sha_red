@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,20 +15,20 @@ sealed class ToClient with _$ToClient {
     required UserDto user,
     required UnitDto unit,
     TokensDto? tokens,
-  }) = JoinedServer_TC;
+  }) = JoinedServerTC;
 
-  const factory ToClient.onlineUsers(OnlineMemberPayload dto) = OnlineUsers_TC;
+  const factory ToClient.onlineUsers(OnlineMemberPayload dto) = OnlineUsersTC;
   // // const factory ToClient.unauthenticated(WsErrorPayload dto) =
   //     Unauthenticated_WsFromServer;
 
   const factory ToClient.statusError({
     @JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)
     required WsServerError error,
-  }) = StatusError_TC;
+  }) = StatusErrorTC;
 
-  const factory ToClient.letters(LetterHistoryPayload dto) = Letters_TC;
-  const factory ToClient.onLetter(LastLetterPayload dto) = OnLetter_TC;
-  const factory ToClient.deletedLetter(IdLetterPayload dto) = DeletedLetter_TC;
+  const factory ToClient.letters(LetterHistoryPayload dto) = LettersTC;
+  const factory ToClient.onLetter(LastLetterPayload dto) = OnLetterTC;
+  const factory ToClient.deletedLetter(IdLetterPayload dto) = DeletedLetterTC;
 
   factory ToClient.fromJson(Map<String, dynamic> json) =>
       _$ToClientFromJson(json);

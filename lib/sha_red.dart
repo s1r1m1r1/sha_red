@@ -9,13 +9,13 @@ export 'src/models/todo_dto.dart';
 export 'src/models/tokens_dto.dart';
 export 'src/models/update_todo_dto.dart';
 export 'src/models/email_credential_dto.dart';
+export 'src/models/unit_dto.dart';
 
 // Export ws_models
 export 'src/ws_models/to_client.dart';
 export 'src/ws_models/to_server.dart';
 
 export 'src/typedef/json_typedef.dart';
-export 'src/models/unit_dto.dart';
 
 export 'src/payloads/online_members_payload.dart';
 export 'src/payloads/letter_payload.dart';

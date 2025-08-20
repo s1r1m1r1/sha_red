@@ -33,6 +33,7 @@ enum WsServerError {
   /// 3009: Unit Not Found
   /// should create unit , before connection to server
   unitNotFound(3009),
+  letterNotRemoved(3010),
 
   /// --- Application-Specific Close Codes (4000-4999) ---
   /// These are custom codes that you can define for your application's logic.

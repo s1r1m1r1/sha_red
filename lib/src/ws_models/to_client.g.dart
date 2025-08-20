@@ -6,8 +6,8 @@ part of 'to_client.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-JoinedServer_TC _$JoinedServer_TCFromJson(Map<String, dynamic> json) =>
-    JoinedServer_TC(
+JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
+    JoinedServerTC(
       mainRoomId: json['mainRoomId'] as String,
       user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
       unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
@@ -17,7 +17,7 @@ JoinedServer_TC _$JoinedServer_TCFromJson(Map<String, dynamic> json) =>
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$JoinedServer_TCToJson(JoinedServer_TC instance) =>
+Map<String, dynamic> _$JoinedServerTCToJson(JoinedServerTC instance) =>
     <String, dynamic>{
       'mainRoomId': instance.mainRoomId,
       'user': instance.user,
@@ -26,48 +26,50 @@ Map<String, dynamic> _$JoinedServer_TCToJson(JoinedServer_TC instance) =>
       'runtimeType': instance.$type,
     };
 
-OnlineUsers_TC _$OnlineUsers_TCFromJson(Map<String, dynamic> json) =>
-    OnlineUsers_TC(
+OnlineUsersTC _$OnlineUsersTCFromJson(Map<String, dynamic> json) =>
+    OnlineUsersTC(
       OnlineMemberPayload.fromJson(json['dto'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$OnlineUsers_TCToJson(OnlineUsers_TC instance) =>
+Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
-StatusError_TC _$StatusError_TCFromJson(Map<String, dynamic> json) =>
-    StatusError_TC(
+StatusErrorTC _$StatusErrorTCFromJson(Map<String, dynamic> json) =>
+    StatusErrorTC(
       error: WsServerError.fromJson(json['error']),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$StatusError_TCToJson(StatusError_TC instance) =>
+Map<String, dynamic> _$StatusErrorTCToJson(StatusErrorTC instance) =>
     <String, dynamic>{
       'error': WsServerError.toJson(instance.error),
       'runtimeType': instance.$type,
     };
 
-Letters_TC _$Letters_TCFromJson(Map<String, dynamic> json) => Letters_TC(
+LettersTC _$LettersTCFromJson(Map<String, dynamic> json) => LettersTC(
   LetterHistoryPayload.fromJson(json['dto'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$Letters_TCToJson(Letters_TC instance) =>
-    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+Map<String, dynamic> _$LettersTCToJson(LettersTC instance) => <String, dynamic>{
+  'dto': instance.dto,
+  'runtimeType': instance.$type,
+};
 
-OnLetter_TC _$OnLetter_TCFromJson(Map<String, dynamic> json) => OnLetter_TC(
+OnLetterTC _$OnLetterTCFromJson(Map<String, dynamic> json) => OnLetterTC(
   LastLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
 
-Map<String, dynamic> _$OnLetter_TCToJson(OnLetter_TC instance) =>
+Map<String, dynamic> _$OnLetterTCToJson(OnLetterTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
-DeletedLetter_TC _$DeletedLetter_TCFromJson(Map<String, dynamic> json) =>
-    DeletedLetter_TC(
+DeletedLetterTC _$DeletedLetterTCFromJson(Map<String, dynamic> json) =>
+    DeletedLetterTC(
       IdLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$DeletedLetter_TCToJson(DeletedLetter_TC instance) =>
+Map<String, dynamic> _$DeletedLetterTCToJson(DeletedLetterTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
