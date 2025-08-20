@@ -16,23 +16,23 @@ ToServer _$ToServerFromJson(
 ) {
         switch (json['runtimeType']) {
                   case 'withToken':
-          return WithToken_TS.fromJson(
+          return WithTokenTS.fromJson(
             json
           );
                 case 'withRefresh':
-          return WithRefresh_TS.fromJson(
+          return WithRefreshTS.fromJson(
             json
           );
                 case 'newLetter':
-          return NewLetter_TS.fromJson(
+          return NewLetterTS.fromJson(
             json
           );
                 case 'deleteLetter':
-          return DeleteLetter_TS.fromJson(
+          return DeleteLetterTS.fromJson(
             json
           );
                 case 'joinLetters':
-          return JoinLetters_TS.fromJson(
+          return JoinLettersTS.fromJson(
             json
           );
         
@@ -83,9 +83,9 @@ $ToServerCopyWith(ToServer _, $Res Function(ToServer) __);
 /// @nodoc
 @JsonSerializable()
 
-class WithToken_TS extends ToServer {
-  const WithToken_TS(this.token, {final  String? $type}): $type = $type ?? 'withToken',super._();
-  factory WithToken_TS.fromJson(Map<String, dynamic> json) => _$WithToken_TSFromJson(json);
+class WithTokenTS extends ToServer {
+  const WithTokenTS(this.token, {final  String? $type}): $type = $type ?? 'withToken',super._();
+  factory WithTokenTS.fromJson(Map<String, dynamic> json) => _$WithTokenTSFromJson(json);
 
  final  String token;
 
@@ -97,16 +97,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$WithToken_TSCopyWith<WithToken_TS> get copyWith => _$WithToken_TSCopyWithImpl<WithToken_TS>(this, _$identity);
+$WithTokenTSCopyWith<WithTokenTS> get copyWith => _$WithTokenTSCopyWithImpl<WithTokenTS>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$WithToken_TSToJson(this, );
+  return _$WithTokenTSToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithToken_TS&&(identical(other.token, token) || other.token == token));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithTokenTS&&(identical(other.token, token) || other.token == token));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -122,8 +122,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $WithToken_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $WithToken_TSCopyWith(WithToken_TS value, $Res Function(WithToken_TS) _then) = _$WithToken_TSCopyWithImpl;
+abstract mixin class $WithTokenTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $WithTokenTSCopyWith(WithTokenTS value, $Res Function(WithTokenTS) _then) = _$WithTokenTSCopyWithImpl;
 @useResult
 $Res call({
  String token
@@ -134,17 +134,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$WithToken_TSCopyWithImpl<$Res>
-    implements $WithToken_TSCopyWith<$Res> {
-  _$WithToken_TSCopyWithImpl(this._self, this._then);
+class _$WithTokenTSCopyWithImpl<$Res>
+    implements $WithTokenTSCopyWith<$Res> {
+  _$WithTokenTSCopyWithImpl(this._self, this._then);
 
-  final WithToken_TS _self;
-  final $Res Function(WithToken_TS) _then;
+  final WithTokenTS _self;
+  final $Res Function(WithTokenTS) _then;
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? token = null,}) {
-  return _then(WithToken_TS(
+  return _then(WithTokenTS(
 null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -156,9 +156,9 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class WithRefresh_TS extends ToServer {
-  const WithRefresh_TS(this.refresh, {final  String? $type}): $type = $type ?? 'withRefresh',super._();
-  factory WithRefresh_TS.fromJson(Map<String, dynamic> json) => _$WithRefresh_TSFromJson(json);
+class WithRefreshTS extends ToServer {
+  const WithRefreshTS(this.refresh, {final  String? $type}): $type = $type ?? 'withRefresh',super._();
+  factory WithRefreshTS.fromJson(Map<String, dynamic> json) => _$WithRefreshTSFromJson(json);
 
  final  String refresh;
 
@@ -170,16 +170,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$WithRefresh_TSCopyWith<WithRefresh_TS> get copyWith => _$WithRefresh_TSCopyWithImpl<WithRefresh_TS>(this, _$identity);
+$WithRefreshTSCopyWith<WithRefreshTS> get copyWith => _$WithRefreshTSCopyWithImpl<WithRefreshTS>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$WithRefresh_TSToJson(this, );
+  return _$WithRefreshTSToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithRefresh_TS&&(identical(other.refresh, refresh) || other.refresh == refresh));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WithRefreshTS&&(identical(other.refresh, refresh) || other.refresh == refresh));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -195,8 +195,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $WithRefresh_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $WithRefresh_TSCopyWith(WithRefresh_TS value, $Res Function(WithRefresh_TS) _then) = _$WithRefresh_TSCopyWithImpl;
+abstract mixin class $WithRefreshTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $WithRefreshTSCopyWith(WithRefreshTS value, $Res Function(WithRefreshTS) _then) = _$WithRefreshTSCopyWithImpl;
 @useResult
 $Res call({
  String refresh
@@ -207,17 +207,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$WithRefresh_TSCopyWithImpl<$Res>
-    implements $WithRefresh_TSCopyWith<$Res> {
-  _$WithRefresh_TSCopyWithImpl(this._self, this._then);
+class _$WithRefreshTSCopyWithImpl<$Res>
+    implements $WithRefreshTSCopyWith<$Res> {
+  _$WithRefreshTSCopyWithImpl(this._self, this._then);
 
-  final WithRefresh_TS _self;
-  final $Res Function(WithRefresh_TS) _then;
+  final WithRefreshTS _self;
+  final $Res Function(WithRefreshTS) _then;
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? refresh = null,}) {
-  return _then(WithRefresh_TS(
+  return _then(WithRefreshTS(
 null == refresh ? _self.refresh : refresh // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -229,9 +229,9 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class NewLetter_TS extends ToServer {
-  const NewLetter_TS(this.roomId, this.letter, {final  String? $type}): $type = $type ?? 'newLetter',super._();
-  factory NewLetter_TS.fromJson(Map<String, dynamic> json) => _$NewLetter_TSFromJson(json);
+class NewLetterTS extends ToServer {
+  const NewLetterTS(this.roomId, this.letter, {final  String? $type}): $type = $type ?? 'newLetter',super._();
+  factory NewLetterTS.fromJson(Map<String, dynamic> json) => _$NewLetterTSFromJson(json);
 
  final  String roomId;
  final  CreateLetterDto letter;
@@ -244,16 +244,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$NewLetter_TSCopyWith<NewLetter_TS> get copyWith => _$NewLetter_TSCopyWithImpl<NewLetter_TS>(this, _$identity);
+$NewLetterTSCopyWith<NewLetterTS> get copyWith => _$NewLetterTSCopyWithImpl<NewLetterTS>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$NewLetter_TSToJson(this, );
+  return _$NewLetterTSToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NewLetter_TS&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.letter, letter) || other.letter == letter));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NewLetterTS&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.letter, letter) || other.letter == letter));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -269,8 +269,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $NewLetter_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $NewLetter_TSCopyWith(NewLetter_TS value, $Res Function(NewLetter_TS) _then) = _$NewLetter_TSCopyWithImpl;
+abstract mixin class $NewLetterTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $NewLetterTSCopyWith(NewLetterTS value, $Res Function(NewLetterTS) _then) = _$NewLetterTSCopyWithImpl;
 @useResult
 $Res call({
  String roomId, CreateLetterDto letter
@@ -281,17 +281,17 @@ $CreateLetterDtoCopyWith<$Res> get letter;
 
 }
 /// @nodoc
-class _$NewLetter_TSCopyWithImpl<$Res>
-    implements $NewLetter_TSCopyWith<$Res> {
-  _$NewLetter_TSCopyWithImpl(this._self, this._then);
+class _$NewLetterTSCopyWithImpl<$Res>
+    implements $NewLetterTSCopyWith<$Res> {
+  _$NewLetterTSCopyWithImpl(this._self, this._then);
 
-  final NewLetter_TS _self;
-  final $Res Function(NewLetter_TS) _then;
+  final NewLetterTS _self;
+  final $Res Function(NewLetterTS) _then;
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? letter = null,}) {
-  return _then(NewLetter_TS(
+  return _then(NewLetterTS(
 null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
 as String,null == letter ? _self.letter : letter // ignore: cast_nullable_to_non_nullable
 as CreateLetterDto,
@@ -313,9 +313,9 @@ $CreateLetterDtoCopyWith<$Res> get letter {
 /// @nodoc
 @JsonSerializable()
 
-class DeleteLetter_TS extends ToServer {
-  const DeleteLetter_TS(this.roomId, this.letterId, {final  String? $type}): $type = $type ?? 'deleteLetter',super._();
-  factory DeleteLetter_TS.fromJson(Map<String, dynamic> json) => _$DeleteLetter_TSFromJson(json);
+class DeleteLetterTS extends ToServer {
+  const DeleteLetterTS(this.roomId, this.letterId, {final  String? $type}): $type = $type ?? 'deleteLetter',super._();
+  factory DeleteLetterTS.fromJson(Map<String, dynamic> json) => _$DeleteLetterTSFromJson(json);
 
  final  String roomId;
  final  int letterId;
@@ -328,16 +328,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$DeleteLetter_TSCopyWith<DeleteLetter_TS> get copyWith => _$DeleteLetter_TSCopyWithImpl<DeleteLetter_TS>(this, _$identity);
+$DeleteLetterTSCopyWith<DeleteLetterTS> get copyWith => _$DeleteLetterTSCopyWithImpl<DeleteLetterTS>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$DeleteLetter_TSToJson(this, );
+  return _$DeleteLetterTSToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetter_TS&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.letterId, letterId) || other.letterId == letterId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetterTS&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.letterId, letterId) || other.letterId == letterId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -353,8 +353,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $DeleteLetter_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $DeleteLetter_TSCopyWith(DeleteLetter_TS value, $Res Function(DeleteLetter_TS) _then) = _$DeleteLetter_TSCopyWithImpl;
+abstract mixin class $DeleteLetterTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $DeleteLetterTSCopyWith(DeleteLetterTS value, $Res Function(DeleteLetterTS) _then) = _$DeleteLetterTSCopyWithImpl;
 @useResult
 $Res call({
  String roomId, int letterId
@@ -365,17 +365,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$DeleteLetter_TSCopyWithImpl<$Res>
-    implements $DeleteLetter_TSCopyWith<$Res> {
-  _$DeleteLetter_TSCopyWithImpl(this._self, this._then);
+class _$DeleteLetterTSCopyWithImpl<$Res>
+    implements $DeleteLetterTSCopyWith<$Res> {
+  _$DeleteLetterTSCopyWithImpl(this._self, this._then);
 
-  final DeleteLetter_TS _self;
-  final $Res Function(DeleteLetter_TS) _then;
+  final DeleteLetterTS _self;
+  final $Res Function(DeleteLetterTS) _then;
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? letterId = null,}) {
-  return _then(DeleteLetter_TS(
+  return _then(DeleteLetterTS(
 null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
 as String,null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
 as int,
@@ -388,9 +388,9 @@ as int,
 /// @nodoc
 @JsonSerializable()
 
-class JoinLetters_TS extends ToServer {
-  const JoinLetters_TS(this.roomId, {final  String? $type}): $type = $type ?? 'joinLetters',super._();
-  factory JoinLetters_TS.fromJson(Map<String, dynamic> json) => _$JoinLetters_TSFromJson(json);
+class JoinLettersTS extends ToServer {
+  const JoinLettersTS(this.roomId, {final  String? $type}): $type = $type ?? 'joinLetters',super._();
+  factory JoinLettersTS.fromJson(Map<String, dynamic> json) => _$JoinLettersTSFromJson(json);
 
  final  String roomId;
 
@@ -402,16 +402,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$JoinLetters_TSCopyWith<JoinLetters_TS> get copyWith => _$JoinLetters_TSCopyWithImpl<JoinLetters_TS>(this, _$identity);
+$JoinLettersTSCopyWith<JoinLettersTS> get copyWith => _$JoinLettersTSCopyWithImpl<JoinLettersTS>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$JoinLetters_TSToJson(this, );
+  return _$JoinLettersTSToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinLetters_TS&&(identical(other.roomId, roomId) || other.roomId == roomId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinLettersTS&&(identical(other.roomId, roomId) || other.roomId == roomId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -427,8 +427,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $JoinLetters_TSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $JoinLetters_TSCopyWith(JoinLetters_TS value, $Res Function(JoinLetters_TS) _then) = _$JoinLetters_TSCopyWithImpl;
+abstract mixin class $JoinLettersTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $JoinLettersTSCopyWith(JoinLettersTS value, $Res Function(JoinLettersTS) _then) = _$JoinLettersTSCopyWithImpl;
 @useResult
 $Res call({
  String roomId
@@ -439,17 +439,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$JoinLetters_TSCopyWithImpl<$Res>
-    implements $JoinLetters_TSCopyWith<$Res> {
-  _$JoinLetters_TSCopyWithImpl(this._self, this._then);
+class _$JoinLettersTSCopyWithImpl<$Res>
+    implements $JoinLettersTSCopyWith<$Res> {
+  _$JoinLettersTSCopyWithImpl(this._self, this._then);
 
-  final JoinLetters_TS _self;
-  final $Res Function(JoinLetters_TS) _then;
+  final JoinLettersTS _self;
+  final $Res Function(JoinLettersTS) _then;
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? roomId = null,}) {
-  return _then(JoinLetters_TS(
+  return _then(JoinLettersTS(
 null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
