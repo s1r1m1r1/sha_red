@@ -22,4 +22,18 @@ const _$RoleEnumMap = {
   Role.admin: 'admin',
   Role.user: 'user',
   Role.tester: 'tester',
+  Role.fake: 'fake',
 };
+
+_FakeUserDto _$FakeUserDtoFromJson(Map<String, dynamic> json) => _FakeUserDto(
+  email: json['email'] as String,
+  password: json['password'] as String,
+  user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
+);
+
+Map<String, dynamic> _$FakeUserDtoToJson(_FakeUserDto instance) =>
+    <String, dynamic>{
+      'email': instance.email,
+      'password': instance.password,
+      'user': instance.user,
+    };

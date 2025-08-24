@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OnlineMemberPayload {
 
- List<OnlineMemberDto> get members;
+ int get roomId; List<OnlineMemberDto> get members;
 /// Create a copy of OnlineMemberPayload
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $OnlineMemberPayloadCopyWith<OnlineMemberPayload> get copyWith => _$OnlineMember
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineMemberPayload&&const DeepCollectionEquality().equals(other.members, members));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineMemberPayload&&(identical(other.roomId, roomId) || other.roomId == roomId)&&const DeepCollectionEquality().equals(other.members, members));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(members));
+int get hashCode => Object.hash(runtimeType,roomId,const DeepCollectionEquality().hash(members));
 
 @override
 String toString() {
-  return 'OnlineMemberPayload(members: $members)';
+  return 'OnlineMemberPayload(roomId: $roomId, members: $members)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $OnlineMemberPayloadCopyWith<$Res>  {
   factory $OnlineMemberPayloadCopyWith(OnlineMemberPayload value, $Res Function(OnlineMemberPayload) _then) = _$OnlineMemberPayloadCopyWithImpl;
 @useResult
 $Res call({
- List<OnlineMemberDto> members
+ int roomId, List<OnlineMemberDto> members
 });
 
 
@@ -65,9 +65,10 @@ class _$OnlineMemberPayloadCopyWithImpl<$Res>
 
 /// Create a copy of OnlineMemberPayload
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? members = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? roomId = null,Object? members = null,}) {
   return _then(_self.copyWith(
-members: null == members ? _self.members : members // ignore: cast_nullable_to_non_nullable
+roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
+as int,members: null == members ? _self.members : members // ignore: cast_nullable_to_non_nullable
 as List<OnlineMemberDto>,
   ));
 }
@@ -80,9 +81,10 @@ as List<OnlineMemberDto>,
 @JsonSerializable()
 
 class _OnlineMemberPayload extends OnlineMemberPayload {
-  const _OnlineMemberPayload(final  List<OnlineMemberDto> members): _members = members,super._();
+  const _OnlineMemberPayload({required this.roomId, required final  List<OnlineMemberDto> members}): _members = members,super._();
   factory _OnlineMemberPayload.fromJson(Map<String, dynamic> json) => _$OnlineMemberPayloadFromJson(json);
 
+@override final  int roomId;
  final  List<OnlineMemberDto> _members;
 @override List<OnlineMemberDto> get members {
   if (_members is EqualUnmodifiableListView) return _members;
@@ -104,16 +106,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnlineMemberPayload&&const DeepCollectionEquality().equals(other._members, _members));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnlineMemberPayload&&(identical(other.roomId, roomId) || other.roomId == roomId)&&const DeepCollectionEquality().equals(other._members, _members));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_members));
+int get hashCode => Object.hash(runtimeType,roomId,const DeepCollectionEquality().hash(_members));
 
 @override
 String toString() {
-  return 'OnlineMemberPayload(members: $members)';
+  return 'OnlineMemberPayload(roomId: $roomId, members: $members)';
 }
 
 
@@ -124,7 +126,7 @@ abstract mixin class _$OnlineMemberPayloadCopyWith<$Res> implements $OnlineMembe
   factory _$OnlineMemberPayloadCopyWith(_OnlineMemberPayload value, $Res Function(_OnlineMemberPayload) _then) = __$OnlineMemberPayloadCopyWithImpl;
 @override @useResult
 $Res call({
- List<OnlineMemberDto> members
+ int roomId, List<OnlineMemberDto> members
 });
 
 
@@ -141,9 +143,10 @@ class __$OnlineMemberPayloadCopyWithImpl<$Res>
 
 /// Create a copy of OnlineMemberPayload
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? members = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? members = null,}) {
   return _then(_OnlineMemberPayload(
-null == members ? _self._members : members // ignore: cast_nullable_to_non_nullable
+roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
+as int,members: null == members ? _self._members : members // ignore: cast_nullable_to_non_nullable
 as List<OnlineMemberDto>,
   ));
 }

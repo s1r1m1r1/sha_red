@@ -8,7 +8,7 @@ part of 'to_client.dart';
 
 JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
     JoinedServerTC(
-      mainRoomId: json['mainRoomId'] as String,
+      mainRoomId: (json['mainRoomId'] as num).toInt(),
       user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
       unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
       tokens: json['tokens'] == null

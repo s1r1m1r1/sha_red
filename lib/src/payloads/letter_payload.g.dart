@@ -17,7 +17,7 @@ Map<String, dynamic> _$NewLetterPayloadToJson(NewLetterPayload instance) =>
 
 LastLetterPayload _$LastLetterPayloadFromJson(Map<String, dynamic> json) =>
     LastLetterPayload(
-      json['roomId'] as String,
+      (json['roomId'] as num).toInt(),
       LetterDto.fromJson(json['letter'] as Map<String, dynamic>),
     );
 
@@ -32,7 +32,7 @@ Map<String, dynamic> _$LetterRoomPayloadToJson(_LetterRoomPayload instance) =>
 
 _IdLetterPayload _$IdLetterPayloadFromJson(Map<String, dynamic> json) =>
     _IdLetterPayload(
-      roomId: json['roomId'] as String,
+      roomId: (json['roomId'] as num).toInt(),
       letterId: (json['letterId'] as num).toInt(),
     );
 
@@ -42,7 +42,7 @@ Map<String, dynamic> _$IdLetterPayloadToJson(_IdLetterPayload instance) =>
 _LetterHistoryPayload _$LetterHistoryPayloadFromJson(
   Map<String, dynamic> json,
 ) => _LetterHistoryPayload(
-  json['roomId'] as String,
+  (json['roomId'] as num).toInt(),
   (json['letters'] as List<dynamic>)
       .map((e) => LetterDto.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -53,7 +53,7 @@ Map<String, dynamic> _$LetterHistoryPayloadToJson(
 ) => <String, dynamic>{'roomId': instance.roomId, 'letters': instance.letters};
 
 _LetterDto _$LetterDtoFromJson(Map<String, dynamic> json) => _LetterDto(
-  id: (json['id'] as num?)?.toInt(),
+  id: (json['id'] as num).toInt(),
   chatRoomId: (json['chatRoomId'] as num).toInt(),
   senderId: (json['senderId'] as num).toInt(),
   content: json['content'] as String,
@@ -71,14 +71,14 @@ Map<String, dynamic> _$LetterDtoToJson(_LetterDto instance) =>
 
 _CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
     _CreateLetterDto(
-      chatRoomId: (json['chatRoomId'] as num).toInt(),
+      roomId: (json['roomId'] as num).toInt(),
       senderId: (json['senderId'] as num).toInt(),
       content: json['content'] as String,
     );
 
 Map<String, dynamic> _$CreateLetterDtoToJson(_CreateLetterDto instance) =>
     <String, dynamic>{
-      'chatRoomId': instance.chatRoomId,
+      'roomId': instance.roomId,
       'senderId': instance.senderId,
       'content': instance.content,
     };

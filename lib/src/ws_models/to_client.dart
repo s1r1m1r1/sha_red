@@ -11,7 +11,7 @@ part 'to_client.freezed.dart';
 sealed class ToClient with _$ToClient {
   const ToClient._();
   const factory ToClient.joinedServer({
-    required String mainRoomId,
+    required int mainRoomId,
     required UserDto user,
     required UnitDto unit,
     TokensDto? tokens,

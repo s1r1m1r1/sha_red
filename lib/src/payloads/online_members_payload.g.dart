@@ -8,14 +8,15 @@ part of 'online_members_payload.dart';
 
 _OnlineMemberPayload _$OnlineMemberPayloadFromJson(Map<String, dynamic> json) =>
     _OnlineMemberPayload(
-      (json['members'] as List<dynamic>)
+      roomId: (json['roomId'] as num).toInt(),
+      members: (json['members'] as List<dynamic>)
           .map((e) => OnlineMemberDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$OnlineMemberPayloadToJson(
   _OnlineMemberPayload instance,
-) => <String, dynamic>{'members': instance.members};
+) => <String, dynamic>{'roomId': instance.roomId, 'members': instance.members};
 
 _OnlineMemberDto _$OnlineMemberDtoFromJson(Map<String, dynamic> json) =>
     _OnlineMemberDto((json['unitId'] as num).toInt(), json['name'] as String);
