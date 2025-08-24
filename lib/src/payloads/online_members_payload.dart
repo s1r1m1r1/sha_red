@@ -7,8 +7,10 @@ part 'online_members_payload.freezed.dart';
 @freezed
 abstract class OnlineMemberPayload with _$OnlineMemberPayload {
   const OnlineMemberPayload._();
-  const factory OnlineMemberPayload(List<OnlineMemberDto> members) =
-      _OnlineMemberPayload;
+  const factory OnlineMemberPayload({
+    required int roomId,
+    required List<OnlineMemberDto> members,
+  }) = _OnlineMemberPayload;
 
   factory OnlineMemberPayload.fromJson(Json json) =>
       _$OnlineMemberPayloadFromJson(json);

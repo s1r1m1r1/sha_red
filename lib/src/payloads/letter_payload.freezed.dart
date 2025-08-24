@@ -149,7 +149,7 @@ as String,
 /// @nodoc
 mixin _$IdLetterPayload {
 
- String get roomId; int get letterId;
+ int get roomId; int get letterId;
 /// Create a copy of IdLetterPayload
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -182,7 +182,7 @@ abstract mixin class $IdLetterPayloadCopyWith<$Res>  {
   factory $IdLetterPayloadCopyWith(IdLetterPayload value, $Res Function(IdLetterPayload) _then) = _$IdLetterPayloadCopyWithImpl;
 @useResult
 $Res call({
- String roomId, int letterId
+ int roomId, int letterId
 });
 
 
@@ -202,7 +202,7 @@ class _$IdLetterPayloadCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? roomId = null,Object? letterId = null,}) {
   return _then(_self.copyWith(
 roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
+as int,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -218,7 +218,7 @@ class _IdLetterPayload extends IdLetterPayload {
   const _IdLetterPayload({required this.roomId, required this.letterId}): super._();
   factory _IdLetterPayload.fromJson(Map<String, dynamic> json) => _$IdLetterPayloadFromJson(json);
 
-@override final  String roomId;
+@override final  int roomId;
 @override final  int letterId;
 
 /// Create a copy of IdLetterPayload
@@ -254,7 +254,7 @@ abstract mixin class _$IdLetterPayloadCopyWith<$Res> implements $IdLetterPayload
   factory _$IdLetterPayloadCopyWith(_IdLetterPayload value, $Res Function(_IdLetterPayload) _then) = __$IdLetterPayloadCopyWithImpl;
 @override @useResult
 $Res call({
- String roomId, int letterId
+ int roomId, int letterId
 });
 
 
@@ -274,7 +274,7 @@ class __$IdLetterPayloadCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? letterId = null,}) {
   return _then(_IdLetterPayload(
 roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
+as int,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -286,7 +286,7 @@ as int,
 /// @nodoc
 mixin _$LetterHistoryPayload {
 
- String get roomId; List<LetterDto> get letters;
+ int get roomId; List<LetterDto> get letters;
 /// Create a copy of LetterHistoryPayload
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -319,7 +319,7 @@ abstract mixin class $LetterHistoryPayloadCopyWith<$Res>  {
   factory $LetterHistoryPayloadCopyWith(LetterHistoryPayload value, $Res Function(LetterHistoryPayload) _then) = _$LetterHistoryPayloadCopyWithImpl;
 @useResult
 $Res call({
- String roomId, List<LetterDto> letters
+ int roomId, List<LetterDto> letters
 });
 
 
@@ -339,7 +339,7 @@ class _$LetterHistoryPayloadCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? roomId = null,Object? letters = null,}) {
   return _then(_self.copyWith(
 roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,letters: null == letters ? _self.letters : letters // ignore: cast_nullable_to_non_nullable
+as int,letters: null == letters ? _self.letters : letters // ignore: cast_nullable_to_non_nullable
 as List<LetterDto>,
   ));
 }
@@ -355,7 +355,7 @@ class _LetterHistoryPayload extends LetterHistoryPayload {
   const _LetterHistoryPayload(this.roomId, final  List<LetterDto> letters): _letters = letters,super._();
   factory _LetterHistoryPayload.fromJson(Map<String, dynamic> json) => _$LetterHistoryPayloadFromJson(json);
 
-@override final  String roomId;
+@override final  int roomId;
  final  List<LetterDto> _letters;
 @override List<LetterDto> get letters {
   if (_letters is EqualUnmodifiableListView) return _letters;
@@ -397,7 +397,7 @@ abstract mixin class _$LetterHistoryPayloadCopyWith<$Res> implements $LetterHist
   factory _$LetterHistoryPayloadCopyWith(_LetterHistoryPayload value, $Res Function(_LetterHistoryPayload) _then) = __$LetterHistoryPayloadCopyWithImpl;
 @override @useResult
 $Res call({
- String roomId, List<LetterDto> letters
+ int roomId, List<LetterDto> letters
 });
 
 
@@ -417,7 +417,7 @@ class __$LetterHistoryPayloadCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? letters = null,}) {
   return _then(_LetterHistoryPayload(
 null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,null == letters ? _self._letters : letters // ignore: cast_nullable_to_non_nullable
+as int,null == letters ? _self._letters : letters // ignore: cast_nullable_to_non_nullable
 as List<LetterDto>,
   ));
 }
@@ -429,7 +429,7 @@ as List<LetterDto>,
 /// @nodoc
 mixin _$LetterDto {
 
- int? get id; int get chatRoomId; int get senderId; String get content; DateTime get createdAt;
+ int get id; int get chatRoomId; int get senderId; String get content; DateTime get createdAt;
 /// Create a copy of LetterDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -462,7 +462,7 @@ abstract mixin class $LetterDtoCopyWith<$Res>  {
   factory $LetterDtoCopyWith(LetterDto value, $Res Function(LetterDto) _then) = _$LetterDtoCopyWithImpl;
 @useResult
 $Res call({
- int? id, int chatRoomId, int senderId, String content, DateTime createdAt
+ int id, int chatRoomId, int senderId, String content, DateTime createdAt
 });
 
 
@@ -479,10 +479,10 @@ class _$LetterDtoCopyWithImpl<$Res>
 
 /// Create a copy of LetterDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? chatRoomId = null,Object? senderId = null,Object? content = null,Object? createdAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? chatRoomId = null,Object? senderId = null,Object? content = null,Object? createdAt = null,}) {
   return _then(_self.copyWith(
-id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int?,chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
 as int,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
 as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -498,10 +498,10 @@ as DateTime,
 @JsonSerializable()
 
 class _LetterDto extends LetterDto {
-  const _LetterDto({this.id, required this.chatRoomId, required this.senderId, required this.content, required this.createdAt}): super._();
+  const _LetterDto({required this.id, required this.chatRoomId, required this.senderId, required this.content, required this.createdAt}): super._();
   factory _LetterDto.fromJson(Map<String, dynamic> json) => _$LetterDtoFromJson(json);
 
-@override final  int? id;
+@override final  int id;
 @override final  int chatRoomId;
 @override final  int senderId;
 @override final  String content;
@@ -540,7 +540,7 @@ abstract mixin class _$LetterDtoCopyWith<$Res> implements $LetterDtoCopyWith<$Re
   factory _$LetterDtoCopyWith(_LetterDto value, $Res Function(_LetterDto) _then) = __$LetterDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, int chatRoomId, int senderId, String content, DateTime createdAt
+ int id, int chatRoomId, int senderId, String content, DateTime createdAt
 });
 
 
@@ -557,10 +557,10 @@ class __$LetterDtoCopyWithImpl<$Res>
 
 /// Create a copy of LetterDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? chatRoomId = null,Object? senderId = null,Object? content = null,Object? createdAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? chatRoomId = null,Object? senderId = null,Object? content = null,Object? createdAt = null,}) {
   return _then(_LetterDto(
-id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int?,chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
 as int,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
 as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -575,7 +575,9 @@ as DateTime,
 /// @nodoc
 mixin _$CreateLetterDto {
 
- int get chatRoomId; int get senderId; String get content;
+// id from
+ int get roomId;// id to
+ int get senderId; String get content;
 /// Create a copy of CreateLetterDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -588,16 +590,16 @@ $CreateLetterDtoCopyWith<CreateLetterDto> get copyWith => _$CreateLetterDtoCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateLetterDto&&(identical(other.chatRoomId, chatRoomId) || other.chatRoomId == chatRoomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateLetterDto&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,chatRoomId,senderId,content);
+int get hashCode => Object.hash(runtimeType,roomId,senderId,content);
 
 @override
 String toString() {
-  return 'CreateLetterDto(chatRoomId: $chatRoomId, senderId: $senderId, content: $content)';
+  return 'CreateLetterDto(roomId: $roomId, senderId: $senderId, content: $content)';
 }
 
 
@@ -608,7 +610,7 @@ abstract mixin class $CreateLetterDtoCopyWith<$Res>  {
   factory $CreateLetterDtoCopyWith(CreateLetterDto value, $Res Function(CreateLetterDto) _then) = _$CreateLetterDtoCopyWithImpl;
 @useResult
 $Res call({
- int chatRoomId, int senderId, String content
+ int roomId, int senderId, String content
 });
 
 
@@ -625,9 +627,9 @@ class _$CreateLetterDtoCopyWithImpl<$Res>
 
 /// Create a copy of CreateLetterDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? chatRoomId = null,Object? senderId = null,Object? content = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? roomId = null,Object? senderId = null,Object? content = null,}) {
   return _then(_self.copyWith(
-chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
+roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
 as int,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
 as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,
@@ -642,10 +644,12 @@ as String,
 @JsonSerializable()
 
 class _CreateLetterDto extends CreateLetterDto {
-  const _CreateLetterDto({required this.chatRoomId, required this.senderId, required this.content}): super._();
+  const _CreateLetterDto({required this.roomId, required this.senderId, required this.content}): super._();
   factory _CreateLetterDto.fromJson(Map<String, dynamic> json) => _$CreateLetterDtoFromJson(json);
 
-@override final  int chatRoomId;
+// id from
+@override final  int roomId;
+// id to
 @override final  int senderId;
 @override final  String content;
 
@@ -662,16 +666,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateLetterDto&&(identical(other.chatRoomId, chatRoomId) || other.chatRoomId == chatRoomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateLetterDto&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,chatRoomId,senderId,content);
+int get hashCode => Object.hash(runtimeType,roomId,senderId,content);
 
 @override
 String toString() {
-  return 'CreateLetterDto(chatRoomId: $chatRoomId, senderId: $senderId, content: $content)';
+  return 'CreateLetterDto(roomId: $roomId, senderId: $senderId, content: $content)';
 }
 
 
@@ -682,7 +686,7 @@ abstract mixin class _$CreateLetterDtoCopyWith<$Res> implements $CreateLetterDto
   factory _$CreateLetterDtoCopyWith(_CreateLetterDto value, $Res Function(_CreateLetterDto) _then) = __$CreateLetterDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int chatRoomId, int senderId, String content
+ int roomId, int senderId, String content
 });
 
 
@@ -699,9 +703,9 @@ class __$CreateLetterDtoCopyWithImpl<$Res>
 
 /// Create a copy of CreateLetterDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? chatRoomId = null,Object? senderId = null,Object? content = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? senderId = null,Object? content = null,}) {
   return _then(_CreateLetterDto(
-chatRoomId: null == chatRoomId ? _self.chatRoomId : chatRoomId // ignore: cast_nullable_to_non_nullable
+roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
 as int,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
 as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,

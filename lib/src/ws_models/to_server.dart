@@ -10,12 +10,13 @@ part 'to_server.g.dart';
 sealed class ToServer with _$ToServer {
   const ToServer._();
   const factory ToServer.withToken(String token) = WithTokenTS;
-  const factory ToServer.withRefresh(String refresh) = WithRefreshTS;
-  const factory ToServer.newLetter(String roomId, CreateLetterDto letter) =
+  const factory ToServer.newLetter({required CreateLetterDto letter}) =
       NewLetterTS;
-  const factory ToServer.deleteLetter(String roomId, int letterId) =
-      DeleteLetterTS;
-  const factory ToServer.joinLetters(String roomId) = JoinLettersTS;
+  const factory ToServer.deleteLetter({
+    required int roomId,
+    required int letterId,
+  }) = DeleteLetterTS;
+  const factory ToServer.joinLetters(int roomId) = JoinLettersTS;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);

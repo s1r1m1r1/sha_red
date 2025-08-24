@@ -15,3 +15,16 @@ abstract class UserDto with _$UserDto {
       _$UserDtoFromJson(json);
   static const fromJsonFactory = _$UserDtoFromJson;
 }
+
+@freezed
+abstract class FakeUserDto with _$FakeUserDto {
+  const factory FakeUserDto({
+    required String email,
+    required String password,
+    required UserDto user,
+  }) = _FakeUserDto;
+
+  factory FakeUserDto.fromJson(Map<String, dynamic> json) =>
+      _$FakeUserDtoFromJson(json);
+  static const fromJsonFactory = _$FakeUserDtoFromJson;
+}

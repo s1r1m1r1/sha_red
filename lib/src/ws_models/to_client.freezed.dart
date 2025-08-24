@@ -91,7 +91,7 @@ class JoinedServerTC extends ToClient {
   const JoinedServerTC({required this.mainRoomId, required this.user, required this.unit, this.tokens, final  String? $type}): $type = $type ?? 'joinedServer',super._();
   factory JoinedServerTC.fromJson(Map<String, dynamic> json) => _$JoinedServerTCFromJson(json);
 
- final  String mainRoomId;
+ final  int mainRoomId;
  final  UserDto user;
  final  UnitDto unit;
  final  TokensDto? tokens;
@@ -133,7 +133,7 @@ abstract mixin class $JoinedServerTCCopyWith<$Res> implements $ToClientCopyWith<
   factory $JoinedServerTCCopyWith(JoinedServerTC value, $Res Function(JoinedServerTC) _then) = _$JoinedServerTCCopyWithImpl;
 @useResult
 $Res call({
- String mainRoomId, UserDto user, UnitDto unit, TokensDto? tokens
+ int mainRoomId, UserDto user, UnitDto unit, TokensDto? tokens
 });
 
 
@@ -153,7 +153,7 @@ class _$JoinedServerTCCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? mainRoomId = null,Object? user = null,Object? unit = null,Object? tokens = freezed,}) {
   return _then(JoinedServerTC(
 mainRoomId: null == mainRoomId ? _self.mainRoomId : mainRoomId // ignore: cast_nullable_to_non_nullable
-as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+as int,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as UserDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as UnitDto,tokens: freezed == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
 as TokensDto?,

@@ -151,4 +151,162 @@ as Role,
 
 }
 
+
+/// @nodoc
+mixin _$FakeUserDto {
+
+ String get email; String get password; UserDto get user;
+/// Create a copy of FakeUserDto
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FakeUserDtoCopyWith<FakeUserDto> get copyWith => _$FakeUserDtoCopyWithImpl<FakeUserDto>(this as FakeUserDto, _$identity);
+
+  /// Serializes this FakeUserDto to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FakeUserDto&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.user, user) || other.user == user));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,password,user);
+
+@override
+String toString() {
+  return 'FakeUserDto(email: $email, password: $password, user: $user)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $FakeUserDtoCopyWith<$Res>  {
+  factory $FakeUserDtoCopyWith(FakeUserDto value, $Res Function(FakeUserDto) _then) = _$FakeUserDtoCopyWithImpl;
+@useResult
+$Res call({
+ String email, String password, UserDto user
+});
+
+
+$UserDtoCopyWith<$Res> get user;
+
+}
+/// @nodoc
+class _$FakeUserDtoCopyWithImpl<$Res>
+    implements $FakeUserDtoCopyWith<$Res> {
+  _$FakeUserDtoCopyWithImpl(this._self, this._then);
+
+  final FakeUserDto _self;
+  final $Res Function(FakeUserDto) _then;
+
+/// Create a copy of FakeUserDto
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,Object? user = null,}) {
+  return _then(_self.copyWith(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+as UserDto,
+  ));
+}
+/// Create a copy of FakeUserDto
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UserDtoCopyWith<$Res> get user {
+  
+  return $UserDtoCopyWith<$Res>(_self.user, (value) {
+    return _then(_self.copyWith(user: value));
+  });
+}
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class _FakeUserDto implements FakeUserDto {
+  const _FakeUserDto({required this.email, required this.password, required this.user});
+  factory _FakeUserDto.fromJson(Map<String, dynamic> json) => _$FakeUserDtoFromJson(json);
+
+@override final  String email;
+@override final  String password;
+@override final  UserDto user;
+
+/// Create a copy of FakeUserDto
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FakeUserDtoCopyWith<_FakeUserDto> get copyWith => __$FakeUserDtoCopyWithImpl<_FakeUserDto>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$FakeUserDtoToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FakeUserDto&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.user, user) || other.user == user));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,email,password,user);
+
+@override
+String toString() {
+  return 'FakeUserDto(email: $email, password: $password, user: $user)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FakeUserDtoCopyWith<$Res> implements $FakeUserDtoCopyWith<$Res> {
+  factory _$FakeUserDtoCopyWith(_FakeUserDto value, $Res Function(_FakeUserDto) _then) = __$FakeUserDtoCopyWithImpl;
+@override @useResult
+$Res call({
+ String email, String password, UserDto user
+});
+
+
+@override $UserDtoCopyWith<$Res> get user;
+
+}
+/// @nodoc
+class __$FakeUserDtoCopyWithImpl<$Res>
+    implements _$FakeUserDtoCopyWith<$Res> {
+  __$FakeUserDtoCopyWithImpl(this._self, this._then);
+
+  final _FakeUserDto _self;
+  final $Res Function(_FakeUserDto) _then;
+
+/// Create a copy of FakeUserDto
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,Object? user = null,}) {
+  return _then(_FakeUserDto(
+email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
+as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+as UserDto,
+  ));
+}
+
+/// Create a copy of FakeUserDto
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UserDtoCopyWith<$Res> get user {
+  
+  return $UserDtoCopyWith<$Res>(_self.user, (value) {
+    return _then(_self.copyWith(user: value));
+  });
+}
+}
+
 // dart format on
