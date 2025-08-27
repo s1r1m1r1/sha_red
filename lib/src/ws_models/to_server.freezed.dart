@@ -31,6 +31,18 @@ ToServer _$ToServerFromJson(
           return JoinLettersTS.fromJson(
             json
           );
+                case 'createBattleRoom':
+          return CreateBattleRoomTS.fromJson(
+            json
+          );
+                case 'joinBattleRoom':
+          return JoinBattleRoomTS.fromJson(
+            json
+          );
+                case 'leaveBattleRoom':
+          return LeaveBattleRoom.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -372,6 +384,225 @@ class _$JoinLettersTSCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? roomId = null,}) {
   return _then(JoinLettersTS(
 null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class CreateBattleRoomTS extends ToServer {
+  const CreateBattleRoomTS(this.unitId, {final  String? $type}): $type = $type ?? 'createBattleRoom',super._();
+  factory CreateBattleRoomTS.fromJson(Map<String, dynamic> json) => _$CreateBattleRoomTSFromJson(json);
+
+ final  int unitId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CreateBattleRoomTSCopyWith<CreateBattleRoomTS> get copyWith => _$CreateBattleRoomTSCopyWithImpl<CreateBattleRoomTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateBattleRoomTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateBattleRoomTS&&(identical(other.unitId, unitId) || other.unitId == unitId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,unitId);
+
+@override
+String toString() {
+  return 'ToServer.createBattleRoom(unitId: $unitId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CreateBattleRoomTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $CreateBattleRoomTSCopyWith(CreateBattleRoomTS value, $Res Function(CreateBattleRoomTS) _then) = _$CreateBattleRoomTSCopyWithImpl;
+@useResult
+$Res call({
+ int unitId
+});
+
+
+
+
+}
+/// @nodoc
+class _$CreateBattleRoomTSCopyWithImpl<$Res>
+    implements $CreateBattleRoomTSCopyWith<$Res> {
+  _$CreateBattleRoomTSCopyWithImpl(this._self, this._then);
+
+  final CreateBattleRoomTS _self;
+  final $Res Function(CreateBattleRoomTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? unitId = null,}) {
+  return _then(CreateBattleRoomTS(
+null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinBattleRoomTS extends ToServer {
+  const JoinBattleRoomTS(this.battleRoomId, {final  String? $type}): $type = $type ?? 'joinBattleRoom',super._();
+  factory JoinBattleRoomTS.fromJson(Map<String, dynamic> json) => _$JoinBattleRoomTSFromJson(json);
+
+ final  int battleRoomId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JoinBattleRoomTSCopyWith<JoinBattleRoomTS> get copyWith => _$JoinBattleRoomTSCopyWithImpl<JoinBattleRoomTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$JoinBattleRoomTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinBattleRoomTS&&(identical(other.battleRoomId, battleRoomId) || other.battleRoomId == battleRoomId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,battleRoomId);
+
+@override
+String toString() {
+  return 'ToServer.joinBattleRoom(battleRoomId: $battleRoomId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $JoinBattleRoomTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $JoinBattleRoomTSCopyWith(JoinBattleRoomTS value, $Res Function(JoinBattleRoomTS) _then) = _$JoinBattleRoomTSCopyWithImpl;
+@useResult
+$Res call({
+ int battleRoomId
+});
+
+
+
+
+}
+/// @nodoc
+class _$JoinBattleRoomTSCopyWithImpl<$Res>
+    implements $JoinBattleRoomTSCopyWith<$Res> {
+  _$JoinBattleRoomTSCopyWithImpl(this._self, this._then);
+
+  final JoinBattleRoomTS _self;
+  final $Res Function(JoinBattleRoomTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? battleRoomId = null,}) {
+  return _then(JoinBattleRoomTS(
+null == battleRoomId ? _self.battleRoomId : battleRoomId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class LeaveBattleRoom extends ToServer {
+  const LeaveBattleRoom(this.battleRoomId, {final  String? $type}): $type = $type ?? 'leaveBattleRoom',super._();
+  factory LeaveBattleRoom.fromJson(Map<String, dynamic> json) => _$LeaveBattleRoomFromJson(json);
+
+ final  int battleRoomId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LeaveBattleRoomCopyWith<LeaveBattleRoom> get copyWith => _$LeaveBattleRoomCopyWithImpl<LeaveBattleRoom>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LeaveBattleRoomToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LeaveBattleRoom&&(identical(other.battleRoomId, battleRoomId) || other.battleRoomId == battleRoomId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,battleRoomId);
+
+@override
+String toString() {
+  return 'ToServer.leaveBattleRoom(battleRoomId: $battleRoomId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $LeaveBattleRoomCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $LeaveBattleRoomCopyWith(LeaveBattleRoom value, $Res Function(LeaveBattleRoom) _then) = _$LeaveBattleRoomCopyWithImpl;
+@useResult
+$Res call({
+ int battleRoomId
+});
+
+
+
+
+}
+/// @nodoc
+class _$LeaveBattleRoomCopyWithImpl<$Res>
+    implements $LeaveBattleRoomCopyWith<$Res> {
+  _$LeaveBattleRoomCopyWithImpl(this._self, this._then);
+
+  final LeaveBattleRoom _self;
+  final $Res Function(LeaveBattleRoom) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? battleRoomId = null,}) {
+  return _then(LeaveBattleRoom(
+null == battleRoomId ? _self.battleRoomId : battleRoomId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }

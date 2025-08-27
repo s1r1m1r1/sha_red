@@ -6,14 +6,23 @@ part of 'to_client.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+AuthErrorTC _$AuthErrorTCFromJson(Map<String, dynamic> json) => AuthErrorTC(
+  error: WsAuthError.fromJson(json['error']),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$AuthErrorTCToJson(AuthErrorTC instance) =>
+    <String, dynamic>{
+      'error': WsAuthError.toJson(instance.error),
+      'runtimeType': instance.$type,
+    };
+
 JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
     JoinedServerTC(
       mainRoomId: (json['mainRoomId'] as num).toInt(),
       user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
       unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
-      tokens: json['tokens'] == null
-          ? null
-          : TokensDto.fromJson(json['tokens'] as Map<String, dynamic>),
+      tokens: TokensDto.fromJson(json['tokens'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -47,15 +56,14 @@ Map<String, dynamic> _$StatusErrorTCToJson(StatusErrorTC instance) =>
       'runtimeType': instance.$type,
     };
 
-LettersTC _$LettersTCFromJson(Map<String, dynamic> json) => LettersTC(
-  LetterHistoryPayload.fromJson(json['dto'] as Map<String, dynamic>),
-  $type: json['runtimeType'] as String?,
-);
+LetterHistoryTC _$LetterHistoryTCFromJson(Map<String, dynamic> json) =>
+    LetterHistoryTC(
+      LetterHistoryPayload.fromJson(json['dto'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
 
-Map<String, dynamic> _$LettersTCToJson(LettersTC instance) => <String, dynamic>{
-  'dto': instance.dto,
-  'runtimeType': instance.$type,
-};
+Map<String, dynamic> _$LetterHistoryTCToJson(LetterHistoryTC instance) =>
+    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
 OnLetterTC _$OnLetterTCFromJson(Map<String, dynamic> json) => OnLetterTC(
   LastLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
@@ -73,3 +81,15 @@ DeletedLetterTC _$DeletedLetterTCFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$DeletedLetterTCToJson(DeletedLetterTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+
+onArenaTC _$onArenaTCFromJson(Map<String, dynamic> json) => onArenaTC(
+  (json['battles'] as List<dynamic>)
+      .map((e) => BattleRoomDto.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$onArenaTCToJson(onArenaTC instance) => <String, dynamic>{
+  'battles': instance.battles,
+  'runtimeType': instance.$type,
+};

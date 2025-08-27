@@ -57,7 +57,7 @@ enum WsServerError {
   /// 4004: Invalid Token
   /// The provided authentication token (e.g., JWT) is invalid, malformed, or
   /// has been revoked.
-  invalidToken(4004),
+  // invalidToken(4004),
 
   sessionAlreadyRegistered(4005),
   finishedDuplicateSession(4006),

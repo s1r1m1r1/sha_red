@@ -17,6 +17,10 @@ sealed class ToServer with _$ToServer {
     required int letterId,
   }) = DeleteLetterTS;
   const factory ToServer.joinLetters(int roomId) = JoinLettersTS;
+
+  const factory ToServer.createBattleRoom(int unitId) = CreateBattleRoomTS;
+  const factory ToServer.joinBattleRoom(int battleRoomId) = JoinBattleRoomTS;
+  const factory ToServer.leaveBattleRoom(int battleRoomId) = LeaveBattleRoom;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);
