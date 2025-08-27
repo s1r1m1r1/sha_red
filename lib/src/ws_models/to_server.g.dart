@@ -42,3 +42,36 @@ JoinLettersTS _$JoinLettersTSFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$JoinLettersTSToJson(JoinLettersTS instance) =>
     <String, dynamic>{'roomId': instance.roomId, 'runtimeType': instance.$type};
+
+CreateBattleRoomTS _$CreateBattleRoomTSFromJson(Map<String, dynamic> json) =>
+    CreateBattleRoomTS(
+      (json['unitId'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$CreateBattleRoomTSToJson(CreateBattleRoomTS instance) =>
+    <String, dynamic>{'unitId': instance.unitId, 'runtimeType': instance.$type};
+
+JoinBattleRoomTS _$JoinBattleRoomTSFromJson(Map<String, dynamic> json) =>
+    JoinBattleRoomTS(
+      (json['battleRoomId'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$JoinBattleRoomTSToJson(JoinBattleRoomTS instance) =>
+    <String, dynamic>{
+      'battleRoomId': instance.battleRoomId,
+      'runtimeType': instance.$type,
+    };
+
+LeaveBattleRoom _$LeaveBattleRoomFromJson(Map<String, dynamic> json) =>
+    LeaveBattleRoom(
+      (json['battleRoomId'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$LeaveBattleRoomToJson(LeaveBattleRoom instance) =>
+    <String, dynamic>{
+      'battleRoomId': instance.battleRoomId,
+      'runtimeType': instance.$type,
+    };

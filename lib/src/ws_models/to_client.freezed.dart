@@ -15,7 +15,11 @@ ToClient _$ToClientFromJson(
   Map<String, dynamic> json
 ) {
         switch (json['runtimeType']) {
-                  case 'joinedServer':
+                  case 'authError':
+          return AuthErrorTC.fromJson(
+            json
+          );
+                case 'joinedServer':
           return JoinedServerTC.fromJson(
             json
           );
@@ -27,8 +31,8 @@ ToClient _$ToClientFromJson(
           return StatusErrorTC.fromJson(
             json
           );
-                case 'letters':
-          return LettersTC.fromJson(
+                case 'letterHistory':
+          return LetterHistoryTC.fromJson(
             json
           );
                 case 'onLetter':
@@ -37,6 +41,10 @@ ToClient _$ToClientFromJson(
           );
                 case 'deletedLetter':
           return DeletedLetterTC.fromJson(
+            json
+          );
+                case 'onArena':
+          return onArenaTC.fromJson(
             json
           );
         
@@ -87,14 +95,87 @@ $ToClientCopyWith(ToClient _, $Res Function(ToClient) __);
 /// @nodoc
 @JsonSerializable()
 
-class JoinedServerTC extends ToClient {
-  const JoinedServerTC({required this.mainRoomId, required this.user, required this.unit, this.tokens, final  String? $type}): $type = $type ?? 'joinedServer',super._();
+class AuthErrorTC extends ToClient implements AuthTC {
+  const AuthErrorTC({@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'authError',super._();
+  factory AuthErrorTC.fromJson(Map<String, dynamic> json) => _$AuthErrorTCFromJson(json);
+
+@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) final  WsAuthError error;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AuthErrorTCCopyWith<AuthErrorTC> get copyWith => _$AuthErrorTCCopyWithImpl<AuthErrorTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AuthErrorTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthErrorTC&&(identical(other.error, error) || other.error == error));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,error);
+
+@override
+String toString() {
+  return 'ToClient.authError(error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AuthErrorTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $AuthErrorTCCopyWith(AuthErrorTC value, $Res Function(AuthErrorTC) _then) = _$AuthErrorTCCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) WsAuthError error
+});
+
+
+
+
+}
+/// @nodoc
+class _$AuthErrorTCCopyWithImpl<$Res>
+    implements $AuthErrorTCCopyWith<$Res> {
+  _$AuthErrorTCCopyWithImpl(this._self, this._then);
+
+  final AuthErrorTC _self;
+  final $Res Function(AuthErrorTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(AuthErrorTC(
+error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as WsAuthError,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinedServerTC extends ToClient implements AuthTC {
+  const JoinedServerTC({required this.mainRoomId, required this.user, required this.unit, required this.tokens, final  String? $type}): $type = $type ?? 'joinedServer',super._();
   factory JoinedServerTC.fromJson(Map<String, dynamic> json) => _$JoinedServerTCFromJson(json);
 
  final  int mainRoomId;
  final  UserDto user;
  final  UnitDto unit;
- final  TokensDto? tokens;
+ final  TokensDto tokens;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -133,11 +214,11 @@ abstract mixin class $JoinedServerTCCopyWith<$Res> implements $ToClientCopyWith<
   factory $JoinedServerTCCopyWith(JoinedServerTC value, $Res Function(JoinedServerTC) _then) = _$JoinedServerTCCopyWithImpl;
 @useResult
 $Res call({
- int mainRoomId, UserDto user, UnitDto unit, TokensDto? tokens
+ int mainRoomId, UserDto user, UnitDto unit, TokensDto tokens
 });
 
 
-$UserDtoCopyWith<$Res> get user;$UnitDtoCopyWith<$Res> get unit;$TokensDtoCopyWith<$Res>? get tokens;
+$UserDtoCopyWith<$Res> get user;$UnitDtoCopyWith<$Res> get unit;$TokensDtoCopyWith<$Res> get tokens;
 
 }
 /// @nodoc
@@ -150,13 +231,13 @@ class _$JoinedServerTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? mainRoomId = null,Object? user = null,Object? unit = null,Object? tokens = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? mainRoomId = null,Object? user = null,Object? unit = null,Object? tokens = null,}) {
   return _then(JoinedServerTC(
 mainRoomId: null == mainRoomId ? _self.mainRoomId : mainRoomId // ignore: cast_nullable_to_non_nullable
 as int,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as UserDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
-as UnitDto,tokens: freezed == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
-as TokensDto?,
+as UnitDto,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
+as TokensDto,
   ));
 }
 
@@ -182,12 +263,9 @@ $UnitDtoCopyWith<$Res> get unit {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$TokensDtoCopyWith<$Res>? get tokens {
-    if (_self.tokens == null) {
-    return null;
-  }
-
-  return $TokensDtoCopyWith<$Res>(_self.tokens!, (value) {
+$TokensDtoCopyWith<$Res> get tokens {
+  
+  return $TokensDtoCopyWith<$Res>(_self.tokens, (value) {
     return _then(_self.copyWith(tokens: value));
   });
 }
@@ -351,9 +429,9 @@ as WsServerError,
 /// @nodoc
 @JsonSerializable()
 
-class LettersTC extends ToClient {
-  const LettersTC(this.dto, {final  String? $type}): $type = $type ?? 'letters',super._();
-  factory LettersTC.fromJson(Map<String, dynamic> json) => _$LettersTCFromJson(json);
+class LetterHistoryTC extends ToClient implements LetterTC {
+  const LetterHistoryTC(this.dto, {final  String? $type}): $type = $type ?? 'letterHistory',super._();
+  factory LetterHistoryTC.fromJson(Map<String, dynamic> json) => _$LetterHistoryTCFromJson(json);
 
  final  LetterHistoryPayload dto;
 
@@ -365,16 +443,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$LettersTCCopyWith<LettersTC> get copyWith => _$LettersTCCopyWithImpl<LettersTC>(this, _$identity);
+$LetterHistoryTCCopyWith<LetterHistoryTC> get copyWith => _$LetterHistoryTCCopyWithImpl<LetterHistoryTC>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$LettersTCToJson(this, );
+  return _$LetterHistoryTCToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LettersTC&&(identical(other.dto, dto) || other.dto == dto));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LetterHistoryTC&&(identical(other.dto, dto) || other.dto == dto));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -383,15 +461,15 @@ int get hashCode => Object.hash(runtimeType,dto);
 
 @override
 String toString() {
-  return 'ToClient.letters(dto: $dto)';
+  return 'ToClient.letterHistory(dto: $dto)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $LettersTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $LettersTCCopyWith(LettersTC value, $Res Function(LettersTC) _then) = _$LettersTCCopyWithImpl;
+abstract mixin class $LetterHistoryTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $LetterHistoryTCCopyWith(LetterHistoryTC value, $Res Function(LetterHistoryTC) _then) = _$LetterHistoryTCCopyWithImpl;
 @useResult
 $Res call({
  LetterHistoryPayload dto
@@ -402,17 +480,17 @@ $LetterHistoryPayloadCopyWith<$Res> get dto;
 
 }
 /// @nodoc
-class _$LettersTCCopyWithImpl<$Res>
-    implements $LettersTCCopyWith<$Res> {
-  _$LettersTCCopyWithImpl(this._self, this._then);
+class _$LetterHistoryTCCopyWithImpl<$Res>
+    implements $LetterHistoryTCCopyWith<$Res> {
+  _$LetterHistoryTCCopyWithImpl(this._self, this._then);
 
-  final LettersTC _self;
-  final $Res Function(LettersTC) _then;
+  final LetterHistoryTC _self;
+  final $Res Function(LetterHistoryTC) _then;
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? dto = null,}) {
-  return _then(LettersTC(
+  return _then(LetterHistoryTC(
 null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
 as LetterHistoryPayload,
   ));
@@ -433,7 +511,7 @@ $LetterHistoryPayloadCopyWith<$Res> get dto {
 /// @nodoc
 @JsonSerializable()
 
-class OnLetterTC extends ToClient {
+class OnLetterTC extends ToClient implements LetterTC {
   const OnLetterTC(this.dto, {final  String? $type}): $type = $type ?? 'onLetter',super._();
   factory OnLetterTC.fromJson(Map<String, dynamic> json) => _$OnLetterTCFromJson(json);
 
@@ -506,7 +584,7 @@ as LastLetterPayload,
 /// @nodoc
 @JsonSerializable()
 
-class DeletedLetterTC extends ToClient {
+class DeletedLetterTC extends ToClient implements LetterTC {
   const DeletedLetterTC(this.dto, {final  String? $type}): $type = $type ?? 'deletedLetter',super._();
   factory DeletedLetterTC.fromJson(Map<String, dynamic> json) => _$DeletedLetterTCFromJson(json);
 
@@ -583,6 +661,85 @@ $IdLetterPayloadCopyWith<$Res> get dto {
     return _then(_self.copyWith(dto: value));
   });
 }
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class onArenaTC extends ToClient {
+  const onArenaTC(final  List<BattleRoomDto> battles, {final  String? $type}): _battles = battles,$type = $type ?? 'onArena',super._();
+  factory onArenaTC.fromJson(Map<String, dynamic> json) => _$onArenaTCFromJson(json);
+
+ final  List<BattleRoomDto> _battles;
+ List<BattleRoomDto> get battles {
+  if (_battles is EqualUnmodifiableListView) return _battles;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_battles);
+}
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$onArenaTCCopyWith<onArenaTC> get copyWith => _$onArenaTCCopyWithImpl<onArenaTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$onArenaTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is onArenaTC&&const DeepCollectionEquality().equals(other._battles, _battles));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_battles));
+
+@override
+String toString() {
+  return 'ToClient.onArena(battles: $battles)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $onArenaTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $onArenaTCCopyWith(onArenaTC value, $Res Function(onArenaTC) _then) = _$onArenaTCCopyWithImpl;
+@useResult
+$Res call({
+ List<BattleRoomDto> battles
+});
+
+
+
+
+}
+/// @nodoc
+class _$onArenaTCCopyWithImpl<$Res>
+    implements $onArenaTCCopyWith<$Res> {
+  _$onArenaTCCopyWithImpl(this._self, this._then);
+
+  final onArenaTC _self;
+  final $Res Function(onArenaTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? battles = null,}) {
+  return _then(onArenaTC(
+null == battles ? _self._battles : battles // ignore: cast_nullable_to_non_nullable
+as List<BattleRoomDto>,
+  ));
+}
+
+
 }
 
 // dart format on
