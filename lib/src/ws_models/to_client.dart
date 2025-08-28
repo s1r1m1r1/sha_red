@@ -4,15 +4,15 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sha_red/sha_red.dart';
-import 'package:sha_red/src/ws_models/ws_auth_error.dart';
 part 'to_client.g.dart';
 part 'to_client.freezed.dart';
 
 @freezed
-sealed class ToClient with _$ToClient {
+sealed class ToClient with _$ToClient implements JsonMessage {
   const ToClient._();
 
   @Implements<AuthTC>()
+  @Implements<OnlineTC>()
   const factory ToClient.authError({
     @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson)
     required WsAuthError error,
@@ -26,6 +26,7 @@ sealed class ToClient with _$ToClient {
     required TokensDto tokens,
   }) = JoinedServerTC;
 
+  @Implements<OnlineTC>()
   const factory ToClient.onlineUsers(OnlineMemberPayload dto) = OnlineUsersTC;
   // // const factory ToClient.unauthenticated(WsErrorPayload dto) =
   //     Unauthenticated_WsFromServer;
@@ -55,6 +56,12 @@ sealed class ToClient with _$ToClient {
   }
 }
 
+sealed class OnlineTC implements ToClient {}
+
 sealed class AuthTC implements ToClient {}
 
 sealed class LetterTC implements ToClient {}
+
+abstract class JsonMessage {
+  String encoded();
+}

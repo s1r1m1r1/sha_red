@@ -95,7 +95,7 @@ $ToClientCopyWith(ToClient _, $Res Function(ToClient) __);
 /// @nodoc
 @JsonSerializable()
 
-class AuthErrorTC extends ToClient implements AuthTC {
+class AuthErrorTC extends ToClient implements AuthTC, OnlineTC {
   const AuthErrorTC({@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'authError',super._();
   factory AuthErrorTC.fromJson(Map<String, dynamic> json) => _$AuthErrorTCFromJson(json);
 
@@ -274,7 +274,7 @@ $TokensDtoCopyWith<$Res> get tokens {
 /// @nodoc
 @JsonSerializable()
 
-class OnlineUsersTC extends ToClient {
+class OnlineUsersTC extends ToClient implements OnlineTC {
   const OnlineUsersTC(this.dto, {final  String? $type}): $type = $type ?? 'onlineUsers',super._();
   factory OnlineUsersTC.fromJson(Map<String, dynamic> json) => _$OnlineUsersTCFromJson(json);
 
