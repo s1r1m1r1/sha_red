@@ -10,14 +10,26 @@ part 'to_server.g.dart';
 sealed class ToServer with _$ToServer {
   const ToServer._();
   const factory ToServer.withToken(String token) = WithTokenTS;
+  const factory ToServer.getJoinedBroads() = GetJoinedBroadsTS;
+
+  const factory ToServer.createNewEdict() = CreateNewEdictTS;
+
+  const factory ToServer.joinEdict(int edictId) = JoinEdictTS;
+
+  const factory ToServer.leaveEdict() = LeaveEdictTS;
+
   const factory ToServer.newLetter({required CreateLetterDto letter}) =
       NewLetterTS;
+
   const factory ToServer.deleteLetter({
     required int roomId,
     required int letterId,
   }) = DeleteLetterTS;
+
   const factory ToServer.joinLetters(int roomId) = JoinLettersTS;
 
+  const factory ToServer.joinArena() = JoinArenaTS;
+  const factory ToServer.leaveArena() = LeaveArenaTS;
   const factory ToServer.createBattleRoom(int unitId) = CreateBattleRoomTS;
   const factory ToServer.joinBattleRoom(int battleRoomId) = JoinBattleRoomTS;
   const factory ToServer.leaveBattleRoom(int battleRoomId) = LeaveBattleRoom;

@@ -19,6 +19,22 @@ ToServer _$ToServerFromJson(
           return WithTokenTS.fromJson(
             json
           );
+                case 'getJoinedBroads':
+          return GetJoinedBroadsTS.fromJson(
+            json
+          );
+                case 'createNewEdict':
+          return CreateNewEdictTS.fromJson(
+            json
+          );
+                case 'joinEdict':
+          return JoinEdictTS.fromJson(
+            json
+          );
+                case 'leaveEdict':
+          return LeaveEdictTS.fromJson(
+            json
+          );
                 case 'newLetter':
           return NewLetterTS.fromJson(
             json
@@ -29,6 +45,14 @@ ToServer _$ToServerFromJson(
           );
                 case 'joinLetters':
           return JoinLettersTS.fromJson(
+            json
+          );
+                case 'joinArena':
+          return JoinArenaTS.fromJson(
+            json
+          );
+                case 'leaveArena':
+          return LeaveArenaTS.fromJson(
             json
           );
                 case 'createBattleRoom':
@@ -160,6 +184,196 @@ as String,
 
 
 }
+
+/// @nodoc
+@JsonSerializable()
+
+class GetJoinedBroadsTS extends ToServer {
+  const GetJoinedBroadsTS({final  String? $type}): $type = $type ?? 'getJoinedBroads',super._();
+  factory GetJoinedBroadsTS.fromJson(Map<String, dynamic> json) => _$GetJoinedBroadsTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GetJoinedBroadsTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetJoinedBroadsTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.getJoinedBroads()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class CreateNewEdictTS extends ToServer {
+  const CreateNewEdictTS({final  String? $type}): $type = $type ?? 'createNewEdict',super._();
+  factory CreateNewEdictTS.fromJson(Map<String, dynamic> json) => _$CreateNewEdictTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateNewEdictTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateNewEdictTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.createNewEdict()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinEdictTS extends ToServer {
+  const JoinEdictTS(this.edictId, {final  String? $type}): $type = $type ?? 'joinEdict',super._();
+  factory JoinEdictTS.fromJson(Map<String, dynamic> json) => _$JoinEdictTSFromJson(json);
+
+ final  int edictId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JoinEdictTSCopyWith<JoinEdictTS> get copyWith => _$JoinEdictTSCopyWithImpl<JoinEdictTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$JoinEdictTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinEdictTS&&(identical(other.edictId, edictId) || other.edictId == edictId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,edictId);
+
+@override
+String toString() {
+  return 'ToServer.joinEdict(edictId: $edictId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $JoinEdictTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $JoinEdictTSCopyWith(JoinEdictTS value, $Res Function(JoinEdictTS) _then) = _$JoinEdictTSCopyWithImpl;
+@useResult
+$Res call({
+ int edictId
+});
+
+
+
+
+}
+/// @nodoc
+class _$JoinEdictTSCopyWithImpl<$Res>
+    implements $JoinEdictTSCopyWith<$Res> {
+  _$JoinEdictTSCopyWithImpl(this._self, this._then);
+
+  final JoinEdictTS _self;
+  final $Res Function(JoinEdictTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? edictId = null,}) {
+  return _then(JoinEdictTS(
+null == edictId ? _self.edictId : edictId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class LeaveEdictTS extends ToServer {
+  const LeaveEdictTS({final  String? $type}): $type = $type ?? 'leaveEdict',super._();
+  factory LeaveEdictTS.fromJson(Map<String, dynamic> json) => _$LeaveEdictTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LeaveEdictTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LeaveEdictTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.leaveEdict()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 @JsonSerializable()
@@ -390,6 +604,84 @@ as int,
 
 
 }
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinArenaTS extends ToServer {
+  const JoinArenaTS({final  String? $type}): $type = $type ?? 'joinArena',super._();
+  factory JoinArenaTS.fromJson(Map<String, dynamic> json) => _$JoinArenaTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$JoinArenaTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinArenaTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.joinArena()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class LeaveArenaTS extends ToServer {
+  const LeaveArenaTS({final  String? $type}): $type = $type ?? 'leaveArena',super._();
+  factory LeaveArenaTS.fromJson(Map<String, dynamic> json) => _$LeaveArenaTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LeaveArenaTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LeaveArenaTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.leaveArena()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 @JsonSerializable()

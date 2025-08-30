@@ -27,6 +27,18 @@ ToClient _$ToClientFromJson(
           return OnlineUsersTC.fromJson(
             json
           );
+                case 'broadcastInfo':
+          return BroadcastInfoTC.fromJson(
+            json
+          );
+                case 'terminatedBroadcast':
+          return TerminatedBroadcastTC.fromJson(
+            json
+          );
+                case 'terminatedAllBroadcast':
+          return TerminatedAllBroadcastTC.fromJson(
+            json
+          );
                 case 'statusError':
           return StatusErrorTC.fromJson(
             json
@@ -43,8 +55,8 @@ ToClient _$ToClientFromJson(
           return DeletedLetterTC.fromJson(
             json
           );
-                case 'onArena':
-          return onArenaTC.fromJson(
+                case 'activeEdicts':
+          return ActiveEdictsTC.fromJson(
             json
           );
         
@@ -95,7 +107,7 @@ $ToClientCopyWith(ToClient _, $Res Function(ToClient) __);
 /// @nodoc
 @JsonSerializable()
 
-class AuthErrorTC extends ToClient implements AuthTC, OnlineTC {
+class AuthErrorTC extends ToClient implements AuthTC {
   const AuthErrorTC({@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'authError',super._();
   factory AuthErrorTC.fromJson(Map<String, dynamic> json) => _$AuthErrorTCFromJson(json);
 
@@ -274,7 +286,7 @@ $TokensDtoCopyWith<$Res> get tokens {
 /// @nodoc
 @JsonSerializable()
 
-class OnlineUsersTC extends ToClient implements OnlineTC {
+class OnlineUsersTC extends ToClient {
   const OnlineUsersTC(this.dto, {final  String? $type}): $type = $type ?? 'onlineUsers',super._();
   factory OnlineUsersTC.fromJson(Map<String, dynamic> json) => _$OnlineUsersTCFromJson(json);
 
@@ -352,6 +364,206 @@ $OnlineMemberPayloadCopyWith<$Res> get dto {
   });
 }
 }
+
+/// @nodoc
+@JsonSerializable()
+
+class BroadcastInfoTC extends ToClient implements BroadcastTC {
+  const BroadcastInfoTC(final  List<BroadcastId> broads, {final  String? $type}): _broads = broads,$type = $type ?? 'broadcastInfo',super._();
+  factory BroadcastInfoTC.fromJson(Map<String, dynamic> json) => _$BroadcastInfoTCFromJson(json);
+
+ final  List<BroadcastId> _broads;
+ List<BroadcastId> get broads {
+  if (_broads is EqualUnmodifiableListView) return _broads;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_broads);
+}
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BroadcastInfoTCCopyWith<BroadcastInfoTC> get copyWith => _$BroadcastInfoTCCopyWithImpl<BroadcastInfoTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$BroadcastInfoTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BroadcastInfoTC&&const DeepCollectionEquality().equals(other._broads, _broads));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_broads));
+
+@override
+String toString() {
+  return 'ToClient.broadcastInfo(broads: $broads)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $BroadcastInfoTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $BroadcastInfoTCCopyWith(BroadcastInfoTC value, $Res Function(BroadcastInfoTC) _then) = _$BroadcastInfoTCCopyWithImpl;
+@useResult
+$Res call({
+ List<BroadcastId> broads
+});
+
+
+
+
+}
+/// @nodoc
+class _$BroadcastInfoTCCopyWithImpl<$Res>
+    implements $BroadcastInfoTCCopyWith<$Res> {
+  _$BroadcastInfoTCCopyWithImpl(this._self, this._then);
+
+  final BroadcastInfoTC _self;
+  final $Res Function(BroadcastInfoTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? broads = null,}) {
+  return _then(BroadcastInfoTC(
+null == broads ? _self._broads : broads // ignore: cast_nullable_to_non_nullable
+as List<BroadcastId>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class TerminatedBroadcastTC extends ToClient implements BroadcastTC {
+  const TerminatedBroadcastTC(this.broad, {final  String? $type}): $type = $type ?? 'terminatedBroadcast',super._();
+  factory TerminatedBroadcastTC.fromJson(Map<String, dynamic> json) => _$TerminatedBroadcastTCFromJson(json);
+
+ final  BroadcastId broad;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TerminatedBroadcastTCCopyWith<TerminatedBroadcastTC> get copyWith => _$TerminatedBroadcastTCCopyWithImpl<TerminatedBroadcastTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TerminatedBroadcastTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TerminatedBroadcastTC&&(identical(other.broad, broad) || other.broad == broad));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,broad);
+
+@override
+String toString() {
+  return 'ToClient.terminatedBroadcast(broad: $broad)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TerminatedBroadcastTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $TerminatedBroadcastTCCopyWith(TerminatedBroadcastTC value, $Res Function(TerminatedBroadcastTC) _then) = _$TerminatedBroadcastTCCopyWithImpl;
+@useResult
+$Res call({
+ BroadcastId broad
+});
+
+
+$BroadcastIdCopyWith<$Res> get broad;
+
+}
+/// @nodoc
+class _$TerminatedBroadcastTCCopyWithImpl<$Res>
+    implements $TerminatedBroadcastTCCopyWith<$Res> {
+  _$TerminatedBroadcastTCCopyWithImpl(this._self, this._then);
+
+  final TerminatedBroadcastTC _self;
+  final $Res Function(TerminatedBroadcastTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? broad = null,}) {
+  return _then(TerminatedBroadcastTC(
+null == broad ? _self.broad : broad // ignore: cast_nullable_to_non_nullable
+as BroadcastId,
+  ));
+}
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$BroadcastIdCopyWith<$Res> get broad {
+  
+  return $BroadcastIdCopyWith<$Res>(_self.broad, (value) {
+    return _then(_self.copyWith(broad: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class TerminatedAllBroadcastTC extends ToClient implements BroadcastTC {
+  const TerminatedAllBroadcastTC({final  String? $type}): $type = $type ?? 'terminatedAllBroadcast',super._();
+  factory TerminatedAllBroadcastTC.fromJson(Map<String, dynamic> json) => _$TerminatedAllBroadcastTCFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TerminatedAllBroadcastTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TerminatedAllBroadcastTC);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToClient.terminatedAllBroadcast()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 @JsonSerializable()
@@ -666,15 +878,15 @@ $IdLetterPayloadCopyWith<$Res> get dto {
 /// @nodoc
 @JsonSerializable()
 
-class onArenaTC extends ToClient {
-  const onArenaTC(final  List<BattleRoomDto> battles, {final  String? $type}): _battles = battles,$type = $type ?? 'onArena',super._();
-  factory onArenaTC.fromJson(Map<String, dynamic> json) => _$onArenaTCFromJson(json);
+class ActiveEdictsTC extends ToClient {
+  const ActiveEdictsTC(final  List<EdictDto> edicts, {final  String? $type}): _edicts = edicts,$type = $type ?? 'activeEdicts',super._();
+  factory ActiveEdictsTC.fromJson(Map<String, dynamic> json) => _$ActiveEdictsTCFromJson(json);
 
- final  List<BattleRoomDto> _battles;
- List<BattleRoomDto> get battles {
-  if (_battles is EqualUnmodifiableListView) return _battles;
+ final  List<EdictDto> _edicts;
+ List<EdictDto> get edicts {
+  if (_edicts is EqualUnmodifiableListView) return _edicts;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_battles);
+  return EqualUnmodifiableListView(_edicts);
 }
 
 
@@ -686,36 +898,36 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$onArenaTCCopyWith<onArenaTC> get copyWith => _$onArenaTCCopyWithImpl<onArenaTC>(this, _$identity);
+$ActiveEdictsTCCopyWith<ActiveEdictsTC> get copyWith => _$ActiveEdictsTCCopyWithImpl<ActiveEdictsTC>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$onArenaTCToJson(this, );
+  return _$ActiveEdictsTCToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is onArenaTC&&const DeepCollectionEquality().equals(other._battles, _battles));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActiveEdictsTC&&const DeepCollectionEquality().equals(other._edicts, _edicts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_battles));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_edicts));
 
 @override
 String toString() {
-  return 'ToClient.onArena(battles: $battles)';
+  return 'ToClient.activeEdicts(edicts: $edicts)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $onArenaTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $onArenaTCCopyWith(onArenaTC value, $Res Function(onArenaTC) _then) = _$onArenaTCCopyWithImpl;
+abstract mixin class $ActiveEdictsTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $ActiveEdictsTCCopyWith(ActiveEdictsTC value, $Res Function(ActiveEdictsTC) _then) = _$ActiveEdictsTCCopyWithImpl;
 @useResult
 $Res call({
- List<BattleRoomDto> battles
+ List<EdictDto> edicts
 });
 
 
@@ -723,19 +935,19 @@ $Res call({
 
 }
 /// @nodoc
-class _$onArenaTCCopyWithImpl<$Res>
-    implements $onArenaTCCopyWith<$Res> {
-  _$onArenaTCCopyWithImpl(this._self, this._then);
+class _$ActiveEdictsTCCopyWithImpl<$Res>
+    implements $ActiveEdictsTCCopyWith<$Res> {
+  _$ActiveEdictsTCCopyWithImpl(this._self, this._then);
 
-  final onArenaTC _self;
-  final $Res Function(onArenaTC) _then;
+  final ActiveEdictsTC _self;
+  final $Res Function(ActiveEdictsTC) _then;
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? battles = null,}) {
-  return _then(onArenaTC(
-null == battles ? _self._battles : battles // ignore: cast_nullable_to_non_nullable
-as List<BattleRoomDto>,
+@pragma('vm:prefer-inline') $Res call({Object? edicts = null,}) {
+  return _then(ActiveEdictsTC(
+null == edicts ? _self._edicts : edicts // ignore: cast_nullable_to_non_nullable
+as List<EdictDto>,
   ));
 }
 

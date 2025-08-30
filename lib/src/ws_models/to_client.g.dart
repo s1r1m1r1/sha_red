@@ -44,6 +44,36 @@ OnlineUsersTC _$OnlineUsersTCFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
+BroadcastInfoTC _$BroadcastInfoTCFromJson(Map<String, dynamic> json) =>
+    BroadcastInfoTC(
+      (json['broads'] as List<dynamic>)
+          .map((e) => BroadcastId.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$BroadcastInfoTCToJson(BroadcastInfoTC instance) =>
+    <String, dynamic>{'broads': instance.broads, 'runtimeType': instance.$type};
+
+TerminatedBroadcastTC _$TerminatedBroadcastTCFromJson(
+  Map<String, dynamic> json,
+) => TerminatedBroadcastTC(
+  BroadcastId.fromJson(json['broad'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$TerminatedBroadcastTCToJson(
+  TerminatedBroadcastTC instance,
+) => <String, dynamic>{'broad': instance.broad, 'runtimeType': instance.$type};
+
+TerminatedAllBroadcastTC _$TerminatedAllBroadcastTCFromJson(
+  Map<String, dynamic> json,
+) => TerminatedAllBroadcastTC($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$TerminatedAllBroadcastTCToJson(
+  TerminatedAllBroadcastTC instance,
+) => <String, dynamic>{'runtimeType': instance.$type};
+
 StatusErrorTC _$StatusErrorTCFromJson(Map<String, dynamic> json) =>
     StatusErrorTC(
       error: WsServerError.fromJson(json['error']),
@@ -82,14 +112,13 @@ DeletedLetterTC _$DeletedLetterTCFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DeletedLetterTCToJson(DeletedLetterTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
 
-onArenaTC _$onArenaTCFromJson(Map<String, dynamic> json) => onArenaTC(
-  (json['battles'] as List<dynamic>)
-      .map((e) => BattleRoomDto.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  $type: json['runtimeType'] as String?,
-);
+ActiveEdictsTC _$ActiveEdictsTCFromJson(Map<String, dynamic> json) =>
+    ActiveEdictsTC(
+      (json['edicts'] as List<dynamic>)
+          .map((e) => EdictDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
 
-Map<String, dynamic> _$onArenaTCToJson(onArenaTC instance) => <String, dynamic>{
-  'battles': instance.battles,
-  'runtimeType': instance.$type,
-};
+Map<String, dynamic> _$ActiveEdictsTCToJson(ActiveEdictsTC instance) =>
+    <String, dynamic>{'edicts': instance.edicts, 'runtimeType': instance.$type};
