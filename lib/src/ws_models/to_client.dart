@@ -4,12 +4,11 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sha_red/sha_red.dart';
-import 'package:sha_red/src/ws_models/ws_auth_error.dart';
 part 'to_client.g.dart';
 part 'to_client.freezed.dart';
 
 @freezed
-sealed class ToClient with _$ToClient {
+sealed class ToClient with _$ToClient implements JsonMessage {
   const ToClient._();
 
   @Implements<AuthTC>()
@@ -27,6 +26,18 @@ sealed class ToClient with _$ToClient {
   }) = JoinedServerTC;
 
   const factory ToClient.onlineUsers(OnlineMemberPayload dto) = OnlineUsersTC;
+
+  @Implements<BroadcastTC>()
+  const factory ToClient.broadcastInfo(List<BroadcastId> broads) =
+      BroadcastInfoTC;
+
+  @Implements<BroadcastTC>()
+  const factory ToClient.terminatedBroadcast(BroadcastId broad) =
+      TerminatedBroadcastTC;
+
+  @Implements<BroadcastTC>()
+  const factory ToClient.terminatedAllBroadcast() = TerminatedAllBroadcastTC;
+
   // // const factory ToClient.unauthenticated(WsErrorPayload dto) =
   //     Unauthenticated_WsFromServer;
 
@@ -43,11 +54,12 @@ sealed class ToClient with _$ToClient {
   @Implements<LetterTC>()
   const factory ToClient.deletedLetter(IdLetterPayload dto) = DeletedLetterTC;
 
-  const factory ToClient.onArena(List<BattleRoomDto> battles) = onArenaTC;
+  const factory ToClient.activeEdicts(List<EdictDto> edicts) = ActiveEdictsTC;
 
   factory ToClient.fromJson(Map<String, dynamic> json) =>
       _$ToClientFromJson(json);
   //----------------- json helper to reduce boiler code ---------------------
+  @override
   String encoded() => jsonEncode(toJson());
   ToClient decoded(String json) {
     final data = jsonDecode(json);
@@ -58,3 +70,9 @@ sealed class ToClient with _$ToClient {
 sealed class AuthTC implements ToClient {}
 
 sealed class LetterTC implements ToClient {}
+
+sealed class BroadcastTC implements ToClient {}
+
+abstract class JsonMessage {
+  String encoded();
+}

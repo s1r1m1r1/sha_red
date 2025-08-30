@@ -22,7 +22,6 @@ const _$RoleEnumMap = {
   Role.admin: 'admin',
   Role.user: 'user',
   Role.tester: 'tester',
-  Role.fake: 'fake',
 };
 
 _FakeUserDto _$FakeUserDtoFromJson(Map<String, dynamic> json) => _FakeUserDto(

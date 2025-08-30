@@ -11,6 +11,9 @@ export 'src/models/update_todo_dto.dart';
 export 'src/models/email_credential_dto.dart';
 export 'src/models/unit_dto.dart';
 export 'src/models/battle_room_dto.dart';
+export 'src/models/broadcast_id.dart';
+export 'src/models/edict_dto.dart';
+export 'src/models/user_member_dto.dart';
 
 // Export ws_models
 export 'src/ws_models/to_client.dart';
