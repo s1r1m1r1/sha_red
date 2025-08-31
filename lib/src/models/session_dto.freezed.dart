@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SessionDto {
 
- UserDto get user; TokensDto get tokens; UnitDto? get unit;
+ UserDto get user; UnitDto? get unit;
 /// Create a copy of SessionDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SessionDtoCopyWith<SessionDto> get copyWith => _$SessionDtoCopyWithImpl<Session
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SessionDto&&(identical(other.user, user) || other.user == user)&&(identical(other.tokens, tokens) || other.tokens == tokens)&&(identical(other.unit, unit) || other.unit == unit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SessionDto&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,user,tokens,unit);
+int get hashCode => Object.hash(runtimeType,user,unit);
 
 @override
 String toString() {
-  return 'SessionDto(user: $user, tokens: $tokens, unit: $unit)';
+  return 'SessionDto(user: $user, unit: $unit)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $SessionDtoCopyWith<$Res>  {
   factory $SessionDtoCopyWith(SessionDto value, $Res Function(SessionDto) _then) = _$SessionDtoCopyWithImpl;
 @useResult
 $Res call({
- UserDto user, TokensDto tokens, UnitDto? unit
+ UserDto user, UnitDto? unit
 });
 
 
-$UserDtoCopyWith<$Res> get user;$TokensDtoCopyWith<$Res> get tokens;$UnitDtoCopyWith<$Res>? get unit;
+$UserDtoCopyWith<$Res> get user;$UnitDtoCopyWith<$Res>? get unit;
 
 }
 /// @nodoc
@@ -65,11 +65,10 @@ class _$SessionDtoCopyWithImpl<$Res>
 
 /// Create a copy of SessionDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? user = null,Object? tokens = null,Object? unit = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? user = null,Object? unit = freezed,}) {
   return _then(_self.copyWith(
 user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as UserDto,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
-as TokensDto,unit: freezed == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
+as UserDto,unit: freezed == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as UnitDto?,
   ));
 }
@@ -81,15 +80,6 @@ $UserDtoCopyWith<$Res> get user {
   
   return $UserDtoCopyWith<$Res>(_self.user, (value) {
     return _then(_self.copyWith(user: value));
-  });
-}/// Create a copy of SessionDto
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$TokensDtoCopyWith<$Res> get tokens {
-  
-  return $TokensDtoCopyWith<$Res>(_self.tokens, (value) {
-    return _then(_self.copyWith(tokens: value));
   });
 }/// Create a copy of SessionDto
 /// with the given fields replaced by the non-null parameter values.
@@ -112,11 +102,10 @@ $UnitDtoCopyWith<$Res>? get unit {
 @JsonSerializable()
 
 class _SessionDto implements SessionDto {
-  const _SessionDto({required this.user, required this.tokens, this.unit});
+  const _SessionDto({required this.user, this.unit});
   factory _SessionDto.fromJson(Map<String, dynamic> json) => _$SessionDtoFromJson(json);
 
 @override final  UserDto user;
-@override final  TokensDto tokens;
 @override final  UnitDto? unit;
 
 /// Create a copy of SessionDto
@@ -132,16 +121,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SessionDto&&(identical(other.user, user) || other.user == user)&&(identical(other.tokens, tokens) || other.tokens == tokens)&&(identical(other.unit, unit) || other.unit == unit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SessionDto&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,user,tokens,unit);
+int get hashCode => Object.hash(runtimeType,user,unit);
 
 @override
 String toString() {
-  return 'SessionDto(user: $user, tokens: $tokens, unit: $unit)';
+  return 'SessionDto(user: $user, unit: $unit)';
 }
 
 
@@ -152,11 +141,11 @@ abstract mixin class _$SessionDtoCopyWith<$Res> implements $SessionDtoCopyWith<$
   factory _$SessionDtoCopyWith(_SessionDto value, $Res Function(_SessionDto) _then) = __$SessionDtoCopyWithImpl;
 @override @useResult
 $Res call({
- UserDto user, TokensDto tokens, UnitDto? unit
+ UserDto user, UnitDto? unit
 });
 
 
-@override $UserDtoCopyWith<$Res> get user;@override $TokensDtoCopyWith<$Res> get tokens;@override $UnitDtoCopyWith<$Res>? get unit;
+@override $UserDtoCopyWith<$Res> get user;@override $UnitDtoCopyWith<$Res>? get unit;
 
 }
 /// @nodoc
@@ -169,11 +158,10 @@ class __$SessionDtoCopyWithImpl<$Res>
 
 /// Create a copy of SessionDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? user = null,Object? tokens = null,Object? unit = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? user = null,Object? unit = freezed,}) {
   return _then(_SessionDto(
 user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as UserDto,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
-as TokensDto,unit: freezed == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
+as UserDto,unit: freezed == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as UnitDto?,
   ));
 }
@@ -186,15 +174,6 @@ $UserDtoCopyWith<$Res> get user {
   
   return $UserDtoCopyWith<$Res>(_self.user, (value) {
     return _then(_self.copyWith(user: value));
-  });
-}/// Create a copy of SessionDto
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$TokensDtoCopyWith<$Res> get tokens {
-  
-  return $TokensDtoCopyWith<$Res>(_self.tokens, (value) {
-    return _then(_self.copyWith(tokens: value));
   });
 }/// Create a copy of SessionDto
 /// with the given fields replaced by the non-null parameter values.

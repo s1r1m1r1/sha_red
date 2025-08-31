@@ -5,11 +5,8 @@ part 'session_dto.g.dart';
 
 @freezed
 abstract class SessionDto with _$SessionDto {
-  const factory SessionDto({
-    required UserDto user,
-    required TokensDto tokens,
-    UnitDto? unit,
-  }) = _SessionDto;
+  const factory SessionDto({required UserDto user, UnitDto? unit}) =
+      _SessionDto;
 
   factory SessionDto.fromJson(Map<String, dynamic> json) =>
       _$SessionDtoFromJson(json);

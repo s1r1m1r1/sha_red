@@ -22,7 +22,6 @@ sealed class ToClient with _$ToClient implements JsonMessage {
     required int mainRoomId,
     required UserDto user,
     required UnitDto unit,
-    required TokensDto tokens,
   }) = JoinedServerTC;
 
   const factory ToClient.onlineUsers(OnlineMemberPayload dto) = OnlineUsersTC;
@@ -38,9 +37,6 @@ sealed class ToClient with _$ToClient implements JsonMessage {
   @Implements<BroadcastTC>()
   const factory ToClient.terminatedAllBroadcast() = TerminatedAllBroadcastTC;
 
-  // // const factory ToClient.unauthenticated(WsErrorPayload dto) =
-  //     Unauthenticated_WsFromServer;
-
   const factory ToClient.statusError({
     @JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)
     required WsServerError error,
@@ -55,6 +51,8 @@ sealed class ToClient with _$ToClient implements JsonMessage {
   const factory ToClient.deletedLetter(IdLetterPayload dto) = DeletedLetterTC;
 
   const factory ToClient.activeEdicts(List<EdictDto> edicts) = ActiveEdictsTC;
+
+  const factory ToClient.readyBattle(EdictDto dto) = _ReadyBattleTC;
 
   factory ToClient.fromJson(Map<String, dynamic> json) =>
       _$ToClientFromJson(json);
