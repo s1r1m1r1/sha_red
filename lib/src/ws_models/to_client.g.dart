@@ -22,7 +22,6 @@ JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
       mainRoomId: (json['mainRoomId'] as num).toInt(),
       user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
       unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
-      tokens: TokensDto.fromJson(json['tokens'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -31,7 +30,6 @@ Map<String, dynamic> _$JoinedServerTCToJson(JoinedServerTC instance) =>
       'mainRoomId': instance.mainRoomId,
       'user': instance.user,
       'unit': instance.unit,
-      'tokens': instance.tokens,
       'runtimeType': instance.$type,
     };
 
@@ -122,3 +120,12 @@ ActiveEdictsTC _$ActiveEdictsTCFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ActiveEdictsTCToJson(ActiveEdictsTC instance) =>
     <String, dynamic>{'edicts': instance.edicts, 'runtimeType': instance.$type};
+
+_ReadyBattleTC _$ReadyBattleTCFromJson(Map<String, dynamic> json) =>
+    _ReadyBattleTC(
+      EdictDto.fromJson(json['dto'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ReadyBattleTCToJson(_ReadyBattleTC instance) =>
+    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};

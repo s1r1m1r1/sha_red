@@ -15,6 +15,8 @@ abstract class TokensDto with _$TokensDto {
 
   factory TokensDto.fromJson(Map<String, dynamic> json) =>
       _$TokensDtoFromJson(json);
+
+  static const fromJsonFactory = _$TokensDtoFromJson;
 }
 
 @freezed

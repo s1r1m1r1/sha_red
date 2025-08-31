@@ -19,6 +19,7 @@ enum BroadcastFamily {
   activeUsers(5),
   letters(10),
   arena(15),
+  combat(20),
   unknown(-1);
 
   const BroadcastFamily(this.code);

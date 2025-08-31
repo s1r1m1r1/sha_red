@@ -59,6 +59,10 @@ ToClient _$ToClientFromJson(
           return ActiveEdictsTC.fromJson(
             json
           );
+                case 'readyBattle':
+          return _ReadyBattleTC.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -181,13 +185,12 @@ as WsAuthError,
 @JsonSerializable()
 
 class JoinedServerTC extends ToClient implements AuthTC {
-  const JoinedServerTC({required this.mainRoomId, required this.user, required this.unit, required this.tokens, final  String? $type}): $type = $type ?? 'joinedServer',super._();
+  const JoinedServerTC({required this.mainRoomId, required this.user, required this.unit, final  String? $type}): $type = $type ?? 'joinedServer',super._();
   factory JoinedServerTC.fromJson(Map<String, dynamic> json) => _$JoinedServerTCFromJson(json);
 
  final  int mainRoomId;
  final  UserDto user;
  final  UnitDto unit;
- final  TokensDto tokens;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -206,16 +209,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinedServerTC&&(identical(other.mainRoomId, mainRoomId) || other.mainRoomId == mainRoomId)&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.tokens, tokens) || other.tokens == tokens));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinedServerTC&&(identical(other.mainRoomId, mainRoomId) || other.mainRoomId == mainRoomId)&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,mainRoomId,user,unit,tokens);
+int get hashCode => Object.hash(runtimeType,mainRoomId,user,unit);
 
 @override
 String toString() {
-  return 'ToClient.joinedServer(mainRoomId: $mainRoomId, user: $user, unit: $unit, tokens: $tokens)';
+  return 'ToClient.joinedServer(mainRoomId: $mainRoomId, user: $user, unit: $unit)';
 }
 
 
@@ -226,11 +229,11 @@ abstract mixin class $JoinedServerTCCopyWith<$Res> implements $ToClientCopyWith<
   factory $JoinedServerTCCopyWith(JoinedServerTC value, $Res Function(JoinedServerTC) _then) = _$JoinedServerTCCopyWithImpl;
 @useResult
 $Res call({
- int mainRoomId, UserDto user, UnitDto unit, TokensDto tokens
+ int mainRoomId, UserDto user, UnitDto unit
 });
 
 
-$UserDtoCopyWith<$Res> get user;$UnitDtoCopyWith<$Res> get unit;$TokensDtoCopyWith<$Res> get tokens;
+$UserDtoCopyWith<$Res> get user;$UnitDtoCopyWith<$Res> get unit;
 
 }
 /// @nodoc
@@ -243,13 +246,12 @@ class _$JoinedServerTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? mainRoomId = null,Object? user = null,Object? unit = null,Object? tokens = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? mainRoomId = null,Object? user = null,Object? unit = null,}) {
   return _then(JoinedServerTC(
 mainRoomId: null == mainRoomId ? _self.mainRoomId : mainRoomId // ignore: cast_nullable_to_non_nullable
 as int,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as UserDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
-as UnitDto,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
-as TokensDto,
+as UnitDto,
   ));
 }
 
@@ -270,15 +272,6 @@ $UnitDtoCopyWith<$Res> get unit {
   
   return $UnitDtoCopyWith<$Res>(_self.unit, (value) {
     return _then(_self.copyWith(unit: value));
-  });
-}/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$TokensDtoCopyWith<$Res> get tokens {
-  
-  return $TokensDtoCopyWith<$Res>(_self.tokens, (value) {
-    return _then(_self.copyWith(tokens: value));
   });
 }
 }
@@ -952,6 +945,88 @@ as List<EdictDto>,
 }
 
 
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _ReadyBattleTC extends ToClient {
+  const _ReadyBattleTC(this.dto, {final  String? $type}): $type = $type ?? 'readyBattle',super._();
+  factory _ReadyBattleTC.fromJson(Map<String, dynamic> json) => _$ReadyBattleTCFromJson(json);
+
+ final  EdictDto dto;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ReadyBattleTCCopyWith<_ReadyBattleTC> get copyWith => __$ReadyBattleTCCopyWithImpl<_ReadyBattleTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ReadyBattleTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReadyBattleTC&&(identical(other.dto, dto) || other.dto == dto));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,dto);
+
+@override
+String toString() {
+  return 'ToClient.readyBattle(dto: $dto)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ReadyBattleTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory _$ReadyBattleTCCopyWith(_ReadyBattleTC value, $Res Function(_ReadyBattleTC) _then) = __$ReadyBattleTCCopyWithImpl;
+@useResult
+$Res call({
+ EdictDto dto
+});
+
+
+$EdictDtoCopyWith<$Res> get dto;
+
+}
+/// @nodoc
+class __$ReadyBattleTCCopyWithImpl<$Res>
+    implements _$ReadyBattleTCCopyWith<$Res> {
+  __$ReadyBattleTCCopyWithImpl(this._self, this._then);
+
+  final _ReadyBattleTC _self;
+  final $Res Function(_ReadyBattleTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? dto = null,}) {
+  return _then(_ReadyBattleTC(
+null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
+as EdictDto,
+  ));
+}
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EdictDtoCopyWith<$Res> get dto {
+  
+  return $EdictDtoCopyWith<$Res>(_self.dto, (value) {
+    return _then(_self.copyWith(dto: value));
+  });
+}
 }
 
 // dart format on
