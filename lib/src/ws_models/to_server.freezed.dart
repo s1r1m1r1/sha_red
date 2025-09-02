@@ -15,8 +15,16 @@ ToServer _$ToServerFromJson(
   Map<String, dynamic> json
 ) {
         switch (json['runtimeType']) {
-                  case 'withToken':
+                  case 'leaveArena':
+          return LeaveArenaTS.fromJson(
+            json
+          );
+                case 'withToken':
           return WithTokenTS.fromJson(
+            json
+          );
+                case 'disconnect':
+          return DisconnectTS.fromJson(
             json
           );
                 case 'getJoinedBroads':
@@ -49,10 +57,6 @@ ToServer _$ToServerFromJson(
           );
                 case 'joinArena':
           return JoinArenaTS.fromJson(
-            json
-          );
-                case 'leaveArena':
-          return LeaveArenaTS.fromJson(
             json
           );
                 case 'createBattleRoom':
@@ -109,6 +113,45 @@ String toString() {
 class $ToServerCopyWith<$Res>  {
 $ToServerCopyWith(ToServer _, $Res Function(ToServer) __);
 }
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class LeaveArenaTS extends ToServer implements BotToServer {
+  const LeaveArenaTS({final  String? $type}): $type = $type ?? 'leaveArena',super._();
+  factory LeaveArenaTS.fromJson(Map<String, dynamic> json) => _$LeaveArenaTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LeaveArenaTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LeaveArenaTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.leaveArena()';
+}
+
+
+}
+
 
 
 
@@ -184,6 +227,45 @@ as String,
 
 
 }
+
+/// @nodoc
+@JsonSerializable()
+
+class DisconnectTS extends ToServer {
+  const DisconnectTS({final  String? $type}): $type = $type ?? 'disconnect',super._();
+  factory DisconnectTS.fromJson(Map<String, dynamic> json) => _$DisconnectTSFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DisconnectTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DisconnectTS);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.disconnect()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 @JsonSerializable()
@@ -647,46 +729,7 @@ String toString() {
 /// @nodoc
 @JsonSerializable()
 
-class LeaveArenaTS extends ToServer {
-  const LeaveArenaTS({final  String? $type}): $type = $type ?? 'leaveArena',super._();
-  factory LeaveArenaTS.fromJson(Map<String, dynamic> json) => _$LeaveArenaTSFromJson(json);
-
-
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-
-@override
-Map<String, dynamic> toJson() {
-  return _$LeaveArenaTSToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LeaveArenaTS);
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'ToServer.leaveArena()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-@JsonSerializable()
-
-class CreateBattleRoomTS extends ToServer {
+class CreateBattleRoomTS extends ToServer implements BotToServer {
   const CreateBattleRoomTS(this.unitId, {final  String? $type}): $type = $type ?? 'createBattleRoom',super._();
   factory CreateBattleRoomTS.fromJson(Map<String, dynamic> json) => _$CreateBattleRoomTSFromJson(json);
 

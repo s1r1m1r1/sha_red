@@ -9,7 +9,11 @@ part 'to_server.g.dart';
 @freezed
 sealed class ToServer with _$ToServer {
   const ToServer._();
+  @Implements<BotToServer>()
+  const factory ToServer.leaveArena() = LeaveArenaTS;
+
   const factory ToServer.withToken(String token) = WithTokenTS;
+  const factory ToServer.disconnect() = DisconnectTS;
   const factory ToServer.getJoinedBroads() = GetJoinedBroadsTS;
 
   const factory ToServer.createNewEdict() = CreateNewEdictTS;
@@ -29,7 +33,8 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.joinLetters(int roomId) = JoinLettersTS;
 
   const factory ToServer.joinArena() = JoinArenaTS;
-  const factory ToServer.leaveArena() = LeaveArenaTS;
+
+  @Implements<BotToServer>()
   const factory ToServer.createBattleRoom(int unitId) = CreateBattleRoomTS;
   const factory ToServer.joinBattleRoom(int battleRoomId) = JoinBattleRoomTS;
   const factory ToServer.leaveBattleRoom(int battleRoomId) = LeaveBattleRoom;
@@ -43,3 +48,5 @@ sealed class ToServer with _$ToServer {
     return ToServer.fromJson(data);
   }
 }
+
+sealed class BotToServer implements ToServer {}

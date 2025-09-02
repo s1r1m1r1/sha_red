@@ -129,3 +129,15 @@ _ReadyBattleTC _$ReadyBattleTCFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ReadyBattleTCToJson(_ReadyBattleTC instance) =>
     <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+
+_CombatErrorTC _$CombatErrorTCFromJson(Map<String, dynamic> json) =>
+    _CombatErrorTC(
+      error: WsCombatError.fromJson(json['error']),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$CombatErrorTCToJson(_CombatErrorTC instance) =>
+    <String, dynamic>{
+      'error': WsCombatError.toJson(instance.error),
+      'runtimeType': instance.$type,
+    };

@@ -63,6 +63,10 @@ ToClient _$ToClientFromJson(
           return _ReadyBattleTC.fromJson(
             json
           );
+                case 'combatError':
+          return _CombatErrorTC.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -1027,6 +1031,79 @@ $EdictDtoCopyWith<$Res> get dto {
     return _then(_self.copyWith(dto: value));
   });
 }
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _CombatErrorTC extends ToClient implements BotToClient {
+  const _CombatErrorTC({@JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'combatError',super._();
+  factory _CombatErrorTC.fromJson(Map<String, dynamic> json) => _$CombatErrorTCFromJson(json);
+
+@JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) final  WsCombatError error;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CombatErrorTCCopyWith<_CombatErrorTC> get copyWith => __$CombatErrorTCCopyWithImpl<_CombatErrorTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CombatErrorTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CombatErrorTC&&(identical(other.error, error) || other.error == error));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,error);
+
+@override
+String toString() {
+  return 'ToClient.combatError(error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CombatErrorTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory _$CombatErrorTCCopyWith(_CombatErrorTC value, $Res Function(_CombatErrorTC) _then) = __$CombatErrorTCCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) WsCombatError error
+});
+
+
+
+
+}
+/// @nodoc
+class __$CombatErrorTCCopyWithImpl<$Res>
+    implements _$CombatErrorTCCopyWith<$Res> {
+  __$CombatErrorTCCopyWithImpl(this._self, this._then);
+
+  final _CombatErrorTC _self;
+  final $Res Function(_CombatErrorTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,}) {
+  return _then(_CombatErrorTC(
+error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as WsCombatError,
+  ));
+}
+
+
 }
 
 // dart format on

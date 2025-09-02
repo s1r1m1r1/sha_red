@@ -22,3 +22,22 @@ enum WsAuthError {
     }
   }
 }
+
+enum WsCombatError {
+  notEnoughPlayers(400),
+  unknown(8888);
+
+  const WsCombatError(this.code);
+  final int code;
+
+  static int toJson(WsCombatError w) => w.code;
+
+  static fromJson(dynamic json) {
+    if (json is int) {
+      return WsCombatError.values.firstWhere(
+        (element) => element.code == json,
+        orElse: () => WsCombatError.unknown,
+      );
+    }
+  }
+}
