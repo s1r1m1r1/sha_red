@@ -158,7 +158,7 @@ as List<OnlineMemberDto>,
 /// @nodoc
 mixin _$OnlineMemberDto {
 
- int get unitId; String get name;
+ int get unitId; String get name; bool get isBot;
 /// Create a copy of OnlineMemberDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -171,16 +171,16 @@ $OnlineMemberDtoCopyWith<OnlineMemberDto> get copyWith => _$OnlineMemberDtoCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineMemberDto&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineMemberDto&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name)&&(identical(other.isBot, isBot) || other.isBot == isBot));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,unitId,name);
+int get hashCode => Object.hash(runtimeType,unitId,name,isBot);
 
 @override
 String toString() {
-  return 'OnlineMemberDto(unitId: $unitId, name: $name)';
+  return 'OnlineMemberDto(unitId: $unitId, name: $name, isBot: $isBot)';
 }
 
 
@@ -191,7 +191,7 @@ abstract mixin class $OnlineMemberDtoCopyWith<$Res>  {
   factory $OnlineMemberDtoCopyWith(OnlineMemberDto value, $Res Function(OnlineMemberDto) _then) = _$OnlineMemberDtoCopyWithImpl;
 @useResult
 $Res call({
- int unitId, String name
+ int unitId, String name, bool isBot
 });
 
 
@@ -208,11 +208,12 @@ class _$OnlineMemberDtoCopyWithImpl<$Res>
 
 /// Create a copy of OnlineMemberDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? unitId = null,Object? name = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? unitId = null,Object? name = null,Object? isBot = null,}) {
   return _then(_self.copyWith(
 unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,
+as String,isBot: null == isBot ? _self.isBot : isBot // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
@@ -224,11 +225,12 @@ as String,
 @JsonSerializable()
 
 class _OnlineMemberDto extends OnlineMemberDto {
-  const _OnlineMemberDto(this.unitId, this.name): super._();
+  const _OnlineMemberDto(this.unitId, this.name, this.isBot): super._();
   factory _OnlineMemberDto.fromJson(Map<String, dynamic> json) => _$OnlineMemberDtoFromJson(json);
 
 @override final  int unitId;
 @override final  String name;
+@override final  bool isBot;
 
 /// Create a copy of OnlineMemberDto
 /// with the given fields replaced by the non-null parameter values.
@@ -243,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnlineMemberDto&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnlineMemberDto&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.name, name) || other.name == name)&&(identical(other.isBot, isBot) || other.isBot == isBot));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,unitId,name);
+int get hashCode => Object.hash(runtimeType,unitId,name,isBot);
 
 @override
 String toString() {
-  return 'OnlineMemberDto(unitId: $unitId, name: $name)';
+  return 'OnlineMemberDto(unitId: $unitId, name: $name, isBot: $isBot)';
 }
 
 
@@ -263,7 +265,7 @@ abstract mixin class _$OnlineMemberDtoCopyWith<$Res> implements $OnlineMemberDto
   factory _$OnlineMemberDtoCopyWith(_OnlineMemberDto value, $Res Function(_OnlineMemberDto) _then) = __$OnlineMemberDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int unitId, String name
+ int unitId, String name, bool isBot
 });
 
 
@@ -280,11 +282,12 @@ class __$OnlineMemberDtoCopyWithImpl<$Res>
 
 /// Create a copy of OnlineMemberDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? unitId = null,Object? name = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? unitId = null,Object? name = null,Object? isBot = null,}) {
   return _then(_OnlineMemberDto(
 null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
 as int,null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,
+as String,null == isBot ? _self.isBot : isBot // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

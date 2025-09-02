@@ -231,7 +231,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class DisconnectTS extends ToServer {
+class DisconnectTS extends ToServer implements BotToServer {
   const DisconnectTS({final  String? $type}): $type = $type ?? 'disconnect',super._();
   factory DisconnectTS.fromJson(Map<String, dynamic> json) => _$DisconnectTSFromJson(json);
 

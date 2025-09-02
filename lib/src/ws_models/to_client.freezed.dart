@@ -284,10 +284,11 @@ $UnitDtoCopyWith<$Res> get unit {
 @JsonSerializable()
 
 class OnlineUsersTC extends ToClient {
-  const OnlineUsersTC(this.dto, {final  String? $type}): $type = $type ?? 'onlineUsers',super._();
+  const OnlineUsersTC(this.dto, {this.bot = false, final  String? $type}): $type = $type ?? 'onlineUsers',super._();
   factory OnlineUsersTC.fromJson(Map<String, dynamic> json) => _$OnlineUsersTCFromJson(json);
 
  final  OnlineMemberPayload dto;
+@JsonKey() final  bool bot;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -306,16 +307,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineUsersTC&&(identical(other.dto, dto) || other.dto == dto));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnlineUsersTC&&(identical(other.dto, dto) || other.dto == dto)&&(identical(other.bot, bot) || other.bot == bot));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,dto);
+int get hashCode => Object.hash(runtimeType,dto,bot);
 
 @override
 String toString() {
-  return 'ToClient.onlineUsers(dto: $dto)';
+  return 'ToClient.onlineUsers(dto: $dto, bot: $bot)';
 }
 
 
@@ -326,7 +327,7 @@ abstract mixin class $OnlineUsersTCCopyWith<$Res> implements $ToClientCopyWith<$
   factory $OnlineUsersTCCopyWith(OnlineUsersTC value, $Res Function(OnlineUsersTC) _then) = _$OnlineUsersTCCopyWithImpl;
 @useResult
 $Res call({
- OnlineMemberPayload dto
+ OnlineMemberPayload dto, bool bot
 });
 
 
@@ -343,10 +344,11 @@ class _$OnlineUsersTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? dto = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? dto = null,Object? bot = null,}) {
   return _then(OnlineUsersTC(
 null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
-as OnlineMemberPayload,
+as OnlineMemberPayload,bot: null == bot ? _self.bot : bot // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

@@ -24,7 +24,10 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
     required UnitDto unit,
   }) = JoinedServerTC;
 
-  const factory ToClient.onlineUsers(OnlineMemberPayload dto) = OnlineUsersTC;
+  const factory ToClient.onlineUsers(
+    OnlineMemberPayload dto, {
+    @Default(false) bool bot,
+  }) = OnlineUsersTC;
 
   @Implements<BroadcastTC>()
   const factory ToClient.broadcastInfo(List<BroadcastId> broads) =

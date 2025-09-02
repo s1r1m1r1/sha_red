@@ -19,7 +19,15 @@ Map<String, dynamic> _$OnlineMemberPayloadToJson(
 ) => <String, dynamic>{'roomId': instance.roomId, 'members': instance.members};
 
 _OnlineMemberDto _$OnlineMemberDtoFromJson(Map<String, dynamic> json) =>
-    _OnlineMemberDto((json['unitId'] as num).toInt(), json['name'] as String);
+    _OnlineMemberDto(
+      (json['unitId'] as num).toInt(),
+      json['name'] as String,
+      json['isBot'] as bool,
+    );
 
 Map<String, dynamic> _$OnlineMemberDtoToJson(_OnlineMemberDto instance) =>
-    <String, dynamic>{'unitId': instance.unitId, 'name': instance.name};
+    <String, dynamic>{
+      'unitId': instance.unitId,
+      'name': instance.name,
+      'isBot': instance.isBot,
+    };

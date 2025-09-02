@@ -19,7 +19,8 @@ abstract class OnlineMemberPayload with _$OnlineMemberPayload {
 @freezed
 abstract class OnlineMemberDto with _$OnlineMemberDto {
   const OnlineMemberDto._();
-  const factory OnlineMemberDto(int unitId, String name) = _OnlineMemberDto;
+  const factory OnlineMemberDto(int unitId, String name, bool isBot) =
+      _OnlineMemberDto;
   factory OnlineMemberDto.fromJson(Json json) =>
       _$OnlineMemberDtoFromJson(json);
 }
