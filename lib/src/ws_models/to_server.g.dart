@@ -6,11 +6,23 @@ part of 'to_server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+LeaveArenaTS _$LeaveArenaTSFromJson(Map<String, dynamic> json) =>
+    LeaveArenaTS($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$LeaveArenaTSToJson(LeaveArenaTS instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};
+
 WithTokenTS _$WithTokenTSFromJson(Map<String, dynamic> json) =>
     WithTokenTS(json['token'] as String, $type: json['runtimeType'] as String?);
 
 Map<String, dynamic> _$WithTokenTSToJson(WithTokenTS instance) =>
     <String, dynamic>{'token': instance.token, 'runtimeType': instance.$type};
+
+DisconnectTS _$DisconnectTSFromJson(Map<String, dynamic> json) =>
+    DisconnectTS($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$DisconnectTSToJson(DisconnectTS instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};
 
 GetJoinedBroadsTS _$GetJoinedBroadsTSFromJson(Map<String, dynamic> json) =>
     GetJoinedBroadsTS($type: json['runtimeType'] as String?);
@@ -76,12 +88,6 @@ JoinArenaTS _$JoinArenaTSFromJson(Map<String, dynamic> json) =>
     JoinArenaTS($type: json['runtimeType'] as String?);
 
 Map<String, dynamic> _$JoinArenaTSToJson(JoinArenaTS instance) =>
-    <String, dynamic>{'runtimeType': instance.$type};
-
-LeaveArenaTS _$LeaveArenaTSFromJson(Map<String, dynamic> json) =>
-    LeaveArenaTS($type: json['runtimeType'] as String?);
-
-Map<String, dynamic> _$LeaveArenaTSToJson(LeaveArenaTS instance) =>
     <String, dynamic>{'runtimeType': instance.$type};
 
 CreateBattleRoomTS _$CreateBattleRoomTSFromJson(Map<String, dynamic> json) =>
