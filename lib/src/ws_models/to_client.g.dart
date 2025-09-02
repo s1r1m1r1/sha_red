@@ -36,11 +36,16 @@ Map<String, dynamic> _$JoinedServerTCToJson(JoinedServerTC instance) =>
 OnlineUsersTC _$OnlineUsersTCFromJson(Map<String, dynamic> json) =>
     OnlineUsersTC(
       OnlineMemberPayload.fromJson(json['dto'] as Map<String, dynamic>),
+      bot: json['bot'] as bool? ?? false,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
-    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+    <String, dynamic>{
+      'dto': instance.dto,
+      'bot': instance.bot,
+      'runtimeType': instance.$type,
+    };
 
 BroadcastInfoTC _$BroadcastInfoTCFromJson(Map<String, dynamic> json) =>
     BroadcastInfoTC(

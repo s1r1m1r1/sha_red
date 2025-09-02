@@ -13,6 +13,8 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.leaveArena() = LeaveArenaTS;
 
   const factory ToServer.withToken(String token) = WithTokenTS;
+
+  @Implements<BotToServer>()
   const factory ToServer.disconnect() = DisconnectTS;
   const factory ToServer.getJoinedBroads() = GetJoinedBroadsTS;
 
