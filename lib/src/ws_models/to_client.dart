@@ -15,6 +15,8 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   const factory ToClient.authError({
     @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson)
     required WsAuthError error,
+    @JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson)
+    required ToServerNames toServerName,
   }) = AuthErrorTC;
 
   @Implements<AuthTC>()
@@ -54,13 +56,32 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   const factory ToClient.deletedLetter(IdLetterPayload dto) = DeletedLetterTC;
 
   const factory ToClient.activeEdicts(List<EdictDto> edicts) = ActiveEdictsTC;
-  const factory ToClient.readyBattle(EdictDto dto) = _ReadyBattleTC;
+  const factory ToClient.arenaError(
+    @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson)
+    WsArenaError error,
+  ) = ArenaErrorTC;
+
+  const factory ToClient.readyBattle(int combatRoom) = ReadyBattleTC;
+
+  /// countId номер комнаты
+  /// membs число участника
+  /// ready число готовых
+  const factory ToClient.startBattle(int combatId, int membs, int ready) =
+      StartBattleTC;
+
+  const factory ToClient.combatEvent(int combatId, int round) = CombatEventTC;
 
   @Implements<BotToClient>()
+  @Implements<CombatTC>()
   const factory ToClient.combatError({
     @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson)
     required WsCombatError error,
-  }) = _CombatErrorTC;
+  }) = CombatErrorTC;
+
+  // @Implements<BotToClient>()
+  // @Implements<CombatTC>()
+  // const factory ToClient.combatStart({required List<CombatantDto> combatants}) =
+  //     CombatStartTC;
 
   factory ToClient.fromJson(Map<String, dynamic> json) =>
       _$ToClientFromJson(json);
@@ -82,6 +103,8 @@ sealed class AuthTC implements ToClient {}
 sealed class LetterTC implements ToClient {}
 
 sealed class BroadcastTC implements ToClient {}
+
+sealed class CombatTC implements ToClient {}
 
 sealed class BotToClient implements ToClient {}
 

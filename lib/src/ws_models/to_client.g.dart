@@ -8,12 +8,14 @@ part of 'to_client.dart';
 
 AuthErrorTC _$AuthErrorTCFromJson(Map<String, dynamic> json) => AuthErrorTC(
   error: WsAuthError.fromJson(json['error']),
+  toServerName: ToServerNames.fromJson(json['toServerName']),
   $type: json['runtimeType'] as String?,
 );
 
 Map<String, dynamic> _$AuthErrorTCToJson(AuthErrorTC instance) =>
     <String, dynamic>{
       'error': WsAuthError.toJson(instance.error),
+      'toServerName': ToServerNames.toJson(instance.toServerName),
       'runtimeType': instance.$type,
     };
 
@@ -126,22 +128,66 @@ ActiveEdictsTC _$ActiveEdictsTCFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$ActiveEdictsTCToJson(ActiveEdictsTC instance) =>
     <String, dynamic>{'edicts': instance.edicts, 'runtimeType': instance.$type};
 
-_ReadyBattleTC _$ReadyBattleTCFromJson(Map<String, dynamic> json) =>
-    _ReadyBattleTC(
-      EdictDto.fromJson(json['dto'] as Map<String, dynamic>),
+ArenaErrorTC _$ArenaErrorTCFromJson(Map<String, dynamic> json) => ArenaErrorTC(
+  WsArenaError.fromJson(json['error']),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$ArenaErrorTCToJson(ArenaErrorTC instance) =>
+    <String, dynamic>{
+      'error': WsArenaError.toJson(instance.error),
+      'runtimeType': instance.$type,
+    };
+
+ReadyBattleTC _$ReadyBattleTCFromJson(Map<String, dynamic> json) =>
+    ReadyBattleTC(
+      (json['combatRoom'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$ReadyBattleTCToJson(_ReadyBattleTC instance) =>
-    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+Map<String, dynamic> _$ReadyBattleTCToJson(ReadyBattleTC instance) =>
+    <String, dynamic>{
+      'combatRoom': instance.combatRoom,
+      'runtimeType': instance.$type,
+    };
 
-_CombatErrorTC _$CombatErrorTCFromJson(Map<String, dynamic> json) =>
-    _CombatErrorTC(
+StartBattleTC _$StartBattleTCFromJson(Map<String, dynamic> json) =>
+    StartBattleTC(
+      (json['combatId'] as num).toInt(),
+      (json['membs'] as num).toInt(),
+      (json['ready'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$StartBattleTCToJson(StartBattleTC instance) =>
+    <String, dynamic>{
+      'combatId': instance.combatId,
+      'membs': instance.membs,
+      'ready': instance.ready,
+      'runtimeType': instance.$type,
+    };
+
+CombatEventTC _$CombatEventTCFromJson(Map<String, dynamic> json) =>
+    CombatEventTC(
+      (json['combatId'] as num).toInt(),
+      (json['round'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$CombatEventTCToJson(CombatEventTC instance) =>
+    <String, dynamic>{
+      'combatId': instance.combatId,
+      'round': instance.round,
+      'runtimeType': instance.$type,
+    };
+
+CombatErrorTC _$CombatErrorTCFromJson(Map<String, dynamic> json) =>
+    CombatErrorTC(
       error: WsCombatError.fromJson(json['error']),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$CombatErrorTCToJson(_CombatErrorTC instance) =>
+Map<String, dynamic> _$CombatErrorTCToJson(CombatErrorTC instance) =>
     <String, dynamic>{
       'error': WsCombatError.toJson(instance.error),
       'runtimeType': instance.$type,

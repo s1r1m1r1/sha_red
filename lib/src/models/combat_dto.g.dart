@@ -33,6 +33,8 @@ _CombatantDto _$CombatantDtoFromJson(Map<String, dynamic> json) =>
     _CombatantDto(
       id: (json['id'] as num).toInt(),
       teamId: (json['teamId'] as num).toInt(),
+      userId: (json['userId'] as num).toInt(),
+      isBot: json['isBot'] as bool,
       unitId: (json['unitId'] as num).toInt(),
       maxLife: (json['maxLife'] as num).toInt(),
       life: (json['life'] as num).toInt(),
@@ -44,20 +46,11 @@ Map<String, dynamic> _$CombatantDtoToJson(_CombatantDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'teamId': instance.teamId,
+      'userId': instance.userId,
+      'isBot': instance.isBot,
       'unitId': instance.unitId,
       'maxLife': instance.maxLife,
       'life': instance.life,
       'damage': instance.damage,
       'unit': instance.unit,
     };
-
-_CombatantTeamDto _$CombatantTeamDtoFromJson(Map<String, dynamic> json) =>
-    _CombatantTeamDto(
-      id: (json['id'] as num).toInt(),
-      combatantIds: (json['combatantIds'] as List<dynamic>)
-          .map((e) => (e as num).toInt())
-          .toList(),
-    );
-
-Map<String, dynamic> _$CombatantTeamDtoToJson(_CombatantTeamDto instance) =>
-    <String, dynamic>{'id': instance.id, 'combatantIds': instance.combatantIds};

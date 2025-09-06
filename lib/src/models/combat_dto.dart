@@ -25,6 +25,8 @@ abstract class CombatantDto with _$CombatantDto {
   const factory CombatantDto({
     required int id,
     required int teamId,
+    required int userId,
+    required bool isBot,
     required int unitId,
     //------------------
     required int maxLife,
@@ -35,17 +37,4 @@ abstract class CombatantDto with _$CombatantDto {
 
   factory CombatantDto.fromJson(Map<String, dynamic> json) =>
       _$CombatantDtoFromJson(json);
-}
-
-@freezed
-abstract class CombatantTeamDto with _$CombatantTeamDto {
-  const CombatantTeamDto._();
-  const factory CombatantTeamDto({
-    required int id,
-    required List<int> combatantIds,
-    //------------------
-  }) = _CombatantTeamDto;
-
-  factory CombatantTeamDto.fromJson(Map<String, dynamic> json) =>
-      _$CombatantTeamDtoFromJson(json);
 }
