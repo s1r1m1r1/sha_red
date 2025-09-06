@@ -19,9 +19,7 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.getJoinedBroads() = GetJoinedBroadsTS;
 
   const factory ToServer.createNewEdict() = CreateNewEdictTS;
-
   const factory ToServer.joinEdict(int edictId) = JoinEdictTS;
-
   const factory ToServer.leaveEdict() = LeaveEdictTS;
 
   const factory ToServer.newLetter({required CreateLetterDto letter}) =
