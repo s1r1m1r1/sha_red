@@ -16,7 +16,14 @@ sealed class ToServer with _$ToServer {
 
   @Implements<BotToServer>()
   const factory ToServer.disconnect() = DisconnectTS;
-  const factory ToServer.getJoinedBroads() = GetJoinedBroadsTS;
+  // получить список всех broadcasts
+  const factory ToServer.syncJoinedBroads() = SyncJoinedBroadsTS;
+
+  // silent, not receive message
+  const factory ToServer.sleepOnlineUsers() = SleepOnlineUsers;
+  // always join if connected to server, if sleep should wake to receive messages again
+  const factory ToServer.wakeOnlineUsers() = WakeOnlineUsers;
+  const factory ToServer.syncOnlineUsers() = SyncOnlineUsers;
 
   const factory ToServer.createNewEdict() = CreateNewEdictTS;
   const factory ToServer.joinEdict(int edictId) = JoinEdictTS;
