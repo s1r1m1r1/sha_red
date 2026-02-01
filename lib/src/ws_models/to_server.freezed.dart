@@ -27,8 +27,20 @@ ToServer _$ToServerFromJson(
           return DisconnectTS.fromJson(
             json
           );
-                case 'getJoinedBroads':
-          return GetJoinedBroadsTS.fromJson(
+                case 'syncJoinedBroads':
+          return SyncJoinedBroadsTS.fromJson(
+            json
+          );
+                case 'sleepOnlineUsers':
+          return SleepOnlineUsers.fromJson(
+            json
+          );
+                case 'wakeOnlineUsers':
+          return WakeOnlineUsers.fromJson(
+            json
+          );
+                case 'syncOnlineUsers':
+          return SyncOnlineUsers.fromJson(
             json
           );
                 case 'createNewEdict':
@@ -270,9 +282,9 @@ String toString() {
 /// @nodoc
 @JsonSerializable()
 
-class GetJoinedBroadsTS extends ToServer {
-  const GetJoinedBroadsTS({final  String? $type}): $type = $type ?? 'getJoinedBroads',super._();
-  factory GetJoinedBroadsTS.fromJson(Map<String, dynamic> json) => _$GetJoinedBroadsTSFromJson(json);
+class SyncJoinedBroadsTS extends ToServer {
+  const SyncJoinedBroadsTS({final  String? $type}): $type = $type ?? 'syncJoinedBroads',super._();
+  factory SyncJoinedBroadsTS.fromJson(Map<String, dynamic> json) => _$SyncJoinedBroadsTSFromJson(json);
 
 
 
@@ -283,12 +295,12 @@ final String $type;
 
 @override
 Map<String, dynamic> toJson() {
-  return _$GetJoinedBroadsTSToJson(this, );
+  return _$SyncJoinedBroadsTSToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetJoinedBroadsTS);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SyncJoinedBroadsTS);
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -297,7 +309,124 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'ToServer.getJoinedBroads()';
+  return 'ToServer.syncJoinedBroads()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class SleepOnlineUsers extends ToServer {
+  const SleepOnlineUsers({final  String? $type}): $type = $type ?? 'sleepOnlineUsers',super._();
+  factory SleepOnlineUsers.fromJson(Map<String, dynamic> json) => _$SleepOnlineUsersFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SleepOnlineUsersToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SleepOnlineUsers);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.sleepOnlineUsers()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class WakeOnlineUsers extends ToServer {
+  const WakeOnlineUsers({final  String? $type}): $type = $type ?? 'wakeOnlineUsers',super._();
+  factory WakeOnlineUsers.fromJson(Map<String, dynamic> json) => _$WakeOnlineUsersFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$WakeOnlineUsersToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WakeOnlineUsers);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.wakeOnlineUsers()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class SyncOnlineUsers extends ToServer {
+  const SyncOnlineUsers({final  String? $type}): $type = $type ?? 'syncOnlineUsers',super._();
+  factory SyncOnlineUsers.fromJson(Map<String, dynamic> json) => _$SyncOnlineUsersFromJson(json);
+
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SyncOnlineUsersToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SyncOnlineUsers);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ToServer.syncOnlineUsers()';
 }
 
 

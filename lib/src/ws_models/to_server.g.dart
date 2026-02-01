@@ -24,10 +24,28 @@ DisconnectTS _$DisconnectTSFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DisconnectTSToJson(DisconnectTS instance) =>
     <String, dynamic>{'runtimeType': instance.$type};
 
-GetJoinedBroadsTS _$GetJoinedBroadsTSFromJson(Map<String, dynamic> json) =>
-    GetJoinedBroadsTS($type: json['runtimeType'] as String?);
+SyncJoinedBroadsTS _$SyncJoinedBroadsTSFromJson(Map<String, dynamic> json) =>
+    SyncJoinedBroadsTS($type: json['runtimeType'] as String?);
 
-Map<String, dynamic> _$GetJoinedBroadsTSToJson(GetJoinedBroadsTS instance) =>
+Map<String, dynamic> _$SyncJoinedBroadsTSToJson(SyncJoinedBroadsTS instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};
+
+SleepOnlineUsers _$SleepOnlineUsersFromJson(Map<String, dynamic> json) =>
+    SleepOnlineUsers($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$SleepOnlineUsersToJson(SleepOnlineUsers instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};
+
+WakeOnlineUsers _$WakeOnlineUsersFromJson(Map<String, dynamic> json) =>
+    WakeOnlineUsers($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$WakeOnlineUsersToJson(WakeOnlineUsers instance) =>
+    <String, dynamic>{'runtimeType': instance.$type};
+
+SyncOnlineUsers _$SyncOnlineUsersFromJson(Map<String, dynamic> json) =>
+    SyncOnlineUsers($type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$SyncOnlineUsersToJson(SyncOnlineUsers instance) =>
     <String, dynamic>{'runtimeType': instance.$type};
 
 CreateNewEdictTS _$CreateNewEdictTSFromJson(Map<String, dynamic> json) =>

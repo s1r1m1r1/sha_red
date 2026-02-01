@@ -63,12 +63,12 @@ enum ToServerNames {
 
   static fromJson(dynamic json) {
     if (json is int) {
-      return WsCombatError.values.firstWhere(
+      return ToServerNames.values.firstWhere(
         (element) => element.code == json,
-        orElse: () => WsCombatError.unknown,
+        orElse: () => ToServerNames.unknown,
       );
     }
-    return WsCombatError.unknown;
+    return ToServerNames.unknown;
   }
 
   const ToServerNames(this.code);
