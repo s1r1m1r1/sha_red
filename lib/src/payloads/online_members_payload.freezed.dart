@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OnlineMemberPayload {
 
- int get roomId; List<OnlineMemberDto> get members;
+ String get roomId; List<OnlineMemberDto> get members;
 /// Create a copy of OnlineMemberPayload
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $OnlineMemberPayloadCopyWith<$Res>  {
   factory $OnlineMemberPayloadCopyWith(OnlineMemberPayload value, $Res Function(OnlineMemberPayload) _then) = _$OnlineMemberPayloadCopyWithImpl;
 @useResult
 $Res call({
- int roomId, List<OnlineMemberDto> members
+ String roomId, List<OnlineMemberDto> members
 });
 
 
@@ -68,7 +68,7 @@ class _$OnlineMemberPayloadCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? roomId = null,Object? members = null,}) {
   return _then(_self.copyWith(
 roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as int,members: null == members ? _self.members : members // ignore: cast_nullable_to_non_nullable
+as String,members: null == members ? _self.members : members // ignore: cast_nullable_to_non_nullable
 as List<OnlineMemberDto>,
   ));
 }
@@ -84,7 +84,7 @@ class _OnlineMemberPayload extends OnlineMemberPayload {
   const _OnlineMemberPayload({required this.roomId, required final  List<OnlineMemberDto> members}): _members = members,super._();
   factory _OnlineMemberPayload.fromJson(Map<String, dynamic> json) => _$OnlineMemberPayloadFromJson(json);
 
-@override final  int roomId;
+@override final  String roomId;
  final  List<OnlineMemberDto> _members;
 @override List<OnlineMemberDto> get members {
   if (_members is EqualUnmodifiableListView) return _members;
@@ -126,7 +126,7 @@ abstract mixin class _$OnlineMemberPayloadCopyWith<$Res> implements $OnlineMembe
   factory _$OnlineMemberPayloadCopyWith(_OnlineMemberPayload value, $Res Function(_OnlineMemberPayload) _then) = __$OnlineMemberPayloadCopyWithImpl;
 @override @useResult
 $Res call({
- int roomId, List<OnlineMemberDto> members
+ String roomId, List<OnlineMemberDto> members
 });
 
 
@@ -146,7 +146,7 @@ class __$OnlineMemberPayloadCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? members = null,}) {
   return _then(_OnlineMemberPayload(
 roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as int,members: null == members ? _self._members : members // ignore: cast_nullable_to_non_nullable
+as String,members: null == members ? _self._members : members // ignore: cast_nullable_to_non_nullable
 as List<OnlineMemberDto>,
   ));
 }

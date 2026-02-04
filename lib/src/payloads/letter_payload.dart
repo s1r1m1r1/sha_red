@@ -21,7 +21,7 @@ class NewLetterPayload {
 @JsonSerializable()
 class LastLetterPayload {
   const LastLetterPayload(this.roomId, this.letter);
-  final int roomId;
+  final String roomId;
 
   final LetterDto letter;
 
@@ -45,8 +45,10 @@ abstract class LetterRoomPayload with _$LetterRoomPayload {
 @freezed
 abstract class IdLetterPayload with _$IdLetterPayload {
   const IdLetterPayload._();
-  const factory IdLetterPayload({required int roomId, required int letterId}) =
-      _IdLetterPayload;
+  const factory IdLetterPayload({
+    required String roomId,
+    required int letterId,
+  }) = _IdLetterPayload;
 
   factory IdLetterPayload.fromJson(Json json) =>
       _$IdLetterPayloadFromJson(json);
@@ -55,7 +57,7 @@ abstract class IdLetterPayload with _$IdLetterPayload {
 @freezed
 abstract class LetterHistoryPayload with _$LetterHistoryPayload {
   const LetterHistoryPayload._();
-  const factory LetterHistoryPayload(int roomId, List<LetterDto> letters) =
+  const factory LetterHistoryPayload(String roomId, List<LetterDto> letters) =
       _LetterHistoryPayload;
   // final String roomId;
 
@@ -70,7 +72,7 @@ abstract class LetterDto with _$LetterDto {
   const LetterDto._();
   const factory LetterDto({
     required int id,
-    required int chatRoomId,
+    required String chatRoomId,
     required int senderId,
     required String content,
     required DateTime createdAt,
@@ -83,9 +85,7 @@ abstract class LetterDto with _$LetterDto {
 abstract class CreateLetterDto with _$CreateLetterDto {
   const CreateLetterDto._();
   const factory CreateLetterDto({
-    // id from
-    required int roomId,
-    // id to
+    required String roomId,
     required int senderId,
     required String content,
   }) = _CreateLetterDto;

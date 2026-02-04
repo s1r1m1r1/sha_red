@@ -21,7 +21,6 @@ Map<String, dynamic> _$AuthErrorTCToJson(AuthErrorTC instance) =>
 
 JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
     JoinedServerTC(
-      mainRoomId: (json['mainRoomId'] as num).toInt(),
       user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
       unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
@@ -29,7 +28,6 @@ JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$JoinedServerTCToJson(JoinedServerTC instance) =>
     <String, dynamic>{
-      'mainRoomId': instance.mainRoomId,
       'user': instance.user,
       'unit': instance.unit,
       'runtimeType': instance.$type,
@@ -51,19 +49,20 @@ Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
 
 BroadcastInfoTC _$BroadcastInfoTCFromJson(Map<String, dynamic> json) =>
     BroadcastInfoTC(
-      (json['broads'] as List<dynamic>)
-          .map((e) => BroadcastId.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      (json['broadcasts'] as List<dynamic>).map((e) => e as String).toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$BroadcastInfoTCToJson(BroadcastInfoTC instance) =>
-    <String, dynamic>{'broads': instance.broads, 'runtimeType': instance.$type};
+    <String, dynamic>{
+      'broadcasts': instance.broadcasts,
+      'runtimeType': instance.$type,
+    };
 
 TerminatedBroadcastTC _$TerminatedBroadcastTCFromJson(
   Map<String, dynamic> json,
 ) => TerminatedBroadcastTC(
-  BroadcastId.fromJson(json['broad'] as Map<String, dynamic>),
+  json['broad'] as String,
   $type: json['runtimeType'] as String?,
 );
 
@@ -141,19 +140,19 @@ Map<String, dynamic> _$ArenaErrorTCToJson(ArenaErrorTC instance) =>
 
 ReadyBattleTC _$ReadyBattleTCFromJson(Map<String, dynamic> json) =>
     ReadyBattleTC(
-      (json['combatRoom'] as num).toInt(),
+      json['combatRoomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$ReadyBattleTCToJson(ReadyBattleTC instance) =>
     <String, dynamic>{
-      'combatRoom': instance.combatRoom,
+      'combatRoomId': instance.combatRoomId,
       'runtimeType': instance.$type,
     };
 
 StartBattleTC _$StartBattleTCFromJson(Map<String, dynamic> json) =>
     StartBattleTC(
-      (json['combatId'] as num).toInt(),
+      json['combatId'] as String,
       (json['membs'] as num).toInt(),
       (json['ready'] as num).toInt(),
       $type: json['runtimeType'] as String?,
