@@ -85,7 +85,6 @@ abstract class LetterDto with _$LetterDto {
 abstract class CreateLetterDto with _$CreateLetterDto {
   const CreateLetterDto._();
   const factory CreateLetterDto({
-    required String roomId,
     required int senderId,
     required String content,
   }) = _CreateLetterDto;

@@ -71,14 +71,12 @@ Map<String, dynamic> _$LetterDtoToJson(_LetterDto instance) =>
 
 _CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
     _CreateLetterDto(
-      roomId: json['roomId'] as String,
       senderId: (json['senderId'] as num).toInt(),
       content: json['content'] as String,
     );
 
 Map<String, dynamic> _$CreateLetterDtoToJson(_CreateLetterDto instance) =>
     <String, dynamic>{
-      'roomId': instance.roomId,
       'senderId': instance.senderId,
       'content': instance.content,
     };

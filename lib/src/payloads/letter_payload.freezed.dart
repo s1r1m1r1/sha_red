@@ -575,7 +575,7 @@ as DateTime,
 /// @nodoc
 mixin _$CreateLetterDto {
 
- String get roomId; int get senderId; String get content;
+ int get senderId; String get content;
 /// Create a copy of CreateLetterDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -588,16 +588,16 @@ $CreateLetterDtoCopyWith<CreateLetterDto> get copyWith => _$CreateLetterDtoCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateLetterDto&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateLetterDto&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,roomId,senderId,content);
+int get hashCode => Object.hash(runtimeType,senderId,content);
 
 @override
 String toString() {
-  return 'CreateLetterDto(roomId: $roomId, senderId: $senderId, content: $content)';
+  return 'CreateLetterDto(senderId: $senderId, content: $content)';
 }
 
 
@@ -608,7 +608,7 @@ abstract mixin class $CreateLetterDtoCopyWith<$Res>  {
   factory $CreateLetterDtoCopyWith(CreateLetterDto value, $Res Function(CreateLetterDto) _then) = _$CreateLetterDtoCopyWithImpl;
 @useResult
 $Res call({
- String roomId, int senderId, String content
+ int senderId, String content
 });
 
 
@@ -625,10 +625,9 @@ class _$CreateLetterDtoCopyWithImpl<$Res>
 
 /// Create a copy of CreateLetterDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? roomId = null,Object? senderId = null,Object? content = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? senderId = null,Object? content = null,}) {
   return _then(_self.copyWith(
-roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
+senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
 as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -642,10 +641,9 @@ as String,
 @JsonSerializable()
 
 class _CreateLetterDto extends CreateLetterDto {
-  const _CreateLetterDto({required this.roomId, required this.senderId, required this.content}): super._();
+  const _CreateLetterDto({required this.senderId, required this.content}): super._();
   factory _CreateLetterDto.fromJson(Map<String, dynamic> json) => _$CreateLetterDtoFromJson(json);
 
-@override final  String roomId;
 @override final  int senderId;
 @override final  String content;
 
@@ -662,16 +660,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateLetterDto&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateLetterDto&&(identical(other.senderId, senderId) || other.senderId == senderId)&&(identical(other.content, content) || other.content == content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,roomId,senderId,content);
+int get hashCode => Object.hash(runtimeType,senderId,content);
 
 @override
 String toString() {
-  return 'CreateLetterDto(roomId: $roomId, senderId: $senderId, content: $content)';
+  return 'CreateLetterDto(senderId: $senderId, content: $content)';
 }
 
 
@@ -682,7 +680,7 @@ abstract mixin class _$CreateLetterDtoCopyWith<$Res> implements $CreateLetterDto
   factory _$CreateLetterDtoCopyWith(_CreateLetterDto value, $Res Function(_CreateLetterDto) _then) = __$CreateLetterDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String roomId, int senderId, String content
+ int senderId, String content
 });
 
 
@@ -699,10 +697,9 @@ class __$CreateLetterDtoCopyWithImpl<$Res>
 
 /// Create a copy of CreateLetterDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? senderId = null,Object? content = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? senderId = null,Object? content = null,}) {
   return _then(_CreateLetterDto(
-roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
+senderId: null == senderId ? _self.senderId : senderId // ignore: cast_nullable_to_non_nullable
 as int,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,
   ));

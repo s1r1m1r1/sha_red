@@ -672,10 +672,9 @@ $CreateLetterDtoCopyWith<$Res> get letter {
 @JsonSerializable()
 
 class DeleteLetterTS extends ToServer {
-  const DeleteLetterTS({required this.roomId, required this.letterId, final  String? $type}): $type = $type ?? 'deleteLetter',super._();
+  const DeleteLetterTS({required this.letterId, final  String? $type}): $type = $type ?? 'deleteLetter',super._();
   factory DeleteLetterTS.fromJson(Map<String, dynamic> json) => _$DeleteLetterTSFromJson(json);
 
- final  String roomId;
  final  int letterId;
 
 @JsonKey(name: 'runtimeType')
@@ -695,16 +694,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetterTS&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.letterId, letterId) || other.letterId == letterId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetterTS&&(identical(other.letterId, letterId) || other.letterId == letterId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,roomId,letterId);
+int get hashCode => Object.hash(runtimeType,letterId);
 
 @override
 String toString() {
-  return 'ToServer.deleteLetter(roomId: $roomId, letterId: $letterId)';
+  return 'ToServer.deleteLetter(letterId: $letterId)';
 }
 
 
@@ -715,7 +714,7 @@ abstract mixin class $DeleteLetterTSCopyWith<$Res> implements $ToServerCopyWith<
   factory $DeleteLetterTSCopyWith(DeleteLetterTS value, $Res Function(DeleteLetterTS) _then) = _$DeleteLetterTSCopyWithImpl;
 @useResult
 $Res call({
- String roomId, int letterId
+ int letterId
 });
 
 
@@ -732,10 +731,9 @@ class _$DeleteLetterTSCopyWithImpl<$Res>
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? letterId = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? letterId = null,}) {
   return _then(DeleteLetterTS(
-roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
+letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -747,20 +745,15 @@ as int,
 @JsonSerializable()
 
 class JoinLettersTS extends ToServer {
-  const JoinLettersTS(this.roomId, {final  String? $type}): $type = $type ?? 'joinLetters',super._();
+  const JoinLettersTS({final  String? $type}): $type = $type ?? 'joinLetters',super._();
   factory JoinLettersTS.fromJson(Map<String, dynamic> json) => _$JoinLettersTSFromJson(json);
 
- final  String roomId;
+
 
 @JsonKey(name: 'runtimeType')
 final String $type;
 
 
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$JoinLettersTSCopyWith<JoinLettersTS> get copyWith => _$JoinLettersTSCopyWithImpl<JoinLettersTS>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
@@ -769,52 +762,23 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinLettersTS&&(identical(other.roomId, roomId) || other.roomId == roomId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinLettersTS);
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,roomId);
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'ToServer.joinLetters(roomId: $roomId)';
+  return 'ToServer.joinLetters()';
 }
 
 
 }
 
-/// @nodoc
-abstract mixin class $JoinLettersTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $JoinLettersTSCopyWith(JoinLettersTS value, $Res Function(JoinLettersTS) _then) = _$JoinLettersTSCopyWithImpl;
-@useResult
-$Res call({
- String roomId
-});
 
 
-
-
-}
-/// @nodoc
-class _$JoinLettersTSCopyWithImpl<$Res>
-    implements $JoinLettersTSCopyWith<$Res> {
-  _$JoinLettersTSCopyWithImpl(this._self, this._then);
-
-  final JoinLettersTS _self;
-  final $Res Function(JoinLettersTS) _then;
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? roomId = null,}) {
-  return _then(JoinLettersTS(
-null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
 
 /// @nodoc
 @JsonSerializable()

@@ -81,26 +81,21 @@ Map<String, dynamic> _$NewLetterTSToJson(NewLetterTS instance) =>
 
 DeleteLetterTS _$DeleteLetterTSFromJson(Map<String, dynamic> json) =>
     DeleteLetterTS(
-      roomId: json['roomId'] as String,
       letterId: (json['letterId'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$DeleteLetterTSToJson(DeleteLetterTS instance) =>
     <String, dynamic>{
-      'roomId': instance.roomId,
       'letterId': instance.letterId,
       'runtimeType': instance.$type,
     };
 
 JoinLettersTS _$JoinLettersTSFromJson(Map<String, dynamic> json) =>
-    JoinLettersTS(
-      json['roomId'] as String,
-      $type: json['runtimeType'] as String?,
-    );
+    JoinLettersTS($type: json['runtimeType'] as String?);
 
 Map<String, dynamic> _$JoinLettersTSToJson(JoinLettersTS instance) =>
-    <String, dynamic>{'roomId': instance.roomId, 'runtimeType': instance.$type};
+    <String, dynamic>{'runtimeType': instance.$type};
 
 JoinArenaTS _$JoinArenaTSFromJson(Map<String, dynamic> json) =>
     JoinArenaTS($type: json['runtimeType'] as String?);

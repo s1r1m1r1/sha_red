@@ -32,12 +32,9 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.newLetter({required CreateLetterDto letter}) =
       NewLetterTS;
 
-  const factory ToServer.deleteLetter({
-    required String roomId,
-    required int letterId,
-  }) = DeleteLetterTS;
+  const factory ToServer.deleteLetter({required int letterId}) = DeleteLetterTS;
 
-  const factory ToServer.joinLetters(String roomId) = JoinLettersTS;
+  const factory ToServer.joinLetters() = JoinLettersTS;
 
   const factory ToServer.joinArena() = JoinArenaTS;
 
