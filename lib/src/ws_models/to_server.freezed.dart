@@ -481,7 +481,7 @@ class JoinEdictTS extends ToServer {
   const JoinEdictTS(this.edictId, {final  String? $type}): $type = $type ?? 'joinEdict',super._();
   factory JoinEdictTS.fromJson(Map<String, dynamic> json) => _$JoinEdictTSFromJson(json);
 
- final  int edictId;
+ final  String edictId;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -520,7 +520,7 @@ abstract mixin class $JoinEdictTSCopyWith<$Res> implements $ToServerCopyWith<$Re
   factory $JoinEdictTSCopyWith(JoinEdictTS value, $Res Function(JoinEdictTS) _then) = _$JoinEdictTSCopyWithImpl;
 @useResult
 $Res call({
- int edictId
+ String edictId
 });
 
 
@@ -540,7 +540,7 @@ class _$JoinEdictTSCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? edictId = null,}) {
   return _then(JoinEdictTS(
 null == edictId ? _self.edictId : edictId // ignore: cast_nullable_to_non_nullable
-as int,
+as String,
   ));
 }
 
@@ -675,7 +675,7 @@ class DeleteLetterTS extends ToServer {
   const DeleteLetterTS({required this.roomId, required this.letterId, final  String? $type}): $type = $type ?? 'deleteLetter',super._();
   factory DeleteLetterTS.fromJson(Map<String, dynamic> json) => _$DeleteLetterTSFromJson(json);
 
- final  int roomId;
+ final  String roomId;
  final  int letterId;
 
 @JsonKey(name: 'runtimeType')
@@ -715,7 +715,7 @@ abstract mixin class $DeleteLetterTSCopyWith<$Res> implements $ToServerCopyWith<
   factory $DeleteLetterTSCopyWith(DeleteLetterTS value, $Res Function(DeleteLetterTS) _then) = _$DeleteLetterTSCopyWithImpl;
 @useResult
 $Res call({
- int roomId, int letterId
+ String roomId, int letterId
 });
 
 
@@ -735,7 +735,7 @@ class _$DeleteLetterTSCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? roomId = null,Object? letterId = null,}) {
   return _then(DeleteLetterTS(
 roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as int,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
+as String,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -750,7 +750,7 @@ class JoinLettersTS extends ToServer {
   const JoinLettersTS(this.roomId, {final  String? $type}): $type = $type ?? 'joinLetters',super._();
   factory JoinLettersTS.fromJson(Map<String, dynamic> json) => _$JoinLettersTSFromJson(json);
 
- final  int roomId;
+ final  String roomId;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -789,7 +789,7 @@ abstract mixin class $JoinLettersTSCopyWith<$Res> implements $ToServerCopyWith<$
   factory $JoinLettersTSCopyWith(JoinLettersTS value, $Res Function(JoinLettersTS) _then) = _$JoinLettersTSCopyWithImpl;
 @useResult
 $Res call({
- int roomId
+ String roomId
 });
 
 
@@ -809,7 +809,7 @@ class _$JoinLettersTSCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? roomId = null,}) {
   return _then(JoinLettersTS(
 null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as int,
+as String,
   ));
 }
 
@@ -935,7 +935,7 @@ class JoinBattleRoomTS extends ToServer {
   const JoinBattleRoomTS(this.battleRoomId, {final  String? $type}): $type = $type ?? 'joinBattleRoom',super._();
   factory JoinBattleRoomTS.fromJson(Map<String, dynamic> json) => _$JoinBattleRoomTSFromJson(json);
 
- final  int battleRoomId;
+ final  String battleRoomId;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -974,7 +974,7 @@ abstract mixin class $JoinBattleRoomTSCopyWith<$Res> implements $ToServerCopyWit
   factory $JoinBattleRoomTSCopyWith(JoinBattleRoomTS value, $Res Function(JoinBattleRoomTS) _then) = _$JoinBattleRoomTSCopyWithImpl;
 @useResult
 $Res call({
- int battleRoomId
+ String battleRoomId
 });
 
 
@@ -994,7 +994,7 @@ class _$JoinBattleRoomTSCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? battleRoomId = null,}) {
   return _then(JoinBattleRoomTS(
 null == battleRoomId ? _self.battleRoomId : battleRoomId // ignore: cast_nullable_to_non_nullable
-as int,
+as String,
   ));
 }
 
@@ -1008,7 +1008,7 @@ class LeaveBattleRoom extends ToServer {
   const LeaveBattleRoom(this.battleRoomId, {final  String? $type}): $type = $type ?? 'leaveBattleRoom',super._();
   factory LeaveBattleRoom.fromJson(Map<String, dynamic> json) => _$LeaveBattleRoomFromJson(json);
 
- final  int battleRoomId;
+ final  String battleRoomId;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1047,7 +1047,7 @@ abstract mixin class $LeaveBattleRoomCopyWith<$Res> implements $ToServerCopyWith
   factory $LeaveBattleRoomCopyWith(LeaveBattleRoom value, $Res Function(LeaveBattleRoom) _then) = _$LeaveBattleRoomCopyWithImpl;
 @useResult
 $Res call({
- int battleRoomId
+ String battleRoomId
 });
 
 
@@ -1067,7 +1067,7 @@ class _$LeaveBattleRoomCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? battleRoomId = null,}) {
   return _then(LeaveBattleRoom(
 null == battleRoomId ? _self.battleRoomId : battleRoomId // ignore: cast_nullable_to_non_nullable
-as int,
+as String,
   ));
 }
 

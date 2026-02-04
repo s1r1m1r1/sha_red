@@ -7,7 +7,7 @@ part of 'edict_dto.dart';
 // **************************************************************************
 
 _EdictDto _$EdictDtoFromJson(Map<String, dynamic> json) => _EdictDto(
-  id: (json['id'] as num).toInt(),
+  id: json['id'] as String,
   members:
       (json['members'] as List<dynamic>?)
           ?.map((e) => UserMemberDto.fromJson(e as Map<String, dynamic>))

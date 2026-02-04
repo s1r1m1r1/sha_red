@@ -21,7 +21,6 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
 
   @Implements<AuthTC>()
   const factory ToClient.joinedServer({
-    required int mainRoomId,
     required UserDto user,
     required UnitDto unit,
   }) = JoinedServerTC;
@@ -32,11 +31,11 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   }) = OnlineUsersTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.broadcastInfo(List<BroadcastId> broads) =
+  const factory ToClient.broadcastInfo(List<String> broadcasts) =
       BroadcastInfoTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.terminatedBroadcast(BroadcastId broad) =
+  const factory ToClient.terminatedBroadcast(String broad) =
       TerminatedBroadcastTC;
 
   @Implements<BroadcastTC>()
@@ -61,12 +60,12 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
     WsArenaError error,
   ) = ArenaErrorTC;
 
-  const factory ToClient.readyBattle(int combatRoom) = ReadyBattleTC;
+  const factory ToClient.readyBattle(String combatRoomId) = ReadyBattleTC;
 
   /// countId номер комнаты
   /// membs число участника
   /// ready число готовых
-  const factory ToClient.startBattle(int combatId, int membs, int ready) =
+  const factory ToClient.startBattle(String combatId, int membs, int ready) =
       StartBattleTC;
 
   const factory ToClient.combatEvent(int combatId, int round) = CombatEventTC;

@@ -8,7 +8,7 @@ part 'online_members_payload.freezed.dart';
 abstract class OnlineMemberPayload with _$OnlineMemberPayload {
   const OnlineMemberPayload._();
   const factory OnlineMemberPayload({
-    required int roomId,
+    required String roomId,
     required List<OnlineMemberDto> members,
   }) = _OnlineMemberPayload;
 

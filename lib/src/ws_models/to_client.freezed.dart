@@ -203,10 +203,9 @@ as ToServerNames,
 @JsonSerializable()
 
 class JoinedServerTC extends ToClient implements AuthTC {
-  const JoinedServerTC({required this.mainRoomId, required this.user, required this.unit, final  String? $type}): $type = $type ?? 'joinedServer',super._();
+  const JoinedServerTC({required this.user, required this.unit, final  String? $type}): $type = $type ?? 'joinedServer',super._();
   factory JoinedServerTC.fromJson(Map<String, dynamic> json) => _$JoinedServerTCFromJson(json);
 
- final  int mainRoomId;
  final  UserDto user;
  final  UnitDto unit;
 
@@ -227,16 +226,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinedServerTC&&(identical(other.mainRoomId, mainRoomId) || other.mainRoomId == mainRoomId)&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinedServerTC&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,mainRoomId,user,unit);
+int get hashCode => Object.hash(runtimeType,user,unit);
 
 @override
 String toString() {
-  return 'ToClient.joinedServer(mainRoomId: $mainRoomId, user: $user, unit: $unit)';
+  return 'ToClient.joinedServer(user: $user, unit: $unit)';
 }
 
 
@@ -247,7 +246,7 @@ abstract mixin class $JoinedServerTCCopyWith<$Res> implements $ToClientCopyWith<
   factory $JoinedServerTCCopyWith(JoinedServerTC value, $Res Function(JoinedServerTC) _then) = _$JoinedServerTCCopyWithImpl;
 @useResult
 $Res call({
- int mainRoomId, UserDto user, UnitDto unit
+ UserDto user, UnitDto unit
 });
 
 
@@ -264,10 +263,9 @@ class _$JoinedServerTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? mainRoomId = null,Object? user = null,Object? unit = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? user = null,Object? unit = null,}) {
   return _then(JoinedServerTC(
-mainRoomId: null == mainRoomId ? _self.mainRoomId : mainRoomId // ignore: cast_nullable_to_non_nullable
-as int,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as UserDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as UnitDto,
   ));
@@ -382,14 +380,14 @@ $OnlineMemberPayloadCopyWith<$Res> get dto {
 @JsonSerializable()
 
 class BroadcastInfoTC extends ToClient implements BroadcastTC {
-  const BroadcastInfoTC(final  List<BroadcastId> broads, {final  String? $type}): _broads = broads,$type = $type ?? 'broadcastInfo',super._();
+  const BroadcastInfoTC(final  List<String> broadcasts, {final  String? $type}): _broadcasts = broadcasts,$type = $type ?? 'broadcastInfo',super._();
   factory BroadcastInfoTC.fromJson(Map<String, dynamic> json) => _$BroadcastInfoTCFromJson(json);
 
- final  List<BroadcastId> _broads;
- List<BroadcastId> get broads {
-  if (_broads is EqualUnmodifiableListView) return _broads;
+ final  List<String> _broadcasts;
+ List<String> get broadcasts {
+  if (_broadcasts is EqualUnmodifiableListView) return _broadcasts;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_broads);
+  return EqualUnmodifiableListView(_broadcasts);
 }
 
 
@@ -410,16 +408,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BroadcastInfoTC&&const DeepCollectionEquality().equals(other._broads, _broads));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BroadcastInfoTC&&const DeepCollectionEquality().equals(other._broadcasts, _broadcasts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_broads));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_broadcasts));
 
 @override
 String toString() {
-  return 'ToClient.broadcastInfo(broads: $broads)';
+  return 'ToClient.broadcastInfo(broadcasts: $broadcasts)';
 }
 
 
@@ -430,7 +428,7 @@ abstract mixin class $BroadcastInfoTCCopyWith<$Res> implements $ToClientCopyWith
   factory $BroadcastInfoTCCopyWith(BroadcastInfoTC value, $Res Function(BroadcastInfoTC) _then) = _$BroadcastInfoTCCopyWithImpl;
 @useResult
 $Res call({
- List<BroadcastId> broads
+ List<String> broadcasts
 });
 
 
@@ -447,10 +445,10 @@ class _$BroadcastInfoTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? broads = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? broadcasts = null,}) {
   return _then(BroadcastInfoTC(
-null == broads ? _self._broads : broads // ignore: cast_nullable_to_non_nullable
-as List<BroadcastId>,
+null == broadcasts ? _self._broadcasts : broadcasts // ignore: cast_nullable_to_non_nullable
+as List<String>,
   ));
 }
 
@@ -464,7 +462,7 @@ class TerminatedBroadcastTC extends ToClient implements BroadcastTC {
   const TerminatedBroadcastTC(this.broad, {final  String? $type}): $type = $type ?? 'terminatedBroadcast',super._();
   factory TerminatedBroadcastTC.fromJson(Map<String, dynamic> json) => _$TerminatedBroadcastTCFromJson(json);
 
- final  BroadcastId broad;
+ final  String broad;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -503,11 +501,11 @@ abstract mixin class $TerminatedBroadcastTCCopyWith<$Res> implements $ToClientCo
   factory $TerminatedBroadcastTCCopyWith(TerminatedBroadcastTC value, $Res Function(TerminatedBroadcastTC) _then) = _$TerminatedBroadcastTCCopyWithImpl;
 @useResult
 $Res call({
- BroadcastId broad
+ String broad
 });
 
 
-$BroadcastIdCopyWith<$Res> get broad;
+
 
 }
 /// @nodoc
@@ -523,20 +521,11 @@ class _$TerminatedBroadcastTCCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? broad = null,}) {
   return _then(TerminatedBroadcastTC(
 null == broad ? _self.broad : broad // ignore: cast_nullable_to_non_nullable
-as BroadcastId,
+as String,
   ));
 }
 
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BroadcastIdCopyWith<$Res> get broad {
-  
-  return $BroadcastIdCopyWith<$Res>(_self.broad, (value) {
-    return _then(_self.copyWith(broad: value));
-  });
-}
+
 }
 
 /// @nodoc
@@ -1044,10 +1033,10 @@ as WsArenaError,
 @JsonSerializable()
 
 class ReadyBattleTC extends ToClient {
-  const ReadyBattleTC(this.combatRoom, {final  String? $type}): $type = $type ?? 'readyBattle',super._();
+  const ReadyBattleTC(this.combatRoomId, {final  String? $type}): $type = $type ?? 'readyBattle',super._();
   factory ReadyBattleTC.fromJson(Map<String, dynamic> json) => _$ReadyBattleTCFromJson(json);
 
- final  int combatRoom;
+ final  String combatRoomId;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1066,16 +1055,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReadyBattleTC&&(identical(other.combatRoom, combatRoom) || other.combatRoom == combatRoom));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReadyBattleTC&&(identical(other.combatRoomId, combatRoomId) || other.combatRoomId == combatRoomId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,combatRoom);
+int get hashCode => Object.hash(runtimeType,combatRoomId);
 
 @override
 String toString() {
-  return 'ToClient.readyBattle(combatRoom: $combatRoom)';
+  return 'ToClient.readyBattle(combatRoomId: $combatRoomId)';
 }
 
 
@@ -1086,7 +1075,7 @@ abstract mixin class $ReadyBattleTCCopyWith<$Res> implements $ToClientCopyWith<$
   factory $ReadyBattleTCCopyWith(ReadyBattleTC value, $Res Function(ReadyBattleTC) _then) = _$ReadyBattleTCCopyWithImpl;
 @useResult
 $Res call({
- int combatRoom
+ String combatRoomId
 });
 
 
@@ -1103,10 +1092,10 @@ class _$ReadyBattleTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? combatRoom = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? combatRoomId = null,}) {
   return _then(ReadyBattleTC(
-null == combatRoom ? _self.combatRoom : combatRoom // ignore: cast_nullable_to_non_nullable
-as int,
+null == combatRoomId ? _self.combatRoomId : combatRoomId // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -1120,7 +1109,7 @@ class StartBattleTC extends ToClient {
   const StartBattleTC(this.combatId, this.membs, this.ready, {final  String? $type}): $type = $type ?? 'startBattle',super._();
   factory StartBattleTC.fromJson(Map<String, dynamic> json) => _$StartBattleTCFromJson(json);
 
- final  int combatId;
+ final  String combatId;
  final  int membs;
  final  int ready;
 
@@ -1161,7 +1150,7 @@ abstract mixin class $StartBattleTCCopyWith<$Res> implements $ToClientCopyWith<$
   factory $StartBattleTCCopyWith(StartBattleTC value, $Res Function(StartBattleTC) _then) = _$StartBattleTCCopyWithImpl;
 @useResult
 $Res call({
- int combatId, int membs, int ready
+ String combatId, int membs, int ready
 });
 
 
@@ -1181,7 +1170,7 @@ class _$StartBattleTCCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? combatId = null,Object? membs = null,Object? ready = null,}) {
   return _then(StartBattleTC(
 null == combatId ? _self.combatId : combatId // ignore: cast_nullable_to_non_nullable
-as int,null == membs ? _self.membs : membs // ignore: cast_nullable_to_non_nullable
+as String,null == membs ? _self.membs : membs // ignore: cast_nullable_to_non_nullable
 as int,null == ready ? _self.ready : ready // ignore: cast_nullable_to_non_nullable
 as int,
   ));

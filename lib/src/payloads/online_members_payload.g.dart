@@ -8,7 +8,7 @@ part of 'online_members_payload.dart';
 
 _OnlineMemberPayload _$OnlineMemberPayloadFromJson(Map<String, dynamic> json) =>
     _OnlineMemberPayload(
-      roomId: (json['roomId'] as num).toInt(),
+      roomId: json['roomId'] as String,
       members: (json['members'] as List<dynamic>)
           .map((e) => OnlineMemberDto.fromJson(e as Map<String, dynamic>))
           .toList(),

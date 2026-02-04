@@ -7,7 +7,7 @@ part 'edict_dto.g.dart';
 abstract class EdictDto with _$EdictDto {
   const EdictDto._();
   const factory EdictDto({
-    required int id,
+    required String id,
     @Default([]) List<UserMemberDto> members,
     required int maxMembers,
     required DateTime createdAt,

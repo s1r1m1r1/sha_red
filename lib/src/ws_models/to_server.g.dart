@@ -55,7 +55,7 @@ Map<String, dynamic> _$CreateNewEdictTSToJson(CreateNewEdictTS instance) =>
     <String, dynamic>{'runtimeType': instance.$type};
 
 JoinEdictTS _$JoinEdictTSFromJson(Map<String, dynamic> json) => JoinEdictTS(
-  (json['edictId'] as num).toInt(),
+  json['edictId'] as String,
   $type: json['runtimeType'] as String?,
 );
 
@@ -81,7 +81,7 @@ Map<String, dynamic> _$NewLetterTSToJson(NewLetterTS instance) =>
 
 DeleteLetterTS _$DeleteLetterTSFromJson(Map<String, dynamic> json) =>
     DeleteLetterTS(
-      roomId: (json['roomId'] as num).toInt(),
+      roomId: json['roomId'] as String,
       letterId: (json['letterId'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
@@ -95,7 +95,7 @@ Map<String, dynamic> _$DeleteLetterTSToJson(DeleteLetterTS instance) =>
 
 JoinLettersTS _$JoinLettersTSFromJson(Map<String, dynamic> json) =>
     JoinLettersTS(
-      (json['roomId'] as num).toInt(),
+      json['roomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
@@ -119,7 +119,7 @@ Map<String, dynamic> _$CreateBattleRoomTSToJson(CreateBattleRoomTS instance) =>
 
 JoinBattleRoomTS _$JoinBattleRoomTSFromJson(Map<String, dynamic> json) =>
     JoinBattleRoomTS(
-      (json['battleRoomId'] as num).toInt(),
+      json['battleRoomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
@@ -131,7 +131,7 @@ Map<String, dynamic> _$JoinBattleRoomTSToJson(JoinBattleRoomTS instance) =>
 
 LeaveBattleRoom _$LeaveBattleRoomFromJson(Map<String, dynamic> json) =>
     LeaveBattleRoom(
-      (json['battleRoomId'] as num).toInt(),
+      json['battleRoomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 

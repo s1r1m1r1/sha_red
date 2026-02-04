@@ -26,25 +26,25 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.syncOnlineUsers() = SyncOnlineUsers;
 
   const factory ToServer.createNewEdict() = CreateNewEdictTS;
-  const factory ToServer.joinEdict(int edictId) = JoinEdictTS;
+  const factory ToServer.joinEdict(String edictId) = JoinEdictTS;
   const factory ToServer.leaveEdict() = LeaveEdictTS;
 
   const factory ToServer.newLetter({required CreateLetterDto letter}) =
       NewLetterTS;
 
   const factory ToServer.deleteLetter({
-    required int roomId,
+    required String roomId,
     required int letterId,
   }) = DeleteLetterTS;
 
-  const factory ToServer.joinLetters(int roomId) = JoinLettersTS;
+  const factory ToServer.joinLetters(String roomId) = JoinLettersTS;
 
   const factory ToServer.joinArena() = JoinArenaTS;
 
   @Implements<BotToServer>()
   const factory ToServer.createBattleRoom(int unitId) = CreateBattleRoomTS;
-  const factory ToServer.joinBattleRoom(int battleRoomId) = JoinBattleRoomTS;
-  const factory ToServer.leaveBattleRoom(int battleRoomId) = LeaveBattleRoom;
+  const factory ToServer.joinBattleRoom(String battleRoomId) = JoinBattleRoomTS;
+  const factory ToServer.leaveBattleRoom(String battleRoomId) = LeaveBattleRoom;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);

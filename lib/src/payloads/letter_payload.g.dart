@@ -17,7 +17,7 @@ Map<String, dynamic> _$NewLetterPayloadToJson(NewLetterPayload instance) =>
 
 LastLetterPayload _$LastLetterPayloadFromJson(Map<String, dynamic> json) =>
     LastLetterPayload(
-      (json['roomId'] as num).toInt(),
+      json['roomId'] as String,
       LetterDto.fromJson(json['letter'] as Map<String, dynamic>),
     );
 
@@ -32,7 +32,7 @@ Map<String, dynamic> _$LetterRoomPayloadToJson(_LetterRoomPayload instance) =>
 
 _IdLetterPayload _$IdLetterPayloadFromJson(Map<String, dynamic> json) =>
     _IdLetterPayload(
-      roomId: (json['roomId'] as num).toInt(),
+      roomId: json['roomId'] as String,
       letterId: (json['letterId'] as num).toInt(),
     );
 
@@ -42,7 +42,7 @@ Map<String, dynamic> _$IdLetterPayloadToJson(_IdLetterPayload instance) =>
 _LetterHistoryPayload _$LetterHistoryPayloadFromJson(
   Map<String, dynamic> json,
 ) => _LetterHistoryPayload(
-  (json['roomId'] as num).toInt(),
+  json['roomId'] as String,
   (json['letters'] as List<dynamic>)
       .map((e) => LetterDto.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -54,7 +54,7 @@ Map<String, dynamic> _$LetterHistoryPayloadToJson(
 
 _LetterDto _$LetterDtoFromJson(Map<String, dynamic> json) => _LetterDto(
   id: (json['id'] as num).toInt(),
-  chatRoomId: (json['chatRoomId'] as num).toInt(),
+  chatRoomId: json['chatRoomId'] as String,
   senderId: (json['senderId'] as num).toInt(),
   content: json['content'] as String,
   createdAt: DateTime.parse(json['createdAt'] as String),
@@ -71,7 +71,7 @@ Map<String, dynamic> _$LetterDtoToJson(_LetterDto instance) =>
 
 _CreateLetterDto _$CreateLetterDtoFromJson(Map<String, dynamic> json) =>
     _CreateLetterDto(
-      roomId: (json['roomId'] as num).toInt(),
+      roomId: json['roomId'] as String,
       senderId: (json['senderId'] as num).toInt(),
       content: json['content'] as String,
     );

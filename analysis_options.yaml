@@ -13,8 +13,14 @@
 
 include: package:lints/recommended.yaml
 analyzer:
+  exclude:
+    - "test/**"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
   errors:
     invalid_annotation_target: ignore
+    todo: ignore
+
 # Uncomment the following section to specify additional rules.
 
 # linter:
