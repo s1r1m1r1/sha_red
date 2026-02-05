@@ -27,8 +27,8 @@ ToClient _$ToClientFromJson(
           return OnlineUsersTC.fromJson(
             json
           );
-                case 'joinedBroadcasts':
-          return JoinedBroadcastsTC.fromJson(
+                case 'broadcastInfo':
+          return BroadcastInfoTC.fromJson(
             json
           );
                 case 'terminatedBroadcast':
@@ -379,12 +379,12 @@ $OnlineMemberPayloadCopyWith<$Res> get dto {
 /// @nodoc
 @JsonSerializable()
 
-class JoinedBroadcastsTC extends ToClient implements BroadcastTC {
-  const JoinedBroadcastsTC(final  List<String> broadcasts, {final  String? $type}): _broadcasts = broadcasts,$type = $type ?? 'joinedBroadcasts',super._();
-  factory JoinedBroadcastsTC.fromJson(Map<String, dynamic> json) => _$JoinedBroadcastsTCFromJson(json);
+class BroadcastInfoTC extends ToClient implements BroadcastTC {
+  const BroadcastInfoTC(final  List<BroadcastMemberDto> broadcasts, {final  String? $type}): _broadcasts = broadcasts,$type = $type ?? 'broadcastInfo',super._();
+  factory BroadcastInfoTC.fromJson(Map<String, dynamic> json) => _$BroadcastInfoTCFromJson(json);
 
- final  List<String> _broadcasts;
- List<String> get broadcasts {
+ final  List<BroadcastMemberDto> _broadcasts;
+ List<BroadcastMemberDto> get broadcasts {
   if (_broadcasts is EqualUnmodifiableListView) return _broadcasts;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_broadcasts);
@@ -399,16 +399,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$JoinedBroadcastsTCCopyWith<JoinedBroadcastsTC> get copyWith => _$JoinedBroadcastsTCCopyWithImpl<JoinedBroadcastsTC>(this, _$identity);
+$BroadcastInfoTCCopyWith<BroadcastInfoTC> get copyWith => _$BroadcastInfoTCCopyWithImpl<BroadcastInfoTC>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$JoinedBroadcastsTCToJson(this, );
+  return _$BroadcastInfoTCToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinedBroadcastsTC&&const DeepCollectionEquality().equals(other._broadcasts, _broadcasts));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BroadcastInfoTC&&const DeepCollectionEquality().equals(other._broadcasts, _broadcasts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -417,18 +417,18 @@ int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(
 
 @override
 String toString() {
-  return 'ToClient.joinedBroadcasts(broadcasts: $broadcasts)';
+  return 'ToClient.broadcastInfo(broadcasts: $broadcasts)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $JoinedBroadcastsTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $JoinedBroadcastsTCCopyWith(JoinedBroadcastsTC value, $Res Function(JoinedBroadcastsTC) _then) = _$JoinedBroadcastsTCCopyWithImpl;
+abstract mixin class $BroadcastInfoTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $BroadcastInfoTCCopyWith(BroadcastInfoTC value, $Res Function(BroadcastInfoTC) _then) = _$BroadcastInfoTCCopyWithImpl;
 @useResult
 $Res call({
- List<String> broadcasts
+ List<BroadcastMemberDto> broadcasts
 });
 
 
@@ -436,19 +436,19 @@ $Res call({
 
 }
 /// @nodoc
-class _$JoinedBroadcastsTCCopyWithImpl<$Res>
-    implements $JoinedBroadcastsTCCopyWith<$Res> {
-  _$JoinedBroadcastsTCCopyWithImpl(this._self, this._then);
+class _$BroadcastInfoTCCopyWithImpl<$Res>
+    implements $BroadcastInfoTCCopyWith<$Res> {
+  _$BroadcastInfoTCCopyWithImpl(this._self, this._then);
 
-  final JoinedBroadcastsTC _self;
-  final $Res Function(JoinedBroadcastsTC) _then;
+  final BroadcastInfoTC _self;
+  final $Res Function(BroadcastInfoTC) _then;
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? broadcasts = null,}) {
-  return _then(JoinedBroadcastsTC(
+  return _then(BroadcastInfoTC(
 null == broadcasts ? _self._broadcasts : broadcasts // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as List<BroadcastMemberDto>,
   ));
 }
 

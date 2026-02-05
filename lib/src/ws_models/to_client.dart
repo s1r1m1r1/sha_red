@@ -3,7 +3,14 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sha_red/sha_red.dart';
+import '../models/user_dto.dart';
+import '../models/unit_dto.dart';
+import '../models/edict_dto.dart';
+import '../models/broadcast_member_dto.dart';
+import '../payloads/online_members_payload.dart';
+import '../payloads/letter_payload.dart';
+import '../ws_models/ws_auth_error.dart';
+import '../ws_models/ws_server_error.dart';
 part 'to_client.g.dart';
 part 'to_client.freezed.dart';
 
@@ -31,8 +38,8 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   }) = OnlineUsersTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.joinedBroadcasts(List<String> broadcasts) =
-      JoinedBroadcastsTC;
+  const factory ToClient.broadcastInfo(List<BroadcastMemberDto> broadcasts) =
+      BroadcastInfoTC;
 
   @Implements<BroadcastTC>()
   const factory ToClient.terminatedBroadcast(String broad) =

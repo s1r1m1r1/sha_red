@@ -13,6 +13,7 @@ export 'src/models/unit_dto.dart';
 export 'src/models/battle_room_dto.dart';
 export 'src/models/broadcast_id.dart';
 export 'src/models/edict_dto.dart';
+export 'src/models/broadcast_member_dto.dart';
 export 'src/models/user_member_dto.dart';
 export 'src/models/combat_dto.dart';
 export 'src/models/menu_room_dto.dart';
