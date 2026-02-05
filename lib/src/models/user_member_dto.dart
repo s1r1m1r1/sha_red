@@ -1,5 +1,5 @@
+import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sha_red/sha_red.dart';
 part 'user_member_dto.freezed.dart';
 part 'user_member_dto.g.dart';
 

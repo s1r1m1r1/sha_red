@@ -92,6 +92,18 @@ Map<String, dynamic> _$StatusErrorTCToJson(StatusErrorTC instance) =>
       'runtimeType': instance.$type,
     };
 
+LetterStatusTC _$LetterStatusTCFromJson(Map<String, dynamic> json) =>
+    LetterStatusTC(
+      json['isSleep'] as bool,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$LetterStatusTCToJson(LetterStatusTC instance) =>
+    <String, dynamic>{
+      'isSleep': instance.isSleep,
+      'runtimeType': instance.$type,
+    };
+
 LetterHistoryTC _$LetterHistoryTCFromJson(Map<String, dynamic> json) =>
     LetterHistoryTC(
       LetterHistoryPayload.fromJson(json['dto'] as Map<String, dynamic>),

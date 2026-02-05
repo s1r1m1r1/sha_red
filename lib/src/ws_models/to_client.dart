@@ -54,6 +54,9 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   }) = StatusErrorTC;
 
   @Implements<LetterTC>()
+  const factory ToClient.status(bool isSleep) = LetterStatusTC;
+
+  @Implements<LetterTC>()
   const factory ToClient.letterHistory(LetterHistoryPayload dto) =
       LetterHistoryTC;
   @Implements<LetterTC>()

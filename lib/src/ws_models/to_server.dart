@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sha_red/sha_red.dart';
 
 part 'to_server.freezed.dart';
 part 'to_server.g.dart';

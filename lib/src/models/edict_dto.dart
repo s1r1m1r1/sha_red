@@ -1,5 +1,5 @@
+import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sha_red/src/models/user_member_dto.dart';
 part 'edict_dto.freezed.dart';
 part 'edict_dto.g.dart';
 

@@ -43,6 +43,10 @@ ToClient _$ToClientFromJson(
           return StatusErrorTC.fromJson(
             json
           );
+                case 'status':
+          return LetterStatusTC.fromJson(
+            json
+          );
                 case 'letterHistory':
           return LetterHistoryTC.fromJson(
             json
@@ -634,6 +638,79 @@ class _$StatusErrorTCCopyWithImpl<$Res>
   return _then(StatusErrorTC(
 error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as WsServerError,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class LetterStatusTC extends ToClient implements LetterTC {
+  const LetterStatusTC(this.isSleep, {final  String? $type}): $type = $type ?? 'status',super._();
+  factory LetterStatusTC.fromJson(Map<String, dynamic> json) => _$LetterStatusTCFromJson(json);
+
+ final  bool isSleep;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LetterStatusTCCopyWith<LetterStatusTC> get copyWith => _$LetterStatusTCCopyWithImpl<LetterStatusTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LetterStatusTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LetterStatusTC&&(identical(other.isSleep, isSleep) || other.isSleep == isSleep));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,isSleep);
+
+@override
+String toString() {
+  return 'ToClient.status(isSleep: $isSleep)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $LetterStatusTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $LetterStatusTCCopyWith(LetterStatusTC value, $Res Function(LetterStatusTC) _then) = _$LetterStatusTCCopyWithImpl;
+@useResult
+$Res call({
+ bool isSleep
+});
+
+
+
+
+}
+/// @nodoc
+class _$LetterStatusTCCopyWithImpl<$Res>
+    implements $LetterStatusTCCopyWith<$Res> {
+  _$LetterStatusTCCopyWithImpl(this._self, this._then);
+
+  final LetterStatusTC _self;
+  final $Res Function(LetterStatusTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? isSleep = null,}) {
+  return _then(LetterStatusTC(
+null == isSleep ? _self.isSleep : isSleep // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

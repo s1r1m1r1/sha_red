@@ -1,10 +1,10 @@
 {
   "roots": [
-    "sha_red"
+    "dto"
   ],
   "packages": [
     {
-      "name": "sha_red",
+      "name": "dto",
       "version": "1.0.0",
       "dependencies": [
         "freezed_annotation",

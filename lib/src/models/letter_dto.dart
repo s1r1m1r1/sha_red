@@ -1,5 +1,5 @@
+import 'package:dto/dto.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:sha_red/sha_red.dart';
 
 part 'letter_dto.g.dart';
 
