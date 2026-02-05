@@ -31,8 +31,8 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   }) = OnlineUsersTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.broadcastInfo(List<String> broadcasts) =
-      BroadcastInfoTC;
+  const factory ToClient.joinedBroadcasts(List<String> broadcasts) =
+      JoinedBroadcastsTC;
 
   @Implements<BroadcastTC>()
   const factory ToClient.terminatedBroadcast(String broad) =

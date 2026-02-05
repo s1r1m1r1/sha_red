@@ -47,13 +47,13 @@ Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
       'runtimeType': instance.$type,
     };
 
-BroadcastInfoTC _$BroadcastInfoTCFromJson(Map<String, dynamic> json) =>
-    BroadcastInfoTC(
+JoinedBroadcastsTC _$JoinedBroadcastsTCFromJson(Map<String, dynamic> json) =>
+    JoinedBroadcastsTC(
       (json['broadcasts'] as List<dynamic>).map((e) => e as String).toList(),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$BroadcastInfoTCToJson(BroadcastInfoTC instance) =>
+Map<String, dynamic> _$JoinedBroadcastsTCToJson(JoinedBroadcastsTC instance) =>
     <String, dynamic>{
       'broadcasts': instance.broadcasts,
       'runtimeType': instance.$type,
