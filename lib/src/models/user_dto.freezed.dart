@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserDto {
 
- int get userId; String get email; Role get role;
+ String get userId; String get email; Role get role;
 /// Create a copy of UserDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UserDtoCopyWith<$Res>  {
   factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) _then) = _$UserDtoCopyWithImpl;
 @useResult
 $Res call({
- int userId, String email, Role role
+ String userId, String email, Role role
 });
 
 
@@ -68,7 +68,7 @@ class _$UserDtoCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? userId = null,Object? email = null,Object? role = null,}) {
   return _then(_self.copyWith(
 userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
 as Role,
   ));
@@ -85,7 +85,7 @@ class _UserDto implements UserDto {
   const _UserDto({required this.userId, required this.email, required this.role});
   factory _UserDto.fromJson(Map<String, dynamic> json) => _$UserDtoFromJson(json);
 
-@override final  int userId;
+@override final  String userId;
 @override final  String email;
 @override final  Role role;
 
@@ -122,7 +122,7 @@ abstract mixin class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   factory _$UserDtoCopyWith(_UserDto value, $Res Function(_UserDto) _then) = __$UserDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int userId, String email, Role role
+ String userId, String email, Role role
 });
 
 
@@ -142,7 +142,7 @@ class __$UserDtoCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? userId = null,Object? email = null,Object? role = null,}) {
   return _then(_UserDto(
 userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
+as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
 as Role,
   ));

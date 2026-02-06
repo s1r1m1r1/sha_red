@@ -72,16 +72,19 @@ Map<String, dynamic> _$LeaveEdictTSToJson(LeaveEdictTS instance) =>
     <String, dynamic>{'runtimeType': instance.$type};
 
 NewLetterTS _$NewLetterTSFromJson(Map<String, dynamic> json) => NewLetterTS(
-  letter: CreateLetterDto.fromJson(json['letter'] as Map<String, dynamic>),
+  json['content'] as String,
   $type: json['runtimeType'] as String?,
 );
 
 Map<String, dynamic> _$NewLetterTSToJson(NewLetterTS instance) =>
-    <String, dynamic>{'letter': instance.letter, 'runtimeType': instance.$type};
+    <String, dynamic>{
+      'content': instance.content,
+      'runtimeType': instance.$type,
+    };
 
 DeleteLetterTS _$DeleteLetterTSFromJson(Map<String, dynamic> json) =>
     DeleteLetterTS(
-      letterId: (json['letterId'] as num).toInt(),
+      (json['letterId'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 

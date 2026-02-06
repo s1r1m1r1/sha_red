@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserMemberDto {
 
- int get userId; String get unitName;
+ String get userId; String get unitName;
 /// Create a copy of UserMemberDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UserMemberDtoCopyWith<$Res>  {
   factory $UserMemberDtoCopyWith(UserMemberDto value, $Res Function(UserMemberDto) _then) = _$UserMemberDtoCopyWithImpl;
 @useResult
 $Res call({
- int userId, String unitName
+ String userId, String unitName
 });
 
 
@@ -68,7 +68,7 @@ class _$UserMemberDtoCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? userId = null,Object? unitName = null,}) {
   return _then(_self.copyWith(
 userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,unitName: null == unitName ? _self.unitName : unitName // ignore: cast_nullable_to_non_nullable
+as String,unitName: null == unitName ? _self.unitName : unitName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -84,7 +84,7 @@ class _UserMemberDto extends UserMemberDto {
   const _UserMemberDto(this.userId, this.unitName): super._();
   factory _UserMemberDto.fromJson(Map<String, dynamic> json) => _$UserMemberDtoFromJson(json);
 
-@override final  int userId;
+@override final  String userId;
 @override final  String unitName;
 
 /// Create a copy of UserMemberDto
@@ -120,7 +120,7 @@ abstract mixin class _$UserMemberDtoCopyWith<$Res> implements $UserMemberDtoCopy
   factory _$UserMemberDtoCopyWith(_UserMemberDto value, $Res Function(_UserMemberDto) _then) = __$UserMemberDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int userId, String unitName
+ String userId, String unitName
 });
 
 
@@ -140,7 +140,7 @@ class __$UserMemberDtoCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? userId = null,Object? unitName = null,}) {
   return _then(_UserMemberDto(
 null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,null == unitName ? _self.unitName : unitName // ignore: cast_nullable_to_non_nullable
+as String,null == unitName ? _self.unitName : unitName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

@@ -7,8 +7,8 @@ import '../models/user_dto.dart';
 import '../models/unit_dto.dart';
 import '../models/edict_dto.dart';
 import '../models/broadcast_member_dto.dart';
-import '../payloads/online_members_payload.dart';
-import '../payloads/letter_payload.dart';
+import '../payloads/online_members_dto.dart';
+import '../payloads/letter_dto.dart';
 import '../ws_models/ws_auth_error.dart';
 import '../ws_models/ws_server_error.dart';
 part 'to_client.g.dart';
@@ -32,10 +32,8 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
     required UnitDto unit,
   }) = JoinedServerTC;
 
-  const factory ToClient.onlineUsers(
-    OnlineMemberPayload dto, {
-    @Default(false) bool bot,
-  }) = OnlineUsersTC;
+  const factory ToClient.onlineUsers(List<OnlineMemberDto> members) =
+      OnlineUsersTC;
 
   @Implements<BroadcastTC>()
   const factory ToClient.broadcastInfo(List<BroadcastMemberDto> broadcasts) =
@@ -57,12 +55,22 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   const factory ToClient.status(bool isSleep) = LetterStatusTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.letterHistory(LetterHistoryPayload dto) =
-      LetterHistoryTC;
+  const factory ToClient.letterHistory({
+    required String roomId,
+    required List<LetterDto> letters,
+  }) = LetterHistoryTC;
+
   @Implements<LetterTC>()
-  const factory ToClient.onLetter(LastLetterPayload dto) = OnLetterTC;
+  const factory ToClient.onLetter({
+    required String roomId,
+    required LetterDto dto,
+  }) = OnLetterTC;
+
   @Implements<LetterTC>()
-  const factory ToClient.deletedLetter(IdLetterPayload dto) = DeletedLetterTC;
+  const factory ToClient.deletedLetter({
+    required String roomId,
+    required int letterId,
+  }) = DeletedLetterTC;
 
   const factory ToClient.activeEdicts(List<EdictDto> edicts) = ActiveEdictsTC;
   const factory ToClient.arenaError(

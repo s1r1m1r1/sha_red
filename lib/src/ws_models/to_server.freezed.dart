@@ -590,10 +590,10 @@ String toString() {
 @JsonSerializable()
 
 class NewLetterTS extends ToServer {
-  const NewLetterTS({required this.letter, final  String? $type}): $type = $type ?? 'newLetter',super._();
+  const NewLetterTS(this.content, {final  String? $type}): $type = $type ?? 'newLetter',super._();
   factory NewLetterTS.fromJson(Map<String, dynamic> json) => _$NewLetterTSFromJson(json);
 
- final  CreateLetterDto letter;
+ final  String content;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -612,16 +612,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NewLetterTS&&(identical(other.letter, letter) || other.letter == letter));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NewLetterTS&&(identical(other.content, content) || other.content == content));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,letter);
+int get hashCode => Object.hash(runtimeType,content);
 
 @override
 String toString() {
-  return 'ToServer.newLetter(letter: $letter)';
+  return 'ToServer.newLetter(content: $content)';
 }
 
 
@@ -632,11 +632,11 @@ abstract mixin class $NewLetterTSCopyWith<$Res> implements $ToServerCopyWith<$Re
   factory $NewLetterTSCopyWith(NewLetterTS value, $Res Function(NewLetterTS) _then) = _$NewLetterTSCopyWithImpl;
 @useResult
 $Res call({
- CreateLetterDto letter
+ String content
 });
 
 
-$CreateLetterDtoCopyWith<$Res> get letter;
+
 
 }
 /// @nodoc
@@ -649,30 +649,21 @@ class _$NewLetterTSCopyWithImpl<$Res>
 
 /// Create a copy of ToServer
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? letter = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? content = null,}) {
   return _then(NewLetterTS(
-letter: null == letter ? _self.letter : letter // ignore: cast_nullable_to_non_nullable
-as CreateLetterDto,
+null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$CreateLetterDtoCopyWith<$Res> get letter {
-  
-  return $CreateLetterDtoCopyWith<$Res>(_self.letter, (value) {
-    return _then(_self.copyWith(letter: value));
-  });
-}
+
 }
 
 /// @nodoc
 @JsonSerializable()
 
 class DeleteLetterTS extends ToServer {
-  const DeleteLetterTS({required this.letterId, final  String? $type}): $type = $type ?? 'deleteLetter',super._();
+  const DeleteLetterTS(this.letterId, {final  String? $type}): $type = $type ?? 'deleteLetter',super._();
   factory DeleteLetterTS.fromJson(Map<String, dynamic> json) => _$DeleteLetterTSFromJson(json);
 
  final  int letterId;
@@ -733,7 +724,7 @@ class _$DeleteLetterTSCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? letterId = null,}) {
   return _then(DeleteLetterTS(
-letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
+null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }

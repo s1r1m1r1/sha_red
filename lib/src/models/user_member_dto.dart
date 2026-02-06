@@ -6,6 +6,6 @@ part 'user_member_dto.g.dart';
 @freezed
 abstract class UserMemberDto with _$UserMemberDto {
   const UserMemberDto._();
-  const factory UserMemberDto(int userId, String unitName) = _UserMemberDto;
+  const factory UserMemberDto(String userId, String unitName) = _UserMemberDto;
   factory UserMemberDto.fromJson(Json json) => _$UserMemberDtoFromJson(json);
 }

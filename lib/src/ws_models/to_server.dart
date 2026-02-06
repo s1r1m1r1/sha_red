@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'to_server.freezed.dart';
@@ -29,11 +28,8 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.joinEdict(String edictId) = JoinEdictTS;
   const factory ToServer.leaveEdict() = LeaveEdictTS;
 
-  const factory ToServer.newLetter({required CreateLetterDto letter}) =
-      NewLetterTS;
-
-  const factory ToServer.deleteLetter({required int letterId}) = DeleteLetterTS;
-
+  const factory ToServer.newLetter(String content) = NewLetterTS;
+  const factory ToServer.deleteLetter(int letterId) = DeleteLetterTS;
   const factory ToServer.joinLetters() = JoinLettersTS;
 
   const factory ToServer.joinArena() = JoinArenaTS;

@@ -6,7 +6,7 @@ part 'user_dto.freezed.dart';
 @freezed
 abstract class UserDto with _$UserDto {
   const factory UserDto({
-    required int userId,
+    required String userId,
     required String email,
     required Role role,
   }) = _UserDto;
