@@ -35,21 +35,23 @@ Map<String, dynamic> _$JoinedServerTCToJson(JoinedServerTC instance) =>
 
 OnlineUsersTC _$OnlineUsersTCFromJson(Map<String, dynamic> json) =>
     OnlineUsersTC(
-      OnlineMemberPayload.fromJson(json['dto'] as Map<String, dynamic>),
-      bot: json['bot'] as bool? ?? false,
+      (json['members'] as List<dynamic>)
+          .map((e) => OnlineMemberDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
     <String, dynamic>{
-      'dto': instance.dto,
-      'bot': instance.bot,
+      'members': instance.members,
       'runtimeType': instance.$type,
     };
 
 BroadcastInfoTC _$BroadcastInfoTCFromJson(Map<String, dynamic> json) =>
     BroadcastInfoTC(
-      (json['broadcasts'] as List<dynamic>).map((e) => e as String).toList(),
+      (json['broadcasts'] as List<dynamic>)
+          .map((e) => BroadcastMemberDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -90,31 +92,60 @@ Map<String, dynamic> _$StatusErrorTCToJson(StatusErrorTC instance) =>
       'runtimeType': instance.$type,
     };
 
+LetterStatusTC _$LetterStatusTCFromJson(Map<String, dynamic> json) =>
+    LetterStatusTC(
+      json['isSleep'] as bool,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$LetterStatusTCToJson(LetterStatusTC instance) =>
+    <String, dynamic>{
+      'isSleep': instance.isSleep,
+      'runtimeType': instance.$type,
+    };
+
 LetterHistoryTC _$LetterHistoryTCFromJson(Map<String, dynamic> json) =>
     LetterHistoryTC(
-      LetterHistoryPayload.fromJson(json['dto'] as Map<String, dynamic>),
+      roomId: json['roomId'] as String,
+      letters: (json['letters'] as List<dynamic>)
+          .map((e) => LetterDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$LetterHistoryTCToJson(LetterHistoryTC instance) =>
-    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+    <String, dynamic>{
+      'roomId': instance.roomId,
+      'letters': instance.letters,
+      'runtimeType': instance.$type,
+    };
 
 OnLetterTC _$OnLetterTCFromJson(Map<String, dynamic> json) => OnLetterTC(
-  LastLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
+  roomId: json['roomId'] as String,
+  dto: LetterDto.fromJson(json['dto'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
 
 Map<String, dynamic> _$OnLetterTCToJson(OnLetterTC instance) =>
-    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+    <String, dynamic>{
+      'roomId': instance.roomId,
+      'dto': instance.dto,
+      'runtimeType': instance.$type,
+    };
 
 DeletedLetterTC _$DeletedLetterTCFromJson(Map<String, dynamic> json) =>
     DeletedLetterTC(
-      IdLetterPayload.fromJson(json['dto'] as Map<String, dynamic>),
+      roomId: json['roomId'] as String,
+      letterId: (json['letterId'] as num).toInt(),
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$DeletedLetterTCToJson(DeletedLetterTC instance) =>
-    <String, dynamic>{'dto': instance.dto, 'runtimeType': instance.$type};
+    <String, dynamic>{
+      'roomId': instance.roomId,
+      'letterId': instance.letterId,
+      'runtimeType': instance.$type,
+    };
 
 ActiveEdictsTC _$ActiveEdictsTCFromJson(Map<String, dynamic> json) =>
     ActiveEdictsTC(

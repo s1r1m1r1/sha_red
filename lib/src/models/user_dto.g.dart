@@ -7,7 +7,7 @@ part of 'user_dto.dart';
 // **************************************************************************
 
 _UserDto _$UserDtoFromJson(Map<String, dynamic> json) => _UserDto(
-  userId: (json['userId'] as num).toInt(),
+  userId: json['userId'] as String,
   email: json['email'] as String,
   role: $enumDecode(_$RoleEnumMap, json['role']),
 );
@@ -18,11 +18,7 @@ Map<String, dynamic> _$UserDtoToJson(_UserDto instance) => <String, dynamic>{
   'role': _$RoleEnumMap[instance.role]!,
 };
 
-const _$RoleEnumMap = {
-  Role.admin: 'admin',
-  Role.user: 'user',
-  Role.tester: 'tester',
-};
+const _$RoleEnumMap = {Role.develop: 'develop', Role.user: 'user'};
 
 _FakeUserDto _$FakeUserDtoFromJson(Map<String, dynamic> json) => _FakeUserDto(
   email: json['email'] as String,

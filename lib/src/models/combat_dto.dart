@@ -1,5 +1,5 @@
+import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sha_red/sha_red.dart';
 part 'combat_dto.freezed.dart';
 part 'combat_dto.g.dart';
 

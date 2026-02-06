@@ -1,8 +1,9 @@
+import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sha_red/sha_red.dart';
 part 'session_dto.freezed.dart';
 part 'session_dto.g.dart';
 
+@Deprecated('not used')
 @freezed
 abstract class SessionDto with _$SessionDto {
   const factory SessionDto({required UserDto user, UnitDto? unit}) =

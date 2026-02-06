@@ -23,10 +23,9 @@ analyzer:
 
 # Uncomment the following section to specify additional rules.
 
-# linter:
-#   rules:
-#     - camel_case_types
-
+linter:
+  rules:
+    - always_declare_return_types
 # analyzer:
 #   exclude:
 #     - path/to/excluded/files/**
