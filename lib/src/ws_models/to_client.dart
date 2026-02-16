@@ -2,15 +2,8 @@
 
 import 'dart:convert';
 
+import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../models/user_dto.dart';
-import '../models/unit_dto.dart';
-import '../models/edict_dto.dart';
-import '../models/broadcast_member_dto.dart';
-import '../payloads/online_members_dto.dart';
-import '../payloads/letter_dto.dart';
-import '../ws_models/ws_auth_error.dart';
-import '../ws_models/ws_server_error.dart';
 part 'to_client.g.dart';
 part 'to_client.freezed.dart';
 
@@ -20,6 +13,7 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
 
   @Implements<AuthTC>()
   const factory ToClient.authError({
+    required String n,
     @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson)
     required WsAuthError error,
     @JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson)
@@ -28,69 +22,105 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
 
   @Implements<AuthTC>()
   const factory ToClient.joinedServer({
+    required String n,
     required UserDto user,
     required UnitDto unit,
   }) = JoinedServerTC;
 
-  const factory ToClient.onlineUsers(List<OnlineMemberDto> members) =
-      OnlineUsersTC;
+  const factory ToClient.onlineUsers({
+    required String n,
+    required List<OnlineMemberDto> members,
+  }) = OnlineUsersTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.broadcastInfo(List<BroadcastMemberDto> broadcasts) =
-      BroadcastInfoTC;
+  const factory ToClient.broadcastInfo({
+    required String n,
+    required List<BroadcastMemberDto> broadcasts,
+  }) = BroadcastInfoTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.terminatedBroadcast(String broad) =
-      TerminatedBroadcastTC;
+  const factory ToClient.terminatedBroadcast({
+    required String n,
+    required String broad,
+  }) = TerminatedBroadcastTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.terminatedAllBroadcast() = TerminatedAllBroadcastTC;
+  const factory ToClient.terminatedAllBroadcast({required String n}) =
+      TerminatedAllBroadcastTC;
 
   const factory ToClient.statusError({
+    required String n,
     @JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)
     required WsServerError error,
   }) = StatusErrorTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.status(bool isSleep) = LetterStatusTC;
+  const factory ToClient.status({required String n, required bool isSleep}) =
+      LetterStatusTC;
 
   @Implements<LetterTC>()
   const factory ToClient.letterHistory({
+    required String n,
     required String roomId,
     required List<LetterDto> letters,
   }) = LetterHistoryTC;
 
   @Implements<LetterTC>()
   const factory ToClient.onLetter({
+    required String n,
     required String roomId,
     required LetterDto dto,
   }) = OnLetterTC;
 
   @Implements<LetterTC>()
+  const factory ToClient.editedLetter({
+    required String n,
+    required String roomId,
+    required LetterDto dto,
+  }) = EditedLetterTC;
+
+  @Implements<LetterTC>()
   const factory ToClient.deletedLetter({
+    required String n,
     required String roomId,
     required int letterId,
   }) = DeletedLetterTC;
 
-  const factory ToClient.activeEdicts(List<EdictDto> edicts) = ActiveEdictsTC;
-  const factory ToClient.arenaError(
+  const factory ToClient.activeEdicts({
+    required String n,
+    required List<EdictDto> edicts,
+  }) = ActiveEdictsTC;
+  const factory ToClient.arenaError({
+    required String n,
     @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson)
-    WsArenaError error,
-  ) = ArenaErrorTC;
+    required WsArenaError error,
+  }) = ArenaErrorTC;
 
-  const factory ToClient.readyBattle(String combatRoomId) = ReadyBattleTC;
+  const factory ToClient.readyBattle({
+    required String n,
+    required String combatRoomId,
+  }) = ReadyBattleTC;
 
   /// countId номер комнаты
   /// membs число участника
   /// ready число готовых
-  const factory ToClient.startBattle(String combatId, int membs, int ready) =
-      StartBattleTC;
+  const factory ToClient.startBattle({
+    required String n,
+    required String combatId,
+    required int membs,
+    required int ready,
+  }) = StartBattleTC;
 
-  const factory ToClient.combatEvent(int combatId, int round) = CombatEventTC;
+  const factory ToClient.combatEvent({
+    required String n,
+    required int combatId,
+    required int round,
+  }) = CombatEventTC;
 
   @Implements<BotToClient>()
   @Implements<CombatTC>()
   const factory ToClient.combatError({
+    required String n,
     @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson)
     required WsCombatError error,
   }) = CombatErrorTC;
@@ -104,7 +134,12 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
       _$ToClientFromJson(json);
   //----------------- json helper to reduce boiler code ---------------------
   @override
-  String encoded() => jsonEncode(toJson());
+  String encoded() {
+    // ignore: unnecessary_null_comparison
+    assert(n != null);
+
+    return jsonEncode(toJson());
+  }
 
   @override
   JsonBarrel<ToClient> jsonBarrel() => JsonBarrel(this, encoded());
@@ -124,15 +159,3 @@ sealed class BroadcastTC implements ToClient {}
 sealed class CombatTC implements ToClient {}
 
 sealed class BotToClient implements ToClient {}
-
-abstract class JsonMessage<T> {
-  String encoded();
-  JsonBarrel<T> jsonBarrel();
-}
-
-@immutable
-class JsonBarrel<T> {
-  final T data;
-  final String json;
-  const JsonBarrel(this.data, this.json);
-}

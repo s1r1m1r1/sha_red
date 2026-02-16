@@ -57,6 +57,7 @@ enum ToServerNames {
   createEdict(6),
   joinEdict(7),
   leaveEdict(8),
+  editLetter(9),
   unknown(8888);
 
   static int toJson(ToServerNames w) => w.code;

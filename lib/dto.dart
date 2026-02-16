@@ -17,11 +17,12 @@ export 'src/models/user_member_dto.dart';
 export 'src/models/combat_dto.dart';
 export 'src/models/menu_room_dto.dart';
 export 'src/payloads/online_members_dto.dart';
+export 'src/ws_models/ws_auth_error.dart';
+export 'src/ws_models/abstract.dart';
 
 // Export ws_models
 export 'src/ws_models/to_client.dart';
 export 'src/ws_models/to_server.dart';
-export 'src/ws_models/ws_auth_error.dart';
 
 export 'src/typedef/json_typedef.dart';
 
