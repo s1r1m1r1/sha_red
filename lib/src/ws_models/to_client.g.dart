@@ -96,20 +96,6 @@ Map<String, dynamic> _$TerminatedAllBroadcastTCToJson(
   TerminatedAllBroadcastTC instance,
 ) => <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
-StatusErrorTC _$StatusErrorTCFromJson(Map<String, dynamic> json) =>
-    StatusErrorTC(
-      n: json['n'] as String,
-      error: WsServerError.fromJson(json['error']),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$StatusErrorTCToJson(StatusErrorTC instance) =>
-    <String, dynamic>{
-      'n': instance.n,
-      'error': WsServerError.toJson(instance.error),
-      'runtimeType': instance.$type,
-    };
-
 LetterStatusTC _$LetterStatusTCFromJson(Map<String, dynamic> json) =>
     LetterStatusTC(
       n: json['n'] as String,

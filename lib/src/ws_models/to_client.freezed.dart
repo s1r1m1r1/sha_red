@@ -39,10 +39,6 @@ ToClient _$ToClientFromJson(
           return TerminatedAllBroadcastTC.fromJson(
             json
           );
-                case 'statusError':
-          return StatusErrorTC.fromJson(
-            json
-          );
                 case 'status':
           return LetterStatusTC.fromJson(
             json
@@ -639,81 +635,6 @@ class _$TerminatedAllBroadcastTCCopyWithImpl<$Res>
   return _then(TerminatedAllBroadcastTC(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class StatusErrorTC extends ToClient {
-  const StatusErrorTC({required this.n, @JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'statusError',super._();
-  factory StatusErrorTC.fromJson(Map<String, dynamic> json) => _$StatusErrorTCFromJson(json);
-
-@override final  String n;
-@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson) final  WsServerError error;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$StatusErrorTCCopyWith<StatusErrorTC> get copyWith => _$StatusErrorTCCopyWithImpl<StatusErrorTC>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$StatusErrorTCToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StatusErrorTC&&(identical(other.n, n) || other.n == n)&&(identical(other.error, error) || other.error == error));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,n,error);
-
-@override
-String toString() {
-  return 'ToClient.statusError(n: $n, error: $error)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $StatusErrorTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $StatusErrorTCCopyWith(StatusErrorTC value, $Res Function(StatusErrorTC) _then) = _$StatusErrorTCCopyWithImpl;
-@override @useResult
-$Res call({
- String n,@JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson) WsServerError error
-});
-
-
-
-
-}
-/// @nodoc
-class _$StatusErrorTCCopyWithImpl<$Res>
-    implements $StatusErrorTCCopyWith<$Res> {
-  _$StatusErrorTCCopyWithImpl(this._self, this._then);
-
-  final StatusErrorTC _self;
-  final $Res Function(StatusErrorTC) _then;
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? error = null,}) {
-  return _then(StatusErrorTC(
-n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as WsServerError,
   ));
 }
 

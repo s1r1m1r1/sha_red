@@ -48,12 +48,6 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
   const factory ToClient.terminatedAllBroadcast({required String n}) =
       TerminatedAllBroadcastTC;
 
-  const factory ToClient.statusError({
-    required String n,
-    @JsonKey(toJson: WsServerError.toJson, fromJson: WsServerError.fromJson)
-    required WsServerError error,
-  }) = StatusErrorTC;
-
   @Implements<LetterTC>()
   const factory ToClient.status({required String n, required bool isSleep}) =
       LetterStatusTC;
