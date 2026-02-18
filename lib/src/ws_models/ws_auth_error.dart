@@ -2,11 +2,14 @@ enum WsAuthError {
   expiredToken(400),
   tokenSessionNotFound(401),
   idSessionNotFound(402),
-  // sessionExpired(403),
+  unauthorized(403),
 
   continueAsNewSession(405),
   stoppedByAnotherSession(406),
   sessionClosed(407),
+  unitNotFound(408),
+  internal(500),
+  timeout(501),
   unknown(8888);
 
   const WsAuthError(this.code);
@@ -14,7 +17,7 @@ enum WsAuthError {
 
   static int toJson(WsAuthError w) => w.code;
 
-  static fromJson(dynamic json) {
+  static WsAuthError fromJson(dynamic json) {
     if (json is int) {
       return WsAuthError.values.firstWhere(
         (element) => element.code == json,
@@ -51,12 +54,13 @@ enum WsCombatError {
 enum ToServerNames {
   newLetter(1),
   deleteLetter(2),
-  joinLetters(3),
-  leaveLetters(4),
-  wsJoin(5),
-  createEdict(6),
-  joinEdict(7),
-  leaveEdict(8),
+  arena(3),
+  letters(4),
+  wsJoin(6),
+  createEdict(7),
+  joinEdict(8),
+  leaveEdict(9),
+  editLetter(10),
   unknown(8888);
 
   static int toJson(ToServerNames w) => w.code;
@@ -78,6 +82,7 @@ enum ToServerNames {
 enum WsArenaError {
   hasAnotherEdict(5),
   notFoundEdict(6),
+  fullEdict(7),
   unknown(8888);
 
   const WsArenaError(this.code);

@@ -19,16 +19,3 @@ Map<String, dynamic> _$UserDtoToJson(_UserDto instance) => <String, dynamic>{
 };
 
 const _$RoleEnumMap = {Role.develop: 'develop', Role.user: 'user'};
-
-_FakeUserDto _$FakeUserDtoFromJson(Map<String, dynamic> json) => _FakeUserDto(
-  email: json['email'] as String,
-  password: json['password'] as String,
-  user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
-);
-
-Map<String, dynamic> _$FakeUserDtoToJson(_FakeUserDto instance) =>
-    <String, dynamic>{
-      'email': instance.email,
-      'password': instance.password,
-      'user': instance.user,
-    };

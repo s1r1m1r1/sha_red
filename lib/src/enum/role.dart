@@ -1,1 +1,1 @@
-enum Role { develop, user }
+enum Role { develop, user, fullBot }
