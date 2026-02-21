@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnitDto {
 
- int get id; String get name; int get vitality; int get atk; int get def;
+ int get id; String get name; int get hp; int get atk; int get def;
 /// Create a copy of UnitDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UnitDtoCopyWith<UnitDto> get copyWith => _$UnitDtoCopyWithImpl<UnitDto>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.vitality, vitality) || other.vitality == vitality)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.hp, hp) || other.hp == hp)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,vitality,atk,def);
+int get hashCode => Object.hash(runtimeType,id,name,hp,atk,def);
 
 @override
 String toString() {
-  return 'UnitDto(id: $id, name: $name, vitality: $vitality, atk: $atk, def: $def)';
+  return 'UnitDto(id: $id, name: $name, hp: $hp, atk: $atk, def: $def)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $UnitDtoCopyWith<$Res>  {
   factory $UnitDtoCopyWith(UnitDto value, $Res Function(UnitDto) _then) = _$UnitDtoCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, int vitality, int atk, int def
+ int id, String name, int hp, int atk, int def
 });
 
 
@@ -65,11 +65,11 @@ class _$UnitDtoCopyWithImpl<$Res>
 
 /// Create a copy of UnitDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? vitality = null,Object? atk = null,Object? def = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? hp = null,Object? atk = null,Object? def = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,vitality: null == vitality ? _self.vitality : vitality // ignore: cast_nullable_to_non_nullable
+as String,hp: null == hp ? _self.hp : hp // ignore: cast_nullable_to_non_nullable
 as int,atk: null == atk ? _self.atk : atk // ignore: cast_nullable_to_non_nullable
 as int,def: null == def ? _self.def : def // ignore: cast_nullable_to_non_nullable
 as int,
@@ -84,12 +84,12 @@ as int,
 @JsonSerializable()
 
 class _UnitDto implements UnitDto {
-  const _UnitDto({required this.id, required this.name, required this.vitality, required this.atk, required this.def});
+  const _UnitDto({required this.id, required this.name, required this.hp, required this.atk, required this.def});
   factory _UnitDto.fromJson(Map<String, dynamic> json) => _$UnitDtoFromJson(json);
 
 @override final  int id;
 @override final  String name;
-@override final  int vitality;
+@override final  int hp;
 @override final  int atk;
 @override final  int def;
 
@@ -106,16 +106,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.vitality, vitality) || other.vitality == vitality)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.hp, hp) || other.hp == hp)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,vitality,atk,def);
+int get hashCode => Object.hash(runtimeType,id,name,hp,atk,def);
 
 @override
 String toString() {
-  return 'UnitDto(id: $id, name: $name, vitality: $vitality, atk: $atk, def: $def)';
+  return 'UnitDto(id: $id, name: $name, hp: $hp, atk: $atk, def: $def)';
 }
 
 
@@ -126,7 +126,7 @@ abstract mixin class _$UnitDtoCopyWith<$Res> implements $UnitDtoCopyWith<$Res> {
   factory _$UnitDtoCopyWith(_UnitDto value, $Res Function(_UnitDto) _then) = __$UnitDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, int vitality, int atk, int def
+ int id, String name, int hp, int atk, int def
 });
 
 
@@ -143,11 +143,11 @@ class __$UnitDtoCopyWithImpl<$Res>
 
 /// Create a copy of UnitDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? vitality = null,Object? atk = null,Object? def = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? hp = null,Object? atk = null,Object? def = null,}) {
   return _then(_UnitDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,vitality: null == vitality ? _self.vitality : vitality // ignore: cast_nullable_to_non_nullable
+as String,hp: null == hp ? _self.hp : hp // ignore: cast_nullable_to_non_nullable
 as int,atk: null == atk ? _self.atk : atk // ignore: cast_nullable_to_non_nullable
 as int,def: null == def ? _self.def : def // ignore: cast_nullable_to_non_nullable
 as int,

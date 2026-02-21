@@ -8,7 +8,7 @@ abstract class UnitDto with _$UnitDto {
   const factory UnitDto({
     required int id,
     required String name,
-    required int vitality,
+    required int hp,
     required int atk,
     required int def,
   }) = _UnitDto;

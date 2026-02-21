@@ -40,6 +40,21 @@ SyncJoinedBroadsTS _$SyncJoinedBroadsTSFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$SyncJoinedBroadsTSToJson(SyncJoinedBroadsTS instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
+JoinLettersTS _$JoinLettersTSFromJson(Map<String, dynamic> json) =>
+    JoinLettersTS(
+      n: json['n'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$JoinLettersTSToJson(JoinLettersTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+JoinArenaTS _$JoinArenaTSFromJson(Map<String, dynamic> json) =>
+    JoinArenaTS(n: json['n'] as String, $type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$JoinArenaTSToJson(JoinArenaTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
 SleepOnlineUsers _$SleepOnlineUsersFromJson(Map<String, dynamic> json) =>
     SleepOnlineUsers(
       n: json['n'] as String,
@@ -137,35 +152,6 @@ Map<String, dynamic> _$DeleteLetterTSToJson(DeleteLetterTS instance) =>
       'runtimeType': instance.$type,
     };
 
-JoinLettersTS _$JoinLettersTSFromJson(Map<String, dynamic> json) =>
-    JoinLettersTS(
-      n: json['n'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$JoinLettersTSToJson(JoinLettersTS instance) =>
-    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
-
-JoinArenaTS _$JoinArenaTSFromJson(Map<String, dynamic> json) =>
-    JoinArenaTS(n: json['n'] as String, $type: json['runtimeType'] as String?);
-
-Map<String, dynamic> _$JoinArenaTSToJson(JoinArenaTS instance) =>
-    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
-
-CreateBattleRoomTS _$CreateBattleRoomTSFromJson(Map<String, dynamic> json) =>
-    CreateBattleRoomTS(
-      n: json['n'] as String,
-      unitId: (json['unitId'] as num).toInt(),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$CreateBattleRoomTSToJson(CreateBattleRoomTS instance) =>
-    <String, dynamic>{
-      'n': instance.n,
-      'unitId': instance.unitId,
-      'runtimeType': instance.$type,
-    };
-
 JoinBattleRoomTS _$JoinBattleRoomTSFromJson(Map<String, dynamic> json) =>
     JoinBattleRoomTS(
       n: json['n'] as String,
@@ -193,3 +179,36 @@ Map<String, dynamic> _$LeaveBattleRoomToJson(LeaveBattleRoom instance) =>
       'battleRoomId': instance.battleRoomId,
       'runtimeType': instance.$type,
     };
+
+GameActionTS _$GameActionTSFromJson(Map<String, dynamic> json) => GameActionTS(
+  n: json['n'] as String,
+  battleRoomId: json['battleRoomId'] as String,
+  action: GameActionDto.fromJson(json['action'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$GameActionTSToJson(GameActionTS instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'battleRoomId': instance.battleRoomId,
+      'action': instance.action,
+      'runtimeType': instance.$type,
+    };
+
+ResetEdictsTS _$ResetEdictsTSFromJson(Map<String, dynamic> json) =>
+    ResetEdictsTS(
+      n: json['n'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ResetEdictsTSToJson(ResetEdictsTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+ResetCombatsTS _$ResetCombatsTSFromJson(Map<String, dynamic> json) =>
+    ResetCombatsTS(
+      n: json['n'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ResetCombatsTSToJson(ResetCombatsTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
