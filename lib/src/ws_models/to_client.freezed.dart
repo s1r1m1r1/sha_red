@@ -95,6 +95,10 @@ ToClient _$ToClientFromJson(
           return CombatErrorTC.fromJson(
             json
           );
+                case 'combatWin':
+          return CombatWinTC.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -1784,6 +1788,81 @@ class _$CombatErrorTCCopyWithImpl<$Res>
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as WsCombatError,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class CombatWinTC extends ToClient implements CombatTC {
+  const CombatWinTC({required this.n, required this.winnerTeamId, final  String? $type}): $type = $type ?? 'combatWin',super._();
+  factory CombatWinTC.fromJson(Map<String, dynamic> json) => _$CombatWinTCFromJson(json);
+
+@override final  String n;
+ final  int winnerTeamId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CombatWinTCCopyWith<CombatWinTC> get copyWith => _$CombatWinTCCopyWithImpl<CombatWinTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CombatWinTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatWinTC&&(identical(other.n, n) || other.n == n)&&(identical(other.winnerTeamId, winnerTeamId) || other.winnerTeamId == winnerTeamId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,winnerTeamId);
+
+@override
+String toString() {
+  return 'ToClient.combatWin(n: $n, winnerTeamId: $winnerTeamId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CombatWinTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $CombatWinTCCopyWith(CombatWinTC value, $Res Function(CombatWinTC) _then) = _$CombatWinTCCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int winnerTeamId
+});
+
+
+
+
+}
+/// @nodoc
+class _$CombatWinTCCopyWithImpl<$Res>
+    implements $CombatWinTCCopyWith<$Res> {
+  _$CombatWinTCCopyWithImpl(this._self, this._then);
+
+  final CombatWinTC _self;
+  final $Res Function(CombatWinTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? winnerTeamId = null,}) {
+  return _then(CombatWinTC(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,winnerTeamId: null == winnerTeamId ? _self.winnerTeamId : winnerTeamId // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 

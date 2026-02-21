@@ -322,3 +322,16 @@ Map<String, dynamic> _$CombatErrorTCToJson(CombatErrorTC instance) =>
       'error': WsCombatError.toJson(instance.error),
       'runtimeType': instance.$type,
     };
+
+CombatWinTC _$CombatWinTCFromJson(Map<String, dynamic> json) => CombatWinTC(
+  n: json['n'] as String,
+  winnerTeamId: (json['winnerTeamId'] as num).toInt(),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$CombatWinTCToJson(CombatWinTC instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'winnerTeamId': instance.winnerTeamId,
+      'runtimeType': instance.$type,
+    };

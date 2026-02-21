@@ -150,6 +150,12 @@ sealed class ToClient with _$ToClient implements JsonMessage<ToClient> {
     required WsCombatError error,
   }) = CombatErrorTC;
 
+  @Implements<CombatTC>()
+  const factory ToClient.combatWin({
+    required String n,
+    required int winnerTeamId,
+  }) = CombatWinTC;
+
   // @Implements<BotToClient>()
   // @Implements<CombatTC>()
   // const factory ToClient.combatStart({required List<CombatantDto> combatants}) =

@@ -87,6 +87,14 @@ ToServer _$ToServerFromJson(
           return GameActionTS.fromJson(
             json
           );
+                case 'resetEdicts':
+          return ResetEdictsTS.fromJson(
+            json
+          );
+                case 'resetCombats':
+          return ResetCombatsTS.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -1504,6 +1512,152 @@ $GameActionDtoCopyWith<$Res> get action {
     return _then(_self.copyWith(action: value));
   });
 }
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class ResetEdictsTS extends ToServer {
+  const ResetEdictsTS({required this.n, final  String? $type}): $type = $type ?? 'resetEdicts',super._();
+  factory ResetEdictsTS.fromJson(Map<String, dynamic> json) => _$ResetEdictsTSFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ResetEdictsTSCopyWith<ResetEdictsTS> get copyWith => _$ResetEdictsTSCopyWithImpl<ResetEdictsTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ResetEdictsTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetEdictsTS&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.resetEdicts(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ResetEdictsTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $ResetEdictsTSCopyWith(ResetEdictsTS value, $Res Function(ResetEdictsTS) _then) = _$ResetEdictsTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$ResetEdictsTSCopyWithImpl<$Res>
+    implements $ResetEdictsTSCopyWith<$Res> {
+  _$ResetEdictsTSCopyWithImpl(this._self, this._then);
+
+  final ResetEdictsTS _self;
+  final $Res Function(ResetEdictsTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(ResetEdictsTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class ResetCombatsTS extends ToServer {
+  const ResetCombatsTS({required this.n, final  String? $type}): $type = $type ?? 'resetCombats',super._();
+  factory ResetCombatsTS.fromJson(Map<String, dynamic> json) => _$ResetCombatsTSFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ResetCombatsTSCopyWith<ResetCombatsTS> get copyWith => _$ResetCombatsTSCopyWithImpl<ResetCombatsTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ResetCombatsTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResetCombatsTS&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.resetCombats(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ResetCombatsTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $ResetCombatsTSCopyWith(ResetCombatsTS value, $Res Function(ResetCombatsTS) _then) = _$ResetCombatsTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$ResetCombatsTSCopyWithImpl<$Res>
+    implements $ResetCombatsTSCopyWith<$Res> {
+  _$ResetCombatsTSCopyWithImpl(this._self, this._then);
+
+  final ResetCombatsTS _self;
+  final $Res Function(ResetCombatsTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(ResetCombatsTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 // dart format on

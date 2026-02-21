@@ -67,6 +67,9 @@ sealed class ToServer with _$ToServer {
     required String battleRoomId,
     required GameActionDto action,
   }) = GameActionTS;
+
+  const factory ToServer.resetEdicts({required String n}) = ResetEdictsTS;
+  const factory ToServer.resetCombats({required String n}) = ResetCombatsTS;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);

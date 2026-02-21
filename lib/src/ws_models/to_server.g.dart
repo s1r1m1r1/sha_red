@@ -194,3 +194,21 @@ Map<String, dynamic> _$GameActionTSToJson(GameActionTS instance) =>
       'action': instance.action,
       'runtimeType': instance.$type,
     };
+
+ResetEdictsTS _$ResetEdictsTSFromJson(Map<String, dynamic> json) =>
+    ResetEdictsTS(
+      n: json['n'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ResetEdictsTSToJson(ResetEdictsTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+ResetCombatsTS _$ResetCombatsTSFromJson(Map<String, dynamic> json) =>
+    ResetCombatsTS(
+      n: json['n'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ResetCombatsTSToJson(ResetCombatsTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
