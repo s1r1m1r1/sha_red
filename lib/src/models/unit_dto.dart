@@ -11,6 +11,10 @@ abstract class UnitDto with _$UnitDto {
     required int hp,
     required int atk,
     required int def,
+    @Default(0) int wins,
+    @Default(0) int losses,
+    @Default(0) int coins,
+    @Default(0) int exp,
   }) = _UnitDto;
 
   factory UnitDto.fromJson(Map<String, dynamic> json) =>

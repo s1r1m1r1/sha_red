@@ -56,6 +56,10 @@ _UnitDto _$UnitDtoFromJson(Map<String, dynamic> json) => _UnitDto(
   hp: (json['hp'] as num).toInt(),
   atk: (json['atk'] as num).toInt(),
   def: (json['def'] as num).toInt(),
+  wins: (json['wins'] as num?)?.toInt() ?? 0,
+  losses: (json['losses'] as num?)?.toInt() ?? 0,
+  coins: (json['coins'] as num?)?.toInt() ?? 0,
+  exp: (json['exp'] as num?)?.toInt() ?? 0,
 );
 
 Map<String, dynamic> _$UnitDtoToJson(_UnitDto instance) => <String, dynamic>{
@@ -64,4 +68,8 @@ Map<String, dynamic> _$UnitDtoToJson(_UnitDto instance) => <String, dynamic>{
   'hp': instance.hp,
   'atk': instance.atk,
   'def': instance.def,
+  'wins': instance.wins,
+  'losses': instance.losses,
+  'coins': instance.coins,
+  'exp': instance.exp,
 };
