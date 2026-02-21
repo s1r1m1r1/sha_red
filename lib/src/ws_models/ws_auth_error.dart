@@ -31,8 +31,11 @@ enum WsAuthError {
 enum WsCombatError {
   notEnoughPlayers(4000),
   missedSocket(4001),
-  everyBot(4002),
-  missedRoom(4003),
+  actionNoPermitted(4002),
+  everyBot(4003),
+  missedRoom(4004),
+  notYourTurn(4005),
+  wrongAction(4006),
   unknown(8888);
 
   const WsCombatError(this.code);

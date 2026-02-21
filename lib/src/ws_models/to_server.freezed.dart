@@ -31,6 +31,14 @@ ToServer _$ToServerFromJson(
           return SyncJoinedBroadsTS.fromJson(
             json
           );
+                case 'joinLetters':
+          return JoinLettersTS.fromJson(
+            json
+          );
+                case 'joinArena':
+          return JoinArenaTS.fromJson(
+            json
+          );
                 case 'sleepOnlineUsers':
           return SleepOnlineUsers.fromJson(
             json
@@ -67,24 +75,16 @@ ToServer _$ToServerFromJson(
           return DeleteLetterTS.fromJson(
             json
           );
-                case 'joinLetters':
-          return JoinLettersTS.fromJson(
-            json
-          );
-                case 'joinArena':
-          return JoinArenaTS.fromJson(
-            json
-          );
-                case 'createBattleRoom':
-          return CreateBattleRoomTS.fromJson(
-            json
-          );
                 case 'joinBattleRoom':
           return JoinBattleRoomTS.fromJson(
             json
           );
                 case 'leaveBattleRoom':
           return LeaveBattleRoom.fromJson(
+            json
+          );
+                case 'gameAction':
+          return GameActionTS.fromJson(
             json
           );
         
@@ -166,7 +166,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class LeaveArenaTS extends ToServer implements BotToServer {
+class LeaveArenaTS extends ToServer {
   const LeaveArenaTS({required this.n, final  String? $type}): $type = $type ?? 'leaveArena',super._();
   factory LeaveArenaTS.fromJson(Map<String, dynamic> json) => _$LeaveArenaTSFromJson(json);
 
@@ -314,7 +314,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class DisconnectTS extends ToServer implements BotToServer {
+class DisconnectTS extends ToServer {
   const DisconnectTS({required this.n, final  String? $type}): $type = $type ?? 'disconnect',super._();
   factory DisconnectTS.fromJson(Map<String, dynamic> json) => _$DisconnectTSFromJson(json);
 
@@ -449,6 +449,152 @@ class _$SyncJoinedBroadsTSCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
   return _then(SyncJoinedBroadsTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinLettersTS extends ToServer {
+  const JoinLettersTS({required this.n, final  String? $type}): $type = $type ?? 'joinLetters',super._();
+  factory JoinLettersTS.fromJson(Map<String, dynamic> json) => _$JoinLettersTSFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JoinLettersTSCopyWith<JoinLettersTS> get copyWith => _$JoinLettersTSCopyWithImpl<JoinLettersTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$JoinLettersTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinLettersTS&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.joinLetters(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $JoinLettersTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $JoinLettersTSCopyWith(JoinLettersTS value, $Res Function(JoinLettersTS) _then) = _$JoinLettersTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$JoinLettersTSCopyWithImpl<$Res>
+    implements $JoinLettersTSCopyWith<$Res> {
+  _$JoinLettersTSCopyWithImpl(this._self, this._then);
+
+  final JoinLettersTS _self;
+  final $Res Function(JoinLettersTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(JoinLettersTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinArenaTS extends ToServer {
+  const JoinArenaTS({required this.n, final  String? $type}): $type = $type ?? 'joinArena',super._();
+  factory JoinArenaTS.fromJson(Map<String, dynamic> json) => _$JoinArenaTSFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JoinArenaTSCopyWith<JoinArenaTS> get copyWith => _$JoinArenaTSCopyWithImpl<JoinArenaTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$JoinArenaTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinArenaTS&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.joinArena(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $JoinArenaTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $JoinArenaTSCopyWith(JoinArenaTS value, $Res Function(JoinArenaTS) _then) = _$JoinArenaTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$JoinArenaTSCopyWithImpl<$Res>
+    implements $JoinArenaTSCopyWith<$Res> {
+  _$JoinArenaTSCopyWithImpl(this._self, this._then);
+
+  final JoinArenaTS _self;
+  final $Res Function(JoinArenaTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(JoinArenaTS(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -1127,227 +1273,6 @@ as int,
 /// @nodoc
 @JsonSerializable()
 
-class JoinLettersTS extends ToServer {
-  const JoinLettersTS({required this.n, final  String? $type}): $type = $type ?? 'joinLetters',super._();
-  factory JoinLettersTS.fromJson(Map<String, dynamic> json) => _$JoinLettersTSFromJson(json);
-
-@override final  String n;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$JoinLettersTSCopyWith<JoinLettersTS> get copyWith => _$JoinLettersTSCopyWithImpl<JoinLettersTS>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$JoinLettersTSToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinLettersTS&&(identical(other.n, n) || other.n == n));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,n);
-
-@override
-String toString() {
-  return 'ToServer.joinLetters(n: $n)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $JoinLettersTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $JoinLettersTSCopyWith(JoinLettersTS value, $Res Function(JoinLettersTS) _then) = _$JoinLettersTSCopyWithImpl;
-@override @useResult
-$Res call({
- String n
-});
-
-
-
-
-}
-/// @nodoc
-class _$JoinLettersTSCopyWithImpl<$Res>
-    implements $JoinLettersTSCopyWith<$Res> {
-  _$JoinLettersTSCopyWithImpl(this._self, this._then);
-
-  final JoinLettersTS _self;
-  final $Res Function(JoinLettersTS) _then;
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
-  return _then(JoinLettersTS(
-n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class JoinArenaTS extends ToServer {
-  const JoinArenaTS({required this.n, final  String? $type}): $type = $type ?? 'joinArena',super._();
-  factory JoinArenaTS.fromJson(Map<String, dynamic> json) => _$JoinArenaTSFromJson(json);
-
-@override final  String n;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$JoinArenaTSCopyWith<JoinArenaTS> get copyWith => _$JoinArenaTSCopyWithImpl<JoinArenaTS>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$JoinArenaTSToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinArenaTS&&(identical(other.n, n) || other.n == n));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,n);
-
-@override
-String toString() {
-  return 'ToServer.joinArena(n: $n)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $JoinArenaTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $JoinArenaTSCopyWith(JoinArenaTS value, $Res Function(JoinArenaTS) _then) = _$JoinArenaTSCopyWithImpl;
-@override @useResult
-$Res call({
- String n
-});
-
-
-
-
-}
-/// @nodoc
-class _$JoinArenaTSCopyWithImpl<$Res>
-    implements $JoinArenaTSCopyWith<$Res> {
-  _$JoinArenaTSCopyWithImpl(this._self, this._then);
-
-  final JoinArenaTS _self;
-  final $Res Function(JoinArenaTS) _then;
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
-  return _then(JoinArenaTS(
-n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class CreateBattleRoomTS extends ToServer implements BotToServer {
-  const CreateBattleRoomTS({required this.n, required this.unitId, final  String? $type}): $type = $type ?? 'createBattleRoom',super._();
-  factory CreateBattleRoomTS.fromJson(Map<String, dynamic> json) => _$CreateBattleRoomTSFromJson(json);
-
-@override final  String n;
- final  int unitId;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$CreateBattleRoomTSCopyWith<CreateBattleRoomTS> get copyWith => _$CreateBattleRoomTSCopyWithImpl<CreateBattleRoomTS>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$CreateBattleRoomTSToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateBattleRoomTS&&(identical(other.n, n) || other.n == n)&&(identical(other.unitId, unitId) || other.unitId == unitId));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,n,unitId);
-
-@override
-String toString() {
-  return 'ToServer.createBattleRoom(n: $n, unitId: $unitId)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $CreateBattleRoomTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
-  factory $CreateBattleRoomTSCopyWith(CreateBattleRoomTS value, $Res Function(CreateBattleRoomTS) _then) = _$CreateBattleRoomTSCopyWithImpl;
-@override @useResult
-$Res call({
- String n, int unitId
-});
-
-
-
-
-}
-/// @nodoc
-class _$CreateBattleRoomTSCopyWithImpl<$Res>
-    implements $CreateBattleRoomTSCopyWith<$Res> {
-  _$CreateBattleRoomTSCopyWithImpl(this._self, this._then);
-
-  final CreateBattleRoomTS _self;
-  final $Res Function(CreateBattleRoomTS) _then;
-
-/// Create a copy of ToServer
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? unitId = null,}) {
-  return _then(CreateBattleRoomTS(
-n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
 class JoinBattleRoomTS extends ToServer {
   const JoinBattleRoomTS({required this.n, required this.battleRoomId, final  String? $type}): $type = $type ?? 'joinBattleRoom',super._();
   factory JoinBattleRoomTS.fromJson(Map<String, dynamic> json) => _$JoinBattleRoomTSFromJson(json);
@@ -1493,6 +1418,92 @@ as String,
 }
 
 
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class GameActionTS extends ToServer {
+  const GameActionTS({required this.n, required this.battleRoomId, required this.action, final  String? $type}): $type = $type ?? 'gameAction',super._();
+  factory GameActionTS.fromJson(Map<String, dynamic> json) => _$GameActionTSFromJson(json);
+
+@override final  String n;
+ final  String battleRoomId;
+ final  GameActionDto action;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GameActionTSCopyWith<GameActionTS> get copyWith => _$GameActionTSCopyWithImpl<GameActionTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GameActionTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GameActionTS&&(identical(other.n, n) || other.n == n)&&(identical(other.battleRoomId, battleRoomId) || other.battleRoomId == battleRoomId)&&(identical(other.action, action) || other.action == action));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,battleRoomId,action);
+
+@override
+String toString() {
+  return 'ToServer.gameAction(n: $n, battleRoomId: $battleRoomId, action: $action)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $GameActionTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $GameActionTSCopyWith(GameActionTS value, $Res Function(GameActionTS) _then) = _$GameActionTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, String battleRoomId, GameActionDto action
+});
+
+
+$GameActionDtoCopyWith<$Res> get action;
+
+}
+/// @nodoc
+class _$GameActionTSCopyWithImpl<$Res>
+    implements $GameActionTSCopyWith<$Res> {
+  _$GameActionTSCopyWithImpl(this._self, this._then);
+
+  final GameActionTS _self;
+  final $Res Function(GameActionTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? battleRoomId = null,Object? action = null,}) {
+  return _then(GameActionTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,battleRoomId: null == battleRoomId ? _self.battleRoomId : battleRoomId // ignore: cast_nullable_to_non_nullable
+as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as GameActionDto,
+  ));
+}
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$GameActionDtoCopyWith<$Res> get action {
+  
+  return $GameActionDtoCopyWith<$Res>(_self.action, (value) {
+    return _then(_self.copyWith(action: value));
+  });
+}
 }
 
 // dart format on

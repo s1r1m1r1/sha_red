@@ -32,5 +32,6 @@ export 'src/ws_models/ws_server_error.dart';
 export 'src/models/user_dto.dart';
 export 'src/models/session_dto.dart';
 export 'src/ws_models/web_socket_close_code.dart';
+export 'src/models/game_action_dto.dart';
 
 // TODO: Export any libraries intended for clients of this package.

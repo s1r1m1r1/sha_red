@@ -170,8 +170,8 @@ as bool,
 /// @nodoc
 mixin _$CombatantDto {
 
- int get id; int get teamId; int get userId; bool get isBot; int get unitId;//------------------
- int get maxLife; int get life; int get damage; UnitDto get unit;
+ int get unitId; int get teamId; String get userId; bool get isBot;//------------------
+ UnitDto get baseUnit; UnitDto get unit;
 /// Create a copy of CombatantDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -184,16 +184,16 @@ $CombatantDtoCopyWith<CombatantDto> get copyWith => _$CombatantDtoCopyWithImpl<C
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatantDto&&(identical(other.id, id) || other.id == id)&&(identical(other.teamId, teamId) || other.teamId == teamId)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.isBot, isBot) || other.isBot == isBot)&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.maxLife, maxLife) || other.maxLife == maxLife)&&(identical(other.life, life) || other.life == life)&&(identical(other.damage, damage) || other.damage == damage)&&(identical(other.unit, unit) || other.unit == unit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatantDto&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.teamId, teamId) || other.teamId == teamId)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.isBot, isBot) || other.isBot == isBot)&&(identical(other.baseUnit, baseUnit) || other.baseUnit == baseUnit)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,teamId,userId,isBot,unitId,maxLife,life,damage,unit);
+int get hashCode => Object.hash(runtimeType,unitId,teamId,userId,isBot,baseUnit,unit);
 
 @override
 String toString() {
-  return 'CombatantDto(id: $id, teamId: $teamId, userId: $userId, isBot: $isBot, unitId: $unitId, maxLife: $maxLife, life: $life, damage: $damage, unit: $unit)';
+  return 'CombatantDto(unitId: $unitId, teamId: $teamId, userId: $userId, isBot: $isBot, baseUnit: $baseUnit, unit: $unit)';
 }
 
 
@@ -204,11 +204,11 @@ abstract mixin class $CombatantDtoCopyWith<$Res>  {
   factory $CombatantDtoCopyWith(CombatantDto value, $Res Function(CombatantDto) _then) = _$CombatantDtoCopyWithImpl;
 @useResult
 $Res call({
- int id, int teamId, int userId, bool isBot, int unitId, int maxLife, int life, int damage, UnitDto unit
+ int unitId, int teamId, String userId, bool isBot, UnitDto baseUnit, UnitDto unit
 });
 
 
-$UnitDtoCopyWith<$Res> get unit;
+$UnitDtoCopyWith<$Res> get baseUnit;$UnitDtoCopyWith<$Res> get unit;
 
 }
 /// @nodoc
@@ -221,21 +221,27 @@ class _$CombatantDtoCopyWithImpl<$Res>
 
 /// Create a copy of CombatantDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? teamId = null,Object? userId = null,Object? isBot = null,Object? unitId = null,Object? maxLife = null,Object? life = null,Object? damage = null,Object? unit = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? unitId = null,Object? teamId = null,Object? userId = null,Object? isBot = null,Object? baseUnit = null,Object? unit = null,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
 as int,teamId: null == teamId ? _self.teamId : teamId // ignore: cast_nullable_to_non_nullable
 as int,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,isBot: null == isBot ? _self.isBot : isBot // ignore: cast_nullable_to_non_nullable
-as bool,unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
-as int,maxLife: null == maxLife ? _self.maxLife : maxLife // ignore: cast_nullable_to_non_nullable
-as int,life: null == life ? _self.life : life // ignore: cast_nullable_to_non_nullable
-as int,damage: null == damage ? _self.damage : damage // ignore: cast_nullable_to_non_nullable
-as int,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
+as String,isBot: null == isBot ? _self.isBot : isBot // ignore: cast_nullable_to_non_nullable
+as bool,baseUnit: null == baseUnit ? _self.baseUnit : baseUnit // ignore: cast_nullable_to_non_nullable
+as UnitDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as UnitDto,
   ));
 }
 /// Create a copy of CombatantDto
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDtoCopyWith<$Res> get baseUnit {
+  
+  return $UnitDtoCopyWith<$Res>(_self.baseUnit, (value) {
+    return _then(_self.copyWith(baseUnit: value));
+  });
+}/// Create a copy of CombatantDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -253,18 +259,15 @@ $UnitDtoCopyWith<$Res> get unit {
 @JsonSerializable()
 
 class _CombatantDto extends CombatantDto {
-  const _CombatantDto({required this.id, required this.teamId, required this.userId, required this.isBot, required this.unitId, required this.maxLife, required this.life, required this.damage, required this.unit}): super._();
+  const _CombatantDto({required this.unitId, required this.teamId, required this.userId, required this.isBot, required this.baseUnit, required this.unit}): super._();
   factory _CombatantDto.fromJson(Map<String, dynamic> json) => _$CombatantDtoFromJson(json);
 
-@override final  int id;
-@override final  int teamId;
-@override final  int userId;
-@override final  bool isBot;
 @override final  int unitId;
+@override final  int teamId;
+@override final  String userId;
+@override final  bool isBot;
 //------------------
-@override final  int maxLife;
-@override final  int life;
-@override final  int damage;
+@override final  UnitDto baseUnit;
 @override final  UnitDto unit;
 
 /// Create a copy of CombatantDto
@@ -280,16 +283,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CombatantDto&&(identical(other.id, id) || other.id == id)&&(identical(other.teamId, teamId) || other.teamId == teamId)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.isBot, isBot) || other.isBot == isBot)&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.maxLife, maxLife) || other.maxLife == maxLife)&&(identical(other.life, life) || other.life == life)&&(identical(other.damage, damage) || other.damage == damage)&&(identical(other.unit, unit) || other.unit == unit));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CombatantDto&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.teamId, teamId) || other.teamId == teamId)&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.isBot, isBot) || other.isBot == isBot)&&(identical(other.baseUnit, baseUnit) || other.baseUnit == baseUnit)&&(identical(other.unit, unit) || other.unit == unit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,teamId,userId,isBot,unitId,maxLife,life,damage,unit);
+int get hashCode => Object.hash(runtimeType,unitId,teamId,userId,isBot,baseUnit,unit);
 
 @override
 String toString() {
-  return 'CombatantDto(id: $id, teamId: $teamId, userId: $userId, isBot: $isBot, unitId: $unitId, maxLife: $maxLife, life: $life, damage: $damage, unit: $unit)';
+  return 'CombatantDto(unitId: $unitId, teamId: $teamId, userId: $userId, isBot: $isBot, baseUnit: $baseUnit, unit: $unit)';
 }
 
 
@@ -300,11 +303,11 @@ abstract mixin class _$CombatantDtoCopyWith<$Res> implements $CombatantDtoCopyWi
   factory _$CombatantDtoCopyWith(_CombatantDto value, $Res Function(_CombatantDto) _then) = __$CombatantDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int id, int teamId, int userId, bool isBot, int unitId, int maxLife, int life, int damage, UnitDto unit
+ int unitId, int teamId, String userId, bool isBot, UnitDto baseUnit, UnitDto unit
 });
 
 
-@override $UnitDtoCopyWith<$Res> get unit;
+@override $UnitDtoCopyWith<$Res> get baseUnit;@override $UnitDtoCopyWith<$Res> get unit;
 
 }
 /// @nodoc
@@ -317,22 +320,28 @@ class __$CombatantDtoCopyWithImpl<$Res>
 
 /// Create a copy of CombatantDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? teamId = null,Object? userId = null,Object? isBot = null,Object? unitId = null,Object? maxLife = null,Object? life = null,Object? damage = null,Object? unit = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? unitId = null,Object? teamId = null,Object? userId = null,Object? isBot = null,Object? baseUnit = null,Object? unit = null,}) {
   return _then(_CombatantDto(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
 as int,teamId: null == teamId ? _self.teamId : teamId // ignore: cast_nullable_to_non_nullable
 as int,userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
-as int,isBot: null == isBot ? _self.isBot : isBot // ignore: cast_nullable_to_non_nullable
-as bool,unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
-as int,maxLife: null == maxLife ? _self.maxLife : maxLife // ignore: cast_nullable_to_non_nullable
-as int,life: null == life ? _self.life : life // ignore: cast_nullable_to_non_nullable
-as int,damage: null == damage ? _self.damage : damage // ignore: cast_nullable_to_non_nullable
-as int,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
+as String,isBot: null == isBot ? _self.isBot : isBot // ignore: cast_nullable_to_non_nullable
+as bool,baseUnit: null == baseUnit ? _self.baseUnit : baseUnit // ignore: cast_nullable_to_non_nullable
+as UnitDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
 as UnitDto,
   ));
 }
 
 /// Create a copy of CombatantDto
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UnitDtoCopyWith<$Res> get baseUnit {
+  
+  return $UnitDtoCopyWith<$Res>(_self.baseUnit, (value) {
+    return _then(_self.copyWith(baseUnit: value));
+  });
+}/// Create a copy of CombatantDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

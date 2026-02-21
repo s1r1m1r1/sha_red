@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../models/game_action_dto.dart';
+
 part 'to_server.freezed.dart';
 part 'to_server.g.dart';
 
@@ -9,17 +11,19 @@ part 'to_server.g.dart';
 sealed class ToServer with _$ToServer {
   const ToServer._();
 
-  @Implements<BotToServer>()
   const factory ToServer.leaveArena({required String n}) = LeaveArenaTS;
 
   const factory ToServer.withToken({required String n, required String token}) =
       WithTokenTS;
 
-  @Implements<BotToServer>()
   const factory ToServer.disconnect({required String n}) = DisconnectTS;
   // получить список всех broadcasts
   const factory ToServer.syncJoinedBroads({required String n}) =
       SyncJoinedBroadsTS;
+
+  const factory ToServer.joinLetters({required String n}) = JoinLettersTS;
+
+  const factory ToServer.joinArena({required String n}) = JoinArenaTS;
 
   // silent, not receive message
   const factory ToServer.sleepOnlineUsers({required String n}) =
@@ -48,15 +52,7 @@ sealed class ToServer with _$ToServer {
     required String n,
     required int letterId,
   }) = DeleteLetterTS;
-  const factory ToServer.joinLetters({required String n}) = JoinLettersTS;
 
-  const factory ToServer.joinArena({required String n}) = JoinArenaTS;
-
-  @Implements<BotToServer>()
-  const factory ToServer.createBattleRoom({
-    required String n,
-    required int unitId,
-  }) = CreateBattleRoomTS;
   const factory ToServer.joinBattleRoom({
     required String n,
     required String battleRoomId,
@@ -65,6 +61,12 @@ sealed class ToServer with _$ToServer {
     required String n,
     required String battleRoomId,
   }) = LeaveBattleRoom;
+
+  const factory ToServer.gameAction({
+    required String n,
+    required String battleRoomId,
+    required GameActionDto action,
+  }) = GameActionTS;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);
@@ -80,5 +82,3 @@ sealed class ToServer with _$ToServer {
     return ToServer.fromJson(data);
   }
 }
-
-sealed class BotToServer implements ToServer {}

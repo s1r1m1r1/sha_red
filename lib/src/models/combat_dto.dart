@@ -23,15 +23,12 @@ abstract class CombatDto with _$CombatDto {
 abstract class CombatantDto with _$CombatantDto {
   const CombatantDto._();
   const factory CombatantDto({
-    required int id,
-    required int teamId,
-    required int userId,
-    required bool isBot,
     required int unitId,
+    required int teamId,
+    required String userId,
+    required bool isBot,
     //------------------
-    required int maxLife,
-    required int life,
-    required int damage,
+    required UnitDto baseUnit,
     required UnitDto unit,
   }) = _CombatantDto;
 
