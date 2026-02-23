@@ -55,24 +55,6 @@ JoinArenaTS _$JoinArenaTSFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$JoinArenaTSToJson(JoinArenaTS instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
-SleepOnlineUsers _$SleepOnlineUsersFromJson(Map<String, dynamic> json) =>
-    SleepOnlineUsers(
-      n: json['n'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$SleepOnlineUsersToJson(SleepOnlineUsers instance) =>
-    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
-
-WakeOnlineUsers _$WakeOnlineUsersFromJson(Map<String, dynamic> json) =>
-    WakeOnlineUsers(
-      n: json['n'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$WakeOnlineUsersToJson(WakeOnlineUsers instance) =>
-    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
-
 SyncOnlineUsers _$SyncOnlineUsersFromJson(Map<String, dynamic> json) =>
     SyncOnlineUsers(
       n: json['n'] as String,

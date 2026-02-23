@@ -23,10 +23,6 @@ sealed class ToServer with _$ToServer {
 
   const factory ToServer.joinArena({required String n}) = JoinArenaTS;
 
-  // silent, not receive message
-  const factory ToServer.sleepOnlineUsers({required String n}) = SleepOnlineUsers;
-  // always join if connected to server, if sleep should wake to receive messages again
-  const factory ToServer.wakeOnlineUsers({required String n}) = WakeOnlineUsers;
   const factory ToServer.syncOnlineUsers({required String n}) = SyncOnlineUsers;
 
   const factory ToServer.createNewEdict({required String n}) = CreateNewEdictTS;

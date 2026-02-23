@@ -18,7 +18,7 @@ export 'src/models/combat_dto.dart';
 export 'src/models/menu_room_dto.dart';
 export 'src/payloads/online_members_dto.dart';
 export 'src/ws_models/ws_auth_error.dart';
-export 'src/ws_models/abstract.dart';
+export 'src/ws_models/encodable_message.dart';
 export 'src/models/unit_stats_dto.dart';
 // Export ws_models
 export 'src/ws_models/to_client.dart';
@@ -34,5 +34,3 @@ export 'src/models/user_dto.dart';
 export 'src/models/session_dto.dart';
 export 'src/ws_models/web_socket_close_code.dart';
 export 'src/models/game_action_dto.dart';
-
-// TODO: Export any libraries intended for clients of this package.

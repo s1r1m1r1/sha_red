@@ -99,6 +99,10 @@ ToClient _$ToClientFromJson(
           return CombatWinTC.fromJson(
             json
           );
+                case 'combatRooms':
+          return CombatRoomsTC.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -1305,7 +1309,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class StartedEdictTC extends ToClient implements ArenaTC {
+class StartedEdictTC extends ToClient implements ArenaTC, CombatTC {
   const StartedEdictTC({required this.n, required this.combatRoom, final  String? $type}): $type = $type ?? 'startedEdict',super._();
   factory StartedEdictTC.fromJson(Map<String, dynamic> json) => _$StartedEdictTCFromJson(json);
 
@@ -1723,10 +1727,12 @@ as List<int>,
 @JsonSerializable()
 
 class CombatErrorTC extends ToClient implements BotToClient, CombatTC {
-  const CombatErrorTC({required this.n, @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'combatError',super._();
+  const CombatErrorTC({required this.n, required this.broadcastId, this.isFatal = false, @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'combatError',super._();
   factory CombatErrorTC.fromJson(Map<String, dynamic> json) => _$CombatErrorTCFromJson(json);
 
 @override final  String n;
+ final  String broadcastId;
+@JsonKey() final  bool isFatal;
 @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) final  WsCombatError error;
 
 @JsonKey(name: 'runtimeType')
@@ -1746,16 +1752,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatErrorTC&&(identical(other.n, n) || other.n == n)&&(identical(other.error, error) || other.error == error));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatErrorTC&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&(identical(other.isFatal, isFatal) || other.isFatal == isFatal)&&(identical(other.error, error) || other.error == error));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,error);
+int get hashCode => Object.hash(runtimeType,n,broadcastId,isFatal,error);
 
 @override
 String toString() {
-  return 'ToClient.combatError(n: $n, error: $error)';
+  return 'ToClient.combatError(n: $n, broadcastId: $broadcastId, isFatal: $isFatal, error: $error)';
 }
 
 
@@ -1766,7 +1772,7 @@ abstract mixin class $CombatErrorTCCopyWith<$Res> implements $ToClientCopyWith<$
   factory $CombatErrorTCCopyWith(CombatErrorTC value, $Res Function(CombatErrorTC) _then) = _$CombatErrorTCCopyWithImpl;
 @override @useResult
 $Res call({
- String n,@JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) WsCombatError error
+ String n, String broadcastId, bool isFatal,@JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) WsCombatError error
 });
 
 
@@ -1783,10 +1789,12 @@ class _$CombatErrorTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? error = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? isFatal = null,Object? error = null,}) {
   return _then(CombatErrorTC(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String,broadcastId: null == broadcastId ? _self.broadcastId : broadcastId // ignore: cast_nullable_to_non_nullable
+as String,isFatal: null == isFatal ? _self.isFatal : isFatal // ignore: cast_nullable_to_non_nullable
+as bool,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
 as WsCombatError,
   ));
 }
@@ -1798,10 +1806,11 @@ as WsCombatError,
 @JsonSerializable()
 
 class CombatWinTC extends ToClient implements CombatTC {
-  const CombatWinTC({required this.n, required this.winnerTeamId, final  String? $type}): $type = $type ?? 'combatWin',super._();
+  const CombatWinTC({required this.n, required this.broadcastId, required this.winnerTeamId, final  String? $type}): $type = $type ?? 'combatWin',super._();
   factory CombatWinTC.fromJson(Map<String, dynamic> json) => _$CombatWinTCFromJson(json);
 
 @override final  String n;
+ final  String broadcastId;
  final  int winnerTeamId;
 
 @JsonKey(name: 'runtimeType')
@@ -1821,16 +1830,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatWinTC&&(identical(other.n, n) || other.n == n)&&(identical(other.winnerTeamId, winnerTeamId) || other.winnerTeamId == winnerTeamId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatWinTC&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&(identical(other.winnerTeamId, winnerTeamId) || other.winnerTeamId == winnerTeamId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,winnerTeamId);
+int get hashCode => Object.hash(runtimeType,n,broadcastId,winnerTeamId);
 
 @override
 String toString() {
-  return 'ToClient.combatWin(n: $n, winnerTeamId: $winnerTeamId)';
+  return 'ToClient.combatWin(n: $n, broadcastId: $broadcastId, winnerTeamId: $winnerTeamId)';
 }
 
 
@@ -1841,7 +1850,7 @@ abstract mixin class $CombatWinTCCopyWith<$Res> implements $ToClientCopyWith<$Re
   factory $CombatWinTCCopyWith(CombatWinTC value, $Res Function(CombatWinTC) _then) = _$CombatWinTCCopyWithImpl;
 @override @useResult
 $Res call({
- String n, int winnerTeamId
+ String n, String broadcastId, int winnerTeamId
 });
 
 
@@ -1858,11 +1867,95 @@ class _$CombatWinTCCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? winnerTeamId = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? winnerTeamId = null,}) {
   return _then(CombatWinTC(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,broadcastId: null == broadcastId ? _self.broadcastId : broadcastId // ignore: cast_nullable_to_non_nullable
 as String,winnerTeamId: null == winnerTeamId ? _self.winnerTeamId : winnerTeamId // ignore: cast_nullable_to_non_nullable
 as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class CombatRoomsTC extends ToClient implements CombatObsTC {
+  const CombatRoomsTC({required this.n, required this.broadcastId, required final  List<CombatRoomDto> rooms, final  String? $type}): _rooms = rooms,$type = $type ?? 'combatRooms',super._();
+  factory CombatRoomsTC.fromJson(Map<String, dynamic> json) => _$CombatRoomsTCFromJson(json);
+
+@override final  String n;
+ final  String broadcastId;
+ final  List<CombatRoomDto> _rooms;
+ List<CombatRoomDto> get rooms {
+  if (_rooms is EqualUnmodifiableListView) return _rooms;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_rooms);
+}
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CombatRoomsTCCopyWith<CombatRoomsTC> get copyWith => _$CombatRoomsTCCopyWithImpl<CombatRoomsTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CombatRoomsTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatRoomsTC&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&const DeepCollectionEquality().equals(other._rooms, _rooms));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,broadcastId,const DeepCollectionEquality().hash(_rooms));
+
+@override
+String toString() {
+  return 'ToClient.combatRooms(n: $n, broadcastId: $broadcastId, rooms: $rooms)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CombatRoomsTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $CombatRoomsTCCopyWith(CombatRoomsTC value, $Res Function(CombatRoomsTC) _then) = _$CombatRoomsTCCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, String broadcastId, List<CombatRoomDto> rooms
+});
+
+
+
+
+}
+/// @nodoc
+class _$CombatRoomsTCCopyWithImpl<$Res>
+    implements $CombatRoomsTCCopyWith<$Res> {
+  _$CombatRoomsTCCopyWithImpl(this._self, this._then);
+
+  final CombatRoomsTC _self;
+  final $Res Function(CombatRoomsTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? rooms = null,}) {
+  return _then(CombatRoomsTC(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,broadcastId: null == broadcastId ? _self.broadcastId : broadcastId // ignore: cast_nullable_to_non_nullable
+as String,rooms: null == rooms ? _self._rooms : rooms // ignore: cast_nullable_to_non_nullable
+as List<CombatRoomDto>,
   ));
 }
 

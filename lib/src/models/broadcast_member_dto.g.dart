@@ -7,10 +7,7 @@ part of 'broadcast_member_dto.dart';
 // **************************************************************************
 
 _BroadcastMemberDto _$BroadcastMemberDtoFromJson(Map<String, dynamic> json) =>
-    _BroadcastMemberDto(
-      id: json['id'] as String,
-      isSleep: json['isSleep'] as bool? ?? false,
-    );
+    _BroadcastMemberDto(id: json['id'] as String);
 
 Map<String, dynamic> _$BroadcastMemberDtoToJson(_BroadcastMemberDto instance) =>
-    <String, dynamic>{'id': instance.id, 'isSleep': instance.isSleep};
+    <String, dynamic>{'id': instance.id};

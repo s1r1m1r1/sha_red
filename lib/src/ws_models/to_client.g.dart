@@ -312,6 +312,8 @@ Map<String, dynamic> _$CombatStateTCToJson(CombatStateTC instance) =>
 CombatErrorTC _$CombatErrorTCFromJson(Map<String, dynamic> json) =>
     CombatErrorTC(
       n: json['n'] as String,
+      broadcastId: json['broadcastId'] as String,
+      isFatal: json['isFatal'] as bool? ?? false,
       error: WsCombatError.fromJson(json['error']),
       $type: json['runtimeType'] as String?,
     );
@@ -319,12 +321,15 @@ CombatErrorTC _$CombatErrorTCFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$CombatErrorTCToJson(CombatErrorTC instance) =>
     <String, dynamic>{
       'n': instance.n,
+      'broadcastId': instance.broadcastId,
+      'isFatal': instance.isFatal,
       'error': WsCombatError.toJson(instance.error),
       'runtimeType': instance.$type,
     };
 
 CombatWinTC _$CombatWinTCFromJson(Map<String, dynamic> json) => CombatWinTC(
   n: json['n'] as String,
+  broadcastId: json['broadcastId'] as String,
   winnerTeamId: (json['winnerTeamId'] as num).toInt(),
   $type: json['runtimeType'] as String?,
 );
@@ -332,6 +337,25 @@ CombatWinTC _$CombatWinTCFromJson(Map<String, dynamic> json) => CombatWinTC(
 Map<String, dynamic> _$CombatWinTCToJson(CombatWinTC instance) =>
     <String, dynamic>{
       'n': instance.n,
+      'broadcastId': instance.broadcastId,
       'winnerTeamId': instance.winnerTeamId,
+      'runtimeType': instance.$type,
+    };
+
+CombatRoomsTC _$CombatRoomsTCFromJson(Map<String, dynamic> json) =>
+    CombatRoomsTC(
+      n: json['n'] as String,
+      broadcastId: json['broadcastId'] as String,
+      rooms: (json['rooms'] as List<dynamic>)
+          .map((e) => CombatRoomDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$CombatRoomsTCToJson(CombatRoomsTC instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'broadcastId': instance.broadcastId,
+      'rooms': instance.rooms,
       'runtimeType': instance.$type,
     };
