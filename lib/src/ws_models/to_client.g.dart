@@ -214,20 +214,6 @@ LeavedEdictTC _$LeavedEdictTCFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$LeavedEdictTCToJson(LeavedEdictTC instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
-StartedEdictTC _$StartedEdictTCFromJson(Map<String, dynamic> json) =>
-    StartedEdictTC(
-      n: json['n'] as String,
-      combatRoom: json['combatRoom'] as String,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$StartedEdictTCToJson(StartedEdictTC instance) =>
-    <String, dynamic>{
-      'n': instance.n,
-      'combatRoom': instance.combatRoom,
-      'runtimeType': instance.$type,
-    };
-
 ArenaErrorTC _$ArenaErrorTCFromJson(Map<String, dynamic> json) => ArenaErrorTC(
   n: json['n'] as String,
   error: WsArenaError.fromJson(json['error']),
@@ -238,6 +224,20 @@ Map<String, dynamic> _$ArenaErrorTCToJson(ArenaErrorTC instance) =>
     <String, dynamic>{
       'n': instance.n,
       'error': WsArenaError.toJson(instance.error),
+      'runtimeType': instance.$type,
+    };
+
+CombatStartedTC _$CombatStartedTCFromJson(Map<String, dynamic> json) =>
+    CombatStartedTC(
+      n: json['n'] as String,
+      combatRoom: json['combatRoom'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$CombatStartedTCToJson(CombatStartedTC instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'combatRoom': instance.combatRoom,
       'runtimeType': instance.$type,
     };
 
@@ -339,6 +339,20 @@ Map<String, dynamic> _$CombatWinTCToJson(CombatWinTC instance) =>
       'n': instance.n,
       'broadcastId': instance.broadcastId,
       'winnerTeamId': instance.winnerTeamId,
+      'runtimeType': instance.$type,
+    };
+
+CombatClosedTC _$CombatClosedTCFromJson(Map<String, dynamic> json) =>
+    CombatClosedTC(
+      n: json['n'] as String,
+      broadcastId: json['broadcastId'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$CombatClosedTCToJson(CombatClosedTC instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'broadcastId': instance.broadcastId,
       'runtimeType': instance.$type,
     };
 

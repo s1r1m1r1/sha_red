@@ -11,64 +11,101 @@ part 'to_client.freezed.dart';
 sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const ToClient._();
 
-  const factory ToClient.onlineUsers({required String n, required List<OnlineMemberDto> members}) = OnlineUsersTC;
+  const factory ToClient.onlineUsers({
+    required String n,
+    required List<OnlineMemberDto> members,
+  }) = OnlineUsersTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.status({required String n, required bool isSleep}) = LetterStatusTC;
+  const factory ToClient.status({required String n, required bool isSleep}) =
+      LetterStatusTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.letterHistory({required String n, required String roomId, required List<LetterDto> letters}) =
-      LetterHistoryTC;
+  const factory ToClient.letterHistory({
+    required String n,
+    required String roomId,
+    required List<LetterDto> letters,
+  }) = LetterHistoryTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.onLetter({required String n, required String roomId, required LetterDto dto}) = OnLetterTC;
+  const factory ToClient.onLetter({
+    required String n,
+    required String roomId,
+    required LetterDto dto,
+  }) = OnLetterTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.editedLetter({required String n, required String roomId, required LetterDto dto}) =
-      EditedLetterTC;
+  const factory ToClient.editedLetter({
+    required String n,
+    required String roomId,
+    required LetterDto dto,
+  }) = EditedLetterTC;
 
   @Implements<LetterTC>()
-  const factory ToClient.deletedLetter({required String n, required String roomId, required int letterId}) =
-      DeletedLetterTC;
+  const factory ToClient.deletedLetter({
+    required String n,
+    required String roomId,
+    required int letterId,
+  }) = DeletedLetterTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.broadcastInfo({required String n, required List<BroadcastMemberDto> broadcasts}) =
-      BroadcastInfoTC;
+  const factory ToClient.broadcastInfo({
+    required String n,
+    required List<BroadcastMemberDto> broadcasts,
+  }) = BroadcastInfoTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.terminatedBroadcast({required String n, required String broad}) = TerminatedBroadcastTC;
+  const factory ToClient.terminatedBroadcast({
+    required String n,
+    required String broad,
+  }) = TerminatedBroadcastTC;
 
   @Implements<BroadcastTC>()
-  const factory ToClient.terminatedAllBroadcast({required String n}) = TerminatedAllBroadcastTC;
+  const factory ToClient.terminatedAllBroadcast({required String n}) =
+      TerminatedAllBroadcastTC;
 
   @Implements<AuthTC>()
   const factory ToClient.authError({
     required String n,
-    @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) required WsAuthError error,
-    @JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson) required ToServerNames toServerName,
+    @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson)
+    required WsAuthError error,
+    @JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson)
+    required ToServerNames toServerName,
   }) = AuthErrorTC;
 
   @Implements<AuthTC>()
-  const factory ToClient.joinedServer({required String n, required UserDto user, required UnitDto unit}) =
-      JoinedServerTC;
+  const factory ToClient.joinedServer({
+    required String n,
+    required UserDto user,
+    required UnitDto unit,
+  }) = JoinedServerTC;
 
   @Implements<ArenaTC>()
-  const factory ToClient.activeEdicts({required String n, required List<EdictDto> edicts}) = ActiveEdictsTC;
+  const factory ToClient.activeEdicts({
+    required String n,
+    required List<EdictDto> edicts,
+  }) = ActiveEdictsTC;
   @Implements<ArenaTC>()
-  const factory ToClient.joinedEdict({required String n, required EdictDto edict}) = JoinedEdictTC;
+  const factory ToClient.joinedEdict({
+    required String n,
+    required EdictDto edict,
+  }) = JoinedEdictTC;
   // отписаться от всех edict , которые имеются
   @Implements<ArenaTC>()
   const factory ToClient.leavedEdicts({required String n}) = LeavedEdictTC;
 
   @Implements<ArenaTC>()
-  @Implements<CombatTC>()
-  const factory ToClient.startedEdict({required String n, required String combatRoom}) = StartedEdictTC;
-
-  @Implements<ArenaTC>()
   const factory ToClient.arenaError({
     required String n,
-    @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson) required WsArenaError error,
+    @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson)
+    required WsArenaError error,
   }) = ArenaErrorTC;
+
+  @Implements<CombatTC>()
+  const factory ToClient.combatStarted({
+    required String n,
+    required String combatRoom,
+  }) = CombatStartedTC;
 
   /// countId номер комнаты
   /// membs  участники
@@ -87,8 +124,11 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   // более экономичный способ передачи данных
   // требуется чтобы client знал текущее состояние
   @Implements<CombatTC>()
-  const factory ToClient.combatEvent({required String n, required String broadcastId, required int round}) =
-      CombatEventTC;
+  const factory ToClient.combatEvent({
+    required String n,
+    required String broadcastId,
+    required int round,
+  }) = CombatEventTC;
 
   // состояния стейта на текущий момент
   // передача всех параметров
@@ -108,12 +148,22 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required String n,
     required String broadcastId,
     @Default(false) bool isFatal,
-    @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) required WsCombatError error,
+    @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson)
+    required WsCombatError error,
   }) = CombatErrorTC;
 
   @Implements<CombatTC>()
-  const factory ToClient.combatWin({required String n, required String broadcastId, required int winnerTeamId}) =
-      CombatWinTC;
+  const factory ToClient.combatWin({
+    required String n,
+    required String broadcastId,
+    required int winnerTeamId,
+  }) = CombatWinTC;
+
+  @Implements<CombatTC>()
+  const factory ToClient.combatClosed({
+    required String n,
+    required String broadcastId,
+  }) = CombatClosedTC;
 
   @Implements<CombatObsTC>()
   const factory ToClient.combatRooms({
@@ -127,7 +177,8 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   // const factory ToClient.combatStart({required List<CombatantDto> combatants}) =
   //     CombatStartTC;
 
-  factory ToClient.fromJson(Map<String, dynamic> json) => _$ToClientFromJson(json);
+  factory ToClient.fromJson(Map<String, dynamic> json) =>
+      _$ToClientFromJson(json);
   //----------------- json helper to reduce boiler code ---------------------
   @override
   String encode() {
