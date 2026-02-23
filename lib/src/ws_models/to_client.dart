@@ -102,6 +102,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }) = ArenaErrorTC;
 
   @Implements<CombatTC>()
+  @Implements<ArenaTC>()
   const factory ToClient.combatStarted({
     required String n,
     required String combatRoom,
@@ -165,7 +166,6 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required String broadcastId,
   }) = CombatClosedTC;
 
-  @Implements<CombatObsTC>()
   const factory ToClient.combatRooms({
     required String n,
     required String broadcastId,
@@ -206,7 +206,5 @@ sealed class ArenaTC implements ToClient {}
 sealed class BroadcastTC implements ToClient {}
 
 sealed class CombatTC implements ToClient {}
-
-sealed class CombatObsTC implements ToClient {}
 
 sealed class BotToClient implements ToClient {}

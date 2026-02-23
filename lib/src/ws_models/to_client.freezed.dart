@@ -1388,7 +1388,7 @@ as WsArenaError,
 /// @nodoc
 @JsonSerializable()
 
-class CombatStartedTC extends ToClient implements CombatTC {
+class CombatStartedTC extends ToClient implements CombatTC, ArenaTC {
   const CombatStartedTC({required this.n, required this.combatRoom, final  String? $type}): $type = $type ?? 'combatStarted',super._();
   factory CombatStartedTC.fromJson(Map<String, dynamic> json) => _$CombatStartedTCFromJson(json);
 
@@ -1961,7 +1961,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class CombatRoomsTC extends ToClient implements CombatObsTC {
+class CombatRoomsTC extends ToClient {
   const CombatRoomsTC({required this.n, required this.broadcastId, required final  List<CombatRoomDto> rooms, final  String? $type}): _rooms = rooms,$type = $type ?? 'combatRooms',super._();
   factory CombatRoomsTC.fromJson(Map<String, dynamic> json) => _$CombatRoomsTCFromJson(json);
 
