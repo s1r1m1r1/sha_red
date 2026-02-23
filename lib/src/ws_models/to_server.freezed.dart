@@ -83,6 +83,14 @@ ToServer _$ToServerFromJson(
           return LeaveBattleRoom.fromJson(
             json
           );
+                case 'join-obs':
+          return JoinAsCombatObserverTS.fromJson(
+            json
+          );
+                case 'focus-obs':
+          return FocusCombatObserverTS.fromJson(
+            json
+          );
                 case 'gameAction':
           return GameActionTS.fromJson(
             json
@@ -1421,6 +1429,154 @@ class _$LeaveBattleRoomCopyWithImpl<$Res>
   return _then(LeaveBattleRoom(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,battleRoomId: null == battleRoomId ? _self.battleRoomId : battleRoomId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class JoinAsCombatObserverTS extends ToServer {
+  const JoinAsCombatObserverTS({required this.n, final  String? $type}): $type = $type ?? 'join-obs',super._();
+  factory JoinAsCombatObserverTS.fromJson(Map<String, dynamic> json) => _$JoinAsCombatObserverTSFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JoinAsCombatObserverTSCopyWith<JoinAsCombatObserverTS> get copyWith => _$JoinAsCombatObserverTSCopyWithImpl<JoinAsCombatObserverTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$JoinAsCombatObserverTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinAsCombatObserverTS&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.joinAsCombatObserver(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $JoinAsCombatObserverTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $JoinAsCombatObserverTSCopyWith(JoinAsCombatObserverTS value, $Res Function(JoinAsCombatObserverTS) _then) = _$JoinAsCombatObserverTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$JoinAsCombatObserverTSCopyWithImpl<$Res>
+    implements $JoinAsCombatObserverTSCopyWith<$Res> {
+  _$JoinAsCombatObserverTSCopyWithImpl(this._self, this._then);
+
+  final JoinAsCombatObserverTS _self;
+  final $Res Function(JoinAsCombatObserverTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(JoinAsCombatObserverTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class FocusCombatObserverTS extends ToServer {
+  const FocusCombatObserverTS({required this.n, required this.room, final  String? $type}): $type = $type ?? 'focus-obs',super._();
+  factory FocusCombatObserverTS.fromJson(Map<String, dynamic> json) => _$FocusCombatObserverTSFromJson(json);
+
+@override final  String n;
+ final  String room;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FocusCombatObserverTSCopyWith<FocusCombatObserverTS> get copyWith => _$FocusCombatObserverTSCopyWithImpl<FocusCombatObserverTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$FocusCombatObserverTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FocusCombatObserverTS&&(identical(other.n, n) || other.n == n)&&(identical(other.room, room) || other.room == room));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,room);
+
+@override
+String toString() {
+  return 'ToServer.focusCombatObserver(n: $n, room: $room)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $FocusCombatObserverTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $FocusCombatObserverTSCopyWith(FocusCombatObserverTS value, $Res Function(FocusCombatObserverTS) _then) = _$FocusCombatObserverTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, String room
+});
+
+
+
+
+}
+/// @nodoc
+class _$FocusCombatObserverTSCopyWithImpl<$Res>
+    implements $FocusCombatObserverTSCopyWith<$Res> {
+  _$FocusCombatObserverTSCopyWithImpl(this._self, this._then);
+
+  final FocusCombatObserverTS _self;
+  final $Res Function(FocusCombatObserverTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? room = null,}) {
+  return _then(FocusCombatObserverTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,room: null == room ? _self.room : room // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

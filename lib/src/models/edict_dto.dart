@@ -11,12 +11,10 @@ abstract class EdictDto with _$EdictDto {
     @Default([]) List<UserMemberDto> members,
     required int maxMembers,
     required DateTime createdAt,
-    required DateTime battleStartIn,
-    @Default(false) bool isFighting,
+    required DateTime startIn,
   }) = _EdictDto;
 
-  factory EdictDto.fromJson(Map<String, dynamic> json) =>
-      _$EdictDtoFromJson(json);
+  factory EdictDto.fromJson(Map<String, dynamic> json) => _$EdictDtoFromJson(json);
 
   bool get isFull => members.length >= maxMembers;
 }

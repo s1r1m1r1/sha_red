@@ -180,6 +180,33 @@ Map<String, dynamic> _$LeaveBattleRoomToJson(LeaveBattleRoom instance) =>
       'runtimeType': instance.$type,
     };
 
+JoinAsCombatObserverTS _$JoinAsCombatObserverTSFromJson(
+  Map<String, dynamic> json,
+) => JoinAsCombatObserverTS(
+  n: json['n'] as String,
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$JoinAsCombatObserverTSToJson(
+  JoinAsCombatObserverTS instance,
+) => <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+FocusCombatObserverTS _$FocusCombatObserverTSFromJson(
+  Map<String, dynamic> json,
+) => FocusCombatObserverTS(
+  n: json['n'] as String,
+  room: json['room'] as String,
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$FocusCombatObserverTSToJson(
+  FocusCombatObserverTS instance,
+) => <String, dynamic>{
+  'n': instance.n,
+  'room': instance.room,
+  'runtimeType': instance.$type,
+};
+
 GameActionTS _$GameActionTSFromJson(Map<String, dynamic> json) => GameActionTS(
   n: json['n'] as String,
   battleRoomId: json['battleRoomId'] as String,
