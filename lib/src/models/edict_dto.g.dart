@@ -15,8 +15,7 @@ _EdictDto _$EdictDtoFromJson(Map<String, dynamic> json) => _EdictDto(
       const [],
   maxMembers: (json['maxMembers'] as num).toInt(),
   createdAt: DateTime.parse(json['createdAt'] as String),
-  battleStartIn: DateTime.parse(json['battleStartIn'] as String),
-  isFighting: json['isFighting'] as bool? ?? false,
+  startIn: DateTime.parse(json['startIn'] as String),
 );
 
 Map<String, dynamic> _$EdictDtoToJson(_EdictDto instance) => <String, dynamic>{
@@ -24,6 +23,5 @@ Map<String, dynamic> _$EdictDtoToJson(_EdictDto instance) => <String, dynamic>{
   'members': instance.members,
   'maxMembers': instance.maxMembers,
   'createdAt': instance.createdAt.toIso8601String(),
-  'battleStartIn': instance.battleStartIn.toIso8601String(),
-  'isFighting': instance.isFighting,
+  'startIn': instance.startIn.toIso8601String(),
 };

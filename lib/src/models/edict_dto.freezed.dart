@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EdictDto {
 
- String get id; List<UserMemberDto> get members; int get maxMembers; DateTime get createdAt; DateTime get battleStartIn; bool get isFighting;
+ String get id; List<UserMemberDto> get members; int get maxMembers; DateTime get createdAt; DateTime get startIn;
 /// Create a copy of EdictDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EdictDtoCopyWith<EdictDto> get copyWith => _$EdictDtoCopyWithImpl<EdictDto>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EdictDto&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.members, members)&&(identical(other.maxMembers, maxMembers) || other.maxMembers == maxMembers)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.battleStartIn, battleStartIn) || other.battleStartIn == battleStartIn)&&(identical(other.isFighting, isFighting) || other.isFighting == isFighting));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EdictDto&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.members, members)&&(identical(other.maxMembers, maxMembers) || other.maxMembers == maxMembers)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.startIn, startIn) || other.startIn == startIn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(members),maxMembers,createdAt,battleStartIn,isFighting);
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(members),maxMembers,createdAt,startIn);
 
 @override
 String toString() {
-  return 'EdictDto(id: $id, members: $members, maxMembers: $maxMembers, createdAt: $createdAt, battleStartIn: $battleStartIn, isFighting: $isFighting)';
+  return 'EdictDto(id: $id, members: $members, maxMembers: $maxMembers, createdAt: $createdAt, startIn: $startIn)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $EdictDtoCopyWith<$Res>  {
   factory $EdictDtoCopyWith(EdictDto value, $Res Function(EdictDto) _then) = _$EdictDtoCopyWithImpl;
 @useResult
 $Res call({
- String id, List<UserMemberDto> members, int maxMembers, DateTime createdAt, DateTime battleStartIn, bool isFighting
+ String id, List<UserMemberDto> members, int maxMembers, DateTime createdAt, DateTime startIn
 });
 
 
@@ -65,15 +65,14 @@ class _$EdictDtoCopyWithImpl<$Res>
 
 /// Create a copy of EdictDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? members = null,Object? maxMembers = null,Object? createdAt = null,Object? battleStartIn = null,Object? isFighting = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? members = null,Object? maxMembers = null,Object? createdAt = null,Object? startIn = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,members: null == members ? _self.members : members // ignore: cast_nullable_to_non_nullable
 as List<UserMemberDto>,maxMembers: null == maxMembers ? _self.maxMembers : maxMembers // ignore: cast_nullable_to_non_nullable
 as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,battleStartIn: null == battleStartIn ? _self.battleStartIn : battleStartIn // ignore: cast_nullable_to_non_nullable
-as DateTime,isFighting: null == isFighting ? _self.isFighting : isFighting // ignore: cast_nullable_to_non_nullable
-as bool,
+as DateTime,startIn: null == startIn ? _self.startIn : startIn // ignore: cast_nullable_to_non_nullable
+as DateTime,
   ));
 }
 
@@ -85,7 +84,7 @@ as bool,
 @JsonSerializable()
 
 class _EdictDto extends EdictDto {
-  const _EdictDto({required this.id, final  List<UserMemberDto> members = const [], required this.maxMembers, required this.createdAt, required this.battleStartIn, this.isFighting = false}): _members = members,super._();
+  const _EdictDto({required this.id, final  List<UserMemberDto> members = const [], required this.maxMembers, required this.createdAt, required this.startIn}): _members = members,super._();
   factory _EdictDto.fromJson(Map<String, dynamic> json) => _$EdictDtoFromJson(json);
 
 @override final  String id;
@@ -98,8 +97,7 @@ class _EdictDto extends EdictDto {
 
 @override final  int maxMembers;
 @override final  DateTime createdAt;
-@override final  DateTime battleStartIn;
-@override@JsonKey() final  bool isFighting;
+@override final  DateTime startIn;
 
 /// Create a copy of EdictDto
 /// with the given fields replaced by the non-null parameter values.
@@ -114,16 +112,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EdictDto&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._members, _members)&&(identical(other.maxMembers, maxMembers) || other.maxMembers == maxMembers)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.battleStartIn, battleStartIn) || other.battleStartIn == battleStartIn)&&(identical(other.isFighting, isFighting) || other.isFighting == isFighting));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EdictDto&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._members, _members)&&(identical(other.maxMembers, maxMembers) || other.maxMembers == maxMembers)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.startIn, startIn) || other.startIn == startIn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_members),maxMembers,createdAt,battleStartIn,isFighting);
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_members),maxMembers,createdAt,startIn);
 
 @override
 String toString() {
-  return 'EdictDto(id: $id, members: $members, maxMembers: $maxMembers, createdAt: $createdAt, battleStartIn: $battleStartIn, isFighting: $isFighting)';
+  return 'EdictDto(id: $id, members: $members, maxMembers: $maxMembers, createdAt: $createdAt, startIn: $startIn)';
 }
 
 
@@ -134,7 +132,7 @@ abstract mixin class _$EdictDtoCopyWith<$Res> implements $EdictDtoCopyWith<$Res>
   factory _$EdictDtoCopyWith(_EdictDto value, $Res Function(_EdictDto) _then) = __$EdictDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String id, List<UserMemberDto> members, int maxMembers, DateTime createdAt, DateTime battleStartIn, bool isFighting
+ String id, List<UserMemberDto> members, int maxMembers, DateTime createdAt, DateTime startIn
 });
 
 
@@ -151,15 +149,14 @@ class __$EdictDtoCopyWithImpl<$Res>
 
 /// Create a copy of EdictDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? members = null,Object? maxMembers = null,Object? createdAt = null,Object? battleStartIn = null,Object? isFighting = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? members = null,Object? maxMembers = null,Object? createdAt = null,Object? startIn = null,}) {
   return _then(_EdictDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,members: null == members ? _self._members : members // ignore: cast_nullable_to_non_nullable
 as List<UserMemberDto>,maxMembers: null == maxMembers ? _self.maxMembers : maxMembers // ignore: cast_nullable_to_non_nullable
 as int,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,battleStartIn: null == battleStartIn ? _self.battleStartIn : battleStartIn // ignore: cast_nullable_to_non_nullable
-as DateTime,isFighting: null == isFighting ? _self.isFighting : isFighting // ignore: cast_nullable_to_non_nullable
-as bool,
+as DateTime,startIn: null == startIn ? _self.startIn : startIn // ignore: cast_nullable_to_non_nullable
+as DateTime,
   ));
 }
 

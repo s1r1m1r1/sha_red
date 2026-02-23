@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BroadcastMemberDto {
 
- String get id; bool get isSleep;
+ String get id;
 /// Create a copy of BroadcastMemberDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $BroadcastMemberDtoCopyWith<BroadcastMemberDto> get copyWith => _$BroadcastMembe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BroadcastMemberDto&&(identical(other.id, id) || other.id == id)&&(identical(other.isSleep, isSleep) || other.isSleep == isSleep));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BroadcastMemberDto&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,isSleep);
+int get hashCode => Object.hash(runtimeType,id);
 
 @override
 String toString() {
-  return 'BroadcastMemberDto(id: $id, isSleep: $isSleep)';
+  return 'BroadcastMemberDto(id: $id)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $BroadcastMemberDtoCopyWith<$Res>  {
   factory $BroadcastMemberDtoCopyWith(BroadcastMemberDto value, $Res Function(BroadcastMemberDto) _then) = _$BroadcastMemberDtoCopyWithImpl;
 @useResult
 $Res call({
- String id, bool isSleep
+ String id
 });
 
 
@@ -65,11 +65,10 @@ class _$BroadcastMemberDtoCopyWithImpl<$Res>
 
 /// Create a copy of BroadcastMemberDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? isSleep = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,isSleep: null == isSleep ? _self.isSleep : isSleep // ignore: cast_nullable_to_non_nullable
-as bool,
+as String,
   ));
 }
 
@@ -81,11 +80,10 @@ as bool,
 @JsonSerializable()
 
 class _BroadcastMemberDto extends BroadcastMemberDto {
-  const _BroadcastMemberDto({required this.id, this.isSleep = false}): super._();
+  const _BroadcastMemberDto({required this.id}): super._();
   factory _BroadcastMemberDto.fromJson(Map<String, dynamic> json) => _$BroadcastMemberDtoFromJson(json);
 
 @override final  String id;
-@override@JsonKey() final  bool isSleep;
 
 /// Create a copy of BroadcastMemberDto
 /// with the given fields replaced by the non-null parameter values.
@@ -100,16 +98,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BroadcastMemberDto&&(identical(other.id, id) || other.id == id)&&(identical(other.isSleep, isSleep) || other.isSleep == isSleep));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BroadcastMemberDto&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,isSleep);
+int get hashCode => Object.hash(runtimeType,id);
 
 @override
 String toString() {
-  return 'BroadcastMemberDto(id: $id, isSleep: $isSleep)';
+  return 'BroadcastMemberDto(id: $id)';
 }
 
 
@@ -120,7 +118,7 @@ abstract mixin class _$BroadcastMemberDtoCopyWith<$Res> implements $BroadcastMem
   factory _$BroadcastMemberDtoCopyWith(_BroadcastMemberDto value, $Res Function(_BroadcastMemberDto) _then) = __$BroadcastMemberDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String id, bool isSleep
+ String id
 });
 
 
@@ -137,11 +135,10 @@ class __$BroadcastMemberDtoCopyWithImpl<$Res>
 
 /// Create a copy of BroadcastMemberDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? isSleep = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
   return _then(_BroadcastMemberDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,isSleep: null == isSleep ? _self.isSleep : isSleep // ignore: cast_nullable_to_non_nullable
-as bool,
+as String,
   ));
 }
 
