@@ -6,6 +6,22 @@ part of 'to_client.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+AckTC _$AckTCFromJson(Map<String, dynamic> json) => AckTC(
+  n: json['n'] as String,
+  status: (json['status'] as num?)?.toInt() ?? 200,
+  message: json['message'] as String?,
+  ts: (json['ts'] as num?)?.toInt(),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$AckTCToJson(AckTC instance) => <String, dynamic>{
+  'n': instance.n,
+  'status': instance.status,
+  'message': instance.message,
+  'ts': instance.ts,
+  'runtimeType': instance.$type,
+};
+
 OnlineUsersTC _$OnlineUsersTCFromJson(Map<String, dynamic> json) =>
     OnlineUsersTC(
       n: json['n'] as String,

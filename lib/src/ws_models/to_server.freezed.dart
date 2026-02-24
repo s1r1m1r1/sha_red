@@ -15,7 +15,11 @@ ToServer _$ToServerFromJson(
   Map<String, dynamic> json
 ) {
         switch (json['runtimeType']) {
-                  case 'leaveArena':
+                  case 'ack':
+          return AckTS.fromJson(
+            json
+          );
+                case 'leaveArena':
           return LeaveArenaTS.fromJson(
             json
           );
@@ -95,6 +99,10 @@ ToServer _$ToServerFromJson(
           return ResetCombatsTS.fromJson(
             json
           );
+                case 'createBots':
+          return CreateBotsTS.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -170,6 +178,85 @@ as String,
 }
 
 
+
+/// @nodoc
+@JsonSerializable()
+
+class AckTS extends ToServer {
+  const AckTS({required this.n, this.status = 200, this.message, this.ts, final  String? $type}): $type = $type ?? 'ack',super._();
+  factory AckTS.fromJson(Map<String, dynamic> json) => _$AckTSFromJson(json);
+
+@override final  String n;
+@JsonKey() final  int status;
+ final  String? message;
+ final  int? ts;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AckTSCopyWith<AckTS> get copyWith => _$AckTSCopyWithImpl<AckTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AckTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AckTS&&(identical(other.n, n) || other.n == n)&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.ts, ts) || other.ts == ts));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,status,message,ts);
+
+@override
+String toString() {
+  return 'ToServer.ack(n: $n, status: $status, message: $message, ts: $ts)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AckTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $AckTSCopyWith(AckTS value, $Res Function(AckTS) _then) = _$AckTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int status, String? message, int? ts
+});
+
+
+
+
+}
+/// @nodoc
+class _$AckTSCopyWithImpl<$Res>
+    implements $AckTSCopyWith<$Res> {
+  _$AckTSCopyWithImpl(this._self, this._then);
+
+  final AckTS _self;
+  final $Res Function(AckTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? status = null,Object? message = freezed,Object? ts = freezed,}) {
+  return _then(AckTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as int,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,ts: freezed == ts ? _self.ts : ts // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
 
 /// @nodoc
 @JsonSerializable()
@@ -1654,6 +1741,79 @@ class _$ResetCombatsTSCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
   return _then(ResetCombatsTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class CreateBotsTS extends ToServer {
+  const CreateBotsTS({required this.n, final  String? $type}): $type = $type ?? 'createBots',super._();
+  factory CreateBotsTS.fromJson(Map<String, dynamic> json) => _$CreateBotsTSFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CreateBotsTSCopyWith<CreateBotsTS> get copyWith => _$CreateBotsTSCopyWithImpl<CreateBotsTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CreateBotsTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CreateBotsTS&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.createBots(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CreateBotsTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $CreateBotsTSCopyWith(CreateBotsTS value, $Res Function(CreateBotsTS) _then) = _$CreateBotsTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$CreateBotsTSCopyWithImpl<$Res>
+    implements $CreateBotsTSCopyWith<$Res> {
+  _$CreateBotsTSCopyWithImpl(this._self, this._then);
+
+  final CreateBotsTS _self;
+  final $Res Function(CreateBotsTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(CreateBotsTS(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,
   ));

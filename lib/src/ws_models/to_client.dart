@@ -10,6 +10,13 @@ part 'to_client.freezed.dart';
 @freezed
 sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const ToClient._();
+  // Стандартный ACK для подтверждения серверных событий
+  const factory ToClient.ack({
+    required String n,
+    @Default(200) int status,
+    String? message,
+    int? ts, // Unix timestamp в мс
+  }) = AckTC;
 
   const factory ToClient.onlineUsers({
     required String n,
@@ -208,3 +215,5 @@ sealed class BroadcastTC implements ToClient {}
 sealed class CombatTC implements ToClient {}
 
 sealed class BotToClient implements ToClient {}
+
+sealed class SpecialTC implements ToClient {}

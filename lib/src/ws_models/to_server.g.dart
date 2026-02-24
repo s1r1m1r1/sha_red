@@ -6,6 +6,22 @@ part of 'to_server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+AckTS _$AckTSFromJson(Map<String, dynamic> json) => AckTS(
+  n: json['n'] as String,
+  status: (json['status'] as num?)?.toInt() ?? 200,
+  message: json['message'] as String?,
+  ts: (json['ts'] as num?)?.toInt(),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$AckTSToJson(AckTS instance) => <String, dynamic>{
+  'n': instance.n,
+  'status': instance.status,
+  'message': instance.message,
+  'ts': instance.ts,
+  'runtimeType': instance.$type,
+};
+
 LeaveArenaTS _$LeaveArenaTSFromJson(Map<String, dynamic> json) =>
     LeaveArenaTS(n: json['n'] as String, $type: json['runtimeType'] as String?);
 
@@ -220,4 +236,10 @@ ResetCombatsTS _$ResetCombatsTSFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ResetCombatsTSToJson(ResetCombatsTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+CreateBotsTS _$CreateBotsTSFromJson(Map<String, dynamic> json) =>
+    CreateBotsTS(n: json['n'] as String, $type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$CreateBotsTSToJson(CreateBotsTS instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};

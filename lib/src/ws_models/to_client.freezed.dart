@@ -15,7 +15,11 @@ ToClient _$ToClientFromJson(
   Map<String, dynamic> json
 ) {
         switch (json['runtimeType']) {
-                  case 'onlineUsers':
+                  case 'ack':
+          return AckTC.fromJson(
+            json
+          );
+                case 'onlineUsers':
           return OnlineUsersTC.fromJson(
             json
           );
@@ -182,6 +186,85 @@ as String,
 }
 
 
+
+/// @nodoc
+@JsonSerializable()
+
+class AckTC extends ToClient {
+  const AckTC({required this.n, this.status = 200, this.message, this.ts, final  String? $type}): $type = $type ?? 'ack',super._();
+  factory AckTC.fromJson(Map<String, dynamic> json) => _$AckTCFromJson(json);
+
+@override final  String n;
+@JsonKey() final  int status;
+ final  String? message;
+ final  int? ts;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AckTCCopyWith<AckTC> get copyWith => _$AckTCCopyWithImpl<AckTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AckTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AckTC&&(identical(other.n, n) || other.n == n)&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.ts, ts) || other.ts == ts));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,status,message,ts);
+
+@override
+String toString() {
+  return 'ToClient.ack(n: $n, status: $status, message: $message, ts: $ts)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AckTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $AckTCCopyWith(AckTC value, $Res Function(AckTC) _then) = _$AckTCCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int status, String? message, int? ts
+});
+
+
+
+
+}
+/// @nodoc
+class _$AckTCCopyWithImpl<$Res>
+    implements $AckTCCopyWith<$Res> {
+  _$AckTCCopyWithImpl(this._self, this._then);
+
+  final AckTC _self;
+  final $Res Function(AckTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? status = null,Object? message = freezed,Object? ts = freezed,}) {
+  return _then(AckTC(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as int,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String?,ts: freezed == ts ? _self.ts : ts // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
 
 /// @nodoc
 @JsonSerializable()
