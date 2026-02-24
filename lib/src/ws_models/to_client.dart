@@ -81,6 +81,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }) = AuthErrorTC;
 
   @Implements<AuthTC>()
+  @Implements<AskTC>()
   const factory ToClient.joinedServer({
     required String n,
     required UserDto user,
@@ -110,6 +111,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
 
   @Implements<CombatTC>()
   @Implements<ArenaTC>()
+  @Implements<AskTC>()
   const factory ToClient.combatStarted({
     required String n,
     required String combatRoom,
@@ -119,6 +121,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   /// membs  участники
   /// ready число готовых
   @Implements<CombatTC>()
+  @Implements<AskTC>()
   const factory ToClient.startBattle({
     required String n,
     required String broadcastId,
@@ -161,6 +164,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }) = CombatErrorTC;
 
   @Implements<CombatTC>()
+  @Implements<AskTC>()
   const factory ToClient.combatWin({
     required String n,
     required String broadcastId,
@@ -168,6 +172,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }) = CombatWinTC;
 
   @Implements<CombatTC>()
+  @Implements<AskTC>()
   const factory ToClient.combatClosed({
     required String n,
     required String broadcastId,
@@ -217,3 +222,7 @@ sealed class CombatTC implements ToClient {}
 sealed class BotToClient implements ToClient {}
 
 sealed class SpecialTC implements ToClient {}
+
+/// Маркер для сообщений от сервера, которые требуют подтверждения от клиента
+/// через `ToServer.ack(n: <same n>)`.
+sealed class AskTC implements ToClient {}

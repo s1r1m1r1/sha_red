@@ -1063,7 +1063,7 @@ as ToServerNames,
 /// @nodoc
 @JsonSerializable()
 
-class JoinedServerTC extends ToClient implements AuthTC {
+class JoinedServerTC extends ToClient implements AuthTC, AskTC {
   const JoinedServerTC({required this.n, required this.user, required this.unit, final  String? $type}): $type = $type ?? 'joinedServer',super._();
   factory JoinedServerTC.fromJson(Map<String, dynamic> json) => _$JoinedServerTCFromJson(json);
 
@@ -1471,7 +1471,7 @@ as WsArenaError,
 /// @nodoc
 @JsonSerializable()
 
-class CombatStartedTC extends ToClient implements CombatTC, ArenaTC {
+class CombatStartedTC extends ToClient implements CombatTC, ArenaTC, AskTC {
   const CombatStartedTC({required this.n, required this.combatRoom, final  String? $type}): $type = $type ?? 'combatStarted',super._();
   factory CombatStartedTC.fromJson(Map<String, dynamic> json) => _$CombatStartedTCFromJson(json);
 
@@ -1546,7 +1546,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class StartBattleTC extends ToClient implements CombatTC {
+class StartBattleTC extends ToClient implements CombatTC, AskTC {
   const StartBattleTC({required this.n, required this.broadcastId, required final  List<CombatantDto> membs, required final  List<int> unitOrder, required this.currentTurn, required this.ready, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'startBattle',super._();
   factory StartBattleTC.fromJson(Map<String, dynamic> json) => _$StartBattleTCFromJson(json);
 
@@ -1892,7 +1892,7 @@ as WsCombatError,
 /// @nodoc
 @JsonSerializable()
 
-class CombatWinTC extends ToClient implements CombatTC {
+class CombatWinTC extends ToClient implements CombatTC, AskTC {
   const CombatWinTC({required this.n, required this.broadcastId, required this.winnerTeamId, final  String? $type}): $type = $type ?? 'combatWin',super._();
   factory CombatWinTC.fromJson(Map<String, dynamic> json) => _$CombatWinTCFromJson(json);
 
@@ -1969,7 +1969,7 @@ as int,
 /// @nodoc
 @JsonSerializable()
 
-class CombatClosedTC extends ToClient implements CombatTC {
+class CombatClosedTC extends ToClient implements CombatTC, AskTC {
   const CombatClosedTC({required this.n, required this.broadcastId, final  String? $type}): $type = $type ?? 'combatClosed',super._();
   factory CombatClosedTC.fromJson(Map<String, dynamic> json) => _$CombatClosedTCFromJson(json);
 
