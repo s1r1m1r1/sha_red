@@ -1,34 +1,3 @@
-@Deprecated('Use WebSocketCloseCode instead')
-enum WsAuthError {
-  expiredToken(400),
-  tokenSessionNotFound(401),
-  idSessionNotFound(402),
-  unauthorized(403),
-
-  continueAsNewSession(405),
-  stoppedByAnotherSession(406),
-  sessionClosed(407),
-  unitNotFound(408),
-  internal(500),
-  timeout(501),
-  unknown(8888);
-
-  const WsAuthError(this.code);
-  final int code;
-
-  static int toJson(WsAuthError w) => w.code;
-
-  static WsAuthError fromJson(dynamic json) {
-    if (json is int) {
-      return WsAuthError.values.firstWhere(
-        (element) => element.code == json,
-        orElse: () => WsAuthError.unknown,
-      );
-    }
-    return WsAuthError.unknown;
-  }
-}
-
 enum WsCombatError {
   notEnoughPlayers(4000),
   missedSocket(4001),

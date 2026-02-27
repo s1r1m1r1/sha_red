@@ -181,21 +181,6 @@ Map<String, dynamic> _$TerminatedAllBroadcastTCToJson(
   TerminatedAllBroadcastTC instance,
 ) => <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
-AuthErrorTC _$AuthErrorTCFromJson(Map<String, dynamic> json) => AuthErrorTC(
-  n: json['n'] as String,
-  error: WsAuthError.fromJson(json['error']),
-  toServerName: ToServerNames.fromJson(json['toServerName']),
-  $type: json['runtimeType'] as String?,
-);
-
-Map<String, dynamic> _$AuthErrorTCToJson(AuthErrorTC instance) =>
-    <String, dynamic>{
-      'n': instance.n,
-      'error': WsAuthError.toJson(instance.error),
-      'toServerName': ToServerNames.toJson(instance.toServerName),
-      'runtimeType': instance.$type,
-    };
-
 ActiveEdictsTC _$ActiveEdictsTCFromJson(Map<String, dynamic> json) =>
     ActiveEdictsTC(
       n: json['n'] as String,

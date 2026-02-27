@@ -81,16 +81,6 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const factory ToClient.terminatedAllBroadcast({required String n}) =
       TerminatedAllBroadcastTC;
 
-  @Implements<AuthTC>()
-  @Deprecated('Use WebSocketCloseCode instead on connection termination')
-  const factory ToClient.authError({
-    required String n,
-    @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson)
-    required WsAuthError error,
-    @JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson)
-    required ToServerNames toServerName,
-  }) = AuthErrorTC;
-
   @Implements<ArenaTC>()
   @Implements<ToClientBot>()
   const factory ToClient.activeEdicts({

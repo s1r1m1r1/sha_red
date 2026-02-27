@@ -59,10 +59,6 @@ ToClient _$ToClientFromJson(
           return TerminatedAllBroadcastTC.fromJson(
             json
           );
-                case 'authError':
-          return AuthErrorTC.fromJson(
-            json
-          );
                 case 'activeEdicts':
           return ActiveEdictsTC.fromJson(
             json
@@ -1054,83 +1050,6 @@ class _$TerminatedAllBroadcastTCCopyWithImpl<$Res>
   return _then(TerminatedAllBroadcastTC(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class AuthErrorTC extends ToClient implements AuthTC {
-  const AuthErrorTC({required this.n, @JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) required this.error, @JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson) required this.toServerName, final  String? $type}): $type = $type ?? 'authError',super._();
-  factory AuthErrorTC.fromJson(Map<String, dynamic> json) => _$AuthErrorTCFromJson(json);
-
-@override final  String n;
-@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) final  WsAuthError error;
-@JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson) final  ToServerNames toServerName;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$AuthErrorTCCopyWith<AuthErrorTC> get copyWith => _$AuthErrorTCCopyWithImpl<AuthErrorTC>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$AuthErrorTCToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthErrorTC&&(identical(other.n, n) || other.n == n)&&(identical(other.error, error) || other.error == error)&&(identical(other.toServerName, toServerName) || other.toServerName == toServerName));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,n,error,toServerName);
-
-@override
-String toString() {
-  return 'ToClient.authError(n: $n, error: $error, toServerName: $toServerName)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $AuthErrorTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $AuthErrorTCCopyWith(AuthErrorTC value, $Res Function(AuthErrorTC) _then) = _$AuthErrorTCCopyWithImpl;
-@override @useResult
-$Res call({
- String n,@JsonKey(toJson: WsAuthError.toJson, fromJson: WsAuthError.fromJson) WsAuthError error,@JsonKey(toJson: ToServerNames.toJson, fromJson: ToServerNames.fromJson) ToServerNames toServerName
-});
-
-
-
-
-}
-/// @nodoc
-class _$AuthErrorTCCopyWithImpl<$Res>
-    implements $AuthErrorTCCopyWith<$Res> {
-  _$AuthErrorTCCopyWithImpl(this._self, this._then);
-
-  final AuthErrorTC _self;
-  final $Res Function(AuthErrorTC) _then;
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? error = null,Object? toServerName = null,}) {
-  return _then(AuthErrorTC(
-n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,error: null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
-as WsAuthError,toServerName: null == toServerName ? _self.toServerName : toServerName // ignore: cast_nullable_to_non_nullable
-as ToServerNames,
   ));
 }
 
