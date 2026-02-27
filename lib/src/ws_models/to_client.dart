@@ -62,12 +62,14 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }) = BroadcastInfoTC;
 
   @Implements<BroadcastTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.terminatedBroadcast({
     required String n,
     required String broad,
   }) = TerminatedBroadcastTC;
 
   @Implements<BroadcastTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.terminatedAllBroadcast({required String n}) =
       TerminatedAllBroadcastTC;
 
@@ -80,20 +82,15 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required ToServerNames toServerName,
   }) = AuthErrorTC;
 
-  @Implements<AuthTC>()
-  @Implements<RequiredAckTC>()
-  const factory ToClient.joinedServer({
-    required String n,
-    required UserDto user,
-    required UnitDto unit,
-  }) = JoinedServerTC;
-
   @Implements<ArenaTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.activeEdicts({
     required String n,
     required List<EdictDto> edicts,
   }) = ActiveEdictsTC;
+
   @Implements<ArenaTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.joinedEdict({
     required String n,
     required EdictDto edict,
@@ -103,6 +100,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const factory ToClient.leavedEdicts({required String n}) = LeavedEdictTC;
 
   @Implements<ArenaTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.arenaError({
     required String n,
     @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson)
@@ -112,6 +110,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   @Implements<CombatTC>()
   @Implements<ArenaTC>()
   @Implements<RequiredAckTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.combatStarted({
     required String n,
     required String combatRoom,
@@ -122,6 +121,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   /// ready число готовых
   @Implements<CombatTC>()
   @Implements<RequiredAckTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.startBattle({
     required String n,
     required String broadcastId,
@@ -135,6 +135,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   // более экономичный способ передачи данных
   // требуется чтобы client знал текущее состояние
   @Implements<CombatTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.combatEvent({
     required String n,
     required String broadcastId,
@@ -144,6 +145,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   // состояния стейта на текущий момент
   // передача всех параметров
   @Implements<CombatTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.combatState({
     required String n,
     required String broadcastId,
@@ -153,8 +155,8 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required List<int> unitOrder,
   }) = CombatStateTC;
 
-  @Implements<BotToClient>()
   @Implements<CombatTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.combatError({
     required String n,
     required String broadcastId,
@@ -178,16 +180,12 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required String broadcastId,
   }) = CombatClosedTC;
 
+  @Implements<ToClientBot>()
   const factory ToClient.combatRooms({
     required String n,
     required String broadcastId,
     required List<CombatRoomDto> rooms,
   }) = CombatRoomsTC;
-
-  // @Implements<BotToClient>()
-  // @Implements<CombatTC>()
-  // const factory ToClient.combatStart({required List<CombatantDto> combatants}) =
-  //     CombatStartTC;
 
   factory ToClient.fromJson(Map<String, dynamic> json) =>
       _$ToClientFromJson(json);
@@ -219,7 +217,7 @@ sealed class BroadcastTC implements ToClient {}
 
 sealed class CombatTC implements ToClient {}
 
-sealed class BotToClient implements ToClient {}
+sealed class ToClientBot implements ToClient {}
 
 sealed class SpecialTC implements ToClient {}
 

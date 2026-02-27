@@ -175,22 +175,6 @@ Map<String, dynamic> _$AuthErrorTCToJson(AuthErrorTC instance) =>
       'runtimeType': instance.$type,
     };
 
-JoinedServerTC _$JoinedServerTCFromJson(Map<String, dynamic> json) =>
-    JoinedServerTC(
-      n: json['n'] as String,
-      user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
-      unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$JoinedServerTCToJson(JoinedServerTC instance) =>
-    <String, dynamic>{
-      'n': instance.n,
-      'user': instance.user,
-      'unit': instance.unit,
-      'runtimeType': instance.$type,
-    };
-
 ActiveEdictsTC _$ActiveEdictsTCFromJson(Map<String, dynamic> json) =>
     ActiveEdictsTC(
       n: json['n'] as String,

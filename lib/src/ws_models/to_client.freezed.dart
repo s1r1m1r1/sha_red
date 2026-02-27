@@ -59,10 +59,6 @@ ToClient _$ToClientFromJson(
           return AuthErrorTC.fromJson(
             json
           );
-                case 'joinedServer':
-          return JoinedServerTC.fromJson(
-            json
-          );
                 case 'activeEdicts':
           return ActiveEdictsTC.fromJson(
             json
@@ -838,7 +834,7 @@ as List<BroadcastMemberDto>,
 /// @nodoc
 @JsonSerializable()
 
-class TerminatedBroadcastTC extends ToClient implements BroadcastTC {
+class TerminatedBroadcastTC extends ToClient implements BroadcastTC, ToClientBot {
   const TerminatedBroadcastTC({required this.n, required this.broad, final  String? $type}): $type = $type ?? 'terminatedBroadcast',super._();
   factory TerminatedBroadcastTC.fromJson(Map<String, dynamic> json) => _$TerminatedBroadcastTCFromJson(json);
 
@@ -913,7 +909,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class TerminatedAllBroadcastTC extends ToClient implements BroadcastTC {
+class TerminatedAllBroadcastTC extends ToClient implements BroadcastTC, ToClientBot {
   const TerminatedAllBroadcastTC({required this.n, final  String? $type}): $type = $type ?? 'terminatedAllBroadcast',super._();
   factory TerminatedAllBroadcastTC.fromJson(Map<String, dynamic> json) => _$TerminatedAllBroadcastTCFromJson(json);
 
@@ -1063,102 +1059,7 @@ as ToServerNames,
 /// @nodoc
 @JsonSerializable()
 
-class JoinedServerTC extends ToClient implements AuthTC, RequiredAckTC {
-  const JoinedServerTC({required this.n, required this.user, required this.unit, final  String? $type}): $type = $type ?? 'joinedServer',super._();
-  factory JoinedServerTC.fromJson(Map<String, dynamic> json) => _$JoinedServerTCFromJson(json);
-
-@override final  String n;
- final  UserDto user;
- final  UnitDto unit;
-
-@JsonKey(name: 'runtimeType')
-final String $type;
-
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$JoinedServerTCCopyWith<JoinedServerTC> get copyWith => _$JoinedServerTCCopyWithImpl<JoinedServerTC>(this, _$identity);
-
-@override
-Map<String, dynamic> toJson() {
-  return _$JoinedServerTCToJson(this, );
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JoinedServerTC&&(identical(other.n, n) || other.n == n)&&(identical(other.user, user) || other.user == user)&&(identical(other.unit, unit) || other.unit == unit));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,n,user,unit);
-
-@override
-String toString() {
-  return 'ToClient.joinedServer(n: $n, user: $user, unit: $unit)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $JoinedServerTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $JoinedServerTCCopyWith(JoinedServerTC value, $Res Function(JoinedServerTC) _then) = _$JoinedServerTCCopyWithImpl;
-@override @useResult
-$Res call({
- String n, UserDto user, UnitDto unit
-});
-
-
-$UserDtoCopyWith<$Res> get user;$UnitDtoCopyWith<$Res> get unit;
-
-}
-/// @nodoc
-class _$JoinedServerTCCopyWithImpl<$Res>
-    implements $JoinedServerTCCopyWith<$Res> {
-  _$JoinedServerTCCopyWithImpl(this._self, this._then);
-
-  final JoinedServerTC _self;
-  final $Res Function(JoinedServerTC) _then;
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? user = null,Object? unit = null,}) {
-  return _then(JoinedServerTC(
-n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as UserDto,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
-as UnitDto,
-  ));
-}
-
-/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$UserDtoCopyWith<$Res> get user {
-  
-  return $UserDtoCopyWith<$Res>(_self.user, (value) {
-    return _then(_self.copyWith(user: value));
-  });
-}/// Create a copy of ToClient
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$UnitDtoCopyWith<$Res> get unit {
-  
-  return $UnitDtoCopyWith<$Res>(_self.unit, (value) {
-    return _then(_self.copyWith(unit: value));
-  });
-}
-}
-
-/// @nodoc
-@JsonSerializable()
-
-class ActiveEdictsTC extends ToClient implements ArenaTC {
+class ActiveEdictsTC extends ToClient implements ArenaTC, ToClientBot {
   const ActiveEdictsTC({required this.n, required final  List<EdictDto> edicts, final  String? $type}): _edicts = edicts,$type = $type ?? 'activeEdicts',super._();
   factory ActiveEdictsTC.fromJson(Map<String, dynamic> json) => _$ActiveEdictsTCFromJson(json);
 
@@ -1239,7 +1140,7 @@ as List<EdictDto>,
 /// @nodoc
 @JsonSerializable()
 
-class JoinedEdictTC extends ToClient implements ArenaTC {
+class JoinedEdictTC extends ToClient implements ArenaTC, ToClientBot {
   const JoinedEdictTC({required this.n, required this.edict, final  String? $type}): $type = $type ?? 'joinedEdict',super._();
   factory JoinedEdictTC.fromJson(Map<String, dynamic> json) => _$JoinedEdictTCFromJson(json);
 
@@ -1396,7 +1297,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class ArenaErrorTC extends ToClient implements ArenaTC {
+class ArenaErrorTC extends ToClient implements ArenaTC, ToClientBot {
   const ArenaErrorTC({required this.n, @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'arenaError',super._();
   factory ArenaErrorTC.fromJson(Map<String, dynamic> json) => _$ArenaErrorTCFromJson(json);
 
@@ -1471,7 +1372,7 @@ as WsArenaError,
 /// @nodoc
 @JsonSerializable()
 
-class CombatStartedTC extends ToClient implements CombatTC, ArenaTC, RequiredAckTC {
+class CombatStartedTC extends ToClient implements CombatTC, ArenaTC, RequiredAckTC, ToClientBot {
   const CombatStartedTC({required this.n, required this.combatRoom, final  String? $type}): $type = $type ?? 'combatStarted',super._();
   factory CombatStartedTC.fromJson(Map<String, dynamic> json) => _$CombatStartedTCFromJson(json);
 
@@ -1546,7 +1447,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class StartBattleTC extends ToClient implements CombatTC, RequiredAckTC {
+class StartBattleTC extends ToClient implements CombatTC, RequiredAckTC, ToClientBot {
   const StartBattleTC({required this.n, required this.broadcastId, required final  List<CombatantDto> membs, required final  List<int> unitOrder, required this.currentTurn, required this.ready, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'startBattle',super._();
   factory StartBattleTC.fromJson(Map<String, dynamic> json) => _$StartBattleTCFromJson(json);
 
@@ -1641,7 +1542,7 @@ as int,
 /// @nodoc
 @JsonSerializable()
 
-class CombatEventTC extends ToClient implements CombatTC {
+class CombatEventTC extends ToClient implements CombatTC, ToClientBot {
   const CombatEventTC({required this.n, required this.broadcastId, required this.round, final  String? $type}): $type = $type ?? 'combatEvent',super._();
   factory CombatEventTC.fromJson(Map<String, dynamic> json) => _$CombatEventTCFromJson(json);
 
@@ -1718,7 +1619,7 @@ as int,
 /// @nodoc
 @JsonSerializable()
 
-class CombatStateTC extends ToClient implements CombatTC {
+class CombatStateTC extends ToClient implements CombatTC, ToClientBot {
   const CombatStateTC({required this.n, required this.broadcastId, required this.round, required final  List<CombatantDto> membs, required this.currentTurn, required final  List<int> unitOrder, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'combatState',super._();
   factory CombatStateTC.fromJson(Map<String, dynamic> json) => _$CombatStateTCFromJson(json);
 
@@ -1813,7 +1714,7 @@ as List<int>,
 /// @nodoc
 @JsonSerializable()
 
-class CombatErrorTC extends ToClient implements BotToClient, CombatTC {
+class CombatErrorTC extends ToClient implements CombatTC, ToClientBot {
   const CombatErrorTC({required this.n, required this.broadcastId, this.isFatal = false, @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson) required this.error, final  String? $type}): $type = $type ?? 'combatError',super._();
   factory CombatErrorTC.fromJson(Map<String, dynamic> json) => _$CombatErrorTCFromJson(json);
 
@@ -2044,7 +1945,7 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class CombatRoomsTC extends ToClient {
+class CombatRoomsTC extends ToClient implements ToClientBot {
   const CombatRoomsTC({required this.n, required this.broadcastId, required final  List<CombatRoomDto> rooms, final  String? $type}): _rooms = rooms,$type = $type ?? 'combatRooms',super._();
   factory CombatRoomsTC.fromJson(Map<String, dynamic> json) => _$CombatRoomsTCFromJson(json);
 
