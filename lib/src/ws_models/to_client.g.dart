@@ -22,6 +22,27 @@ Map<String, dynamic> _$AckTCToJson(AckTC instance) => <String, dynamic>{
   'runtimeType': instance.$type,
 };
 
+AuthSuccessTC _$AuthSuccessTCFromJson(Map<String, dynamic> json) =>
+    AuthSuccessTC(
+      n: json['n'] as String,
+      location: $enumDecode(_$GameLocationEnumMap, json['location']),
+      roomId: json['roomId'] as String?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$AuthSuccessTCToJson(AuthSuccessTC instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'location': _$GameLocationEnumMap[instance.location]!,
+      'roomId': instance.roomId,
+      'runtimeType': instance.$type,
+    };
+
+const _$GameLocationEnumMap = {
+  GameLocation.menu: 'menu',
+  GameLocation.game: 'game',
+};
+
 OnlineUsersTC _$OnlineUsersTCFromJson(Map<String, dynamic> json) =>
     OnlineUsersTC(
       n: json['n'] as String,

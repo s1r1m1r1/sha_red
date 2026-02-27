@@ -19,6 +19,10 @@ ToClient _$ToClientFromJson(
           return AckTC.fromJson(
             json
           );
+                case 'authSuccess':
+          return AuthSuccessTC.fromJson(
+            json
+          );
                 case 'onlineUsers':
           return OnlineUsersTC.fromJson(
             json
@@ -256,6 +260,83 @@ as String,status: null == status ? _self.status : status // ignore: cast_nullabl
 as int,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String?,ts: freezed == ts ? _self.ts : ts // ignore: cast_nullable_to_non_nullable
 as int?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class AuthSuccessTC extends ToClient implements AuthTC {
+  const AuthSuccessTC({required this.n, required this.location, this.roomId, final  String? $type}): $type = $type ?? 'authSuccess',super._();
+  factory AuthSuccessTC.fromJson(Map<String, dynamic> json) => _$AuthSuccessTCFromJson(json);
+
+@override final  String n;
+ final  GameLocation location;
+ final  String? roomId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AuthSuccessTCCopyWith<AuthSuccessTC> get copyWith => _$AuthSuccessTCCopyWithImpl<AuthSuccessTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AuthSuccessTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthSuccessTC&&(identical(other.n, n) || other.n == n)&&(identical(other.location, location) || other.location == location)&&(identical(other.roomId, roomId) || other.roomId == roomId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,location,roomId);
+
+@override
+String toString() {
+  return 'ToClient.authSuccess(n: $n, location: $location, roomId: $roomId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AuthSuccessTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $AuthSuccessTCCopyWith(AuthSuccessTC value, $Res Function(AuthSuccessTC) _then) = _$AuthSuccessTCCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, GameLocation location, String? roomId
+});
+
+
+
+
+}
+/// @nodoc
+class _$AuthSuccessTCCopyWithImpl<$Res>
+    implements $AuthSuccessTCCopyWith<$Res> {
+  _$AuthSuccessTCCopyWithImpl(this._self, this._then);
+
+  final AuthSuccessTC _self;
+  final $Res Function(AuthSuccessTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? location = null,Object? roomId = freezed,}) {
+  return _then(AuthSuccessTC(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as GameLocation,roomId: freezed == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../enum/game_location.dart';
 part 'to_client.g.dart';
 part 'to_client.freezed.dart';
 
@@ -17,6 +18,13 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     String? message,
     int? ts, // Unix timestamp в мс
   }) = AckTC;
+
+  @Implements<AuthTC>()
+  const factory ToClient.authSuccess({
+    required String n,
+    required GameLocation location,
+    String? roomId,
+  }) = AuthSuccessTC;
 
   const factory ToClient.onlineUsers({
     required String n,

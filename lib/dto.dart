@@ -1,6 +1,7 @@
 library;
 
 export 'src/enum/role.dart';
+export 'src/enum/game_location.dart';
 export 'src/models/connection_stats_dto.dart';
 export 'src/models/create_todo_dto.dart';
 export 'src/models/message_dto.dart';
