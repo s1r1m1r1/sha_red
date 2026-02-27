@@ -94,7 +94,7 @@ sealed class ToServer with _$ToServer {
   }
 
   static ToServer decoded(String json) {
-    final data = jsonDecode(json);
+    final data = jsonDecode(json) as Map<String, dynamic>;
     return ToServer.fromJson(data);
   }
 }

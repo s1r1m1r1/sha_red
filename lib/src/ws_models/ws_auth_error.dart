@@ -36,9 +36,12 @@ enum ToServerNames {
   editLetter(10),
   unknown(8888);
 
+  const ToServerNames(this.code);
+  final int code;
+
   static int toJson(ToServerNames w) => w.code;
 
-  static fromJson(dynamic json) {
+  static ToServerNames fromJson(dynamic json) {
     if (json is int) {
       return ToServerNames.values.firstWhere(
         (element) => element.code == json,
@@ -47,9 +50,6 @@ enum ToServerNames {
     }
     return ToServerNames.unknown;
   }
-
-  const ToServerNames(this.code);
-  final int code;
 }
 
 enum WsArenaError {
@@ -63,7 +63,7 @@ enum WsArenaError {
 
   static int toJson(WsArenaError w) => w.code;
 
-  static fromJson(dynamic json) {
+  static WsArenaError fromJson(dynamic json) {
     if (json is int) {
       return WsArenaError.values.firstWhere(
         (element) => element.code == json,

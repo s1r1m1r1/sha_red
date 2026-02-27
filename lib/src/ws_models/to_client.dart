@@ -2,9 +2,18 @@
 
 import 'dart:convert';
 
-import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../enum/game_location.dart';
+import '../models/broadcast_member_dto.dart';
+import '../models/combat_dto.dart';
+import '../models/combat_room_dto.dart';
+import '../models/edict_dto.dart';
+import '../payloads/letter_dto.dart';
+import '../payloads/online_members_dto.dart';
+import 'encodable_message.dart';
+import 'ws_auth_error.dart';
+
 part 'to_client.g.dart';
 part 'to_client.freezed.dart';
 
@@ -201,7 +210,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   EncodedPacket<ToClient> toPacket() => EncodedPacket(this, encode());
 
   ToClient decoded(String json) {
-    final data = jsonDecode(json);
+    final data = jsonDecode(json) as Map<String, dynamic>;
     return ToClient.fromJson(data);
   }
 }

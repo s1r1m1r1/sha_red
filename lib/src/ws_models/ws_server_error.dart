@@ -71,12 +71,13 @@ enum WsServerError {
 
   static int toJson(WsServerError w) => w.code;
 
-  static fromJson(dynamic json) {
+  static WsServerError fromJson(dynamic json) {
     if (json is int) {
       return WsServerError.values.firstWhere(
         (element) => element.code == json,
         orElse: () => WsServerError.unknown,
       );
     }
+    return WsServerError.unknown;
   }
 }

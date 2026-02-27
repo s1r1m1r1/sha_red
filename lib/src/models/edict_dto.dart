@@ -14,7 +14,8 @@ abstract class EdictDto with _$EdictDto {
     required DateTime startIn,
   }) = _EdictDto;
 
-  factory EdictDto.fromJson(Map<String, dynamic> json) => _$EdictDtoFromJson(json);
+  factory EdictDto.fromJson(Map<String, dynamic> json) =>
+      _$EdictDtoFromJson(json);
 
   bool get isFull => members.length >= maxMembers;
 }

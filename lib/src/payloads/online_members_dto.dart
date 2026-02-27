@@ -16,5 +16,6 @@ abstract class OnlineMemberDto with _$OnlineMemberDto {
     @Default(0) int coins,
     @Default(0) int exp,
   }) = _OnlineMemberDto;
-  factory OnlineMemberDto.fromJson(Json json) => _$OnlineMemberDtoFromJson(json);
+  factory OnlineMemberDto.fromJson(Json json) =>
+      _$OnlineMemberDtoFromJson(json);
 }

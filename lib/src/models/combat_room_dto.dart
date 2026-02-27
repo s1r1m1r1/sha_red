@@ -14,5 +14,6 @@ abstract class CombatRoomDto with _$CombatRoomDto {
     required String status,
   }) = _CombatRoomDto;
 
-  factory CombatRoomDto.fromJson(Map<String, dynamic> json) => _$CombatRoomDtoFromJson(json);
+  factory CombatRoomDto.fromJson(Map<String, dynamic> json) =>
+      _$CombatRoomDtoFromJson(json);
 }

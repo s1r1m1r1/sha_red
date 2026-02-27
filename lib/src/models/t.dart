@@ -10,7 +10,8 @@ class NonFreezedItem {
 
   NonFreezedItem({required this.name, required this.value});
 
-  factory NonFreezedItem.fromJson(Map<String, dynamic> json) => _$NonFreezedItemFromJson(json);
+  factory NonFreezedItem.fromJson(Map<String, dynamic> json) =>
+      _$NonFreezedItemFromJson(json);
 
   Map<String, dynamic> toJson() => _$NonFreezedItemToJson(this);
 }
@@ -18,7 +19,11 @@ class NonFreezedItem {
 @freezed
 abstract class FreezedData with _$FreezedData {
   @JsonSerializable(explicitToJson: true)
-  const factory FreezedData({required String id, required NonFreezedItem nestedItem}) = _FreezedData;
+  const factory FreezedData({
+    required String id,
+    required NonFreezedItem nestedItem,
+  }) = _FreezedData;
 
-  factory FreezedData.fromJson(Map<String, dynamic> json) => _$FreezedDataFromJson(json);
+  factory FreezedData.fromJson(Map<String, dynamic> json) =>
+      _$FreezedDataFromJson(json);
 }
