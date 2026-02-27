@@ -1,3 +1,4 @@
+@Deprecated('Use WebSocketCloseCode instead')
 enum WsAuthError {
   expiredToken(400),
   tokenSessionNotFound(401),
