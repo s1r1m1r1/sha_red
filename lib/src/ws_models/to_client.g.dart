@@ -22,15 +22,14 @@ Map<String, dynamic> _$AckTCToJson(AckTC instance) => <String, dynamic>{
   'runtimeType': instance.$type,
 };
 
-AuthSuccessTC _$AuthSuccessTCFromJson(Map<String, dynamic> json) =>
-    AuthSuccessTC(
-      n: json['n'] as String,
-      location: $enumDecode(_$GameLocationEnumMap, json['location']),
-      roomId: json['roomId'] as String?,
-      $type: json['runtimeType'] as String?,
-    );
+LocationTC _$LocationTCFromJson(Map<String, dynamic> json) => LocationTC(
+  n: json['n'] as String,
+  location: $enumDecode(_$GameLocationEnumMap, json['location']),
+  roomId: json['roomId'] as String?,
+  $type: json['runtimeType'] as String?,
+);
 
-Map<String, dynamic> _$AuthSuccessTCToJson(AuthSuccessTC instance) =>
+Map<String, dynamic> _$LocationTCToJson(LocationTC instance) =>
     <String, dynamic>{
       'n': instance.n,
       'location': _$GameLocationEnumMap[instance.location]!,
@@ -40,6 +39,7 @@ Map<String, dynamic> _$AuthSuccessTCToJson(AuthSuccessTC instance) =>
 
 const _$GameLocationEnumMap = {
   GameLocation.menu: 'menu',
+  GameLocation.arena: 'arena',
   GameLocation.game: 'game',
 };
 
@@ -56,6 +56,34 @@ Map<String, dynamic> _$OnlineUsersTCToJson(OnlineUsersTC instance) =>
     <String, dynamic>{
       'n': instance.n,
       'members': instance.members,
+      'runtimeType': instance.$type,
+    };
+
+MenuTC _$MenuTCFromJson(Map<String, dynamic> json) => MenuTC(
+  n: json['n'] as String,
+  user: UserDto.fromJson(json['user'] as Map<String, dynamic>),
+  units: ListUnitDto.fromJson(json['units'] as Map<String, dynamic>),
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$MenuTCToJson(MenuTC instance) => <String, dynamic>{
+  'n': instance.n,
+  'user': instance.user,
+  'units': instance.units,
+  'runtimeType': instance.$type,
+};
+
+UnitsUpdateTC _$UnitsUpdateTCFromJson(Map<String, dynamic> json) =>
+    UnitsUpdateTC(
+      n: json['n'] as String,
+      dto: ListUnitDto.fromJson(json['dto'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$UnitsUpdateTCToJson(UnitsUpdateTC instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'dto': instance.dto,
       'runtimeType': instance.$type,
     };
 

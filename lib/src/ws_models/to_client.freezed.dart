@@ -19,12 +19,20 @@ ToClient _$ToClientFromJson(
           return AckTC.fromJson(
             json
           );
-                case 'authSuccess':
-          return AuthSuccessTC.fromJson(
+                case 'location':
+          return LocationTC.fromJson(
             json
           );
                 case 'onlineUsers':
           return OnlineUsersTC.fromJson(
+            json
+          );
+                case 'menu':
+          return MenuTC.fromJson(
+            json
+          );
+                case 'unitsUpdate':
+          return UnitsUpdateTC.fromJson(
             json
           );
                 case 'status':
@@ -265,9 +273,9 @@ as int?,
 /// @nodoc
 @JsonSerializable()
 
-class AuthSuccessTC extends ToClient implements AuthTC {
-  const AuthSuccessTC({required this.n, required this.location, this.roomId, final  String? $type}): $type = $type ?? 'authSuccess',super._();
-  factory AuthSuccessTC.fromJson(Map<String, dynamic> json) => _$AuthSuccessTCFromJson(json);
+class LocationTC extends ToClient implements AuthTC, ArenaTC, CombatTC, LetterTC {
+  const LocationTC({required this.n, required this.location, this.roomId, final  String? $type}): $type = $type ?? 'location',super._();
+  factory LocationTC.fromJson(Map<String, dynamic> json) => _$LocationTCFromJson(json);
 
 @override final  String n;
  final  GameLocation location;
@@ -281,16 +289,16 @@ final String $type;
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$AuthSuccessTCCopyWith<AuthSuccessTC> get copyWith => _$AuthSuccessTCCopyWithImpl<AuthSuccessTC>(this, _$identity);
+$LocationTCCopyWith<LocationTC> get copyWith => _$LocationTCCopyWithImpl<LocationTC>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$AuthSuccessTCToJson(this, );
+  return _$LocationTCToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthSuccessTC&&(identical(other.n, n) || other.n == n)&&(identical(other.location, location) || other.location == location)&&(identical(other.roomId, roomId) || other.roomId == roomId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LocationTC&&(identical(other.n, n) || other.n == n)&&(identical(other.location, location) || other.location == location)&&(identical(other.roomId, roomId) || other.roomId == roomId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -299,15 +307,15 @@ int get hashCode => Object.hash(runtimeType,n,location,roomId);
 
 @override
 String toString() {
-  return 'ToClient.authSuccess(n: $n, location: $location, roomId: $roomId)';
+  return 'ToClient.location(n: $n, location: $location, roomId: $roomId)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $AuthSuccessTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
-  factory $AuthSuccessTCCopyWith(AuthSuccessTC value, $Res Function(AuthSuccessTC) _then) = _$AuthSuccessTCCopyWithImpl;
+abstract mixin class $LocationTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $LocationTCCopyWith(LocationTC value, $Res Function(LocationTC) _then) = _$LocationTCCopyWithImpl;
 @override @useResult
 $Res call({
  String n, GameLocation location, String? roomId
@@ -318,17 +326,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$AuthSuccessTCCopyWithImpl<$Res>
-    implements $AuthSuccessTCCopyWith<$Res> {
-  _$AuthSuccessTCCopyWithImpl(this._self, this._then);
+class _$LocationTCCopyWithImpl<$Res>
+    implements $LocationTCCopyWith<$Res> {
+  _$LocationTCCopyWithImpl(this._self, this._then);
 
-  final AuthSuccessTC _self;
-  final $Res Function(AuthSuccessTC) _then;
+  final LocationTC _self;
+  final $Res Function(LocationTC) _then;
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? location = null,Object? roomId = freezed,}) {
-  return _then(AuthSuccessTC(
+  return _then(LocationTC(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as GameLocation,roomId: freezed == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
@@ -414,6 +422,167 @@ class _$OnlineUsersTCCopyWithImpl<$Res>
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,members: null == members ? _self._members : members // ignore: cast_nullable_to_non_nullable
 as List<OnlineMemberDto>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class MenuTC extends ToClient implements AuthTC, ToClientBot {
+  const MenuTC({required this.n, required this.user, required this.units, final  String? $type}): $type = $type ?? 'menu',super._();
+  factory MenuTC.fromJson(Map<String, dynamic> json) => _$MenuTCFromJson(json);
+
+@override final  String n;
+ final  UserDto user;
+ final  ListUnitDto units;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MenuTCCopyWith<MenuTC> get copyWith => _$MenuTCCopyWithImpl<MenuTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$MenuTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MenuTC&&(identical(other.n, n) || other.n == n)&&(identical(other.user, user) || other.user == user)&&(identical(other.units, units) || other.units == units));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,user,units);
+
+@override
+String toString() {
+  return 'ToClient.menu(n: $n, user: $user, units: $units)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MenuTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $MenuTCCopyWith(MenuTC value, $Res Function(MenuTC) _then) = _$MenuTCCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, UserDto user, ListUnitDto units
+});
+
+
+$UserDtoCopyWith<$Res> get user;
+
+}
+/// @nodoc
+class _$MenuTCCopyWithImpl<$Res>
+    implements $MenuTCCopyWith<$Res> {
+  _$MenuTCCopyWithImpl(this._self, this._then);
+
+  final MenuTC _self;
+  final $Res Function(MenuTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? user = null,Object? units = null,}) {
+  return _then(MenuTC(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+as UserDto,units: null == units ? _self.units : units // ignore: cast_nullable_to_non_nullable
+as ListUnitDto,
+  ));
+}
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UserDtoCopyWith<$Res> get user {
+  
+  return $UserDtoCopyWith<$Res>(_self.user, (value) {
+    return _then(_self.copyWith(user: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class UnitsUpdateTC extends ToClient {
+  const UnitsUpdateTC({required this.n, required this.dto, final  String? $type}): $type = $type ?? 'unitsUpdate',super._();
+  factory UnitsUpdateTC.fromJson(Map<String, dynamic> json) => _$UnitsUpdateTCFromJson(json);
+
+@override final  String n;
+ final  ListUnitDto dto;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UnitsUpdateTCCopyWith<UnitsUpdateTC> get copyWith => _$UnitsUpdateTCCopyWithImpl<UnitsUpdateTC>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UnitsUpdateTCToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitsUpdateTC&&(identical(other.n, n) || other.n == n)&&(identical(other.dto, dto) || other.dto == dto));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,dto);
+
+@override
+String toString() {
+  return 'ToClient.unitsUpdate(n: $n, dto: $dto)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UnitsUpdateTCCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $UnitsUpdateTCCopyWith(UnitsUpdateTC value, $Res Function(UnitsUpdateTC) _then) = _$UnitsUpdateTCCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, ListUnitDto dto
+});
+
+
+
+
+}
+/// @nodoc
+class _$UnitsUpdateTCCopyWithImpl<$Res>
+    implements $UnitsUpdateTCCopyWith<$Res> {
+  _$UnitsUpdateTCCopyWithImpl(this._self, this._then);
+
+  final UnitsUpdateTC _self;
+  final $Res Function(UnitsUpdateTC) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? dto = null,}) {
+  return _then(UnitsUpdateTC(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,dto: null == dto ? _self.dto : dto // ignore: cast_nullable_to_non_nullable
+as ListUnitDto,
   ));
 }
 
@@ -1372,7 +1541,7 @@ as WsArenaError,
 /// @nodoc
 @JsonSerializable()
 
-class CombatStartedTC extends ToClient implements CombatTC, ArenaTC, RequiredAckTC, ToClientBot {
+class CombatStartedTC extends ToClient implements CombatTC, ArenaTC, TransitionTC, ToClientBot {
   const CombatStartedTC({required this.n, required this.combatRoom, final  String? $type}): $type = $type ?? 'combatStarted',super._();
   factory CombatStartedTC.fromJson(Map<String, dynamic> json) => _$CombatStartedTCFromJson(json);
 
@@ -1793,7 +1962,7 @@ as WsCombatError,
 /// @nodoc
 @JsonSerializable()
 
-class CombatWinTC extends ToClient implements CombatTC, RequiredAckTC {
+class CombatWinTC extends ToClient implements CombatTC, RequiredAckTC, ToClientBot {
   const CombatWinTC({required this.n, required this.broadcastId, required this.winnerTeamId, final  String? $type}): $type = $type ?? 'combatWin',super._();
   factory CombatWinTC.fromJson(Map<String, dynamic> json) => _$CombatWinTCFromJson(json);
 
@@ -1870,7 +2039,7 @@ as int,
 /// @nodoc
 @JsonSerializable()
 
-class CombatClosedTC extends ToClient implements CombatTC, RequiredAckTC {
+class CombatClosedTC extends ToClient implements CombatTC, RequiredAckTC, ToClientBot {
   const CombatClosedTC({required this.n, required this.broadcastId, final  String? $type}): $type = $type ?? 'combatClosed',super._();
   factory CombatClosedTC.fromJson(Map<String, dynamic> json) => _$CombatClosedTCFromJson(json);
 

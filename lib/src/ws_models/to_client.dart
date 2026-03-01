@@ -11,6 +11,8 @@ import '../models/combat_room_dto.dart';
 import '../models/edict_dto.dart';
 import '../payloads/letter_dto.dart';
 import '../payloads/online_members_dto.dart';
+import '../models/unit_dto.dart';
+import '../models/user_dto.dart';
 import 'encodable_message.dart';
 import 'ws_auth_error.dart';
 
@@ -29,16 +31,32 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }) = AckTC;
 
   @Implements<AuthTC>()
-  const factory ToClient.authSuccess({
+  @Implements<ArenaTC>()
+  @Implements<CombatTC>()
+  @Implements<LetterTC>()
+  const factory ToClient.location({
     required String n,
     required GameLocation location,
     String? roomId,
-  }) = AuthSuccessTC;
+  }) = LocationTC;
 
   const factory ToClient.onlineUsers({
     required String n,
     required List<OnlineMemberDto> members,
   }) = OnlineUsersTC;
+
+  @Implements<AuthTC>()
+  @Implements<ToClientBot>()
+  const factory ToClient.menu({
+    required String n,
+    required UserDto user,
+    required ListUnitDto units,
+  }) = MenuTC;
+
+  const factory ToClient.unitsUpdate({
+    required String n,
+    required ListUnitDto dto,
+  }) = UnitsUpdateTC;
 
   @Implements<LetterTC>()
   const factory ToClient.status({required String n, required bool isSleep}) =
@@ -117,7 +135,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
 
   @Implements<CombatTC>()
   @Implements<ArenaTC>()
-  @Implements<RequiredAckTC>()
+  @Implements<TransitionTC>()
   @Implements<ToClientBot>()
   const factory ToClient.combatStarted({
     required String n,
@@ -175,6 +193,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
 
   @Implements<CombatTC>()
   @Implements<RequiredAckTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.combatWin({
     required String n,
     required String broadcastId,
@@ -183,6 +202,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
 
   @Implements<CombatTC>()
   @Implements<RequiredAckTC>()
+  @Implements<ToClientBot>()
   const factory ToClient.combatClosed({
     required String n,
     required String broadcastId,
@@ -232,3 +252,8 @@ sealed class SpecialTC implements ToClient {}
 /// Маркер для сообщений от сервера, которые требуют подтверждения от клиента
 /// через `ToServer.ack(n: <same n>)`.
 sealed class RequiredAckTC implements ToClient {}
+
+/// Маркер для сообщений, которые сигнализируют переход между Broadcast-комнатами.
+/// Сервер НЕ переключает подписку до получения `AckTS` от клиента.
+/// Наследует [RequiredAckTC] — ACK отправляется автоматически.
+sealed class TransitionTC implements RequiredAckTC {}

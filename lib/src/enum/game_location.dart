@@ -1,1 +1,1 @@
-enum GameLocation { menu, game }
+enum GameLocation { menu, arena, game }

@@ -47,6 +47,12 @@ DisconnectTS _$DisconnectTSFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DisconnectTSToJson(DisconnectTS instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
+SyncMenuTS _$SyncMenuTSFromJson(Map<String, dynamic> json) =>
+    SyncMenuTS(n: json['n'] as String, $type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$SyncMenuTSToJson(SyncMenuTS instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
 SyncJoinedBroadsTS _$SyncJoinedBroadsTSFromJson(Map<String, dynamic> json) =>
     SyncJoinedBroadsTS(
       n: json['n'] as String,
@@ -153,28 +159,28 @@ Map<String, dynamic> _$DeleteLetterTSToJson(DeleteLetterTS instance) =>
 JoinBattleRoomTS _$JoinBattleRoomTSFromJson(Map<String, dynamic> json) =>
     JoinBattleRoomTS(
       n: json['n'] as String,
-      battleRoomId: json['battleRoomId'] as String,
+      combatRoomId: json['combatRoomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$JoinBattleRoomTSToJson(JoinBattleRoomTS instance) =>
     <String, dynamic>{
       'n': instance.n,
-      'battleRoomId': instance.battleRoomId,
+      'combatRoomId': instance.combatRoomId,
       'runtimeType': instance.$type,
     };
 
 LeaveBattleRoom _$LeaveBattleRoomFromJson(Map<String, dynamic> json) =>
     LeaveBattleRoom(
       n: json['n'] as String,
-      battleRoomId: json['battleRoomId'] as String,
+      combatRoomId: json['combatRoomId'] as String,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$LeaveBattleRoomToJson(LeaveBattleRoom instance) =>
     <String, dynamic>{
       'n': instance.n,
-      'battleRoomId': instance.battleRoomId,
+      'combatRoomId': instance.combatRoomId,
       'runtimeType': instance.$type,
     };
 
@@ -207,7 +213,7 @@ Map<String, dynamic> _$FocusCombatObserverTSToJson(
 
 GameActionTS _$GameActionTSFromJson(Map<String, dynamic> json) => GameActionTS(
   n: json['n'] as String,
-  battleRoomId: json['battleRoomId'] as String,
+  combatRoomId: json['combatRoomId'] as String,
   action: GameActionDto.fromJson(json['action'] as Map<String, dynamic>),
   $type: json['runtimeType'] as String?,
 );
@@ -215,10 +221,30 @@ GameActionTS _$GameActionTSFromJson(Map<String, dynamic> json) => GameActionTS(
 Map<String, dynamic> _$GameActionTSToJson(GameActionTS instance) =>
     <String, dynamic>{
       'n': instance.n,
-      'battleRoomId': instance.battleRoomId,
+      'combatRoomId': instance.combatRoomId,
       'action': instance.action,
       'runtimeType': instance.$type,
     };
+
+ChangeLocationTS _$ChangeLocationTSFromJson(Map<String, dynamic> json) =>
+    ChangeLocationTS(
+      n: json['n'] as String,
+      location: $enumDecode(_$GameLocationEnumMap, json['location']),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ChangeLocationTSToJson(ChangeLocationTS instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'location': _$GameLocationEnumMap[instance.location]!,
+      'runtimeType': instance.$type,
+    };
+
+const _$GameLocationEnumMap = {
+  GameLocation.menu: 'menu',
+  GameLocation.arena: 'arena',
+  GameLocation.game: 'game',
+};
 
 ResetEdictsTS _$ResetEdictsTSFromJson(Map<String, dynamic> json) =>
     ResetEdictsTS(

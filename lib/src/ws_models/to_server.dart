@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../enum/game_location.dart';
 import '../models/game_action_dto.dart';
 
 part 'to_server.freezed.dart';
@@ -24,6 +25,7 @@ sealed class ToServer with _$ToServer {
       WithTokenTS;
 
   const factory ToServer.disconnect({required String n}) = DisconnectTS;
+  const factory ToServer.syncMenu({required String n}) = SyncMenuTS;
   // получить список всех broadcasts
   const factory ToServer.syncJoinedBroads({required String n}) =
       SyncJoinedBroadsTS;
@@ -57,11 +59,11 @@ sealed class ToServer with _$ToServer {
 
   const factory ToServer.joinBattleRoom({
     required String n,
-    required String battleRoomId,
+    required String combatRoomId,
   }) = JoinBattleRoomTS;
   const factory ToServer.leaveBattleRoom({
     required String n,
-    required String battleRoomId,
+    required String combatRoomId,
   }) = LeaveBattleRoom;
 
   @FreezedUnionValue('join-obs')
@@ -76,9 +78,14 @@ sealed class ToServer with _$ToServer {
 
   const factory ToServer.gameAction({
     required String n,
-    required String battleRoomId,
+    required String combatRoomId,
     required GameActionDto action,
   }) = GameActionTS;
+
+  const factory ToServer.changeLocation({
+    required String n,
+    required GameLocation location,
+  }) = ChangeLocationTS;
 
   const factory ToServer.resetEdicts({required String n}) = ResetEdictsTS;
   const factory ToServer.resetCombats({required String n}) = ResetCombatsTS;
