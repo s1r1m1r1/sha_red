@@ -4,22 +4,22 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../core/extension_types.dart';
 import '../enum/game_location.dart';
 import '../models/broadcast_member_dto.dart';
 import '../models/combat_dto.dart';
+import '../models/combat_event_dto.dart';
 import '../models/combat_room_dto.dart';
 import '../models/edict_dto.dart';
-import '../payloads/letter_dto.dart';
-import '../payloads/online_members_dto.dart';
 import '../models/unit_dto.dart';
 import '../models/user_dto.dart';
-import '../models/combat_event_dto.dart';
-import '../core/extension_types.dart';
+import '../payloads/letter_dto.dart';
+import '../payloads/online_members_dto.dart';
 import 'encodable_message.dart';
 import 'ws_auth_error.dart';
 
-part 'to_client.g.dart';
 part 'to_client.freezed.dart';
+part 'to_client.g.dart';
 
 @freezed
 sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {

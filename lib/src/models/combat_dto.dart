@@ -1,11 +1,12 @@
-import 'package:dto/dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../dto.dart';
+
 part 'combat_dto.freezed.dart';
 part 'combat_dto.g.dart';
 
 @freezed
 abstract class CombatDto with _$CombatDto {
-  const CombatDto._();
   const factory CombatDto({
     required int id,
     @Default([]) List<UserMemberDto> members,
@@ -14,6 +15,7 @@ abstract class CombatDto with _$CombatDto {
     required DateTime battleStartIn,
     @Default(false) bool isFighting,
   }) = _CombatDto;
+  const CombatDto._();
 
   factory CombatDto.fromJson(Map<String, dynamic> json) =>
       _$CombatDtoFromJson(json);
@@ -21,7 +23,6 @@ abstract class CombatDto with _$CombatDto {
 
 @freezed
 abstract class CombatantDto with _$CombatantDto {
-  const CombatantDto._();
   const factory CombatantDto({
     required int unitId,
     required int teamId,
@@ -31,6 +32,7 @@ abstract class CombatantDto with _$CombatantDto {
     UnitDto? baseUnit,
     required UnitDto unit,
   }) = _CombatantDto;
+  const CombatantDto._();
 
   factory CombatantDto.fromJson(Map<String, dynamic> json) =>
       _$CombatantDtoFromJson(json);

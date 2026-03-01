@@ -4,16 +4,6 @@ part 'todo_dto.g.dart';
 
 @JsonSerializable()
 class TodoDto {
-  final int? id;
-  final String title;
-  @Default('')
-  final String description; // Default is handled differently
-  final bool? completed;
-  @DateTimeConverter()
-  final DateTime createdAt;
-  @DateTimeConverterNullable()
-  final DateTime? updatedAt;
-
   TodoDto({
     this.id,
     required this.title,
@@ -25,6 +15,15 @@ class TodoDto {
 
   factory TodoDto.fromJson(Map<String, dynamic> json) =>
       _$TodoDtoFromJson(json);
+  final int? id;
+  final String title;
+  @Default('')
+  final String description; // Default is handled differently
+  final bool? completed;
+  @DateTimeConverter()
+  final DateTime createdAt;
+  @DateTimeConverterNullable()
+  final DateTime? updatedAt;
   Map<String, dynamic> toJson() => _$TodoDtoToJson(this);
   static const fromJsonFactory = _$TodoDtoFromJson;
 }

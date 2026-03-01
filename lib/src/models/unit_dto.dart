@@ -25,10 +25,10 @@ abstract class UnitDto with _$UnitDto {
 @JsonSerializable()
 class ListUnitDto {
   ListUnitDto({required this.selectedId, required this.list});
-  final List<UnitDto> list;
-  final int selectedId;
   factory ListUnitDto.fromJson(Map<String, dynamic> json) =>
       _$ListUnitDtoFromJson(json);
+  final List<UnitDto> list;
+  final int selectedId;
   Map<String, dynamic> toJson() => _$ListUnitDtoToJson(this);
   static const fromJsonFactory = _$ListUnitDtoFromJson;
 }
@@ -58,6 +58,10 @@ class UpdateUnitDto {
 
 @JsonSerializable()
 class CreateUnitDto {
+  // жизненная сила
+
+  factory CreateUnitDto.fromJson(Map<String, dynamic> json) =>
+      _$CreateUnitDtoFromJson(json);
   CreateUnitDto({
     required this.name,
     required this.vitality,
@@ -69,10 +73,7 @@ class CreateUnitDto {
   final int atk; // атака
   final int def; // защита
 
-  final int vitality; // жизненная сила
-
-  factory CreateUnitDto.fromJson(Map<String, dynamic> json) =>
-      _$CreateUnitDtoFromJson(json);
+  final int vitality;
   Map<String, dynamic> toJson() => _$CreateUnitDtoToJson(this);
   static const fromJsonFactory = _$CreateUnitDtoFromJson;
 }

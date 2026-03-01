@@ -1,17 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 part 't.g.dart';
 part 't.freezed.dart';
 
 @JsonSerializable()
 class NonFreezedItem {
-  final String name;
-  final int value;
-
   NonFreezedItem({required this.name, required this.value});
 
   factory NonFreezedItem.fromJson(Map<String, dynamic> json) =>
       _$NonFreezedItemFromJson(json);
+  final String name;
+  final int value;
 
   Map<String, dynamic> toJson() => _$NonFreezedItemToJson(this);
 }
