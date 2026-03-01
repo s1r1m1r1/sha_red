@@ -35,7 +35,9 @@ _CombatantDto _$CombatantDtoFromJson(Map<String, dynamic> json) =>
       teamId: (json['teamId'] as num).toInt(),
       userId: json['userId'] as String,
       isBot: json['isBot'] as bool,
-      baseUnit: UnitDto.fromJson(json['baseUnit'] as Map<String, dynamic>),
+      baseUnit: json['baseUnit'] == null
+          ? null
+          : UnitDto.fromJson(json['baseUnit'] as Map<String, dynamic>),
       unit: UnitDto.fromJson(json['unit'] as Map<String, dynamic>),
     );
 

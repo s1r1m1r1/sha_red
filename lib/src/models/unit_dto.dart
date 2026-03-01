@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'unit_stats_dto.dart';
 
 part 'unit_dto.g.dart';
 part 'unit_dto.freezed.dart';
@@ -13,10 +14,7 @@ abstract class UnitDto with _$UnitDto {
     required int def,
     @Default(1) int level,
     @Default(0) int statPoints,
-    @Default(0) int wins,
-    @Default(0) int losses,
-    @Default(0) int coins,
-    @Default(0) int exp,
+    UnitStatsDto? stats,
   }) = _UnitDto;
 
   factory UnitDto.fromJson(Map<String, dynamic> json) =>

@@ -28,7 +28,7 @@ abstract class CombatantDto with _$CombatantDto {
     required String userId,
     required bool isBot,
     //------------------
-    required UnitDto baseUnit,
+    UnitDto? baseUnit,
     required UnitDto unit,
   }) = _CombatantDto;
 
