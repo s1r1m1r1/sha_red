@@ -24,6 +24,7 @@ export 'src/models/unit_stats_dto.dart';
 // Export ws_models
 export 'src/ws_models/to_client.dart';
 export 'src/ws_models/to_server.dart';
+export 'src/models/combat_event_dto.dart';
 export 'src/models/combat_room_dto.dart';
 
 export 'src/typedef/json_typedef.dart';

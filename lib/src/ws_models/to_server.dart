@@ -17,15 +17,17 @@ sealed class ToServer with _$ToServer {
     @Default(200) int status,
     String? message,
     int? ts, // Unix timestamp в мс
-  }) = AckTS;
+  }) = AckTs;
 
-  const factory ToServer.leaveArena({required String n}) = LeaveArenaTS;
+  const factory ToServer.ping({required String n}) = PingTs;
+
+  const factory ToServer.leaveArena({required String n}) = LeaveArenaTs;
 
   const factory ToServer.withToken({required String n, required String token}) =
-      WithTokenTS;
+      WithTokenTs;
 
-  const factory ToServer.disconnect({required String n}) = DisconnectTS;
-  const factory ToServer.syncMenu({required String n}) = SyncMenuTS;
+  const factory ToServer.disconnect({required String n}) = DisconnectTs;
+  const factory ToServer.syncMenu({required String n}) = SyncMenuTs;
 
   const factory ToServer.allocateStats({
     required String n,
@@ -33,42 +35,42 @@ sealed class ToServer with _$ToServer {
     required int addAtk,
     required int addDef,
     required int addVitality,
-  }) = AllocateStatsTS;
+  }) = AllocateStatsTs;
   // получить список всех broadcasts
   const factory ToServer.syncJoinedBroads({required String n}) =
-      SyncJoinedBroadsTS;
+      SyncJoinedBroadsTs;
 
-  const factory ToServer.joinLetters({required String n}) = JoinLettersTS;
+  const factory ToServer.joinLetters({required String n}) = JoinLettersTs;
 
-  const factory ToServer.joinArena({required String n}) = JoinArenaTS;
+  const factory ToServer.joinArena({required String n}) = JoinArenaTs;
 
   const factory ToServer.syncOnlineUsers({required String n}) = SyncOnlineUsers;
 
-  const factory ToServer.createNewEdict({required String n}) = CreateNewEdictTS;
+  const factory ToServer.createNewEdict({required String n}) = CreateNewEdictTs;
   const factory ToServer.joinEdict({
     required String n,
     required String edictId,
-  }) = JoinEdictTS;
-  const factory ToServer.leaveEdict({required String n}) = LeaveEdictTS;
+  }) = JoinEdictTs;
+  const factory ToServer.leaveEdict({required String n}) = LeaveEdictTs;
 
   const factory ToServer.newLetter({
     required String n,
     required String content,
-  }) = NewLetterTS;
+  }) = NewLetterTs;
   const factory ToServer.editLetter({
     required String n,
     required int letterId,
     required String content,
-  }) = EditLetterTS;
+  }) = EditLetterTs;
   const factory ToServer.deleteLetter({
     required String n,
     required int letterId,
-  }) = DeleteLetterTS;
+  }) = DeleteLetterTs;
 
   const factory ToServer.joinBattleRoom({
     required String n,
     required String combatRoomId,
-  }) = JoinBattleRoomTS;
+  }) = JoinBattleRoomTs;
   const factory ToServer.leaveBattleRoom({
     required String n,
     required String combatRoomId,
@@ -76,28 +78,31 @@ sealed class ToServer with _$ToServer {
 
   @FreezedUnionValue('join-obs')
   const factory ToServer.joinAsCombatObserver({required String n}) =
-      JoinAsCombatObserverTS;
+      JoinAsCombatObserverTs;
 
   @FreezedUnionValue('focus-obs')
   const factory ToServer.focusCombatObserver({
     required String n,
     required String room,
-  }) = FocusCombatObserverTS;
+  }) = FocusCombatObserverTs;
 
   const factory ToServer.gameAction({
     required String n,
     required String combatRoomId,
     required GameActionDto action,
-  }) = GameActionTS;
+  }) = GameActionTs;
 
   const factory ToServer.changeLocation({
     required String n,
     required GameLocation location,
-  }) = ChangeLocationTS;
+  }) = ChangeLocationTs;
 
-  const factory ToServer.resetEdicts({required String n}) = ResetEdictsTS;
-  const factory ToServer.resetCombats({required String n}) = ResetCombatsTS;
-  const factory ToServer.createBots({required String n}) = CreateBotsTS;
+  @Implements<DeveloperTs>()
+  const factory ToServer.resetEdicts({required String n}) = ResetEdictsTs;
+  @Implements<DeveloperTs>()
+  const factory ToServer.resetCombats({required String n}) = ResetCombatsTs;
+  @Implements<DeveloperTs>()
+  const factory ToServer.createBots({required String n}) = CreateBotsTs;
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);
@@ -113,3 +118,5 @@ sealed class ToServer with _$ToServer {
     return ToServer.fromJson(data);
   }
 }
+
+sealed class DeveloperTs implements ToServer {}

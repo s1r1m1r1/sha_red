@@ -13,6 +13,7 @@ import '../payloads/letter_dto.dart';
 import '../payloads/online_members_dto.dart';
 import '../models/unit_dto.dart';
 import '../models/user_dto.dart';
+import '../models/combat_event_dto.dart';
 import '../core/extension_types.dart';
 import 'encodable_message.dart';
 import 'ws_auth_error.dart';
@@ -29,125 +30,125 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     @Default(200) int status,
     String? message,
     int? ts, // Unix timestamp в мс
-  }) = AckTC;
+  }) = AckTc;
 
-  @Implements<AuthTC>()
-  @Implements<ArenaTC>()
-  @Implements<CombatTC>()
-  @Implements<LetterTC>()
+  @Implements<AuthTc>()
+  @Implements<ArenaTc>()
+  @Implements<CombatTc>()
+  @Implements<LetterTc>()
   const factory ToClient.location({
     required String n,
     required GameLocation location,
     BroadcastId? roomId,
-  }) = LocationTC;
+  }) = LocationTc;
 
   const factory ToClient.onlineUsers({
     required String n,
     required List<OnlineMemberDto> members,
-  }) = OnlineUsersTC;
+  }) = OnlineUsersTc;
 
-  @Implements<AuthTC>()
+  @Implements<AuthTc>()
   @Implements<ToClientBot>()
   const factory ToClient.menu({
     required String n,
     required UserDto user,
     required ListUnitDto units,
-  }) = MenuTC;
+  }) = MenuTc;
 
   const factory ToClient.unitsUpdate({
     required String n,
     required ListUnitDto dto,
-  }) = UnitsUpdateTC;
+  }) = UnitsUpdateTc;
 
-  @Implements<LetterTC>()
+  @Implements<LetterTc>()
   const factory ToClient.status({required String n, required bool isSleep}) =
-      LetterStatusTC;
+      LetterStatusTc;
 
-  @Implements<LetterTC>()
+  @Implements<LetterTc>()
   const factory ToClient.letterHistory({
     required String n,
     required String roomId,
     required List<LetterDto> letters,
-  }) = LetterHistoryTC;
+  }) = LetterHistoryTc;
 
-  @Implements<LetterTC>()
+  @Implements<LetterTc>()
   const factory ToClient.onLetter({
     required String n,
     required String roomId,
     required LetterDto dto,
-  }) = OnLetterTC;
+  }) = OnLetterTc;
 
-  @Implements<LetterTC>()
+  @Implements<LetterTc>()
   const factory ToClient.editedLetter({
     required String n,
     required String roomId,
     required LetterDto dto,
-  }) = EditedLetterTC;
+  }) = EditedLetterTc;
 
-  @Implements<LetterTC>()
+  @Implements<LetterTc>()
   const factory ToClient.deletedLetter({
     required String n,
     required String roomId,
     required int letterId,
-  }) = DeletedLetterTC;
+  }) = DeletedLetterTc;
 
-  @Implements<BroadcastTC>()
+  @Implements<BroadcastTc>()
   const factory ToClient.broadcastInfo({
     required String n,
     required List<BroadcastMemberDto> broadcasts,
-  }) = BroadcastInfoTC;
+  }) = BroadcastInfoTc;
 
-  @Implements<BroadcastTC>()
+  @Implements<BroadcastTc>()
   @Implements<ToClientBot>()
   const factory ToClient.terminatedBroadcast({
     required String n,
     required String broad,
-  }) = TerminatedBroadcastTC;
+  }) = TerminatedBroadcastTc;
 
-  @Implements<BroadcastTC>()
+  @Implements<BroadcastTc>()
   @Implements<ToClientBot>()
   const factory ToClient.terminatedAllBroadcast({required String n}) =
-      TerminatedAllBroadcastTC;
+      TerminatedAllBroadcastTc;
 
-  @Implements<ArenaTC>()
+  @Implements<ArenaTc>()
   @Implements<ToClientBot>()
   const factory ToClient.activeEdicts({
     required String n,
     required List<EdictDto> edicts,
-  }) = ActiveEdictsTC;
+  }) = ActiveEdictsTc;
 
-  @Implements<ArenaTC>()
+  @Implements<ArenaTc>()
   @Implements<ToClientBot>()
   const factory ToClient.joinedEdict({
     required String n,
     required EdictDto edict,
-  }) = JoinedEdictTC;
+  }) = JoinedEdictTc;
   // отписаться от всех edict , которые имеются
-  @Implements<ArenaTC>()
-  const factory ToClient.leavedEdicts({required String n}) = LeavedEdictTC;
+  @Implements<ArenaTc>()
+  const factory ToClient.leavedEdicts({required String n}) = LeavedEdictTc;
 
-  @Implements<ArenaTC>()
+  @Implements<ArenaTc>()
   @Implements<ToClientBot>()
   const factory ToClient.arenaError({
     required String n,
     @JsonKey(toJson: WsArenaError.toJson, fromJson: WsArenaError.fromJson)
     required WsArenaError error,
-  }) = ArenaErrorTC;
+  }) = ArenaErrorTc;
 
-  @Implements<CombatTC>()
-  @Implements<ArenaTC>()
-  @Implements<TransitionTC>()
+  @Implements<CombatTc>()
+  @Implements<ArenaTc>()
+  @Implements<TransitionTc>()
   @Implements<ToClientBot>()
   const factory ToClient.combatStarted({
     required String n,
     required String combatRoom,
-  }) = CombatStartedTC;
+  }) = CombatStartedTc;
 
   /// countId номер комнаты
   /// membs  участники
   /// ready число готовых
-  @Implements<CombatTC>()
-  @Implements<RequiredAckTC>()
+  @Implements<CombatTc>()
+  @Implements<RequiredAckTc>()
   @Implements<ToClientBot>()
   const factory ToClient.startBattle({
     required String n,
@@ -156,22 +157,22 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required List<int> unitOrder,
     required int currentTurn,
     required int ready,
-  }) = StartBattleTC;
+  }) = StartBattleTc;
 
   // изменения для стейта,
   // более экономичный способ передачи данных
   // требуется чтобы client знал текущее состояние
-  @Implements<CombatTC>()
+  @Implements<CombatTc>()
   @Implements<ToClientBot>()
   const factory ToClient.combatEvent({
     required String n,
     required String broadcastId,
-    required int round,
-  }) = CombatEventTC;
+    required List<CombatEventDto> events,
+  }) = CombatEventTc;
 
   // состояния стейта на текущий момент
   // передача всех параметров
-  @Implements<CombatTC>()
+  @Implements<CombatTc>()
   @Implements<ToClientBot>()
   const factory ToClient.combatState({
     required String n,
@@ -180,9 +181,9 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required List<CombatantDto> membs,
     required int currentTurn,
     required List<int> unitOrder,
-  }) = CombatStateTC;
+  }) = CombatStateTc;
 
-  @Implements<CombatTC>()
+  @Implements<CombatTc>()
   @Implements<ToClientBot>()
   const factory ToClient.combatError({
     required String n,
@@ -190,31 +191,31 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     @Default(false) bool isFatal,
     @JsonKey(toJson: WsCombatError.toJson, fromJson: WsCombatError.fromJson)
     required WsCombatError error,
-  }) = CombatErrorTC;
+  }) = CombatErrorTc;
 
-  @Implements<CombatTC>()
-  @Implements<RequiredAckTC>()
+  @Implements<CombatTc>()
+  @Implements<RequiredAckTc>()
   @Implements<ToClientBot>()
   const factory ToClient.combatWin({
     required String n,
     required String broadcastId,
     required int winnerTeamId,
-  }) = CombatWinTC;
+  }) = CombatWinTc;
 
-  @Implements<CombatTC>()
-  @Implements<RequiredAckTC>()
+  @Implements<CombatTc>()
+  @Implements<RequiredAckTc>()
   @Implements<ToClientBot>()
   const factory ToClient.combatClosed({
     required String n,
     required String broadcastId,
-  }) = CombatClosedTC;
+  }) = CombatClosedTc;
 
   @Implements<ToClientBot>()
   const factory ToClient.combatRooms({
     required String n,
     required String broadcastId,
     required List<CombatRoomDto> rooms,
-  }) = CombatRoomsTC;
+  }) = CombatRoomsTc;
 
   factory ToClient.fromJson(Map<String, dynamic> json) =>
       _$ToClientFromJson(json);
@@ -236,25 +237,25 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   }
 }
 
-sealed class AuthTC implements ToClient {}
+sealed class AuthTc implements ToClient {}
 
-sealed class LetterTC implements ToClient {}
+sealed class LetterTc implements ToClient {}
 
-sealed class ArenaTC implements ToClient {}
+sealed class ArenaTc implements ToClient {}
 
-sealed class BroadcastTC implements ToClient {}
+sealed class BroadcastTc implements ToClient {}
 
-sealed class CombatTC implements ToClient {}
+sealed class CombatTc implements ToClient {}
 
 sealed class ToClientBot implements ToClient {}
 
-sealed class SpecialTC implements ToClient {}
+sealed class SpecialTc implements ToClient {}
 
 /// Маркер для сообщений от сервера, которые требуют подтверждения от клиента
 /// через `ToServer.ack(n: <same n>)`.
-sealed class RequiredAckTC implements ToClient {}
+sealed class RequiredAckTc implements ToClient {}
 
 /// Маркер для сообщений, которые сигнализируют переход между Broadcast-комнатами.
 /// Сервер НЕ переключает подписку до получения `AckTS` от клиента.
-/// Наследует [RequiredAckTC] — ACK отправляется автоматически.
-sealed class TransitionTC implements RequiredAckTC {}
+/// Наследует [RequiredAckTc] — ACK отправляется автоматически.
+sealed class TransitionTc implements RequiredAckTc {}
