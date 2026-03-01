@@ -53,6 +53,26 @@ SyncMenuTS _$SyncMenuTSFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$SyncMenuTSToJson(SyncMenuTS instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
 
+AllocateStatsTS _$AllocateStatsTSFromJson(Map<String, dynamic> json) =>
+    AllocateStatsTS(
+      n: json['n'] as String,
+      unitId: (json['unitId'] as num).toInt(),
+      addAtk: (json['addAtk'] as num).toInt(),
+      addDef: (json['addDef'] as num).toInt(),
+      addVitality: (json['addVitality'] as num).toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$AllocateStatsTSToJson(AllocateStatsTS instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'unitId': instance.unitId,
+      'addAtk': instance.addAtk,
+      'addDef': instance.addDef,
+      'addVitality': instance.addVitality,
+      'runtimeType': instance.$type,
+    };
+
 SyncJoinedBroadsTS _$SyncJoinedBroadsTSFromJson(Map<String, dynamic> json) =>
     SyncJoinedBroadsTS(
       n: json['n'] as String,

@@ -279,7 +279,7 @@ class LocationTC extends ToClient implements AuthTC, ArenaTC, CombatTC, LetterTC
 
 @override final  String n;
  final  GameLocation location;
- final  String? roomId;
+ final  BroadcastId? roomId;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -318,7 +318,7 @@ abstract mixin class $LocationTCCopyWith<$Res> implements $ToClientCopyWith<$Res
   factory $LocationTCCopyWith(LocationTC value, $Res Function(LocationTC) _then) = _$LocationTCCopyWithImpl;
 @override @useResult
 $Res call({
- String n, GameLocation location, String? roomId
+ String n, GameLocation location, BroadcastId? roomId
 });
 
 
@@ -340,7 +340,7 @@ class _$LocationTCCopyWithImpl<$Res>
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as GameLocation,roomId: freezed == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String?,
+as BroadcastId?,
   ));
 }
 

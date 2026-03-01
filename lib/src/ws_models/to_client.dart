@@ -13,6 +13,7 @@ import '../payloads/letter_dto.dart';
 import '../payloads/online_members_dto.dart';
 import '../models/unit_dto.dart';
 import '../models/user_dto.dart';
+import '../core/extension_types.dart';
 import 'encodable_message.dart';
 import 'ws_auth_error.dart';
 
@@ -37,7 +38,7 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const factory ToClient.location({
     required String n,
     required GameLocation location,
-    String? roomId,
+    BroadcastId? roomId,
   }) = LocationTC;
 
   const factory ToClient.onlineUsers({

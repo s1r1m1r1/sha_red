@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnitDto {
 
- int get id; String get name; int get hp; int get atk; int get def; int get wins; int get losses; int get coins; int get exp;
+ int get id; String get name; int get hp; int get atk; int get def; int get level; int get statPoints; int get wins; int get losses; int get coins; int get exp;
 /// Create a copy of UnitDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UnitDtoCopyWith<UnitDto> get copyWith => _$UnitDtoCopyWithImpl<UnitDto>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.hp, hp) || other.hp == hp)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.coins, coins) || other.coins == coins)&&(identical(other.exp, exp) || other.exp == exp));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.hp, hp) || other.hp == hp)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def)&&(identical(other.level, level) || other.level == level)&&(identical(other.statPoints, statPoints) || other.statPoints == statPoints)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.coins, coins) || other.coins == coins)&&(identical(other.exp, exp) || other.exp == exp));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,hp,atk,def,wins,losses,coins,exp);
+int get hashCode => Object.hash(runtimeType,id,name,hp,atk,def,level,statPoints,wins,losses,coins,exp);
 
 @override
 String toString() {
-  return 'UnitDto(id: $id, name: $name, hp: $hp, atk: $atk, def: $def, wins: $wins, losses: $losses, coins: $coins, exp: $exp)';
+  return 'UnitDto(id: $id, name: $name, hp: $hp, atk: $atk, def: $def, level: $level, statPoints: $statPoints, wins: $wins, losses: $losses, coins: $coins, exp: $exp)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $UnitDtoCopyWith<$Res>  {
   factory $UnitDtoCopyWith(UnitDto value, $Res Function(UnitDto) _then) = _$UnitDtoCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, int hp, int atk, int def, int wins, int losses, int coins, int exp
+ int id, String name, int hp, int atk, int def, int level, int statPoints, int wins, int losses, int coins, int exp
 });
 
 
@@ -65,13 +65,15 @@ class _$UnitDtoCopyWithImpl<$Res>
 
 /// Create a copy of UnitDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? hp = null,Object? atk = null,Object? def = null,Object? wins = null,Object? losses = null,Object? coins = null,Object? exp = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? hp = null,Object? atk = null,Object? def = null,Object? level = null,Object? statPoints = null,Object? wins = null,Object? losses = null,Object? coins = null,Object? exp = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,hp: null == hp ? _self.hp : hp // ignore: cast_nullable_to_non_nullable
 as int,atk: null == atk ? _self.atk : atk // ignore: cast_nullable_to_non_nullable
 as int,def: null == def ? _self.def : def // ignore: cast_nullable_to_non_nullable
+as int,level: null == level ? _self.level : level // ignore: cast_nullable_to_non_nullable
+as int,statPoints: null == statPoints ? _self.statPoints : statPoints // ignore: cast_nullable_to_non_nullable
 as int,wins: null == wins ? _self.wins : wins // ignore: cast_nullable_to_non_nullable
 as int,losses: null == losses ? _self.losses : losses // ignore: cast_nullable_to_non_nullable
 as int,coins: null == coins ? _self.coins : coins // ignore: cast_nullable_to_non_nullable
@@ -88,7 +90,7 @@ as int,
 @JsonSerializable()
 
 class _UnitDto implements UnitDto {
-  const _UnitDto({required this.id, required this.name, required this.hp, required this.atk, required this.def, this.wins = 0, this.losses = 0, this.coins = 0, this.exp = 0});
+  const _UnitDto({required this.id, required this.name, required this.hp, required this.atk, required this.def, this.level = 1, this.statPoints = 0, this.wins = 0, this.losses = 0, this.coins = 0, this.exp = 0});
   factory _UnitDto.fromJson(Map<String, dynamic> json) => _$UnitDtoFromJson(json);
 
 @override final  int id;
@@ -96,6 +98,8 @@ class _UnitDto implements UnitDto {
 @override final  int hp;
 @override final  int atk;
 @override final  int def;
+@override@JsonKey() final  int level;
+@override@JsonKey() final  int statPoints;
 @override@JsonKey() final  int wins;
 @override@JsonKey() final  int losses;
 @override@JsonKey() final  int coins;
@@ -114,16 +118,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.hp, hp) || other.hp == hp)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.coins, coins) || other.coins == coins)&&(identical(other.exp, exp) || other.exp == exp));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnitDto&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.hp, hp) || other.hp == hp)&&(identical(other.atk, atk) || other.atk == atk)&&(identical(other.def, def) || other.def == def)&&(identical(other.level, level) || other.level == level)&&(identical(other.statPoints, statPoints) || other.statPoints == statPoints)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.coins, coins) || other.coins == coins)&&(identical(other.exp, exp) || other.exp == exp));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,hp,atk,def,wins,losses,coins,exp);
+int get hashCode => Object.hash(runtimeType,id,name,hp,atk,def,level,statPoints,wins,losses,coins,exp);
 
 @override
 String toString() {
-  return 'UnitDto(id: $id, name: $name, hp: $hp, atk: $atk, def: $def, wins: $wins, losses: $losses, coins: $coins, exp: $exp)';
+  return 'UnitDto(id: $id, name: $name, hp: $hp, atk: $atk, def: $def, level: $level, statPoints: $statPoints, wins: $wins, losses: $losses, coins: $coins, exp: $exp)';
 }
 
 
@@ -134,7 +138,7 @@ abstract mixin class _$UnitDtoCopyWith<$Res> implements $UnitDtoCopyWith<$Res> {
   factory _$UnitDtoCopyWith(_UnitDto value, $Res Function(_UnitDto) _then) = __$UnitDtoCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, int hp, int atk, int def, int wins, int losses, int coins, int exp
+ int id, String name, int hp, int atk, int def, int level, int statPoints, int wins, int losses, int coins, int exp
 });
 
 
@@ -151,13 +155,15 @@ class __$UnitDtoCopyWithImpl<$Res>
 
 /// Create a copy of UnitDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? hp = null,Object? atk = null,Object? def = null,Object? wins = null,Object? losses = null,Object? coins = null,Object? exp = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? hp = null,Object? atk = null,Object? def = null,Object? level = null,Object? statPoints = null,Object? wins = null,Object? losses = null,Object? coins = null,Object? exp = null,}) {
   return _then(_UnitDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,hp: null == hp ? _self.hp : hp // ignore: cast_nullable_to_non_nullable
 as int,atk: null == atk ? _self.atk : atk // ignore: cast_nullable_to_non_nullable
 as int,def: null == def ? _self.def : def // ignore: cast_nullable_to_non_nullable
+as int,level: null == level ? _self.level : level // ignore: cast_nullable_to_non_nullable
+as int,statPoints: null == statPoints ? _self.statPoints : statPoints // ignore: cast_nullable_to_non_nullable
 as int,wins: null == wins ? _self.wins : wins // ignore: cast_nullable_to_non_nullable
 as int,losses: null == losses ? _self.losses : losses // ignore: cast_nullable_to_non_nullable
 as int,coins: null == coins ? _self.coins : coins // ignore: cast_nullable_to_non_nullable

@@ -25,7 +25,7 @@ Map<String, dynamic> _$AckTCToJson(AckTC instance) => <String, dynamic>{
 LocationTC _$LocationTCFromJson(Map<String, dynamic> json) => LocationTC(
   n: json['n'] as String,
   location: $enumDecode(_$GameLocationEnumMap, json['location']),
-  roomId: json['roomId'] as String?,
+  roomId: json['roomId'] as BroadcastId?,
   $type: json['runtimeType'] as String?,
 );
 

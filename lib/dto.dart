@@ -35,3 +35,4 @@ export 'src/models/user_dto.dart';
 export 'src/models/session_dto.dart';
 export 'src/ws_models/web_socket_close_code.dart';
 export 'src/models/game_action_dto.dart';
+export 'src/core/extension_types.dart';

@@ -35,6 +35,10 @@ ToServer _$ToServerFromJson(
           return SyncMenuTS.fromJson(
             json
           );
+                case 'allocateStats':
+          return AllocateStatsTS.fromJson(
+            json
+          );
                 case 'syncJoinedBroads':
           return SyncJoinedBroadsTS.fromJson(
             json
@@ -554,6 +558,87 @@ class _$SyncMenuTSCopyWithImpl<$Res>
   return _then(SyncMenuTS(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class AllocateStatsTS extends ToServer {
+  const AllocateStatsTS({required this.n, required this.unitId, required this.addAtk, required this.addDef, required this.addVitality, final  String? $type}): $type = $type ?? 'allocateStats',super._();
+  factory AllocateStatsTS.fromJson(Map<String, dynamic> json) => _$AllocateStatsTSFromJson(json);
+
+@override final  String n;
+ final  int unitId;
+ final  int addAtk;
+ final  int addDef;
+ final  int addVitality;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AllocateStatsTSCopyWith<AllocateStatsTS> get copyWith => _$AllocateStatsTSCopyWithImpl<AllocateStatsTS>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AllocateStatsTSToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AllocateStatsTS&&(identical(other.n, n) || other.n == n)&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.addAtk, addAtk) || other.addAtk == addAtk)&&(identical(other.addDef, addDef) || other.addDef == addDef)&&(identical(other.addVitality, addVitality) || other.addVitality == addVitality));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,unitId,addAtk,addDef,addVitality);
+
+@override
+String toString() {
+  return 'ToServer.allocateStats(n: $n, unitId: $unitId, addAtk: $addAtk, addDef: $addDef, addVitality: $addVitality)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AllocateStatsTSCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $AllocateStatsTSCopyWith(AllocateStatsTS value, $Res Function(AllocateStatsTS) _then) = _$AllocateStatsTSCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int unitId, int addAtk, int addDef, int addVitality
+});
+
+
+
+
+}
+/// @nodoc
+class _$AllocateStatsTSCopyWithImpl<$Res>
+    implements $AllocateStatsTSCopyWith<$Res> {
+  _$AllocateStatsTSCopyWithImpl(this._self, this._then);
+
+  final AllocateStatsTS _self;
+  final $Res Function(AllocateStatsTS) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? unitId = null,Object? addAtk = null,Object? addDef = null,Object? addVitality = null,}) {
+  return _then(AllocateStatsTS(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,unitId: null == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
+as int,addAtk: null == addAtk ? _self.addAtk : addAtk // ignore: cast_nullable_to_non_nullable
+as int,addDef: null == addDef ? _self.addDef : addDef // ignore: cast_nullable_to_non_nullable
+as int,addVitality: null == addVitality ? _self.addVitality : addVitality // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 

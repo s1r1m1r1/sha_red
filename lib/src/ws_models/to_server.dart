@@ -26,6 +26,14 @@ sealed class ToServer with _$ToServer {
 
   const factory ToServer.disconnect({required String n}) = DisconnectTS;
   const factory ToServer.syncMenu({required String n}) = SyncMenuTS;
+
+  const factory ToServer.allocateStats({
+    required String n,
+    required int unitId,
+    required int addAtk,
+    required int addDef,
+    required int addVitality,
+  }) = AllocateStatsTS;
   // получить список всех broadcasts
   const factory ToServer.syncJoinedBroads({required String n}) =
       SyncJoinedBroadsTS;

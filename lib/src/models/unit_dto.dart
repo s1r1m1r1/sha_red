@@ -11,6 +11,8 @@ abstract class UnitDto with _$UnitDto {
     required int hp,
     required int atk,
     required int def,
+    @Default(1) int level,
+    @Default(0) int statPoints,
     @Default(0) int wins,
     @Default(0) int losses,
     @Default(0) int coins,
