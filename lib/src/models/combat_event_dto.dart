@@ -15,6 +15,7 @@ sealed class CombatEventDto with _$CombatEventDto {
   const factory CombatEventDto.turn({
     required int currentTurn,
     required List<int> unitOrder,
+    int? turnEndAt,
   }) = TurnEventDto;
 
   const factory CombatEventDto.round({required int round}) = RoundEventDto;

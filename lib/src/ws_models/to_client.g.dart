@@ -10,7 +10,7 @@ AckTc _$AckTcFromJson(Map<String, dynamic> json) => AckTc(
   n: json['n'] as String,
   status: (json['status'] as num?)?.toInt() ?? 200,
   message: json['message'] as String?,
-  ts: (json['ts'] as num?)?.toInt(),
+  payload: json['payload'] as Map<String, dynamic>?,
   $type: json['runtimeType'] as String?,
 );
 
@@ -18,7 +18,23 @@ Map<String, dynamic> _$AckTcToJson(AckTc instance) => <String, dynamic>{
   'n': instance.n,
   'status': instance.status,
   'message': instance.message,
+  'payload': instance.payload,
+  'runtimeType': instance.$type,
+};
+
+PongTc _$PongTcFromJson(Map<String, dynamic> json) => PongTc(
+  n: json['n'] as String,
+  status: (json['status'] as num?)?.toInt() ?? 200,
+  ts: (json['ts'] as num).toInt(),
+  payload: json['payload'] as Map<String, dynamic>?,
+  $type: json['runtimeType'] as String?,
+);
+
+Map<String, dynamic> _$PongTcToJson(PongTc instance) => <String, dynamic>{
+  'n': instance.n,
+  'status': instance.status,
   'ts': instance.ts,
+  'payload': instance.payload,
   'runtimeType': instance.$type,
 };
 
@@ -287,6 +303,8 @@ StartBattleTc _$StartBattleTcFromJson(Map<String, dynamic> json) =>
           .toList(),
       currentTurn: (json['currentTurn'] as num).toInt(),
       ready: (json['ready'] as num).toInt(),
+      turnEndAt: (json['turnEndAt'] as num?)?.toInt(),
+      id: (json['id'] as num?)?.toInt(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -298,6 +316,8 @@ Map<String, dynamic> _$StartBattleTcToJson(StartBattleTc instance) =>
       'unitOrder': instance.unitOrder,
       'currentTurn': instance.currentTurn,
       'ready': instance.ready,
+      'turnEndAt': instance.turnEndAt,
+      'id': instance.id,
       'runtimeType': instance.$type,
     };
 
@@ -308,6 +328,8 @@ CombatEventTc _$CombatEventTcFromJson(Map<String, dynamic> json) =>
       events: (json['events'] as List<dynamic>)
           .map((e) => CombatEventDto.fromJson(e as Map<String, dynamic>))
           .toList(),
+      turnEndAt: (json['turnEndAt'] as num?)?.toInt(),
+      id: (json['id'] as num?)?.toInt(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -316,6 +338,8 @@ Map<String, dynamic> _$CombatEventTcToJson(CombatEventTc instance) =>
       'n': instance.n,
       'broadcastId': instance.broadcastId,
       'events': instance.events,
+      'turnEndAt': instance.turnEndAt,
+      'id': instance.id,
       'runtimeType': instance.$type,
     };
 
@@ -331,6 +355,8 @@ CombatStateTc _$CombatStateTcFromJson(Map<String, dynamic> json) =>
       unitOrder: (json['unitOrder'] as List<dynamic>)
           .map((e) => (e as num).toInt())
           .toList(),
+      turnEndAt: (json['turnEndAt'] as num?)?.toInt(),
+      id: (json['id'] as num?)?.toInt(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -342,6 +368,8 @@ Map<String, dynamic> _$CombatStateTcToJson(CombatStateTc instance) =>
       'membs': instance.membs,
       'currentTurn': instance.currentTurn,
       'unitOrder': instance.unitOrder,
+      'turnEndAt': instance.turnEndAt,
+      'id': instance.id,
       'runtimeType': instance.$type,
     };
 

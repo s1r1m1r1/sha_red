@@ -58,9 +58,6 @@ _UnitDto _$UnitDtoFromJson(Map<String, dynamic> json) => _UnitDto(
   def: (json['def'] as num).toInt(),
   level: (json['level'] as num?)?.toInt() ?? 1,
   statPoints: (json['statPoints'] as num?)?.toInt() ?? 0,
-  stats: json['stats'] == null
-      ? null
-      : UnitStatsDto.fromJson(json['stats'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$UnitDtoToJson(_UnitDto instance) => <String, dynamic>{
@@ -71,5 +68,4 @@ Map<String, dynamic> _$UnitDtoToJson(_UnitDto instance) => <String, dynamic>{
   'def': instance.def,
   'level': instance.level,
   'statPoints': instance.statPoints,
-  'stats': instance.stats,
 };

@@ -119,6 +119,22 @@ ToServer _$ToServerFromJson(
           return CreateBotsTs.fromJson(
             json
           );
+                case 'removeBots':
+          return RemoveBotsTs.fromJson(
+            json
+          );
+                case 'changeUnitStats':
+          return ChangeUnitStatsTs.fromJson(
+            json
+          );
+                case 'syncCombatState':
+          return SyncCombatStateTs.fromJson(
+            json
+          );
+                case 'getUnitStats':
+          return GetUnitStatsTs.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -2134,6 +2150,312 @@ class _$CreateBotsTsCopyWithImpl<$Res>
   return _then(CreateBotsTs(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class RemoveBotsTs extends ToServer implements DeveloperTs {
+  const RemoveBotsTs({required this.n, final  String? $type}): $type = $type ?? 'removeBots',super._();
+  factory RemoveBotsTs.fromJson(Map<String, dynamic> json) => _$RemoveBotsTsFromJson(json);
+
+@override final  String n;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RemoveBotsTsCopyWith<RemoveBotsTs> get copyWith => _$RemoveBotsTsCopyWithImpl<RemoveBotsTs>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$RemoveBotsTsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RemoveBotsTs&&(identical(other.n, n) || other.n == n));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n);
+
+@override
+String toString() {
+  return 'ToServer.removeBots(n: $n)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $RemoveBotsTsCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $RemoveBotsTsCopyWith(RemoveBotsTs value, $Res Function(RemoveBotsTs) _then) = _$RemoveBotsTsCopyWithImpl;
+@override @useResult
+$Res call({
+ String n
+});
+
+
+
+
+}
+/// @nodoc
+class _$RemoveBotsTsCopyWithImpl<$Res>
+    implements $RemoveBotsTsCopyWith<$Res> {
+  _$RemoveBotsTsCopyWithImpl(this._self, this._then);
+
+  final RemoveBotsTs _self;
+  final $Res Function(RemoveBotsTs) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,}) {
+  return _then(RemoveBotsTs(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class ChangeUnitStatsTs extends ToServer implements DeveloperTs {
+  const ChangeUnitStatsTs({required this.n, this.unitId, this.wins, this.losses, this.coins, this.exp, final  String? $type}): $type = $type ?? 'changeUnitStats',super._();
+  factory ChangeUnitStatsTs.fromJson(Map<String, dynamic> json) => _$ChangeUnitStatsTsFromJson(json);
+
+@override final  String n;
+ final  int? unitId;
+ final  int? wins;
+ final  int? losses;
+ final  int? coins;
+ final  int? exp;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ChangeUnitStatsTsCopyWith<ChangeUnitStatsTs> get copyWith => _$ChangeUnitStatsTsCopyWithImpl<ChangeUnitStatsTs>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ChangeUnitStatsTsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChangeUnitStatsTs&&(identical(other.n, n) || other.n == n)&&(identical(other.unitId, unitId) || other.unitId == unitId)&&(identical(other.wins, wins) || other.wins == wins)&&(identical(other.losses, losses) || other.losses == losses)&&(identical(other.coins, coins) || other.coins == coins)&&(identical(other.exp, exp) || other.exp == exp));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,unitId,wins,losses,coins,exp);
+
+@override
+String toString() {
+  return 'ToServer.changeUnitStats(n: $n, unitId: $unitId, wins: $wins, losses: $losses, coins: $coins, exp: $exp)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ChangeUnitStatsTsCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $ChangeUnitStatsTsCopyWith(ChangeUnitStatsTs value, $Res Function(ChangeUnitStatsTs) _then) = _$ChangeUnitStatsTsCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int? unitId, int? wins, int? losses, int? coins, int? exp
+});
+
+
+
+
+}
+/// @nodoc
+class _$ChangeUnitStatsTsCopyWithImpl<$Res>
+    implements $ChangeUnitStatsTsCopyWith<$Res> {
+  _$ChangeUnitStatsTsCopyWithImpl(this._self, this._then);
+
+  final ChangeUnitStatsTs _self;
+  final $Res Function(ChangeUnitStatsTs) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? unitId = freezed,Object? wins = freezed,Object? losses = freezed,Object? coins = freezed,Object? exp = freezed,}) {
+  return _then(ChangeUnitStatsTs(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,unitId: freezed == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
+as int?,wins: freezed == wins ? _self.wins : wins // ignore: cast_nullable_to_non_nullable
+as int?,losses: freezed == losses ? _self.losses : losses // ignore: cast_nullable_to_non_nullable
+as int?,coins: freezed == coins ? _self.coins : coins // ignore: cast_nullable_to_non_nullable
+as int?,exp: freezed == exp ? _self.exp : exp // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class SyncCombatStateTs extends ToServer {
+  const SyncCombatStateTs({required this.n, required this.combatRoomId, final  String? $type}): $type = $type ?? 'syncCombatState',super._();
+  factory SyncCombatStateTs.fromJson(Map<String, dynamic> json) => _$SyncCombatStateTsFromJson(json);
+
+@override final  String n;
+ final  String combatRoomId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SyncCombatStateTsCopyWith<SyncCombatStateTs> get copyWith => _$SyncCombatStateTsCopyWithImpl<SyncCombatStateTs>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SyncCombatStateTsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SyncCombatStateTs&&(identical(other.n, n) || other.n == n)&&(identical(other.combatRoomId, combatRoomId) || other.combatRoomId == combatRoomId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,combatRoomId);
+
+@override
+String toString() {
+  return 'ToServer.syncCombatState(n: $n, combatRoomId: $combatRoomId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SyncCombatStateTsCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $SyncCombatStateTsCopyWith(SyncCombatStateTs value, $Res Function(SyncCombatStateTs) _then) = _$SyncCombatStateTsCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, String combatRoomId
+});
+
+
+
+
+}
+/// @nodoc
+class _$SyncCombatStateTsCopyWithImpl<$Res>
+    implements $SyncCombatStateTsCopyWith<$Res> {
+  _$SyncCombatStateTsCopyWithImpl(this._self, this._then);
+
+  final SyncCombatStateTs _self;
+  final $Res Function(SyncCombatStateTs) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? combatRoomId = null,}) {
+  return _then(SyncCombatStateTs(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,combatRoomId: null == combatRoomId ? _self.combatRoomId : combatRoomId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class GetUnitStatsTs extends ToServer {
+  const GetUnitStatsTs({required this.n, this.unitId, final  String? $type}): $type = $type ?? 'getUnitStats',super._();
+  factory GetUnitStatsTs.fromJson(Map<String, dynamic> json) => _$GetUnitStatsTsFromJson(json);
+
+@override final  String n;
+ final  int? unitId;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GetUnitStatsTsCopyWith<GetUnitStatsTs> get copyWith => _$GetUnitStatsTsCopyWithImpl<GetUnitStatsTs>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GetUnitStatsTsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetUnitStatsTs&&(identical(other.n, n) || other.n == n)&&(identical(other.unitId, unitId) || other.unitId == unitId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,unitId);
+
+@override
+String toString() {
+  return 'ToServer.getUnitStats(n: $n, unitId: $unitId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $GetUnitStatsTsCopyWith<$Res> implements $ToServerCopyWith<$Res> {
+  factory $GetUnitStatsTsCopyWith(GetUnitStatsTs value, $Res Function(GetUnitStatsTs) _then) = _$GetUnitStatsTsCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int? unitId
+});
+
+
+
+
+}
+/// @nodoc
+class _$GetUnitStatsTsCopyWithImpl<$Res>
+    implements $GetUnitStatsTsCopyWith<$Res> {
+  _$GetUnitStatsTsCopyWithImpl(this._self, this._then);
+
+  final GetUnitStatsTs _self;
+  final $Res Function(GetUnitStatsTs) _then;
+
+/// Create a copy of ToServer
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? unitId = freezed,}) {
+  return _then(GetUnitStatsTs(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,unitId: freezed == unitId ? _self.unitId : unitId // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

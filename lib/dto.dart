@@ -20,6 +20,7 @@ export 'src/models/session_dto.dart';
 export 'src/models/todo_dto.dart';
 export 'src/models/tokens_dto.dart';
 export 'src/models/unit_dto.dart';
+export 'src/models/unit_profile_dto.dart';
 export 'src/models/unit_stats_dto.dart';
 export 'src/models/update_todo_dto.dart';
 export 'src/models/user_dto.dart';

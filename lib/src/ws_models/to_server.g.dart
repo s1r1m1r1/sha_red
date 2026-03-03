@@ -297,3 +297,59 @@ CreateBotsTs _$CreateBotsTsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CreateBotsTsToJson(CreateBotsTs instance) =>
     <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+RemoveBotsTs _$RemoveBotsTsFromJson(Map<String, dynamic> json) =>
+    RemoveBotsTs(n: json['n'] as String, $type: json['runtimeType'] as String?);
+
+Map<String, dynamic> _$RemoveBotsTsToJson(RemoveBotsTs instance) =>
+    <String, dynamic>{'n': instance.n, 'runtimeType': instance.$type};
+
+ChangeUnitStatsTs _$ChangeUnitStatsTsFromJson(Map<String, dynamic> json) =>
+    ChangeUnitStatsTs(
+      n: json['n'] as String,
+      unitId: (json['unitId'] as num?)?.toInt(),
+      wins: (json['wins'] as num?)?.toInt(),
+      losses: (json['losses'] as num?)?.toInt(),
+      coins: (json['coins'] as num?)?.toInt(),
+      exp: (json['exp'] as num?)?.toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$ChangeUnitStatsTsToJson(ChangeUnitStatsTs instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'unitId': instance.unitId,
+      'wins': instance.wins,
+      'losses': instance.losses,
+      'coins': instance.coins,
+      'exp': instance.exp,
+      'runtimeType': instance.$type,
+    };
+
+SyncCombatStateTs _$SyncCombatStateTsFromJson(Map<String, dynamic> json) =>
+    SyncCombatStateTs(
+      n: json['n'] as String,
+      combatRoomId: json['combatRoomId'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$SyncCombatStateTsToJson(SyncCombatStateTs instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'combatRoomId': instance.combatRoomId,
+      'runtimeType': instance.$type,
+    };
+
+GetUnitStatsTs _$GetUnitStatsTsFromJson(Map<String, dynamic> json) =>
+    GetUnitStatsTs(
+      n: json['n'] as String,
+      unitId: (json['unitId'] as num?)?.toInt(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$GetUnitStatsTsToJson(GetUnitStatsTs instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'unitId': instance.unitId,
+      'runtimeType': instance.$type,
+    };

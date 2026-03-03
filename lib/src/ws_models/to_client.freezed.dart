@@ -19,6 +19,10 @@ ToClient _$ToClientFromJson(
           return AckTc.fromJson(
             json
           );
+                case 'pong':
+          return PongTc.fromJson(
+            json
+          );
                 case 'location':
           return LocationTc.fromJson(
             json
@@ -194,14 +198,22 @@ as String,
 /// @nodoc
 @JsonSerializable()
 
-class AckTc extends ToClient {
-  const AckTc({required this.n, this.status = 200, this.message, this.ts, final  String? $type}): $type = $type ?? 'ack',super._();
+class AckTc extends ToClient implements AcknowledgeTc {
+  const AckTc({required this.n, this.status = 200, this.message, final  Map<String, dynamic>? payload, final  String? $type}): _payload = payload,$type = $type ?? 'ack',super._();
   factory AckTc.fromJson(Map<String, dynamic> json) => _$AckTcFromJson(json);
 
 @override final  String n;
 @JsonKey() final  int status;
  final  String? message;
- final  int? ts;
+ final  Map<String, dynamic>? _payload;
+ Map<String, dynamic>? get payload {
+  final value = _payload;
+  if (value == null) return null;
+  if (_payload is EqualUnmodifiableMapView) return _payload;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -220,16 +232,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AckTc&&(identical(other.n, n) || other.n == n)&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&(identical(other.ts, ts) || other.ts == ts));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AckTc&&(identical(other.n, n) || other.n == n)&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._payload, _payload));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,status,message,ts);
+int get hashCode => Object.hash(runtimeType,n,status,message,const DeepCollectionEquality().hash(_payload));
 
 @override
 String toString() {
-  return 'ToClient.ack(n: $n, status: $status, message: $message, ts: $ts)';
+  return 'ToClient.ack(n: $n, status: $status, message: $message, payload: $payload)';
 }
 
 
@@ -240,7 +252,7 @@ abstract mixin class $AckTcCopyWith<$Res> implements $ToClientCopyWith<$Res> {
   factory $AckTcCopyWith(AckTc value, $Res Function(AckTc) _then) = _$AckTcCopyWithImpl;
 @override @useResult
 $Res call({
- String n, int status, String? message, int? ts
+ String n, int status, String? message, Map<String, dynamic>? payload
 });
 
 
@@ -257,13 +269,102 @@ class _$AckTcCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? status = null,Object? message = freezed,Object? ts = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? status = null,Object? message = freezed,Object? payload = freezed,}) {
   return _then(AckTc(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as int,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String?,ts: freezed == ts ? _self.ts : ts // ignore: cast_nullable_to_non_nullable
-as int?,
+as String?,payload: freezed == payload ? _self._payload : payload // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class PongTc extends ToClient implements AcknowledgeTc {
+  const PongTc({required this.n, this.status = 200, required this.ts, final  Map<String, dynamic>? payload, final  String? $type}): _payload = payload,$type = $type ?? 'pong',super._();
+  factory PongTc.fromJson(Map<String, dynamic> json) => _$PongTcFromJson(json);
+
+@override final  String n;
+@JsonKey() final  int status;
+ final  int ts;
+// Server timestamp
+ final  Map<String, dynamic>? _payload;
+// Server timestamp
+ Map<String, dynamic>? get payload {
+  final value = _payload;
+  if (value == null) return null;
+  if (_payload is EqualUnmodifiableMapView) return _payload;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PongTcCopyWith<PongTc> get copyWith => _$PongTcCopyWithImpl<PongTc>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PongTcToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PongTc&&(identical(other.n, n) || other.n == n)&&(identical(other.status, status) || other.status == status)&&(identical(other.ts, ts) || other.ts == ts)&&const DeepCollectionEquality().equals(other._payload, _payload));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,status,ts,const DeepCollectionEquality().hash(_payload));
+
+@override
+String toString() {
+  return 'ToClient.pong(n: $n, status: $status, ts: $ts, payload: $payload)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PongTcCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $PongTcCopyWith(PongTc value, $Res Function(PongTc) _then) = _$PongTcCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, int status, int ts, Map<String, dynamic>? payload
+});
+
+
+
+
+}
+/// @nodoc
+class _$PongTcCopyWithImpl<$Res>
+    implements $PongTcCopyWith<$Res> {
+  _$PongTcCopyWithImpl(this._self, this._then);
+
+  final PongTc _self;
+  final $Res Function(PongTc) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? status = null,Object? ts = null,Object? payload = freezed,}) {
+  return _then(PongTc(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as int,ts: null == ts ? _self.ts : ts // ignore: cast_nullable_to_non_nullable
+as int,payload: freezed == payload ? _self._payload : payload // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,
   ));
 }
 
@@ -1617,7 +1718,7 @@ as String,
 @JsonSerializable()
 
 class StartBattleTc extends ToClient implements CombatTc, RequiredAckTc, ToClientBot {
-  const StartBattleTc({required this.n, required this.broadcastId, required final  List<CombatantDto> membs, required final  List<int> unitOrder, required this.currentTurn, required this.ready, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'startBattle',super._();
+  const StartBattleTc({required this.n, required this.broadcastId, required final  List<CombatantDto> membs, required final  List<int> unitOrder, required this.currentTurn, required this.ready, this.turnEndAt, this.id, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'startBattle',super._();
   factory StartBattleTc.fromJson(Map<String, dynamic> json) => _$StartBattleTcFromJson(json);
 
 @override final  String n;
@@ -1638,6 +1739,8 @@ class StartBattleTc extends ToClient implements CombatTc, RequiredAckTc, ToClien
 
  final  int currentTurn;
  final  int ready;
+ final  int? turnEndAt;
+ final  int? id;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1656,16 +1759,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StartBattleTc&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&const DeepCollectionEquality().equals(other._membs, _membs)&&const DeepCollectionEquality().equals(other._unitOrder, _unitOrder)&&(identical(other.currentTurn, currentTurn) || other.currentTurn == currentTurn)&&(identical(other.ready, ready) || other.ready == ready));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StartBattleTc&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&const DeepCollectionEquality().equals(other._membs, _membs)&&const DeepCollectionEquality().equals(other._unitOrder, _unitOrder)&&(identical(other.currentTurn, currentTurn) || other.currentTurn == currentTurn)&&(identical(other.ready, ready) || other.ready == ready)&&(identical(other.turnEndAt, turnEndAt) || other.turnEndAt == turnEndAt)&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,broadcastId,const DeepCollectionEquality().hash(_membs),const DeepCollectionEquality().hash(_unitOrder),currentTurn,ready);
+int get hashCode => Object.hash(runtimeType,n,broadcastId,const DeepCollectionEquality().hash(_membs),const DeepCollectionEquality().hash(_unitOrder),currentTurn,ready,turnEndAt,id);
 
 @override
 String toString() {
-  return 'ToClient.startBattle(n: $n, broadcastId: $broadcastId, membs: $membs, unitOrder: $unitOrder, currentTurn: $currentTurn, ready: $ready)';
+  return 'ToClient.startBattle(n: $n, broadcastId: $broadcastId, membs: $membs, unitOrder: $unitOrder, currentTurn: $currentTurn, ready: $ready, turnEndAt: $turnEndAt, id: $id)';
 }
 
 
@@ -1676,7 +1779,7 @@ abstract mixin class $StartBattleTcCopyWith<$Res> implements $ToClientCopyWith<$
   factory $StartBattleTcCopyWith(StartBattleTc value, $Res Function(StartBattleTc) _then) = _$StartBattleTcCopyWithImpl;
 @override @useResult
 $Res call({
- String n, String broadcastId, List<CombatantDto> membs, List<int> unitOrder, int currentTurn, int ready
+ String n, String broadcastId, List<CombatantDto> membs, List<int> unitOrder, int currentTurn, int ready, int? turnEndAt, int? id
 });
 
 
@@ -1693,7 +1796,7 @@ class _$StartBattleTcCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? membs = null,Object? unitOrder = null,Object? currentTurn = null,Object? ready = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? membs = null,Object? unitOrder = null,Object? currentTurn = null,Object? ready = null,Object? turnEndAt = freezed,Object? id = freezed,}) {
   return _then(StartBattleTc(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,broadcastId: null == broadcastId ? _self.broadcastId : broadcastId // ignore: cast_nullable_to_non_nullable
@@ -1701,7 +1804,9 @@ as String,membs: null == membs ? _self._membs : membs // ignore: cast_nullable_t
 as List<CombatantDto>,unitOrder: null == unitOrder ? _self._unitOrder : unitOrder // ignore: cast_nullable_to_non_nullable
 as List<int>,currentTurn: null == currentTurn ? _self.currentTurn : currentTurn // ignore: cast_nullable_to_non_nullable
 as int,ready: null == ready ? _self.ready : ready // ignore: cast_nullable_to_non_nullable
-as int,
+as int,turnEndAt: freezed == turnEndAt ? _self.turnEndAt : turnEndAt // ignore: cast_nullable_to_non_nullable
+as int?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 
@@ -1712,7 +1817,7 @@ as int,
 @JsonSerializable()
 
 class CombatEventTc extends ToClient implements CombatTc, ToClientBot {
-  const CombatEventTc({required this.n, required this.broadcastId, required final  List<CombatEventDto> events, final  String? $type}): _events = events,$type = $type ?? 'combatEvent',super._();
+  const CombatEventTc({required this.n, required this.broadcastId, required final  List<CombatEventDto> events, this.turnEndAt, this.id, final  String? $type}): _events = events,$type = $type ?? 'combatEvent',super._();
   factory CombatEventTc.fromJson(Map<String, dynamic> json) => _$CombatEventTcFromJson(json);
 
 @override final  String n;
@@ -1724,6 +1829,8 @@ class CombatEventTc extends ToClient implements CombatTc, ToClientBot {
   return EqualUnmodifiableListView(_events);
 }
 
+ final  int? turnEndAt;
+ final  int? id;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1742,16 +1849,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatEventTc&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&const DeepCollectionEquality().equals(other._events, _events));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatEventTc&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&const DeepCollectionEquality().equals(other._events, _events)&&(identical(other.turnEndAt, turnEndAt) || other.turnEndAt == turnEndAt)&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,broadcastId,const DeepCollectionEquality().hash(_events));
+int get hashCode => Object.hash(runtimeType,n,broadcastId,const DeepCollectionEquality().hash(_events),turnEndAt,id);
 
 @override
 String toString() {
-  return 'ToClient.combatEvent(n: $n, broadcastId: $broadcastId, events: $events)';
+  return 'ToClient.combatEvent(n: $n, broadcastId: $broadcastId, events: $events, turnEndAt: $turnEndAt, id: $id)';
 }
 
 
@@ -1762,7 +1869,7 @@ abstract mixin class $CombatEventTcCopyWith<$Res> implements $ToClientCopyWith<$
   factory $CombatEventTcCopyWith(CombatEventTc value, $Res Function(CombatEventTc) _then) = _$CombatEventTcCopyWithImpl;
 @override @useResult
 $Res call({
- String n, String broadcastId, List<CombatEventDto> events
+ String n, String broadcastId, List<CombatEventDto> events, int? turnEndAt, int? id
 });
 
 
@@ -1779,12 +1886,14 @@ class _$CombatEventTcCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? events = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? events = null,Object? turnEndAt = freezed,Object? id = freezed,}) {
   return _then(CombatEventTc(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,broadcastId: null == broadcastId ? _self.broadcastId : broadcastId // ignore: cast_nullable_to_non_nullable
 as String,events: null == events ? _self._events : events // ignore: cast_nullable_to_non_nullable
-as List<CombatEventDto>,
+as List<CombatEventDto>,turnEndAt: freezed == turnEndAt ? _self.turnEndAt : turnEndAt // ignore: cast_nullable_to_non_nullable
+as int?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 
@@ -1795,7 +1904,7 @@ as List<CombatEventDto>,
 @JsonSerializable()
 
 class CombatStateTc extends ToClient implements CombatTc, ToClientBot {
-  const CombatStateTc({required this.n, required this.broadcastId, required this.round, required final  List<CombatantDto> membs, required this.currentTurn, required final  List<int> unitOrder, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'combatState',super._();
+  const CombatStateTc({required this.n, required this.broadcastId, required this.round, required final  List<CombatantDto> membs, required this.currentTurn, required final  List<int> unitOrder, this.turnEndAt, this.id, final  String? $type}): _membs = membs,_unitOrder = unitOrder,$type = $type ?? 'combatState',super._();
   factory CombatStateTc.fromJson(Map<String, dynamic> json) => _$CombatStateTcFromJson(json);
 
 @override final  String n;
@@ -1816,6 +1925,8 @@ class CombatStateTc extends ToClient implements CombatTc, ToClientBot {
   return EqualUnmodifiableListView(_unitOrder);
 }
 
+ final  int? turnEndAt;
+ final  int? id;
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1834,16 +1945,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatStateTc&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&(identical(other.round, round) || other.round == round)&&const DeepCollectionEquality().equals(other._membs, _membs)&&(identical(other.currentTurn, currentTurn) || other.currentTurn == currentTurn)&&const DeepCollectionEquality().equals(other._unitOrder, _unitOrder));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CombatStateTc&&(identical(other.n, n) || other.n == n)&&(identical(other.broadcastId, broadcastId) || other.broadcastId == broadcastId)&&(identical(other.round, round) || other.round == round)&&const DeepCollectionEquality().equals(other._membs, _membs)&&(identical(other.currentTurn, currentTurn) || other.currentTurn == currentTurn)&&const DeepCollectionEquality().equals(other._unitOrder, _unitOrder)&&(identical(other.turnEndAt, turnEndAt) || other.turnEndAt == turnEndAt)&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,broadcastId,round,const DeepCollectionEquality().hash(_membs),currentTurn,const DeepCollectionEquality().hash(_unitOrder));
+int get hashCode => Object.hash(runtimeType,n,broadcastId,round,const DeepCollectionEquality().hash(_membs),currentTurn,const DeepCollectionEquality().hash(_unitOrder),turnEndAt,id);
 
 @override
 String toString() {
-  return 'ToClient.combatState(n: $n, broadcastId: $broadcastId, round: $round, membs: $membs, currentTurn: $currentTurn, unitOrder: $unitOrder)';
+  return 'ToClient.combatState(n: $n, broadcastId: $broadcastId, round: $round, membs: $membs, currentTurn: $currentTurn, unitOrder: $unitOrder, turnEndAt: $turnEndAt, id: $id)';
 }
 
 
@@ -1854,7 +1965,7 @@ abstract mixin class $CombatStateTcCopyWith<$Res> implements $ToClientCopyWith<$
   factory $CombatStateTcCopyWith(CombatStateTc value, $Res Function(CombatStateTc) _then) = _$CombatStateTcCopyWithImpl;
 @override @useResult
 $Res call({
- String n, String broadcastId, int round, List<CombatantDto> membs, int currentTurn, List<int> unitOrder
+ String n, String broadcastId, int round, List<CombatantDto> membs, int currentTurn, List<int> unitOrder, int? turnEndAt, int? id
 });
 
 
@@ -1871,7 +1982,7 @@ class _$CombatStateTcCopyWithImpl<$Res>
 
 /// Create a copy of ToClient
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? round = null,Object? membs = null,Object? currentTurn = null,Object? unitOrder = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? broadcastId = null,Object? round = null,Object? membs = null,Object? currentTurn = null,Object? unitOrder = null,Object? turnEndAt = freezed,Object? id = freezed,}) {
   return _then(CombatStateTc(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,broadcastId: null == broadcastId ? _self.broadcastId : broadcastId // ignore: cast_nullable_to_non_nullable
@@ -1879,7 +1990,9 @@ as String,round: null == round ? _self.round : round // ignore: cast_nullable_to
 as int,membs: null == membs ? _self._membs : membs // ignore: cast_nullable_to_non_nullable
 as List<CombatantDto>,currentTurn: null == currentTurn ? _self.currentTurn : currentTurn // ignore: cast_nullable_to_non_nullable
 as int,unitOrder: null == unitOrder ? _self._unitOrder : unitOrder // ignore: cast_nullable_to_non_nullable
-as List<int>,
+as List<int>,turnEndAt: freezed == turnEndAt ? _self.turnEndAt : turnEndAt // ignore: cast_nullable_to_non_nullable
+as int?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

@@ -25,12 +25,21 @@ part 'to_client.g.dart';
 sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const ToClient._();
   // Стандартный ACK для подтверждения серверных событий
+  @Implements<AcknowledgeTc>()
   const factory ToClient.ack({
     required String n,
     @Default(200) int status,
     String? message,
-    int? ts, // Unix timestamp в мс
+    Map<String, dynamic>? payload,
   }) = AckTc;
+
+  @Implements<AcknowledgeTc>()
+  const factory ToClient.pong({
+    required String n,
+    @Default(200) int status,
+    required int ts, // Server timestamp
+    Map<String, dynamic>? payload,
+  }) = PongTc;
 
   @Implements<AuthTc>()
   @Implements<ArenaTc>()
@@ -157,6 +166,8 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required List<int> unitOrder,
     required int currentTurn,
     required int ready,
+    int? turnEndAt,
+    int? id,
   }) = StartBattleTc;
 
   // изменения для стейта,
@@ -168,6 +179,8 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required String n,
     required String broadcastId,
     required List<CombatEventDto> events,
+    int? turnEndAt,
+    int? id,
   }) = CombatEventTc;
 
   // состояния стейта на текущий момент
@@ -181,6 +194,8 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     required List<CombatantDto> membs,
     required int currentTurn,
     required List<int> unitOrder,
+    int? turnEndAt,
+    int? id,
   }) = CombatStateTc;
 
   @Implements<CombatTc>()
@@ -235,6 +250,11 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
     final data = jsonDecode(json) as Map<String, dynamic>;
     return ToClient.fromJson(data);
   }
+}
+
+sealed class AcknowledgeTc implements ToClient {
+  int get status;
+  Map<String, dynamic>? get payload;
 }
 
 sealed class AuthTc implements ToClient {}

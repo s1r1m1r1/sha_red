@@ -103,6 +103,27 @@ sealed class ToServer with _$ToServer {
   const factory ToServer.resetCombats({required String n}) = ResetCombatsTs;
   @Implements<DeveloperTs>()
   const factory ToServer.createBots({required String n}) = CreateBotsTs;
+  @Implements<DeveloperTs>()
+  const factory ToServer.removeBots({required String n}) = RemoveBotsTs;
+
+  @Implements<DeveloperTs>()
+  const factory ToServer.changeUnitStats({
+    required String n,
+    int? unitId,
+    int? wins,
+    int? losses,
+    int? coins,
+    int? exp,
+  }) = ChangeUnitStatsTs;
+
+  const factory ToServer.syncCombatState({
+    required String n,
+    required String combatRoomId,
+  }) = SyncCombatStateTs;
+
+  const factory ToServer.getUnitStats({required String n, int? unitId}) =
+      GetUnitStatsTs;
+
   //-------------------------------------------------------------------------------
   factory ToServer.fromJson(Map<String, dynamic> json) =>
       _$ToServerFromJson(json);

@@ -14,7 +14,7 @@ abstract class UnitDto with _$UnitDto {
     required int def,
     @Default(1) int level,
     @Default(0) int statPoints,
-    UnitStatsDto? stats,
+    // UnitStatsDto? stats,
   }) = _UnitDto;
 
   factory UnitDto.fromJson(Map<String, dynamic> json) =>
@@ -35,23 +35,25 @@ class ListUnitDto {
 
 @JsonSerializable()
 class UpdateUnitDto {
-  UpdateUnitDto({
+  const UpdateUnitDto({
     required this.id,
     this.name,
     this.vitality,
     this.atk,
     this.def,
   });
+  // жизненная сила
+
+  factory UpdateUnitDto.fromJson(Map<String, dynamic> json) =>
+      _$UpdateUnitDtoFromJson(json);
+
   final int id;
   final String? name;
 
   final int? atk; // атака
   final int? def; // защита
 
-  final int? vitality; // жизненная сила
-
-  factory UpdateUnitDto.fromJson(Map<String, dynamic> json) =>
-      _$UpdateUnitDtoFromJson(json);
+  final int? vitality;
   Map<String, dynamic> toJson() => _$UpdateUnitDtoToJson(this);
   static const fromJsonFactory = _$UpdateUnitDtoFromJson;
 }
