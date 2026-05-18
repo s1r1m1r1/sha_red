@@ -173,7 +173,9 @@ Map<String, dynamic> _$EditLetterTsToJson(EditLetterTs instance) =>
 DeleteLetterTs _$DeleteLetterTsFromJson(Map<String, dynamic> json) =>
     DeleteLetterTs(
       n: json['n'] as String,
-      letterId: (json['letterId'] as num).toInt(),
+      letterId: (json['letterId'] as List<dynamic>)
+          .map((e) => (e as num).toInt())
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 

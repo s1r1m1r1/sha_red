@@ -59,6 +59,10 @@ ToClient _$ToClientFromJson(
           return DeletedLetterTc.fromJson(
             json
           );
+                case 'deleteLetterFail':
+          return DeleteLetterFailTc.fromJson(
+            json
+          );
                 case 'broadcastInfo':
           return BroadcastInfoTc.fromJson(
             json
@@ -581,7 +585,7 @@ $Res call({
 });
 
 
-$UserDtoCopyWith<$Res> get user;
+$UserDtoCopyWith<$Res> get user;$ListUnitDtoCopyWith<$Res> get units;
 
 }
 /// @nodoc
@@ -611,6 +615,15 @@ $UserDtoCopyWith<$Res> get user {
   
   return $UserDtoCopyWith<$Res>(_self.user, (value) {
     return _then(_self.copyWith(user: value));
+  });
+}/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ListUnitDtoCopyWith<$Res> get units {
+  
+  return $ListUnitDtoCopyWith<$Res>(_self.units, (value) {
+    return _then(_self.copyWith(units: value));
   });
 }
 }
@@ -666,7 +679,7 @@ $Res call({
 });
 
 
-
+$ListUnitDtoCopyWith<$Res> get dto;
 
 }
 /// @nodoc
@@ -687,7 +700,16 @@ as ListUnitDto,
   ));
 }
 
-
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ListUnitDtoCopyWith<$Res> get dto {
+  
+  return $ListUnitDtoCopyWith<$Res>(_self.dto, (value) {
+    return _then(_self.copyWith(dto: value));
+  });
+}
 }
 
 /// @nodoc
@@ -1024,12 +1046,18 @@ $LetterDtoCopyWith<$Res> get dto {
 @JsonSerializable()
 
 class DeletedLetterTc extends ToClient implements LetterTc {
-  const DeletedLetterTc({required this.n, required this.roomId, required this.letterId, final  String? $type}): $type = $type ?? 'deletedLetter',super._();
+  const DeletedLetterTc({required this.n, required this.roomId, required final  List<int> letterId, final  String? $type}): _letterId = letterId,$type = $type ?? 'deletedLetter',super._();
   factory DeletedLetterTc.fromJson(Map<String, dynamic> json) => _$DeletedLetterTcFromJson(json);
 
 @override final  String n;
  final  String roomId;
- final  int letterId;
+ final  List<int> _letterId;
+ List<int> get letterId {
+  if (_letterId is EqualUnmodifiableListView) return _letterId;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_letterId);
+}
+
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1048,12 +1076,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeletedLetterTc&&(identical(other.n, n) || other.n == n)&&(identical(other.roomId, roomId) || other.roomId == roomId)&&(identical(other.letterId, letterId) || other.letterId == letterId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeletedLetterTc&&(identical(other.n, n) || other.n == n)&&(identical(other.roomId, roomId) || other.roomId == roomId)&&const DeepCollectionEquality().equals(other._letterId, _letterId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,roomId,letterId);
+int get hashCode => Object.hash(runtimeType,n,roomId,const DeepCollectionEquality().hash(_letterId));
 
 @override
 String toString() {
@@ -1068,7 +1096,7 @@ abstract mixin class $DeletedLetterTcCopyWith<$Res> implements $ToClientCopyWith
   factory $DeletedLetterTcCopyWith(DeletedLetterTc value, $Res Function(DeletedLetterTc) _then) = _$DeletedLetterTcCopyWithImpl;
 @override @useResult
 $Res call({
- String n, String roomId, int letterId
+ String n, String roomId, List<int> letterId
 });
 
 
@@ -1089,8 +1117,93 @@ class _$DeletedLetterTcCopyWithImpl<$Res>
   return _then(DeletedLetterTc(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
 as String,roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
-as String,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
-as int,
+as String,letterId: null == letterId ? _self._letterId : letterId // ignore: cast_nullable_to_non_nullable
+as List<int>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class DeleteLetterFailTc extends ToClient implements LetterTc {
+  const DeleteLetterFailTc({required this.n, required this.roomId, required final  List<int> letterId, required this.reason, final  String? $type}): _letterId = letterId,$type = $type ?? 'deleteLetterFail',super._();
+  factory DeleteLetterFailTc.fromJson(Map<String, dynamic> json) => _$DeleteLetterFailTcFromJson(json);
+
+@override final  String n;
+ final  String roomId;
+ final  List<int> _letterId;
+ List<int> get letterId {
+  if (_letterId is EqualUnmodifiableListView) return _letterId;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_letterId);
+}
+
+ final  String reason;
+
+@JsonKey(name: 'runtimeType')
+final String $type;
+
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeleteLetterFailTcCopyWith<DeleteLetterFailTc> get copyWith => _$DeleteLetterFailTcCopyWithImpl<DeleteLetterFailTc>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DeleteLetterFailTcToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetterFailTc&&(identical(other.n, n) || other.n == n)&&(identical(other.roomId, roomId) || other.roomId == roomId)&&const DeepCollectionEquality().equals(other._letterId, _letterId)&&(identical(other.reason, reason) || other.reason == reason));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,n,roomId,const DeepCollectionEquality().hash(_letterId),reason);
+
+@override
+String toString() {
+  return 'ToClient.deleteLetterFail(n: $n, roomId: $roomId, letterId: $letterId, reason: $reason)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DeleteLetterFailTcCopyWith<$Res> implements $ToClientCopyWith<$Res> {
+  factory $DeleteLetterFailTcCopyWith(DeleteLetterFailTc value, $Res Function(DeleteLetterFailTc) _then) = _$DeleteLetterFailTcCopyWithImpl;
+@override @useResult
+$Res call({
+ String n, String roomId, List<int> letterId, String reason
+});
+
+
+
+
+}
+/// @nodoc
+class _$DeleteLetterFailTcCopyWithImpl<$Res>
+    implements $DeleteLetterFailTcCopyWith<$Res> {
+  _$DeleteLetterFailTcCopyWithImpl(this._self, this._then);
+
+  final DeleteLetterFailTc _self;
+  final $Res Function(DeleteLetterFailTc) _then;
+
+/// Create a copy of ToClient
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? roomId = null,Object? letterId = null,Object? reason = null,}) {
+  return _then(DeleteLetterFailTc(
+n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
+as String,roomId: null == roomId ? _self.roomId : roomId // ignore: cast_nullable_to_non_nullable
+as String,letterId: null == letterId ? _self._letterId : letterId // ignore: cast_nullable_to_non_nullable
+as List<int>,reason: null == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

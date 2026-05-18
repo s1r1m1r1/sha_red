@@ -14,10 +14,6 @@ extension type const BroadcastId._(String id) implements SocketId {
   }
 }
 
-extension type const UnitId(int s) implements int {
-  static const none = UnitId(-1);
-}
-
 extension BroadcastIdListX on List<BroadcastId> {
   List<String> toRaw() => cast<String>();
 }

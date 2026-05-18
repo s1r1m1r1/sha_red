@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:game_dto/game_dto.dart';
 
 import '../../dto.dart';
 

@@ -64,7 +64,7 @@ sealed class ToServer with _$ToServer {
   }) = EditLetterTs;
   const factory ToServer.deleteLetter({
     required String n,
-    required int letterId,
+    required List<int> letterId,
   }) = DeleteLetterTs;
 
   const factory ToServer.joinBattleRoom({

@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:game_dto/game_dto.dart';
 
 import '../core/extension_types.dart';
 import '../enum/game_location.dart';
@@ -11,7 +12,6 @@ import '../models/combat_dto.dart';
 import '../models/combat_event_dto.dart';
 import '../models/combat_room_dto.dart';
 import '../models/edict_dto.dart';
-import '../models/unit_dto.dart';
 import '../models/user_dto.dart';
 import '../payloads/letter_dto.dart';
 import '../payloads/online_members_dto.dart';
@@ -98,8 +98,16 @@ sealed class ToClient with _$ToClient implements EncodableMessage<ToClient> {
   const factory ToClient.deletedLetter({
     required String n,
     required String roomId,
-    required int letterId,
+    required List<int> letterId,
   }) = DeletedLetterTc;
+
+  @Implements<LetterTc>()
+  const factory ToClient.deleteLetterFail({
+    required String n,
+    required String roomId,
+    required List<int> letterId,
+    required String reason,
+  }) = DeleteLetterFailTc;
 
   @Implements<BroadcastTc>()
   const factory ToClient.broadcastInfo({

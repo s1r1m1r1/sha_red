@@ -8,6 +8,7 @@
       "version": "1.0.0",
       "dependencies": [
         "freezed_annotation",
+        "game_dto",
         "json_annotation"
       ],
       "devDependencies": [
@@ -123,6 +124,14 @@
         "watcher",
         "web_socket_channel",
         "yaml"
+      ]
+    },
+    {
+      "name": "game_dto",
+      "version": "1.0.0+1",
+      "dependencies": [
+        "freezed_annotation",
+        "json_annotation"
       ]
     },
     {

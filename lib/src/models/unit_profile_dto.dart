@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'unit_dto.dart';
+import 'package:game_dto/game_dto.dart';
 import 'unit_stats_dto.dart';
 
 part 'unit_profile_dto.freezed.dart';

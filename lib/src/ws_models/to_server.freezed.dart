@@ -1407,11 +1407,17 @@ as String,
 @JsonSerializable()
 
 class DeleteLetterTs extends ToServer {
-  const DeleteLetterTs({required this.n, required this.letterId, final  String? $type}): $type = $type ?? 'deleteLetter',super._();
+  const DeleteLetterTs({required this.n, required final  List<int> letterId, final  String? $type}): _letterId = letterId,$type = $type ?? 'deleteLetter',super._();
   factory DeleteLetterTs.fromJson(Map<String, dynamic> json) => _$DeleteLetterTsFromJson(json);
 
 @override final  String n;
- final  int letterId;
+ final  List<int> _letterId;
+ List<int> get letterId {
+  if (_letterId is EqualUnmodifiableListView) return _letterId;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_letterId);
+}
+
 
 @JsonKey(name: 'runtimeType')
 final String $type;
@@ -1430,12 +1436,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetterTs&&(identical(other.n, n) || other.n == n)&&(identical(other.letterId, letterId) || other.letterId == letterId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteLetterTs&&(identical(other.n, n) || other.n == n)&&const DeepCollectionEquality().equals(other._letterId, _letterId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,n,letterId);
+int get hashCode => Object.hash(runtimeType,n,const DeepCollectionEquality().hash(_letterId));
 
 @override
 String toString() {
@@ -1450,7 +1456,7 @@ abstract mixin class $DeleteLetterTsCopyWith<$Res> implements $ToServerCopyWith<
   factory $DeleteLetterTsCopyWith(DeleteLetterTs value, $Res Function(DeleteLetterTs) _then) = _$DeleteLetterTsCopyWithImpl;
 @override @useResult
 $Res call({
- String n, int letterId
+ String n, List<int> letterId
 });
 
 
@@ -1470,8 +1476,8 @@ class _$DeleteLetterTsCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? n = null,Object? letterId = null,}) {
   return _then(DeleteLetterTs(
 n: null == n ? _self.n : n // ignore: cast_nullable_to_non_nullable
-as String,letterId: null == letterId ? _self.letterId : letterId // ignore: cast_nullable_to_non_nullable
-as int,
+as String,letterId: null == letterId ? _self._letterId : letterId // ignore: cast_nullable_to_non_nullable
+as List<int>,
   ));
 }
 

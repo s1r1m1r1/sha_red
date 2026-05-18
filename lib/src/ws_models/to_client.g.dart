@@ -170,7 +170,9 @@ DeletedLetterTc _$DeletedLetterTcFromJson(Map<String, dynamic> json) =>
     DeletedLetterTc(
       n: json['n'] as String,
       roomId: json['roomId'] as String,
-      letterId: (json['letterId'] as num).toInt(),
+      letterId: (json['letterId'] as List<dynamic>)
+          .map((e) => (e as num).toInt())
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -179,6 +181,26 @@ Map<String, dynamic> _$DeletedLetterTcToJson(DeletedLetterTc instance) =>
       'n': instance.n,
       'roomId': instance.roomId,
       'letterId': instance.letterId,
+      'runtimeType': instance.$type,
+    };
+
+DeleteLetterFailTc _$DeleteLetterFailTcFromJson(Map<String, dynamic> json) =>
+    DeleteLetterFailTc(
+      n: json['n'] as String,
+      roomId: json['roomId'] as String,
+      letterId: (json['letterId'] as List<dynamic>)
+          .map((e) => (e as num).toInt())
+          .toList(),
+      reason: json['reason'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$DeleteLetterFailTcToJson(DeleteLetterFailTc instance) =>
+    <String, dynamic>{
+      'n': instance.n,
+      'roomId': instance.roomId,
+      'letterId': instance.letterId,
+      'reason': instance.reason,
       'runtimeType': instance.$type,
     };
 
