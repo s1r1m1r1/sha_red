@@ -1,33 +1,3 @@
-enum WsAuthError {
-  expiredToken(400),
-  tokenSessionNotFound(401),
-  idSessionNotFound(402),
-  unauthorized(403),
-
-  continueAsNewSession(405),
-  stoppedByAnotherSession(406),
-  sessionClosed(407),
-  unitNotFound(408),
-  internal(500),
-  timeout(501),
-  unknown(8888);
-
-  const WsAuthError(this.code);
-  final int code;
-
-  static int toJson(WsAuthError w) => w.code;
-
-  static WsAuthError fromJson(dynamic json) {
-    if (json is int) {
-      return WsAuthError.values.firstWhere(
-        (element) => element.code == json,
-        orElse: () => WsAuthError.unknown,
-      );
-    }
-    return WsAuthError.unknown;
-  }
-}
-
 enum WsCombatError {
   notEnoughPlayers(4000),
   missedSocket(4001),
@@ -66,9 +36,12 @@ enum ToServerNames {
   editLetter(10),
   unknown(8888);
 
+  const ToServerNames(this.code);
+  final int code;
+
   static int toJson(ToServerNames w) => w.code;
 
-  static fromJson(dynamic json) {
+  static ToServerNames fromJson(dynamic json) {
     if (json is int) {
       return ToServerNames.values.firstWhere(
         (element) => element.code == json,
@@ -77,9 +50,6 @@ enum ToServerNames {
     }
     return ToServerNames.unknown;
   }
-
-  const ToServerNames(this.code);
-  final int code;
 }
 
 enum WsArenaError {
@@ -93,7 +63,7 @@ enum WsArenaError {
 
   static int toJson(WsArenaError w) => w.code;
 
-  static fromJson(dynamic json) {
+  static WsArenaError fromJson(dynamic json) {
     if (json is int) {
       return WsArenaError.values.firstWhere(
         (element) => element.code == json,

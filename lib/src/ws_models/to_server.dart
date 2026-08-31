@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../enum/game_location.dart';
 import '../models/game_action_dto.dart';
 
 part 'to_server.freezed.dart';
@@ -10,45 +11,122 @@ part 'to_server.g.dart';
 @freezed
 sealed class ToServer with _$ToServer {
   const ToServer._();
+  // Стандартный ACK для подтверждения серверных событий
+  const factory ToServer.ack({
+    required String n,
+    @Default(200) int status,
+    String? message,
+    int? ts, // Unix timestamp в мс
+  }) = AckTs;
 
-  const factory ToServer.leaveArena({required String n}) = LeaveArenaTS;
+  const factory ToServer.ping({required String n}) = PingTs;
 
-  const factory ToServer.withToken({required String n, required String token}) = WithTokenTS;
+  const factory ToServer.leaveArena({required String n}) = LeaveArenaTs;
 
-  const factory ToServer.disconnect({required String n}) = DisconnectTS;
+  const factory ToServer.withToken({required String n, required String token}) =
+      WithTokenTs;
+
+  const factory ToServer.disconnect({required String n}) = DisconnectTs;
+  const factory ToServer.syncMenu({required String n}) = SyncMenuTs;
+
+  const factory ToServer.allocateStats({
+    required String n,
+    required int unitId,
+    required int addAtk,
+    required int addDef,
+    required int addVitality,
+  }) = AllocateStatsTs;
   // получить список всех broadcasts
-  const factory ToServer.syncJoinedBroads({required String n}) = SyncJoinedBroadsTS;
+  const factory ToServer.syncJoinedBroads({required String n}) =
+      SyncJoinedBroadsTs;
 
-  const factory ToServer.joinLetters({required String n}) = JoinLettersTS;
+  const factory ToServer.joinLetters({required String n}) = JoinLettersTs;
 
-  const factory ToServer.joinArena({required String n}) = JoinArenaTS;
+  const factory ToServer.joinArena({required String n}) = JoinArenaTs;
 
   const factory ToServer.syncOnlineUsers({required String n}) = SyncOnlineUsers;
 
-  const factory ToServer.createNewEdict({required String n}) = CreateNewEdictTS;
-  const factory ToServer.joinEdict({required String n, required String edictId}) = JoinEdictTS;
-  const factory ToServer.leaveEdict({required String n}) = LeaveEdictTS;
+  const factory ToServer.createNewEdict({required String n}) = CreateNewEdictTs;
+  const factory ToServer.joinEdict({
+    required String n,
+    required String edictId,
+  }) = JoinEdictTs;
+  const factory ToServer.leaveEdict({required String n}) = LeaveEdictTs;
 
-  const factory ToServer.newLetter({required String n, required String content}) = NewLetterTS;
-  const factory ToServer.editLetter({required String n, required int letterId, required String content}) = EditLetterTS;
-  const factory ToServer.deleteLetter({required String n, required int letterId}) = DeleteLetterTS;
+  const factory ToServer.newLetter({
+    required String n,
+    required String content,
+  }) = NewLetterTs;
+  const factory ToServer.editLetter({
+    required String n,
+    required int letterId,
+    required String content,
+  }) = EditLetterTs;
+  const factory ToServer.deleteLetter({
+    required String n,
+    required List<int> letterId,
+  }) = DeleteLetterTs;
 
-  const factory ToServer.joinBattleRoom({required String n, required String battleRoomId}) = JoinBattleRoomTS;
-  const factory ToServer.leaveBattleRoom({required String n, required String battleRoomId}) = LeaveBattleRoom;
+  const factory ToServer.joinBattleRoom({
+    required String n,
+    required String combatRoomId,
+  }) = JoinBattleRoomTs;
+  const factory ToServer.leaveBattleRoom({
+    required String n,
+    required String combatRoomId,
+  }) = LeaveBattleRoom;
 
   @FreezedUnionValue('join-obs')
-  const factory ToServer.joinAsCombatObserver({required String n}) = JoinAsCombatObserverTS;
+  const factory ToServer.joinAsCombatObserver({required String n}) =
+      JoinAsCombatObserverTs;
 
   @FreezedUnionValue('focus-obs')
-  const factory ToServer.focusCombatObserver({required String n, required String room}) = FocusCombatObserverTS;
+  const factory ToServer.focusCombatObserver({
+    required String n,
+    required String room,
+  }) = FocusCombatObserverTs;
 
-  const factory ToServer.gameAction({required String n, required String battleRoomId, required GameActionDto action}) =
-      GameActionTS;
+  const factory ToServer.gameAction({
+    required String n,
+    required String combatRoomId,
+    required GameActionDto action,
+  }) = GameActionTs;
 
-  const factory ToServer.resetEdicts({required String n}) = ResetEdictsTS;
-  const factory ToServer.resetCombats({required String n}) = ResetCombatsTS;
+  const factory ToServer.changeLocation({
+    required String n,
+    required GameLocation location,
+  }) = ChangeLocationTs;
+
+  @Implements<DeveloperTs>()
+  const factory ToServer.resetEdicts({required String n}) = ResetEdictsTs;
+  @Implements<DeveloperTs>()
+  const factory ToServer.resetCombats({required String n}) = ResetCombatsTs;
+  @Implements<DeveloperTs>()
+  const factory ToServer.createBots({required String n}) = CreateBotsTs;
+  @Implements<DeveloperTs>()
+  const factory ToServer.removeBots({required String n}) = RemoveBotsTs;
+
+  @Implements<DeveloperTs>()
+  const factory ToServer.changeUnitStats({
+    required String n,
+    int? unitId,
+    int? wins,
+    int? losses,
+    int? coins,
+    int? exp,
+  }) = ChangeUnitStatsTs;
+
+  const factory ToServer.syncCombatState({
+    required String n,
+    required String combatRoomId,
+  }) = SyncCombatStateTs;
+
+  const factory ToServer.getUnitStats({required String n, int? unitId}) =
+      GetUnitStatsTs;
+
   //-------------------------------------------------------------------------------
-  factory ToServer.fromJson(Map<String, dynamic> json) => _$ToServerFromJson(json);
+  factory ToServer.fromJson(Map<String, dynamic> json) =>
+      _$ToServerFromJson(json);
 
   String encoded() {
     // ignore: unnecessary_null_comparison
@@ -57,7 +135,9 @@ sealed class ToServer with _$ToServer {
   }
 
   static ToServer decoded(String json) {
-    final data = jsonDecode(json);
+    final data = jsonDecode(json) as Map<String, dynamic>;
     return ToServer.fromJson(data);
   }
 }
+
+sealed class DeveloperTs implements ToServer {}

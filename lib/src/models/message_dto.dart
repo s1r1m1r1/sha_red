@@ -4,10 +4,6 @@ part 'message_dto.g.dart';
 
 @JsonSerializable()
 class MessageDto {
-  final int? channelId;
-  final String content;
-  final int senderId;
-  final DateTime createdAt;
   const MessageDto({
     this.channelId,
     required this.content,
@@ -17,6 +13,10 @@ class MessageDto {
 
   factory MessageDto.fromJson(Map<String, dynamic> json) =>
       _$MessageDtoFromJson(json);
+  final int? channelId;
+  final String content;
+  final int senderId;
+  final DateTime createdAt;
 
   Map<String, dynamic> toJson() => _$MessageDtoToJson(this);
   static const fromJsonFactory = MessageDto.fromJson;

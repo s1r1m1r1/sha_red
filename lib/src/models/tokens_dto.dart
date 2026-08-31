@@ -21,9 +21,8 @@ abstract class TokensDto with _$TokensDto {
 
 @freezed
 abstract class RefreshTokenDto with _$RefreshTokenDto {
-  const RefreshTokenDto._();
-
   const factory RefreshTokenDto(String value) = _RefreshTokenDto;
+  const RefreshTokenDto._();
 
   factory RefreshTokenDto.fromJson(Map<String, dynamic> json) =>
       _$RefreshTokenDtoFromJson(json);
